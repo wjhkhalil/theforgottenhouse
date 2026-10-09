@@ -1,0 +1,16 @@
+[gd_resource type="Resource" script_class="HiddenObjectData" format=3]
+
+[ext_resource type="Script" path="res://scripts/hidden_object_data.gd" id="1_data"]
+
+[resource]
+script = ExtResource("1_data")
+object_id = &"servants_key"
+display_name = "Servants' Door Key"
+description = "A long old iron key."
+collection_message = "You found the servants' door key."
+clue_text = "Labelled 'Servants' Door'. Mother hid it where the bread sleeps, just as her card said."
+hint_text = "Where does the bread sleep? Look for a box on the counter."
+riddle_text = "I sleep where the bread does"
+placeholder_style = 48
+is_required = true
+starts_visible = false

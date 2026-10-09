@@ -1,0 +1,16 @@
+[gd_resource type="Resource" script_class="HiddenObjectData" format=3]
+
+[ext_resource type="Script" path="res://scripts/hidden_object_data.gd" id="1_data"]
+
+[resource]
+script = ExtResource("1_data")
+object_id = &"hair_comb"
+display_name = "Hair Comb"
+description = "A tortoiseshell hair comb with one tooth missing."
+collection_message = "You found a hair comb!"
+clue_text = "Mara's comb, caught in the weed on the lake bed. It lay far from the cabin, out on the silt."
+hint_text = "Look in the tall weed on the lake bed at the far left, below the stern."
+riddle_text = ""
+placeholder_style = 109
+is_required = true
+starts_visible = true

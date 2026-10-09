@@ -1,0 +1,16 @@
+[gd_resource type="Resource" script_class="HiddenObjectData" format=3]
+
+[ext_resource type="Script" path="res://scripts/hidden_object_data.gd" id="1_data"]
+
+[resource]
+script = ExtResource("1_data")
+object_id = &"silver_frame"
+display_name = "Silver Frame"
+description = "A tarnished silver photo frame."
+collection_message = "You found a silver frame!"
+clue_text = "A photo of you and Mara as girls, holding hands. She pushed her little box out of the porthole ahead of her."
+hint_text = "A small box lies in the silt on the lake bed, below the stern on the left."
+riddle_text = ""
+placeholder_style = 117
+is_required = true
+starts_visible = false

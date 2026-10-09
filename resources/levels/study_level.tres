@@ -1,0 +1,21 @@
+[gd_resource type="Resource" script_class="LevelData" format=3]
+
+[ext_resource type="Script" path="res://scripts/level_data.gd" id="1_level"]
+
+[resource]
+script = ExtResource("1_level")
+chapter_id = &"study"
+room_name = "The Study"
+intro_message = "Greaves's study, lit by a single desk lamp. Somewhere in here are the real will and the boathouse key. Find the 9 hidden objects - and open his safe."
+hint_cooldown_seconds = 45.0
+hint_area_radius = 200.0
+hint_area_offset = 115.0
+chapter_title = "Ashworth Manor - House One Complete"
+chapter_hook = "At dawn, the boathouse door swings open. Two sisters walk up the lake path together, and police lights flash at the gates. The forgotten house is forgotten no longer. But as the police lead Greaves away, he smiles: 'You think I did all this alone? Ask the lake.'"
+final_letter_title = "A Letter from the Boathouse"
+final_letter_text = "You found us. With the real will in the hands of the police, Thomas Greaves has nowhere left to hide.
+
+For years this house kept our secrets in the dark. Thank you for opening every door, and for never giving up on us.
+
+The house is ours again, and its doors will always be open to you."
+final_letter_signature = "- Eleanor & Mara"

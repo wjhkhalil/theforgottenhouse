@@ -1,0 +1,15 @@
+[gd_resource type="Resource" script_class="HiddenObjectData" format=3]
+
+[ext_resource type="Script" path="res://scripts/hidden_object_data.gd" id="1_data"]
+
+[resource]
+script = ExtResource("1_data")
+object_id = &"account_ledger"
+display_name = "Account Ledger"
+description = "A green cloth account book."
+collection_message = "You found an account ledger."
+clue_text = "Payments from the estate to 'T. Greaves', every month since 1987. The last page has been torn out."
+hint_text = "A book that counts money, not words, lies among books nobody reads."
+placeholder_style = 14
+is_required = true
+starts_visible = true

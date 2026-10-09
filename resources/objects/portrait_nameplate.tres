@@ -1,0 +1,16 @@
+[gd_resource type="Resource" script_class="HiddenObjectData" format=3]
+
+[ext_resource type="Script" path="res://scripts/hidden_object_data.gd" id="1_data"]
+
+[resource]
+script = ExtResource("1_data")
+object_id = &"portrait_nameplate"
+display_name = "Brass Nameplate"
+description = "A small engraved brass plate."
+collection_message = "You found a brass nameplate."
+clue_text = "'MARA ASHWORTH - born 6th June 1962.' It was pried off the empty picture frame on the landing."
+hint_text = "Something with a name on it fell from the empty frame at the top."
+riddle_text = ""
+placeholder_style = 20
+is_required = true
+starts_visible = true

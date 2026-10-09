@@ -1,0 +1,16 @@
+[gd_resource type="Resource" script_class="HiddenObjectData" format=3]
+
+[ext_resource type="Script" path="res://scripts/hidden_object_data.gd" id="1_data"]
+
+[resource]
+script = ExtResource("1_data")
+object_id = &"ship_in_bottle"
+display_name = "Ship in a Bottle"
+description = "A tiny sailing ship inside a green glass bottle."
+collection_message = "You found a ship in a bottle!"
+clue_text = "A label on the stand, in a careful young hand: 'For Agnes, who pulled me out. Love, M.' The girl made it for her."
+hint_text = "On the sill of the little window at the bottom of the tower, above the bench. Wait for the beam to light it."
+riddle_text = ""
+placeholder_style = 143
+is_required = true
+starts_visible = true

@@ -1,0 +1,16 @@
+[gd_resource type="Resource" script_class="HiddenObjectData" format=3]
+
+[ext_resource type="Script" path="res://scripts/hidden_object_data.gd" id="1_data"]
+
+[resource]
+script = ExtResource("1_data")
+object_id = &"forged_signatures"
+display_name = "Forged Signatures"
+description = "A page of practice signatures."
+collection_message = "You found a page of forged signatures."
+clue_text = "'Eleanor Ashworth', written again and again, each one a little better. He has been learning to forge her name."
+hint_text = "Something written over and over lies on the blotter."
+riddle_text = ""
+placeholder_style = 51
+is_required = true
+starts_visible = true

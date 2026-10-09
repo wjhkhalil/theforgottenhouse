@@ -1,0 +1,16 @@
+[gd_resource type="Resource" script_class="HiddenObjectData" format=3]
+
+[ext_resource type="Script" path="res://scripts/hidden_object_data.gd" id="1_data"]
+
+[resource]
+script = ExtResource("1_data")
+object_id = &"fountain_pen"
+display_name = "Fountain Pen"
+description = "A black fountain pen."
+collection_message = "You found a fountain pen."
+clue_text = "The nib is stained with the same blue-black ink as the forgeries."
+hint_text = "Something that writes has rolled off the desk."
+riddle_text = ""
+placeholder_style = 52
+is_required = true
+starts_visible = true

@@ -1,0 +1,16 @@
+[gd_resource type="Resource" script_class="HiddenObjectData" format=3]
+
+[ext_resource type="Script" path="res://scripts/hidden_object_data.gd" id="1_data"]
+
+[resource]
+script = ExtResource("1_data")
+object_id = &"perfume_bottle"
+display_name = "Perfume Bottle"
+description = "A nearly empty perfume bottle."
+collection_message = "You found a perfume bottle."
+clue_text = "Eleanor's perfume. Someone has been spraying it around the house, so it still smells as if she lives here."
+hint_text = "Something that smells of Eleanor stands among the bottles on the shelf."
+riddle_text = ""
+placeholder_style = 28
+is_required = true
+starts_visible = true

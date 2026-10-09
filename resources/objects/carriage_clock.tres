@@ -1,0 +1,16 @@
+[gd_resource type="Resource" script_class="HiddenObjectData" format=3]
+
+[ext_resource type="Script" path="res://scripts/hidden_object_data.gd" id="1_data"]
+
+[resource]
+script = ExtResource("1_data")
+object_id = &"carriage_clock"
+display_name = "Carriage Clock"
+description = "A brass carriage clock, ready to travel."
+collection_message = "You found a carriage clock!"
+clue_text = "Its alarm is set for 23:15, just in time to walk to the station. Everything here is packed for a journey."
+hint_text = "It stands on the bookcase, at the left end of the third shelf down."
+riddle_text = ""
+placeholder_style = 182
+is_required = true
+starts_visible = true

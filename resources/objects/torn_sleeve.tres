@@ -1,0 +1,16 @@
+[gd_resource type="Resource" script_class="HiddenObjectData" format=3]
+
+[ext_resource type="Script" path="res://scripts/hidden_object_data.gd" id="1_data"]
+
+[resource]
+script = ExtResource("1_data")
+object_id = &"torn_sleeve"
+display_name = "Torn Sleeve"
+description = "The sleeve of a thin blue nightdress, torn off at the shoulder."
+collection_message = "You found a torn sleeve!"
+clue_text = "It's from Mara's nightdress. She must have ripped it climbing out through the porthole of the Lady Margaret."
+hint_text = "A scrap of blue cloth is snagged on the broken end of the door bar."
+riddle_text = ""
+placeholder_style = 122
+is_required = true
+starts_visible = true

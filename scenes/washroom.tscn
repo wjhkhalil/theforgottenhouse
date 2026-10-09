@@ -1,0 +1,160 @@
+[gd_scene format=3]
+
+[ext_resource type="Script" path="res://scripts/room_level.gd" id="1_room"]
+[ext_resource type="Resource" path="res://resources/levels/washroom_level.tres" id="2_level"]
+[ext_resource type="Script" path="res://scripts/game_manager.gd" id="3_manager"]
+[ext_resource type="Script" path="res://scripts/washroom_art.gd" id="4_art"]
+[ext_resource type="PackedScene" path="res://scenes/objects/hidden_object.tscn" id="5_object"]
+[ext_resource type="Resource" path="res://resources/objects/tiny_cabinet_key.tres" id="6_key"]
+[ext_resource type="Resource" path="res://resources/objects/hairbrush.tres" id="7_brush"]
+[ext_resource type="Resource" path="res://resources/objects/rubber_duck.tres" id="8_duck"]
+[ext_resource type="Resource" path="res://resources/objects/perfume_bottle.tres" id="9_perfume"]
+[ext_resource type="Resource" path="res://resources/objects/straight_razor.tres" id="10_razor"]
+[ext_resource type="Resource" path="res://resources/objects/soap_imprint.tres" id="11_soap"]
+[ext_resource type="Resource" path="res://resources/objects/sleeping_pills.tres" id="12_pills"]
+[ext_resource type="Resource" path="res://resources/objects/wet_photograph.tres" id="13_photo"]
+[ext_resource type="PackedScene" path="res://scenes/objects/openable_container.tscn" id="14_container"]
+[ext_resource type="Script" path="res://scripts/steam_fog.gd" id="15_steam"]
+[ext_resource type="Script" path="res://scripts/hint_highlight.gd" id="16_hint"]
+[ext_resource type="PackedScene" path="res://scenes/ui/hud.tscn" id="17_hud"]
+[ext_resource type="PackedScene" path="res://scenes/ui/notification.tscn" id="18_note"]
+[ext_resource type="PackedScene" path="res://scenes/victory_screen.tscn" id="19_victory"]
+[ext_resource type="PackedScene" path="res://scenes/ui/pause_menu.tscn" id="20_pause"]
+[ext_resource type="PackedScene" path="res://scenes/ui/letter_popup.tscn" id="21_letter"]
+[ext_resource type="PackedScene" path="res://scenes/ui/keypad_lock.tscn" id="22_keypad"]
+
+[sub_resource type="Gradient" id="Gradient_dust"]
+offsets = PackedFloat32Array(0, 0.2, 0.8, 1)
+colors = PackedColorArray(1, 1, 1, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0)
+
+[node name="Washroom" type="Node2D" node_paths=PackedStringArray("keypad_lock")]
+script = ExtResource("1_room")
+level_data = ExtResource("2_level")
+keypad_lock = NodePath("KeypadLock")
+
+[node name="GameManager" type="Node" parent="."]
+unique_name_in_owner = true
+script = ExtResource("3_manager")
+
+[node name="RoomBackground" type="Node2D" parent="."]
+script = ExtResource("4_art")
+
+[node name="HiddenObjects" type="Node2D" parent="."]
+unique_name_in_owner = true
+
+[node name="TinyCabinetKey" parent="HiddenObjects" instance=ExtResource("5_object")]
+position = Vector2(717, 393)
+rotation = -0.12
+scale = Vector2(0.7, 0.7)
+data = ExtResource("6_key")
+
+[node name="Hairbrush" parent="HiddenObjects" instance=ExtResource("5_object")]
+position = Vector2(598, 396)
+rotation = 0.06
+scale = Vector2(0.65, 0.65)
+data = ExtResource("7_brush")
+
+[node name="RubberDuck" parent="HiddenObjects" instance=ExtResource("5_object")]
+position = Vector2(448, 384)
+scale = Vector2(0.7, 0.7)
+data = ExtResource("8_duck")
+
+[node name="PerfumeBottle" parent="HiddenObjects" instance=ExtResource("5_object")]
+position = Vector2(912, 334)
+scale = Vector2(0.7, 0.7)
+data = ExtResource("9_perfume")
+
+[node name="StraightRazor" parent="HiddenObjects" instance=ExtResource("5_object")]
+position = Vector2(662, 317)
+rotation = 0.04
+scale = Vector2(0.65, 0.65)
+data = ExtResource("10_razor")
+
+[node name="SoapImprint" parent="HiddenObjects" instance=ExtResource("5_object")]
+position = Vector2(478, 598)
+rotation = -0.15
+scale = Vector2(0.7, 0.7)
+data = ExtResource("11_soap")
+
+[node name="MedicineCabinet" parent="HiddenObjects" node_paths=PackedStringArray("contents", "required_object") instance=ExtResource("14_container")]
+position = Vector2(800, 228)
+container_id = &"medicine_cabinet"
+contents = NodePath("../SleepingPills")
+open_title = "The tiny key turns..."
+open_message = "Among old bottles stands one with a new label."
+required_object = NodePath("../TinyCabinetKey")
+locked_title = "The medicine cabinet is locked."
+locked_message = "It has a tiny brass keyhole."
+style = 3
+tint = Color(0.93, 0.94, 0.9, 1)
+size = Vector2(78, 92)
+
+[node name="SleepingPills" parent="HiddenObjects" instance=ExtResource("5_object")]
+position = Vector2(800, 222)
+scale = Vector2(0.7, 0.7)
+data = ExtResource("12_pills")
+
+[node name="LaundryBasket" parent="HiddenObjects" node_paths=PackedStringArray("contents") instance=ExtResource("14_container")]
+position = Vector2(1080, 560)
+container_id = &"laundry_basket"
+contents = NodePath("../WetPhotograph")
+open_title = "You lift the basket lid..."
+open_message = "Under the damp towels is a soaked photograph."
+style = 6
+tint = Color(0.74, 0.6, 0.4, 1)
+size = Vector2(86, 76)
+
+[node name="WetPhotograph" parent="HiddenObjects" instance=ExtResource("5_object")]
+position = Vector2(1080, 550)
+rotation = 0.08
+scale = Vector2(0.7, 0.7)
+data = ExtResource("13_photo")
+
+[node name="RoomForeground" type="Node2D" parent="."]
+script = ExtResource("4_art")
+layer = 1
+
+[node name="DustMotes" type="CPUParticles2D" parent="."]
+position = Vector2(300, 330)
+amount = 24
+lifetime = 10.0
+preprocess = 10.0
+emission_shape = 3
+emission_rect_extents = Vector2(180, 120)
+direction = Vector2(0, -1)
+spread = 60.0
+gravity = Vector2(0, -6)
+initial_velocity_min = 4.0
+initial_velocity_max = 10.0
+scale_amount_min = 1.5
+scale_amount_max = 3.0
+color = Color(1, 1, 1, 0.45)
+color_ramp = SubResource("Gradient_dust")
+
+[node name="SteamFog" type="Node2D" parent="."]
+script = ExtResource("15_steam")
+thickness = 0.88
+wipe_radius = 75.0
+return_seconds = 6.0
+
+[node name="HintHighlight" type="Node2D" parent="."]
+unique_name_in_owner = true
+visible = false
+script = ExtResource("16_hint")
+
+[node name="HUD" parent="." instance=ExtResource("17_hud")]
+unique_name_in_owner = true
+
+[node name="Notification" parent="." instance=ExtResource("18_note")]
+unique_name_in_owner = true
+
+[node name="VictoryScreen" parent="." instance=ExtResource("19_victory")]
+unique_name_in_owner = true
+
+[node name="PauseMenu" parent="." instance=ExtResource("20_pause")]
+unique_name_in_owner = true
+
+[node name="LetterPopup" parent="." instance=ExtResource("21_letter")]
+unique_name_in_owner = true
+
+[node name="KeypadLock" parent="." instance=ExtResource("22_keypad")]

@@ -1,0 +1,16 @@
+[gd_resource type="Resource" script_class="HiddenObjectData" format=3]
+
+[ext_resource type="Script" path="res://scripts/hidden_object_data.gd" id="1_data"]
+
+[resource]
+script = ExtResource("1_data")
+object_id = &"prayer_card"
+display_name = "Prayer Card"
+description = "A small prayer card with a white lily on it."
+collection_message = "You found a prayer card!"
+clue_text = "On the back, in shaky pencil: 'I dreamed of a sister with red hair calling me home. Who is she?'"
+hint_text = "The little box on the right-hand pews holds the prayer cards. Open it."
+riddle_text = ""
+placeholder_style = 164
+is_required = true
+starts_visible = false

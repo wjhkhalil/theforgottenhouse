@@ -1,0 +1,262 @@
+[gd_scene format=3]
+
+[ext_resource type="Script" path="res://scripts/room_level.gd" id="1_room"]
+[ext_resource type="Resource" path="res://resources/levels/vane_cottage_level.tres" id="2_level"]
+[ext_resource type="Script" path="res://scripts/game_manager.gd" id="3_manager"]
+[ext_resource type="Script" path="res://scripts/vane_cottage_art.gd" id="4_art"]
+[ext_resource type="PackedScene" path="res://scenes/objects/hidden_object.tscn" id="5_object"]
+[ext_resource type="PackedScene" path="res://scenes/objects/openable_container.tscn" id="6_container"]
+[ext_resource type="Resource" path="res://resources/objects/stethoscope.tres" id="10_stethoscope"]
+[ext_resource type="Resource" path="res://resources/objects/glass_syringe.tres" id="11_glass_syringe"]
+[ext_resource type="Resource" path="res://resources/objects/death_certificate.tres" id="12_death_certificate"]
+[ext_resource type="Resource" path="res://resources/objects/cheque_book.tres" id="13_cheque_book"]
+[ext_resource type="Resource" path="res://resources/objects/pen_knife.tres" id="14_pen_knife"]
+[ext_resource type="Resource" path="res://resources/objects/carriage_clock.tres" id="15_carriage_clock"]
+[ext_resource type="Resource" path="res://resources/objects/decanter.tres" id="16_decanter"]
+[ext_resource type="Resource" path="res://resources/objects/specimen_jar.tres" id="17_specimen_jar"]
+[ext_resource type="Resource" path="res://resources/objects/cellar_key.tres" id="18_cellar_key"]
+[ext_resource type="Resource" path="res://resources/objects/timetable.tres" id="19_timetable"]
+[ext_resource type="Resource" path="res://resources/objects/passport.tres" id="20_passport"]
+[ext_resource type="Resource" path="res://resources/objects/confession.tres" id="21_confession"]
+[ext_resource type="Resource" path="res://resources/objects/grey_shawl.tres" id="22_grey_shawl"]
+[ext_resource type="Resource" path="res://resources/objects/medical_file.tres" id="23_medical_file"]
+[ext_resource type="Resource" path="res://resources/objects/police_whistle.tres" id="24_police_whistle"]
+[ext_resource type="Resource" path="res://resources/objects/name_bracelet.tres" id="25_name_bracelet"]
+[ext_resource type="Script" path="res://scripts/patrol_lantern.gd" id="40_lantern"]
+[ext_resource type="Script" path="res://scripts/hint_highlight.gd" id="41_hint"]
+[ext_resource type="PackedScene" path="res://scenes/ui/hud.tscn" id="42_hud"]
+[ext_resource type="PackedScene" path="res://scenes/ui/notification.tscn" id="43_note"]
+[ext_resource type="PackedScene" path="res://scenes/victory_screen.tscn" id="44_victory"]
+[ext_resource type="PackedScene" path="res://scenes/ui/pause_menu.tscn" id="45_pause"]
+[ext_resource type="PackedScene" path="res://scenes/ui/letter_popup.tscn" id="46_letter"]
+[ext_resource type="PackedScene" path="res://scenes/ui/keypad_lock.tscn" id="47_keypad"]
+
+[node name="VaneCottage" type="Node2D" node_paths=PackedStringArray("keypad_lock")]
+script = ExtResource("1_room")
+level_data = ExtResource("2_level")
+keypad_lock = NodePath("KeypadLock")
+
+[node name="GameManager" type="Node" parent="."]
+unique_name_in_owner = true
+script = ExtResource("3_manager")
+
+[node name="RoomBackground" type="Node2D" parent="."]
+script = ExtResource("4_art")
+
+[node name="HiddenObjects" type="Node2D" parent="."]
+unique_name_in_owner = true
+
+[node name="Stethoscope" parent="HiddenObjects" instance=ExtResource("5_object")]
+position = Vector2(500, 418)
+rotation = 0.2
+scale = Vector2(0.65, 0.65)
+data = ExtResource("10_stethoscope")
+
+[node name="ChequeBook" parent="HiddenObjects" instance=ExtResource("5_object")]
+position = Vector2(585, 421)
+rotation = -0.08
+scale = Vector2(0.6, 0.6)
+data = ExtResource("13_cheque_book")
+
+[node name="PenKnife" parent="HiddenObjects" instance=ExtResource("5_object")]
+position = Vector2(424, 291)
+rotation = -0.1
+scale = Vector2(0.6, 0.6)
+data = ExtResource("14_pen_knife")
+
+[node name="CarriageClock" parent="HiddenObjects" instance=ExtResource("5_object")]
+position = Vector2(930, 359)
+scale = Vector2(0.6, 0.6)
+data = ExtResource("15_carriage_clock")
+
+[node name="Decanter" parent="HiddenObjects" instance=ExtResource("5_object")]
+position = Vector2(818, 134)
+scale = Vector2(0.6, 0.6)
+data = ExtResource("16_decanter")
+
+[node name="SpecimenJar" parent="HiddenObjects" instance=ExtResource("5_object")]
+position = Vector2(851, 279)
+scale = Vector2(0.6, 0.6)
+data = ExtResource("17_specimen_jar")
+
+[node name="Timetable" parent="HiddenObjects" instance=ExtResource("5_object")]
+position = Vector2(612, 642)
+rotation = 0.35
+scale = Vector2(0.6, 0.6)
+data = ExtResource("19_timetable")
+
+[node name="PoliceWhistle" parent="HiddenObjects" instance=ExtResource("5_object")]
+position = Vector2(432, 546)
+rotation = 0.15
+scale = Vector2(0.6, 0.6)
+data = ExtResource("24_police_whistle")
+
+[node name="DeskDrawer" parent="HiddenObjects" node_paths=PackedStringArray("contents") instance=ExtResource("6_container")]
+position = Vector2(522, 462)
+container_id = &"desk_drawer"
+contents = NodePath("../DeathCertificate")
+open_title = "You pull open the desk drawer..."
+open_message = "Old prescriptions, sealing wax, and a stiff official certificate."
+style = 4
+tint = Color(0.36, 0.23, 0.14, 1)
+size = Vector2(80, 24)
+
+[node name="DeathCertificate" parent="HiddenObjects" instance=ExtResource("5_object")]
+position = Vector2(522, 456)
+rotation = -0.1
+scale = Vector2(0.55, 0.55)
+data = ExtResource("12_death_certificate")
+
+[node name="MedicineCupboard" parent="HiddenObjects" node_paths=PackedStringArray("contents") instance=ExtResource("6_container")]
+position = Vector2(840, 468)
+container_id = &"medicine_cupboard"
+contents = NodePath("../GlassSyringe")
+open_title = "You open the cupboard under the glass cabinet..."
+open_message = "Rolls of bandage, brown bottles, and a glass syringe lying in a steel tray."
+style = 3
+tint = Color(0.36, 0.23, 0.14, 1)
+size = Vector2(92, 100)
+
+[node name="GlassSyringe" parent="HiddenObjects" instance=ExtResource("5_object")]
+position = Vector2(840, 462)
+scale = Vector2(0.6, 0.6)
+data = ExtResource("11_glass_syringe")
+
+[node name="FakeSpines" parent="HiddenObjects" node_paths=PackedStringArray("contents") instance=ExtResource("6_container")]
+position = Vector2(948, 257)
+container_id = &"fake_spines"
+contents = NodePath("../MedicalFile")
+open_title = "The row of books swings out..."
+open_message = "They are only fake spines glued to a little door. Behind it lies a buff folder."
+style = 8
+tint = Color(0.4, 0.15, 0.1, 1)
+size = Vector2(72, 42)
+
+[node name="MedicalFile" parent="HiddenObjects" instance=ExtResource("5_object")]
+position = Vector2(948, 251)
+scale = Vector2(0.6, 0.6)
+data = ExtResource("23_medical_file")
+
+[node name="LogBasket" parent="HiddenObjects" node_paths=PackedStringArray("contents") instance=ExtResource("6_container")]
+position = Vector2(214, 606)
+container_id = &"log_basket"
+contents = NodePath("../GreyShawl")
+open_title = "You lift the logs out of the basket..."
+open_message = "Folded at the bottom, under the kindling, is something soft and grey."
+style = 6
+tint = Color(0.5, 0.38, 0.22, 1)
+size = Vector2(64, 52)
+
+[node name="GreyShawl" parent="HiddenObjects" instance=ExtResource("5_object")]
+position = Vector2(214, 600)
+scale = Vector2(0.6, 0.6)
+data = ExtResource("22_grey_shawl")
+
+[node name="Parcel" parent="HiddenObjects" node_paths=PackedStringArray("contents", "required_object") instance=ExtResource("6_container")]
+position = Vector2(352, 628)
+container_id = &"parcel"
+contents = NodePath("../Passport")
+open_title = "You cut the string with the pen knife..."
+open_message = "Inside the brown paper: a passport, with a ticket tucked into it."
+required_object = NodePath("../PenKnife")
+locked_title = "The parcel is tied up tight."
+locked_message = "Brown paper and thick waxed string, knotted hard. The label says 'To be collected - R.V.'. You need something sharp to cut the string."
+style = 7
+tint = Color(0.62, 0.48, 0.3, 1)
+size = Vector2(66, 38)
+
+[node name="Passport" parent="HiddenObjects" instance=ExtResource("5_object")]
+position = Vector2(352, 622)
+scale = Vector2(0.6, 0.6)
+data = ExtResource("20_passport")
+
+[node name="DeskSafe" parent="HiddenObjects" node_paths=PackedStringArray("contents") instance=ExtResource("6_container")]
+position = Vector2(790, 612)
+container_id = &"desk_safe"
+contents = NodePath("../Confession")
+open_title = "The dial clicks round to 0810..."
+open_message = "The safe door swings open. Inside lie two folded pages in Vane's handwriting."
+required_code = "0810"
+code_title = "Vane's Desk Safe"
+code_prompt = "A small iron safe with a four-number dial. Vane never trusted his memory: he left himself a reminder on the desk."
+code_hint_first = "Wrong. Read the card propped against the green lamp, then find that day on the calendar by the cellar door."
+code_hint_second = "The calendar has the 8th of October ringed in red: '8th: fetch M.'. Day 08, month 10: the code is 0810."
+code_hint_first_after = 9
+code_hint_second_after = 12
+style = 5
+tint = Color(0.18, 0.26, 0.2, 1)
+size = Vector2(70, 62)
+
+[node name="Confession" parent="HiddenObjects" instance=ExtResource("5_object")]
+position = Vector2(790, 606)
+scale = Vector2(0.6, 0.6)
+data = ExtResource("21_confession")
+
+[node name="DoctorsBag" parent="HiddenObjects" node_paths=PackedStringArray("contents") instance=ExtResource("6_container")]
+position = Vector2(926, 646)
+container_id = &"doctors_bag"
+contents = NodePath("../CellarKey")
+open_title = "The clasp springs open..."
+open_message = "Bottles, bandages, and under them a heavy iron key with a tag: 'CELLAR'."
+required_code = "1987"
+code_title = "Vane's Doctor's Bag"
+code_prompt = "A black leather doctor's bag with a brass four-number lock. Scratched on the clasp: 'The year of the lie.'"
+code_hint_first = "Wrong. Which lie? The biggest one Vane ever told is written on a certificate in this room."
+code_hint_second = "Mara's death certificate, signed by Vane, is dated 1987. The code is 1987."
+code_hint_first_after = 9
+code_hint_second_after = 12
+style = 7
+tint = Color(0.1, 0.09, 0.09, 1)
+size = Vector2(84, 44)
+
+[node name="CellarKey" parent="HiddenObjects" instance=ExtResource("5_object")]
+position = Vector2(926, 640)
+scale = Vector2(0.6, 0.6)
+data = ExtResource("18_cellar_key")
+
+[node name="CellarDoor" parent="HiddenObjects" node_paths=PackedStringArray("contents", "required_object") instance=ExtResource("6_container")]
+position = Vector2(148, 420)
+container_id = &"cellar_door"
+contents = NodePath("../NameBracelet")
+open_title = "The padlock falls away..."
+open_message = "The heavy door creaks open onto stone steps. Something silver glints on the top step, and a voice calls up from the dark."
+required_object = NodePath("../CellarKey")
+locked_title = "The cellar door is padlocked."
+locked_message = "A heavy padlock hangs on an iron hasp. From somewhere below, very faintly, someone is humming. You need the cellar key."
+style = 3
+tint = Color(0.3, 0.2, 0.13, 1)
+size = Vector2(100, 200)
+
+[node name="NameBracelet" parent="HiddenObjects" instance=ExtResource("5_object")]
+position = Vector2(148, 414)
+scale = Vector2(0.6, 0.6)
+data = ExtResource("25_name_bracelet")
+
+[node name="RoomForeground" type="Node2D" parent="."]
+script = ExtResource("4_art")
+layer = 1
+
+[node name="PatrolLantern" type="Node2D" parent="."]
+script = ExtResource("40_lantern")
+
+[node name="HintHighlight" type="Node2D" parent="."]
+unique_name_in_owner = true
+visible = false
+script = ExtResource("41_hint")
+
+[node name="HUD" parent="." instance=ExtResource("42_hud")]
+unique_name_in_owner = true
+
+[node name="Notification" parent="." instance=ExtResource("43_note")]
+unique_name_in_owner = true
+
+[node name="VictoryScreen" parent="." instance=ExtResource("44_victory")]
+unique_name_in_owner = true
+
+[node name="PauseMenu" parent="." instance=ExtResource("45_pause")]
+unique_name_in_owner = true
+
+[node name="LetterPopup" parent="." instance=ExtResource("46_letter")]
+unique_name_in_owner = true
+
+[node name="KeypadLock" parent="." instance=ExtResource("47_keypad")]

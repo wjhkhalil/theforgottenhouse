@@ -1,0 +1,15 @@
+[gd_resource type="Resource" script_class="HiddenObjectData" format=3]
+
+[ext_resource type="Script" path="res://scripts/hidden_object_data.gd" id="1_data"]
+
+[resource]
+script = ExtResource("1_data")
+object_id = &"teddy_bear"
+display_name = "Teddy Bear"
+description = "An old teddy bear with a small hidden clue."
+collection_message = "You found a teddy bear... with something sewn inside."
+clue_text = "A small piece of paper is sewn into the teddy bear. It contains the number 0417."
+hint_text = "Someone small is still tucked in. Look near the pillow."
+placeholder_style = 5
+is_required = true
+starts_visible = true

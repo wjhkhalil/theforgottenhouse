@@ -1,0 +1,247 @@
+[gd_scene format=3]
+
+[ext_resource type="Script" path="res://scripts/room_level.gd" id="1_room"]
+[ext_resource type="Resource" path="res://resources/levels/sunken_boat_level.tres" id="2_level"]
+[ext_resource type="Script" path="res://scripts/game_manager.gd" id="3_manager"]
+[ext_resource type="Script" path="res://scripts/sunken_boat_art.gd" id="4_art"]
+[ext_resource type="PackedScene" path="res://scenes/objects/hidden_object.tscn" id="5_object"]
+[ext_resource type="Resource" path="res://resources/objects/ship_log.tres" id="6_ship_log"]
+[ext_resource type="Resource" path="res://resources/objects/ship_lantern.tres" id="7_ship_lantern"]
+[ext_resource type="Resource" path="res://resources/objects/teacup.tres" id="8_teacup"]
+[ext_resource type="Resource" path="res://resources/objects/hair_comb.tres" id="9_hair_comb"]
+[ext_resource type="Resource" path="res://resources/objects/iron_shackle.tres" id="10_iron_shackle"]
+[ext_resource type="Resource" path="res://resources/objects/steel_file.tres" id="11_steel_file"]
+[ext_resource type="Resource" path="res://resources/objects/wine_bottle.tres" id="12_wine_bottle"]
+[ext_resource type="Resource" path="res://resources/objects/sextant.tres" id="13_sextant"]
+[ext_resource type="Resource" path="res://resources/objects/cabin_key.tres" id="14_cabin_key"]
+[ext_resource type="Resource" path="res://resources/objects/pearl_earring.tres" id="15_pearl_earring"]
+[ext_resource type="Resource" path="res://resources/objects/drill_bit.tres" id="16_drill_bit"]
+[ext_resource type="Resource" path="res://resources/objects/silver_frame.tres" id="17_silver_frame"]
+[ext_resource type="Resource" path="res://resources/objects/ice_house_key.tres" id="18_ice_house_key"]
+[ext_resource type="PackedScene" path="res://scenes/objects/openable_container.tscn" id="19_container"]
+[ext_resource type="Script" path="res://scripts/air_supply.gd" id="20_air"]
+[ext_resource type="Script" path="res://scripts/lantern_darkness.gd" id="21_lantern"]
+[ext_resource type="Script" path="res://scripts/hint_highlight.gd" id="22_hint"]
+[ext_resource type="PackedScene" path="res://scenes/ui/hud.tscn" id="23_hud"]
+[ext_resource type="PackedScene" path="res://scenes/ui/notification.tscn" id="24_note"]
+[ext_resource type="PackedScene" path="res://scenes/victory_screen.tscn" id="25_victory"]
+[ext_resource type="PackedScene" path="res://scenes/ui/pause_menu.tscn" id="26_pause"]
+[ext_resource type="PackedScene" path="res://scenes/ui/letter_popup.tscn" id="27_letter"]
+[ext_resource type="PackedScene" path="res://scenes/ui/keypad_lock.tscn" id="28_keypad"]
+
+[node name="SunkenBoat" type="Node2D" node_paths=PackedStringArray("keypad_lock")]
+script = ExtResource("1_room")
+level_data = ExtResource("2_level")
+keypad_lock = NodePath("KeypadLock")
+
+[node name="GameManager" type="Node" parent="."]
+unique_name_in_owner = true
+script = ExtResource("3_manager")
+
+[node name="RoomBackground" type="Node2D" parent="."]
+script = ExtResource("4_art")
+
+[node name="HiddenObjects" type="Node2D" parent="."]
+unique_name_in_owner = true
+
+[node name="ShipLantern" parent="HiddenObjects" instance=ExtResource("5_object")]
+position = Vector2(214, 270)
+rotation = 1.5
+scale = Vector2(0.55, 0.55)
+data = ExtResource("7_ship_lantern")
+
+[node name="HairComb" parent="HiddenObjects" instance=ExtResource("5_object")]
+position = Vector2(128, 634)
+rotation = -0.35
+scale = Vector2(0.6, 0.6)
+data = ExtResource("9_hair_comb")
+
+[node name="SteelFile" parent="HiddenObjects" instance=ExtResource("5_object")]
+position = Vector2(312, 664)
+rotation = 0.3
+scale = Vector2(0.55, 0.55)
+data = ExtResource("11_steel_file")
+
+[node name="WineBottle" parent="HiddenObjects" instance=ExtResource("5_object")]
+position = Vector2(604, 646)
+rotation = 1.35
+scale = Vector2(0.55, 0.55)
+data = ExtResource("12_wine_bottle")
+
+[node name="Sextant" parent="HiddenObjects" instance=ExtResource("5_object")]
+position = Vector2(764, 282)
+rotation = 0.12
+scale = Vector2(0.5, 0.5)
+data = ExtResource("13_sextant")
+
+[node name="PearlEarring" parent="HiddenObjects" instance=ExtResource("5_object")]
+position = Vector2(250, 432)
+rotation = 0.4
+scale = Vector2(0.55, 0.55)
+data = ExtResource("15_pearl_earring")
+
+[node name="ChartDrawer" parent="HiddenObjects" node_paths=PackedStringArray("contents") instance=ExtResource("19_container")]
+position = Vector2(718, 311)
+rotation = 0.12
+container_id = &"chart_drawer"
+contents = NodePath("../CabinKey")
+open_title = "The swollen drawer jerks open..."
+open_message = "Soggy charts, a pencil stub, and a brass key with a tag."
+style = 4
+tint = Color(0.3, 0.22, 0.15, 1)
+size = Vector2(64, 16)
+
+[node name="CabinKey" parent="HiddenObjects" instance=ExtResource("5_object")]
+position = Vector2(718, 306)
+rotation = 0.12
+scale = Vector2(0.5, 0.5)
+data = ExtResource("14_cabin_key")
+
+[node name="CabinDoor" parent="HiddenObjects" node_paths=PackedStringArray("contents", "required_object") instance=ExtResource("19_container")]
+position = Vector2(403, 470)
+rotation = 0.12
+container_id = &"cabin_door"
+contents = NodePath("../IronShackle")
+open_title = "The cabin door swings open..."
+open_message = "The cabin is empty. A bare bunk, the porthole hanging open... and on the floor, an iron shackle."
+required_object = NodePath("../CabinKey")
+locked_title = "The cabin door is locked."
+locked_message = "A heavy door with a bolt on the OUTSIDE. Its key must be somewhere on the boat."
+style = 3
+tint = Color(0.33, 0.25, 0.17, 1)
+size = Vector2(52, 100)
+
+[node name="IronShackle" parent="HiddenObjects" instance=ExtResource("5_object")]
+position = Vector2(403, 465)
+rotation = 0.12
+scale = Vector2(0.55, 0.55)
+data = ExtResource("10_iron_shackle")
+
+[node name="KeyBox" parent="HiddenObjects" node_paths=PackedStringArray("contents") instance=ExtResource("19_container")]
+position = Vector2(726, 261)
+rotation = 0.12
+container_id = &"key_box"
+contents = NodePath("../IceHouseKey")
+open_title = "The key box clicks open..."
+open_message = "Hooks for a dozen keys, all empty but one: a big iron key on a ring, with a wooden tag."
+required_code = "2140"
+code_title = "The Key Box"
+code_prompt = "A brass key box screwed to the wheelhouse wall, with a four-number lock. Scratched on the lid: 'Time we cast off.'"
+code_hint_first = "Wrong. Vane chalked up every trip somewhere in the wheelhouse. Look around the walls."
+code_hint_second = "The chalk slate by the wheel says 'CAST OFF 21:40'. The code is 2140."
+code_hint_first_after = 7
+code_hint_second_after = 10
+style = 5
+tint = Color(0.42, 0.38, 0.26, 1)
+size = Vector2(36, 32)
+
+[node name="IceHouseKey" parent="HiddenObjects" instance=ExtResource("5_object")]
+position = Vector2(726, 256)
+rotation = 0.12
+scale = Vector2(0.5, 0.5)
+data = ExtResource("18_ice_house_key")
+
+[node name="SkipperLocker" parent="HiddenObjects" node_paths=PackedStringArray("contents") instance=ExtResource("19_container")]
+position = Vector2(824, 335)
+rotation = 0.12
+container_id = &"skipper_locker"
+contents = NodePath("../ShipLog")
+open_title = "The skipper's locker opens..."
+open_message = "Oilskins, a tin of matches, and a fat leather book: the ship's log."
+style = 7
+tint = Color(0.28, 0.3, 0.26, 1)
+size = Vector2(44, 28)
+
+[node name="ShipLog" parent="HiddenObjects" instance=ExtResource("5_object")]
+position = Vector2(824, 330)
+rotation = 0.12
+scale = Vector2(0.5, 0.5)
+data = ExtResource("6_ship_log")
+
+[node name="GalleyCupboard" parent="HiddenObjects" node_paths=PackedStringArray("contents") instance=ExtResource("19_container")]
+position = Vector2(562, 423)
+rotation = 0.12
+container_id = &"galley_cupboard"
+contents = NodePath("../Teacup")
+open_title = "The cupboard doors drift open..."
+open_message = "Broken plates, a slime of tea leaves, and one china cup still on its saucer."
+style = 3
+tint = Color(0.36, 0.3, 0.22, 1)
+size = Vector2(60, 42)
+
+[node name="Teacup" parent="HiddenObjects" instance=ExtResource("5_object")]
+position = Vector2(562, 418)
+rotation = 0.12
+scale = Vector2(0.5, 0.5)
+data = ExtResource("8_teacup")
+
+[node name="Toolbox" parent="HiddenObjects" node_paths=PackedStringArray("contents") instance=ExtResource("19_container")]
+position = Vector2(718, 572)
+rotation = 0.12
+container_id = &"toolbox"
+contents = NodePath("../DrillBit")
+open_title = "You prise open the rusty toolbox..."
+open_message = "Spanners, a box of wooden bungs, and a long drill bit."
+style = 7
+tint = Color(0.22, 0.3, 0.24, 1)
+size = Vector2(56, 28)
+
+[node name="DrillBit" parent="HiddenObjects" instance=ExtResource("5_object")]
+position = Vector2(718, 567)
+rotation = 0.12
+scale = Vector2(0.55, 0.55)
+data = ExtResource("16_drill_bit")
+
+[node name="DittyBox" parent="HiddenObjects" node_paths=PackedStringArray("contents") instance=ExtResource("19_container")]
+position = Vector2(212, 680)
+rotation = 0.15
+container_id = &"ditty_box"
+contents = NodePath("../SilverFrame")
+open_title = "The little box opens..."
+open_message = "It's Mara's keepsake box. Inside, wrapped in a hair ribbon: a silver photo frame."
+style = 1
+tint = Color(0.42, 0.29, 0.2, 1)
+size = Vector2(40, 26)
+
+[node name="SilverFrame" parent="HiddenObjects" instance=ExtResource("5_object")]
+position = Vector2(212, 675)
+rotation = 0.15
+scale = Vector2(0.5, 0.5)
+data = ExtResource("17_silver_frame")
+
+[node name="RoomForeground" type="Node2D" parent="."]
+script = ExtResource("4_art")
+layer = 1
+
+[node name="AirSupply" type="Node2D" parent="."]
+script = ExtResource("20_air")
+bubble_sources = PackedVector2Array(228, 415, 729, 186, 724, 601, 968, 381)
+
+[node name="LanternDarkness" type="Node2D" parent="."]
+script = ExtResource("21_lantern")
+darkness = 0.8
+light_radius = 150.0
+soft_edge = 110.0
+light_tint = Color(0.75, 0.9, 1.0, 0.07)
+
+[node name="HintHighlight" type="Node2D" parent="."]
+unique_name_in_owner = true
+visible = false
+script = ExtResource("22_hint")
+
+[node name="HUD" parent="." instance=ExtResource("23_hud")]
+unique_name_in_owner = true
+
+[node name="Notification" parent="." instance=ExtResource("24_note")]
+unique_name_in_owner = true
+
+[node name="VictoryScreen" parent="." instance=ExtResource("25_victory")]
+unique_name_in_owner = true
+
+[node name="PauseMenu" parent="." instance=ExtResource("26_pause")]
+unique_name_in_owner = true
+
+[node name="LetterPopup" parent="." instance=ExtResource("27_letter")]
+unique_name_in_owner = true
+
+[node name="KeypadLock" parent="." instance=ExtResource("28_keypad")]

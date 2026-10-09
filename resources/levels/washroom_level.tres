@@ -1,0 +1,28 @@
+[gd_resource type="Resource" script_class="LevelData" format=3]
+
+[ext_resource type="Script" path="res://scripts/level_data.gd" id="1_level"]
+
+[resource]
+script = ExtResource("1_level")
+chapter_id = &"washroom"
+room_name = "The Washroom"
+intro_message = "The hot tap is running and thick steam fills the room. Move the mouse to wipe the steam away - it drifts back after a few seconds. Find the 8 hidden objects."
+hint_cooldown_seconds = 30.0
+hint_area_radius = 170.0
+hint_area_offset = 85.0
+entry_code = "0606"
+entry_title = "The Washroom Door"
+entry_prompt = "The washroom door is locked from inside. A note is pushed under it: 'Only my twin would know: the day and the month we were born.'"
+entry_hint_first = "Wrong. The brass nameplate on the stairs told you when Mara was born."
+entry_hint_second = "Mara was born on the 6th of June. Day first, then month: 0606."
+entry_hint_first_after = 3
+entry_hint_second_after = 6
+chapter_title = "Chapter Five Complete"
+chapter_hook = "The tap shuts off by itself. In the silence, a gramophone starts to play downstairs, in the living room."
+final_letter_title = "Words Written in the Steam"
+final_letter_text = "He keeps the spare keys in the living room, locked in his desk. I could not get to them. He sits in there every evening.
+
+The wiring in that room is rotten. The lights fail without warning.
+
+When they go out, do not stop searching."
+final_letter_signature = "- M."

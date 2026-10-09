@@ -1,0 +1,23 @@
+[gd_resource type="Resource" script_class="LevelData" format=3]
+
+[ext_resource type="Script" path="res://scripts/level_data.gd" id="1_level"]
+
+[resource]
+script = ExtResource("1_level")
+chapter_id = &"island_chapel"
+room_name = "The Island Chapel"
+intro_message = "The little chapel is dark, lit only by its candles, and a cold draught from the door keeps blowing them out. You can only see and pick up things inside a candle's light: click a candle that has gone out to light it again. Find the 15 hidden objects."
+hint_cooldown_seconds = 90.0
+hint_area_radius = 290.0
+hint_area_offset = 160.0
+chapter_title = "House Two - Chapter Nine Complete"
+chapter_hook = "Vane's cottage lies on the far shore of the lake. Tonight, one of its windows is lit."
+final_letter_title = "A Note from the Mother Superior"
+final_letter_text = "To whoever finds this,
+
+Yesterday Dr Vane came for Sister Margaret. He said she needed treatment, and that she would rest at his cottage across the lake.
+
+She did not want to go. She held my hands and begged me not to let him take her. I have never seen her so frightened. I told her the doctor knew best.
+
+I have prayed all night, and I am afraid I did a terrible wrong in letting her go. If you can help her, please go quickly."
+final_letter_signature = "- Mother Agatha"

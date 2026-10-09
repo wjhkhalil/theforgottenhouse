@@ -1,0 +1,16 @@
+[gd_resource type="Resource" script_class="HiddenObjectData" format=3]
+
+[ext_resource type="Script" path="res://scripts/hidden_object_data.gd" id="1_data"]
+
+[resource]
+script = ExtResource("1_data")
+object_id = &"parish_register"
+display_name = "Parish Register"
+description = "A heavy leather-bound register of everyone who came to the chapel."
+collection_message = "You found the parish register!"
+clue_text = "One entry is underlined: 'Sister Margaret, received 1989, no family known.'"
+hint_text = "The register is kept in the parish chest, on the floor to the right of the altar step."
+riddle_text = ""
+placeholder_style = 166
+is_required = true
+starts_visible = false

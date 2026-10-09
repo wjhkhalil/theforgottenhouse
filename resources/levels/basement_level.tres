@@ -1,0 +1,26 @@
+[gd_resource type="Resource" script_class="LevelData" format=3]
+
+[ext_resource type="Script" path="res://scripts/level_data.gd" id="1_level"]
+
+[resource]
+script = ExtResource("1_level")
+chapter_id = &"basement"
+room_name = "The Basement"
+intro_message = "It is cold and dark down here, yet the air smells of fresh candle wax. Someone has been here recently. Find the 6 hidden objects. Move the mouse to shine your lantern."
+hint_cooldown_seconds = 10.0
+hint_area_radius = 120.0
+hint_area_offset = 45.0
+entry_code = "0417"
+entry_title = "The Cellar Door"
+entry_prompt = "The rusty key turns in the cellar door, but it still will not open. A second lock with a four-digit keypad holds it shut."
+entry_hint_first = "Wrong again. Think back to the bedroom: something soft was hiding a number."
+entry_hint_second = "The note sewn inside the teddy bear read: 0417."
+chapter_title = "Chapter Two Complete"
+chapter_hook = "Upstairs, the front door slams. Slow footsteps cross the hall above you... and stop at the top of the basement stairs."
+final_letter_title = "A Note in Different Handwriting"
+final_letter_text = "Eleanor hid me down here after the lake. The whole town believed I had drowned, and she said it was safer if they kept believing it.
+
+Then one night she went out to meet someone, and she never came back.
+
+I have waited for her ever since. If you are reading this, please listen: do not trust whoever is coming down those stairs."
+final_letter_signature = "- M."

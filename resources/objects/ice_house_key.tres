@@ -1,0 +1,16 @@
+[gd_resource type="Resource" script_class="HiddenObjectData" format=3]
+
+[ext_resource type="Script" path="res://scripts/hidden_object_data.gd" id="1_data"]
+
+[resource]
+script = ExtResource("1_data")
+object_id = &"ice_house_key"
+display_name = "Ice House Key"
+description = "An old iron key on a ring, with a wooden tag burnt ICE HOUSE."
+collection_message = "You found the ice house key!"
+clue_text = "The key to the old ice house on the far shore: the nearest shelter from the freezing water. Someone could reach it, if they swam hard enough."
+hint_text = "The key box on the wheelhouse wall has a number lock. The chalk slate by the wheel tells you the code."
+riddle_text = ""
+placeholder_style = 118
+is_required = true
+starts_visible = false

@@ -1,0 +1,23 @@
+[gd_resource type="Resource" script_class="LevelData" format=3]
+
+[ext_resource type="Script" path="res://scripts/level_data.gd" id="1_level"]
+
+[resource]
+script = ExtResource("1_level")
+chapter_id = &"loft"
+room_name = "The Loft"
+intro_message = "You climb up into the loft where Mara was kept. Bats are sleeping under the beam. Search carefully: clicking on empty spots wakes them, and while they swoop around you can't pick anything up. Find the 12 hidden objects."
+hint_cooldown_seconds = 60.0
+hint_area_radius = 230.0
+hint_area_offset = 130.0
+chapter_title = "House Two - Chapter Three Complete"
+chapter_hook = "The candle was still warm. Wet boot prints lead from the hatch down the back stairs, to the workshop door. Whoever was up here is still in the boathouse."
+final_letter_title = "The Last Page"
+final_letter_text = "Ellie,
+
+Tonight he says I am going on a trip on the Lady Margaret. He has never let me out on the water before, and he would not look at me when he said it.
+
+I have hidden everything I could where he won't look: your doll, my letter to you, the violet from the shore. If anyone finds them, they will know I was here.
+
+I counted every day. I never stopped thinking you would come."
+final_letter_signature = "- Mara, 2nd October 1988"

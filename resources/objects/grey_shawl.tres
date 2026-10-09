@@ -1,0 +1,16 @@
+[gd_resource type="Resource" script_class="HiddenObjectData" format=3]
+
+[ext_resource type="Script" path="res://scripts/hidden_object_data.gd" id="1_data"]
+
+[resource]
+script = ExtResource("1_data")
+object_id = &"grey_shawl"
+display_name = "Grey Shawl"
+description = "A soft grey wool shawl."
+collection_message = "You found Mara's grey shawl!"
+clue_text = "The Sisters knitted it for 'Sister Margaret'. It still smells of chapel candles. She was in this room yesterday."
+hint_text = "Look in the log basket beside the fireplace."
+riddle_text = ""
+placeholder_style = 189
+is_required = true
+starts_visible = false

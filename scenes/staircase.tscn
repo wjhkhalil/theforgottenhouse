@@ -1,0 +1,151 @@
+[gd_scene format=3]
+
+[ext_resource type="Script" path="res://scripts/room_level.gd" id="1_room"]
+[ext_resource type="Resource" path="res://resources/levels/staircase_level.tres" id="2_level"]
+[ext_resource type="Script" path="res://scripts/game_manager.gd" id="3_manager"]
+[ext_resource type="Script" path="res://scripts/staircase_art.gd" id="4_art"]
+[ext_resource type="PackedScene" path="res://scenes/objects/hidden_object.tscn" id="5_object"]
+[ext_resource type="Resource" path="res://resources/objects/telephone_cord.tres" id="6_cord"]
+[ext_resource type="Resource" path="res://resources/objects/portrait_nameplate.tres" id="7_nameplate"]
+[ext_resource type="Resource" path="res://resources/objects/hair_ribbon.tres" id="8_ribbon"]
+[ext_resource type="Resource" path="res://resources/objects/empty_key_ring.tres" id="9_ring"]
+[ext_resource type="Resource" path="res://resources/objects/leather_glove.tres" id="10_glove"]
+[ext_resource type="Resource" path="res://resources/objects/iron_key.tres" id="11_key"]
+[ext_resource type="Resource" path="res://resources/objects/boathouse_map.tres" id="12_map"]
+[ext_resource type="PackedScene" path="res://scenes/objects/openable_container.tscn" id="13_container"]
+[ext_resource type="Script" path="res://scripts/room_camera.gd" id="14_camera"]
+[ext_resource type="Script" path="res://scripts/hint_highlight.gd" id="15_hint"]
+[ext_resource type="PackedScene" path="res://scenes/ui/hud.tscn" id="16_hud"]
+[ext_resource type="PackedScene" path="res://scenes/ui/notification.tscn" id="17_note"]
+[ext_resource type="PackedScene" path="res://scenes/victory_screen.tscn" id="18_victory"]
+[ext_resource type="PackedScene" path="res://scenes/ui/pause_menu.tscn" id="19_pause"]
+[ext_resource type="PackedScene" path="res://scenes/ui/letter_popup.tscn" id="20_letter"]
+
+[sub_resource type="Gradient" id="Gradient_dust"]
+offsets = PackedFloat32Array(0, 0.2, 0.8, 1)
+colors = PackedColorArray(1, 1, 1, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0)
+
+[node name="Staircase" type="Node2D" node_paths=PackedStringArray("room_camera")]
+script = ExtResource("1_room")
+level_data = ExtResource("2_level")
+room_camera = NodePath("RoomCamera")
+
+[node name="GameManager" type="Node" parent="."]
+unique_name_in_owner = true
+script = ExtResource("3_manager")
+
+[node name="RoomBackground" type="Node2D" parent="."]
+script = ExtResource("4_art")
+room_size = Vector2(1280, 1440)
+
+[node name="HiddenObjects" type="Node2D" parent="."]
+unique_name_in_owner = true
+
+[node name="PortraitNameplate" parent="HiddenObjects" instance=ExtResource("5_object")]
+position = Vector2(296, 488)
+rotation = 0.12
+scale = Vector2(0.7, 0.7)
+data = ExtResource("7_nameplate")
+
+[node name="LeatherGlove" parent="HiddenObjects" instance=ExtResource("5_object")]
+position = Vector2(666, 664)
+rotation = -0.08
+scale = Vector2(0.65, 0.65)
+data = ExtResource("10_glove")
+
+[node name="HairRibbon" parent="HiddenObjects" instance=ExtResource("5_object")]
+position = Vector2(585, 937)
+rotation = 0.15
+scale = Vector2(0.62, 0.62)
+data = ExtResource("8_ribbon")
+
+[node name="TelephoneCord" parent="HiddenObjects" instance=ExtResource("5_object")]
+position = Vector2(522, 1196)
+scale = Vector2(0.7, 0.7)
+data = ExtResource("6_cord")
+
+[node name="EmptyKeyRing" parent="HiddenObjects" instance=ExtResource("5_object")]
+position = Vector2(232, 1302)
+rotation = 0.2
+scale = Vector2(0.65, 0.65)
+data = ExtResource("9_ring")
+
+[node name="GrandfatherClock" parent="HiddenObjects" node_paths=PackedStringArray("contents") instance=ExtResource("13_container")]
+position = Vector2(930, 1150)
+container_id = &"grandfather_clock"
+contents = NodePath("../IronKey")
+open_title = "The clock case swings open..."
+open_message = "Behind the still pendulum hangs a small iron key."
+style = 3
+tint = Color(0.3, 0.18, 0.11, 1)
+size = Vector2(70, 110)
+
+[node name="IronKey" parent="HiddenObjects" instance=ExtResource("5_object")]
+position = Vector2(930, 1142)
+rotation = -0.1
+scale = Vector2(0.65, 0.65)
+data = ExtResource("11_key")
+
+[node name="HallTableDrawer" parent="HiddenObjects" node_paths=PackedStringArray("contents", "required_object") instance=ExtResource("13_container")]
+position = Vector2(692, 1204)
+container_id = &"hall_table_drawer"
+contents = NodePath("../BoathouseMap")
+open_title = "The iron key fits the drawer..."
+open_message = "Inside lies a folded map."
+required_object = NodePath("../IronKey")
+locked_title = "The drawer is locked."
+locked_message = "A small keyhole. The key must be somewhere in the house - maybe nearby."
+style = 4
+size = Vector2(80, 30)
+
+[node name="BoathouseMap" parent="HiddenObjects" instance=ExtResource("5_object")]
+position = Vector2(692, 1197)
+rotation = 0.06
+scale = Vector2(0.6, 0.6)
+data = ExtResource("12_map")
+
+[node name="RoomForeground" type="Node2D" parent="."]
+script = ExtResource("4_art")
+layer = 1
+room_size = Vector2(1280, 1440)
+
+[node name="DustMotes" type="CPUParticles2D" parent="."]
+position = Vector2(590, 680)
+amount = 32
+lifetime = 10.0
+preprocess = 10.0
+emission_shape = 3
+emission_rect_extents = Vector2(110, 240)
+direction = Vector2(0, -1)
+spread = 180.0
+gravity = Vector2(0, -3)
+initial_velocity_min = 2.0
+initial_velocity_max = 6.0
+scale_amount_min = 1.5
+scale_amount_max = 2.5
+color = Color(0.85, 0.9, 1, 0.4)
+color_ramp = SubResource("Gradient_dust")
+
+[node name="RoomCamera" type="Camera2D" parent="."]
+script = ExtResource("14_camera")
+room_size = Vector2(1280, 1440)
+
+[node name="HintHighlight" type="Node2D" parent="."]
+unique_name_in_owner = true
+visible = false
+script = ExtResource("15_hint")
+
+[node name="HUD" parent="." instance=ExtResource("16_hud")]
+unique_name_in_owner = true
+
+[node name="Notification" parent="." instance=ExtResource("17_note")]
+unique_name_in_owner = true
+
+[node name="VictoryScreen" parent="." instance=ExtResource("18_victory")]
+unique_name_in_owner = true
+
+[node name="PauseMenu" parent="." instance=ExtResource("19_pause")]
+unique_name_in_owner = true
+
+[node name="LetterPopup" parent="." instance=ExtResource("20_letter")]
+unique_name_in_owner = true

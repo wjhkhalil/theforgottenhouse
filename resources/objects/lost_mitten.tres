@@ -1,0 +1,16 @@
+[gd_resource type="Resource" script_class="HiddenObjectData" format=3]
+
+[ext_resource type="Script" path="res://scripts/hidden_object_data.gd" id="1_data"]
+
+[resource]
+script = ExtResource("1_data")
+object_id = &"lost_mitten"
+display_name = "Lost Mitten"
+description = "A red knitted mitten with a white snowflake."
+collection_message = "You found a lost mitten!"
+clue_text = "A woman's mitten, hand-knitted. There's a name tape sewn inside: A. HALE."
+hint_text = "A red mitten lies in the straw on the floor, in front of the bales."
+riddle_text = ""
+placeholder_style = 125
+is_required = true
+starts_visible = true

@@ -1,0 +1,16 @@
+[gd_resource type="Resource" script_class="HiddenObjectData" format=3]
+
+[ext_resource type="Script" path="res://scripts/hidden_object_data.gd" id="1_data"]
+
+[resource]
+script = ExtResource("1_data")
+object_id = &"egg_timer"
+display_name = "Egg Timer"
+description = "A small sand timer."
+collection_message = "You found an egg timer."
+clue_text = "The sand has run out, as if someone was counting the minutes until something happened."
+hint_text = "Something that counts with sand sits on a shelf."
+riddle_text = "Sand that counts the minutes"
+placeholder_style = 43
+is_required = true
+starts_visible = true

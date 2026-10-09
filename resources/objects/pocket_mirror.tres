@@ -1,0 +1,16 @@
+[gd_resource type="Resource" script_class="HiddenObjectData" format=3]
+
+[ext_resource type="Script" path="res://scripts/hidden_object_data.gd" id="1_data"]
+
+[resource]
+script = ExtResource("1_data")
+object_id = &"pocket_mirror"
+display_name = "Cracked Mirror"
+description = "A little hand mirror with a crack across the glass."
+collection_message = "You found a hand mirror!"
+clue_text = "Mara must have flashed the moonlight from this mirror at passing boats. Nobody ever came."
+hint_text = "Look at the round window. Something there catches the moonlight."
+riddle_text = ""
+placeholder_style = 85
+is_required = true
+starts_visible = true

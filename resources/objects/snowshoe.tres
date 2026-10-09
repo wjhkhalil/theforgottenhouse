@@ -1,0 +1,16 @@
+[gd_resource type="Resource" script_class="HiddenObjectData" format=3]
+
+[ext_resource type="Script" path="res://scripts/hidden_object_data.gd" id="1_data"]
+
+[resource]
+script = ExtResource("1_data")
+object_id = &"snowshoe"
+display_name = "Snowshoe"
+description = "A wooden snowshoe strung with rawhide."
+collection_message = "You found a snowshoe!"
+clue_text = "Burnt into the frame: 'Blackwater Point Light'. The lighthouse keeper kept winter gear here, so she must have come by often."
+hint_text = "A snowshoe lies on the floor under the ice shelves, in the sawdust."
+riddle_text = ""
+placeholder_style = 131
+is_required = true
+starts_visible = true

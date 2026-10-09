@@ -1,0 +1,16 @@
+[gd_resource type="Resource" script_class="HiddenObjectData" format=3]
+
+[ext_resource type="Script" path="res://scripts/hidden_object_data.gd" id="1_data"]
+
+[resource]
+script = ExtResource("1_data")
+object_id = &"keepers_note"
+display_name = "Keeper's Note"
+description = "A folded note on lined paper with a little lighthouse printed in the corner."
+collection_message = "You found the keeper's note!"
+clue_text = "Signed 'A. Hale, Keeper, Blackwater Point Light'. She left this for anyone who came looking for the girl."
+hint_text = "A folded note hangs on a nail on the wall, to the left of the heavy door."
+riddle_text = ""
+placeholder_style = 126
+is_required = true
+starts_visible = true

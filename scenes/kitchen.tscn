@@ -1,0 +1,163 @@
+[gd_scene format=3]
+
+[ext_resource type="Script" path="res://scripts/room_level.gd" id="1_room"]
+[ext_resource type="Resource" path="res://resources/levels/kitchen_level.tres" id="2_level"]
+[ext_resource type="Script" path="res://scripts/game_manager.gd" id="3_manager"]
+[ext_resource type="Script" path="res://scripts/kitchen_art.gd" id="4_art"]
+[ext_resource type="PackedScene" path="res://scenes/objects/hidden_object.tscn" id="5_object"]
+[ext_resource type="Resource" path="res://resources/objects/wooden_spoon.tres" id="6_spoon"]
+[ext_resource type="Resource" path="res://resources/objects/egg_timer.tres" id="7_timer"]
+[ext_resource type="Resource" path="res://resources/objects/recipe_card.tres" id="8_card"]
+[ext_resource type="Resource" path="res://resources/objects/rat_poison_tin.tres" id="9_poison"]
+[ext_resource type="Resource" path="res://resources/objects/tin_opener.tres" id="10_opener"]
+[ext_resource type="Resource" path="res://resources/objects/lake_pebble.tres" id="11_pebble"]
+[ext_resource type="Resource" path="res://resources/objects/servants_key.tres" id="12_key"]
+[ext_resource type="Resource" path="res://resources/objects/burnt_letter.tres" id="13_letter"]
+[ext_resource type="Resource" path="res://resources/objects/sugar_mouse.tres" id="14_mouse"]
+[ext_resource type="PackedScene" path="res://scenes/objects/openable_container.tscn" id="15_container"]
+[ext_resource type="Script" path="res://scripts/hint_highlight.gd" id="16_hint"]
+[ext_resource type="PackedScene" path="res://scenes/ui/hud.tscn" id="17_hud"]
+[ext_resource type="PackedScene" path="res://scenes/ui/notification.tscn" id="18_note"]
+[ext_resource type="PackedScene" path="res://scenes/victory_screen.tscn" id="19_victory"]
+[ext_resource type="PackedScene" path="res://scenes/ui/pause_menu.tscn" id="20_pause"]
+[ext_resource type="PackedScene" path="res://scenes/ui/letter_popup.tscn" id="21_letter"]
+
+[sub_resource type="Gradient" id="Gradient_embers"]
+offsets = PackedFloat32Array(0, 0.2, 0.8, 1)
+colors = PackedColorArray(1, 1, 1, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0)
+
+[node name="Kitchen" type="Node2D"]
+script = ExtResource("1_room")
+level_data = ExtResource("2_level")
+
+[node name="GameManager" type="Node" parent="."]
+unique_name_in_owner = true
+script = ExtResource("3_manager")
+
+[node name="RoomBackground" type="Node2D" parent="."]
+script = ExtResource("4_art")
+
+[node name="HiddenObjects" type="Node2D" parent="."]
+unique_name_in_owner = true
+
+[node name="WoodenSpoon" parent="HiddenObjects" instance=ExtResource("5_object")]
+position = Vector2(296, 302)
+scale = Vector2(0.65, 0.65)
+data = ExtResource("6_spoon")
+
+[node name="EggTimer" parent="HiddenObjects" instance=ExtResource("5_object")]
+position = Vector2(952, 238)
+scale = Vector2(0.62, 0.62)
+data = ExtResource("7_timer")
+
+[node name="RecipeCard" parent="HiddenObjects" instance=ExtResource("5_object")]
+position = Vector2(616, 230)
+rotation = -0.08
+scale = Vector2(0.6, 0.6)
+data = ExtResource("8_card")
+
+[node name="RatPoisonTin" parent="HiddenObjects" instance=ExtResource("5_object")]
+position = Vector2(734, 488)
+scale = Vector2(0.62, 0.62)
+data = ExtResource("9_poison")
+
+[node name="TinOpener" parent="HiddenObjects" instance=ExtResource("5_object")]
+position = Vector2(520, 112)
+scale = Vector2(0.62, 0.62)
+data = ExtResource("10_opener")
+
+[node name="LakePebble" parent="HiddenObjects" instance=ExtResource("5_object")]
+position = Vector2(764, 288)
+scale = Vector2(0.65, 0.65)
+data = ExtResource("11_pebble")
+
+[node name="BreadBin" parent="HiddenObjects" node_paths=PackedStringArray("contents") instance=ExtResource("15_container")]
+position = Vector2(895, 352)
+container_id = &"bread_bin"
+contents = NodePath("../ServantsKey")
+open_title = "You lift the bread bin lid..."
+open_message = "No bread inside - only a long iron key."
+style = 7
+tint = Color(0.86, 0.82, 0.7, 1)
+size = Vector2(78, 52)
+
+[node name="ServantsKey" parent="HiddenObjects" instance=ExtResource("5_object")]
+position = Vector2(895, 348)
+rotation = -0.06
+scale = Vector2(0.6, 0.6)
+data = ExtResource("12_key")
+
+[node name="Oven" parent="HiddenObjects" node_paths=PackedStringArray("contents") instance=ExtResource("15_container")]
+position = Vector2(255, 442)
+container_id = &"oven"
+contents = NodePath("../BurntLetter")
+open_title = "The oven door creaks open..."
+open_message = "In the ashes lies a half-burnt letter."
+style = 3
+tint = Color(0.2, 0.19, 0.19, 1)
+size = Vector2(90, 70)
+
+[node name="BurntLetter" parent="HiddenObjects" instance=ExtResource("5_object")]
+position = Vector2(255, 446)
+rotation = 0.1
+scale = Vector2(0.6, 0.6)
+data = ExtResource("13_letter")
+
+[node name="BiscuitTin" parent="HiddenObjects" node_paths=PackedStringArray("contents", "required_object") instance=ExtResource("15_container")]
+position = Vector2(560, 550)
+container_id = &"biscuit_tin"
+contents = NodePath("../SugarMouse")
+open_title = "The tin opener prises the lid off..."
+open_message = "Inside, wrapped in wax paper, is a sugar mouse."
+required_object = NodePath("../TinOpener")
+locked_title = "The biscuit tin is stuck shut."
+locked_message = "The lid is rusted on. You need something to prise it open."
+style = 7
+tint = Color(0.38, 0.5, 0.62, 1)
+size = Vector2(52, 40)
+
+[node name="SugarMouse" parent="HiddenObjects" instance=ExtResource("5_object")]
+position = Vector2(560, 546)
+scale = Vector2(0.6, 0.6)
+data = ExtResource("14_mouse")
+
+[node name="RoomForeground" type="Node2D" parent="."]
+script = ExtResource("4_art")
+layer = 1
+
+[node name="Embers" type="CPUParticles2D" parent="."]
+position = Vector2(150, 380)
+amount = 20
+lifetime = 6.0
+preprocess = 6.0
+emission_shape = 3
+emission_rect_extents = Vector2(90, 40)
+direction = Vector2(0, -1)
+spread = 40.0
+gravity = Vector2(0, -6)
+initial_velocity_min = 4.0
+initial_velocity_max = 12.0
+scale_amount_min = 1.0
+scale_amount_max = 2.2
+color = Color(1, 0.65, 0.3, 0.5)
+color_ramp = SubResource("Gradient_embers")
+
+[node name="HintHighlight" type="Node2D" parent="."]
+unique_name_in_owner = true
+visible = false
+script = ExtResource("16_hint")
+
+[node name="HUD" parent="." instance=ExtResource("17_hud")]
+unique_name_in_owner = true
+
+[node name="Notification" parent="." instance=ExtResource("18_note")]
+unique_name_in_owner = true
+
+[node name="VictoryScreen" parent="." instance=ExtResource("19_victory")]
+unique_name_in_owner = true
+
+[node name="PauseMenu" parent="." instance=ExtResource("20_pause")]
+unique_name_in_owner = true
+
+[node name="LetterPopup" parent="." instance=ExtResource("21_letter")]
+unique_name_in_owner = true

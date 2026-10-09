@@ -1,0 +1,16 @@
+[gd_resource type="Resource" script_class="HiddenObjectData" format=3]
+
+[ext_resource type="Script" path="res://scripts/hidden_object_data.gd" id="1_data"]
+
+[resource]
+script = ExtResource("1_data")
+object_id = &"diving_lamp"
+display_name = "Diving Lamp"
+description = "A heavy brass diving lamp with a caged glass globe."
+collection_message = "You found the diving lamp!"
+clue_text = "It still works. With this you can go down and see the Lady Margaret where she lies on the lake bed."
+hint_text = "The tool cupboard hangs on the wall beside the work lamp. It opens with the cupboard key."
+riddle_text = ""
+placeholder_style = 105
+is_required = true
+starts_visible = false

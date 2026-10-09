@@ -1,0 +1,16 @@
+[gd_resource type="Resource" script_class="HiddenObjectData" format=3]
+
+[ext_resource type="Script" path="res://scripts/hidden_object_data.gd" id="1_data"]
+
+[resource]
+script = ExtResource("1_data")
+object_id = &"handkerchief"
+display_name = "R.V. Handkerchief"
+description = "A white handkerchief embroidered 'R.V.'"
+collection_message = "You found a handkerchief!"
+clue_text = "Embroidered 'R.V.' and still damp. It smells sickly sweet, like a hospital. Dr Vane was here tonight."
+hint_text = "Look on top of the workbench on the left."
+riddle_text = ""
+placeholder_style = 70
+is_required = true
+starts_visible = true

@@ -1,0 +1,16 @@
+[gd_resource type="Resource" script_class="HiddenObjectData" format=3]
+
+[ext_resource type="Script" path="res://scripts/hidden_object_data.gd" id="1_data"]
+
+[resource]
+script = ExtResource("1_data")
+object_id = &"candle_stub"
+display_name = "Warm Candle Stub"
+description = "A stub of white candle in a tin holder."
+collection_message = "You found a candle stub!"
+clue_text = "The wick is still smoking. Whoever was up here blew it out when they heard you on the ladder."
+hint_text = "A candle stands on the floor by the mattress. The smoke is still curling up from it."
+riddle_text = ""
+placeholder_style = 81
+is_required = true
+starts_visible = true

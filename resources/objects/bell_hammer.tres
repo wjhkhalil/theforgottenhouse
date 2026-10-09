@@ -1,0 +1,16 @@
+[gd_resource type="Resource" script_class="HiddenObjectData" format=3]
+
+[ext_resource type="Script" path="res://scripts/hidden_object_data.gd" id="1_data"]
+
+[resource]
+script = ExtResource("1_data")
+object_id = &"bell_hammer"
+display_name = "Bell Hammer"
+description = "A round iron hammer on a worn wooden handle."
+collection_message = "You found the bell hammer!"
+clue_text = "The hammer for ringing the fog bell by hand in thick fog. It is heavy enough to knock a rusted latch loose."
+hint_text = "There is a rope basket on the floor below the fog bell. Look inside it."
+riddle_text = ""
+placeholder_style = 156
+is_required = true
+starts_visible = false

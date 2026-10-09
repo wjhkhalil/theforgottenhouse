@@ -1,0 +1,16 @@
+[gd_resource type="Resource" script_class="HiddenObjectData" format=3]
+
+[ext_resource type="Script" path="res://scripts/hidden_object_data.gd" id="1_data"]
+
+[resource]
+script = ExtResource("1_data")
+object_id = &"insurance_policy"
+display_name = "Insurance Policy"
+description = "A life insurance policy."
+collection_message = "You found an insurance policy."
+clue_text = "On the life of Mara Ashworth. Paid out in 1987 to the estate - and the estate is managed by T. Greaves."
+hint_text = "Someone keeps papers inside the piano bench."
+riddle_text = ""
+placeholder_style = 39
+is_required = true
+starts_visible = false

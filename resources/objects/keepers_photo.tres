@@ -1,0 +1,16 @@
+[gd_resource type="Resource" script_class="HiddenObjectData" format=3]
+
+[ext_resource type="Script" path="res://scripts/hidden_object_data.gd" id="1_data"]
+
+[resource]
+script = ExtResource("1_data")
+object_id = &"keepers_photo"
+display_name = "Keeper's Photo"
+description = "A small framed photograph of two women by the lighthouse."
+collection_message = "You found the keeper's photo!"
+clue_text = "Agnes, smiling, with her arm round a young woman with long dark hair. On the back: 'Me and Margaret, summer 1989.' It's Mara. Older, thinner, but it's her."
+hint_text = "Look in the brown paper parcel tied with twine on the floor of the keeper's landing, at the left."
+riddle_text = ""
+placeholder_style = 145
+is_required = true
+starts_visible = false

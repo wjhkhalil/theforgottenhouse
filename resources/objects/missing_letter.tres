@@ -1,0 +1,15 @@
+[gd_resource type="Resource" script_class="HiddenObjectData" format=3]
+
+[ext_resource type="Script" path="res://scripts/hidden_object_data.gd" id="1_data"]
+
+[resource]
+script = ExtResource("1_data")
+object_id = &"missing_letter"
+display_name = "Missing Letter"
+description = "A folded letter containing a mysterious message."
+collection_message = "Something about this letter feels strange."
+clue_text = "The letter has been torn, as if someone wanted to hide its contents."
+hint_text = "Papers on the desk... one of them is trapped beneath a pile of books."
+placeholder_style = 3
+is_required = true
+starts_visible = true

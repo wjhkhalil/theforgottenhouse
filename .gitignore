@@ -1,0 +1,11 @@
+# Godot cache and generated files
+.godot/
+*.tmp
+export_credentials.cfg
+android/
+
+# Exported builds (the APK is built from this code; see README)
+build/
+
+# Local tool files
+.claude/

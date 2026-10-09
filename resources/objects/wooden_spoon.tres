@@ -1,0 +1,16 @@
+[gd_resource type="Resource" script_class="HiddenObjectData" format=3]
+
+[ext_resource type="Script" path="res://scripts/hidden_object_data.gd" id="1_data"]
+
+[resource]
+script = ExtResource("1_data")
+object_id = &"wooden_spoon"
+display_name = "Wooden Spoon"
+description = "A well-used wooden spoon."
+collection_message = "You found a wooden spoon."
+clue_text = "Burnt at the tip. Mother used it every birthday, for the cake."
+hint_text = "Something that stirs hangs near the stove."
+riddle_text = "I stir the pot but never eat"
+placeholder_style = 42
+is_required = true
+starts_visible = true

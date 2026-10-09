@@ -1,0 +1,259 @@
+[gd_scene format=3]
+
+[ext_resource type="Script" path="res://scripts/room_level.gd" id="1_r"]
+[ext_resource type="Resource" path="res://resources/levels/island_chapel_level.tres" id="2_r"]
+[ext_resource type="Script" path="res://scripts/game_manager.gd" id="3_r"]
+[ext_resource type="Script" path="res://scripts/island_chapel_art.gd" id="4_r"]
+[ext_resource type="PackedScene" path="res://scenes/objects/hidden_object.tscn" id="5_r"]
+[ext_resource type="Resource" path="res://resources/objects/hymn_book.tres" id="6_r"]
+[ext_resource type="Resource" path="res://resources/objects/collection_plate.tres" id="7_r"]
+[ext_resource type="Resource" path="res://resources/objects/prayer_card.tres" id="8_r"]
+[ext_resource type="Resource" path="res://resources/objects/grey_veil.tres" id="9_r"]
+[ext_resource type="Resource" path="res://resources/objects/parish_register.tres" id="10_r"]
+[ext_resource type="Resource" path="res://resources/objects/hand_bell.tres" id="11_r"]
+[ext_resource type="Resource" path="res://resources/objects/pewter_cup.tres" id="12_r"]
+[ext_resource type="Resource" path="res://resources/objects/embroidery_hoop.tres" id="13_r"]
+[ext_resource type="Resource" path="res://resources/objects/trowel.tres" id="14_r"]
+[ext_resource type="Resource" path="res://resources/objects/doctors_letter.tres" id="15_r"]
+[ext_resource type="Resource" path="res://resources/objects/candle_snuffer.tres" id="16_r"]
+[ext_resource type="Resource" path="res://resources/objects/wooden_cross.tres" id="17_r"]
+[ext_resource type="Resource" path="res://resources/objects/oarlock.tres" id="18_r"]
+[ext_resource type="Resource" path="res://resources/objects/vestry_key.tres" id="19_r"]
+[ext_resource type="Resource" path="res://resources/objects/cottage_map.tres" id="20_r"]
+[ext_resource type="PackedScene" path="res://scenes/objects/openable_container.tscn" id="21_r"]
+[ext_resource type="Script" path="res://scripts/candle_lights.gd" id="22_r"]
+[ext_resource type="Script" path="res://scripts/hint_highlight.gd" id="23_r"]
+[ext_resource type="PackedScene" path="res://scenes/ui/hud.tscn" id="24_r"]
+[ext_resource type="PackedScene" path="res://scenes/ui/notification.tscn" id="25_r"]
+[ext_resource type="PackedScene" path="res://scenes/victory_screen.tscn" id="26_r"]
+[ext_resource type="PackedScene" path="res://scenes/ui/pause_menu.tscn" id="27_r"]
+[ext_resource type="PackedScene" path="res://scenes/ui/letter_popup.tscn" id="28_r"]
+[ext_resource type="PackedScene" path="res://scenes/ui/keypad_lock.tscn" id="29_r"]
+
+[node name="IslandChapel" type="Node2D" node_paths=PackedStringArray("keypad_lock")]
+script = ExtResource("1_r")
+level_data = ExtResource("2_r")
+keypad_lock = NodePath("KeypadLock")
+
+[node name="GameManager" type="Node" parent="."]
+unique_name_in_owner = true
+script = ExtResource("3_r")
+
+[node name="RoomBackground" type="Node2D" parent="."]
+script = ExtResource("4_r")
+
+[node name="HiddenObjects" type="Node2D" parent="."]
+unique_name_in_owner = true
+
+[node name="HymnBook" parent="HiddenObjects" instance=ExtResource("5_r")]
+position = Vector2(250, 236)
+rotation = -0.2
+scale = Vector2(0.55, 0.55)
+data = ExtResource("6_r")
+
+[node name="CollectionPlate" parent="HiddenObjects" instance=ExtResource("5_r")]
+position = Vector2(420, 598)
+rotation = 0.1
+scale = Vector2(0.6, 0.6)
+data = ExtResource("7_r")
+
+[node name="GreyVeil" parent="HiddenObjects" instance=ExtResource("5_r")]
+position = Vector2(835, 372)
+scale = Vector2(0.6, 0.6)
+data = ExtResource("9_r")
+
+[node name="HandBell" parent="HiddenObjects" instance=ExtResource("5_r")]
+position = Vector2(338, 418)
+rotation = 0.25
+scale = Vector2(0.55, 0.55)
+data = ExtResource("11_r")
+
+[node name="Trowel" parent="HiddenObjects" instance=ExtResource("5_r")]
+position = Vector2(212, 668)
+rotation = -0.15
+scale = Vector2(0.6, 0.6)
+data = ExtResource("14_r")
+
+[node name="Oarlock" parent="HiddenObjects" instance=ExtResource("5_r")]
+position = Vector2(952, 652)
+rotation = 0.4
+scale = Vector2(0.6, 0.6)
+data = ExtResource("18_r")
+
+[node name="AlmsBox" parent="HiddenObjects" node_paths=PackedStringArray("contents") instance=ExtResource("21_r")]
+position = Vector2(510, 292)
+container_id = &"alms_box"
+contents = NodePath("../VestryKey")
+open_title = "The four numbers click into place..."
+open_message = "The iron lid swings up. No coins: just a long iron key with a paper tag."
+required_code = "1989"
+code_title = "The Alms Box"
+code_prompt = "An iron alms box with a four-number lock. Scratched on the lid: 'Our Sister Margaret's year.'"
+code_hint_first = "Wrong. The parish register lists the year every sister came to the chapel. It is kept in the parish chest."
+code_hint_second = "The register says 'Sister Margaret, received 1989'. The code is 1989."
+code_hint_first_after = 9
+code_hint_second_after = 12
+style = 5
+tint = Color(0.3, 0.3, 0.32, 1)
+size = Vector2(40, 38)
+
+[node name="VestryKey" parent="HiddenObjects" instance=ExtResource("5_r")]
+position = Vector2(510, 288)
+scale = Vector2(0.5, 0.5)
+data = ExtResource("19_r")
+
+[node name="VestryDoor" parent="HiddenObjects" node_paths=PackedStringArray("contents", "required_object") instance=ExtResource("21_r")]
+position = Vector2(905, 352)
+container_id = &"vestry_door"
+contents = NodePath("../CottageMap")
+open_title = "The vestry door creaks open..."
+open_message = "Cassocks on hooks, a desk, and on it a map, folded once, left in a hurry."
+required_object = NodePath("../VestryKey")
+locked_title = "The vestry door is locked."
+locked_message = "A heavy old lock. The vestry key must be somewhere in the chapel."
+style = 3
+tint = Color(0.33, 0.22, 0.14, 1)
+size = Vector2(90, 186)
+
+[node name="CottageMap" parent="HiddenObjects" instance=ExtResource("5_r")]
+position = Vector2(905, 346)
+scale = Vector2(0.6, 0.6)
+data = ExtResource("20_r")
+
+[node name="SewingBasket" parent="HiddenObjects" node_paths=PackedStringArray("contents") instance=ExtResource("21_r")]
+position = Vector2(160, 602)
+container_id = &"sewing_basket"
+contents = NodePath("../EmbroideryHoop")
+open_title = "You lift the lid of the sewing basket..."
+open_message = "Skeins of blue and red thread, and an embroidery hoop, half finished."
+style = 6
+tint = Color(0.5, 0.42, 0.28, 1)
+size = Vector2(48, 34)
+
+[node name="EmbroideryHoop" parent="HiddenObjects" instance=ExtResource("5_r")]
+position = Vector2(160, 596)
+rotation = -0.1
+scale = Vector2(0.55, 0.55)
+data = ExtResource("13_r")
+
+[node name="PulpitDrawer" parent="HiddenObjects" node_paths=PackedStringArray("contents") instance=ExtResource("21_r")]
+position = Vector2(232, 330)
+container_id = &"pulpit_drawer"
+contents = NodePath("../DoctorsLetter")
+open_title = "The little drawer slides out..."
+open_message = "Sermon notes, a pencil stub, and a letter on stiff white paper."
+style = 4
+tint = Color(0.4, 0.28, 0.17, 1)
+size = Vector2(60, 16)
+
+[node name="DoctorsLetter" parent="HiddenObjects" instance=ExtResource("5_r")]
+position = Vector2(232, 326)
+rotation = 0.1
+scale = Vector2(0.5, 0.5)
+data = ExtResource("15_r")
+
+[node name="ParishChest" parent="HiddenObjects" node_paths=PackedStringArray("contents") instance=ExtResource("21_r")]
+position = Vector2(790, 478)
+container_id = &"parish_chest"
+contents = NodePath("../ParishRegister")
+open_title = "You lift the lid of the parish chest..."
+open_message = "Old candle ends, a folded altar cloth, and the heavy parish register."
+style = 0
+tint = Color(0.42, 0.29, 0.2, 1)
+size = Vector2(84, 46)
+
+[node name="ParishRegister" parent="HiddenObjects" instance=ExtResource("5_r")]
+position = Vector2(790, 472)
+scale = Vector2(0.55, 0.55)
+data = ExtResource("10_r")
+
+[node name="FontCover" parent="HiddenObjects" node_paths=PackedStringArray("contents") instance=ExtResource("21_r")]
+position = Vector2(430, 449)
+container_id = &"font_cover"
+contents = NodePath("../WoodenCross")
+open_title = "You lift the wooden lid of the font..."
+open_message = "The bowl is dry. Someone has hidden a small wooden cross in it."
+style = 7
+tint = Color(0.3, 0.2, 0.13, 1)
+size = Vector2(74, 18)
+
+[node name="WoodenCross" parent="HiddenObjects" instance=ExtResource("5_r")]
+position = Vector2(430, 444)
+scale = Vector2(0.55, 0.55)
+data = ExtResource("17_r")
+
+[node name="PewBox" parent="HiddenObjects" node_paths=PackedStringArray("contents") instance=ExtResource("21_r")]
+position = Vector2(820, 612)
+container_id = &"pew_box"
+contents = NodePath("../PrayerCard")
+open_title = "You open the little pew box..."
+open_message = "A stack of prayer cards. The top one has writing on the back."
+style = 7
+tint = Color(0.38, 0.26, 0.16, 1)
+size = Vector2(40, 24)
+
+[node name="PrayerCard" parent="HiddenObjects" instance=ExtResource("5_r")]
+position = Vector2(820, 608)
+rotation = 0.15
+scale = Vector2(0.5, 0.5)
+data = ExtResource("8_r")
+
+[node name="Aumbry" parent="HiddenObjects" node_paths=PackedStringArray("contents") instance=ExtResource("21_r")]
+position = Vector2(790, 300)
+container_id = &"aumbry"
+contents = NodePath("../PewterCup")
+open_title = "The aumbry's little doors open..."
+open_message = "A folded linen cloth and a shining pewter cup."
+style = 3
+tint = Color(0.36, 0.26, 0.16, 1)
+size = Vector2(40, 48)
+
+[node name="PewterCup" parent="HiddenObjects" instance=ExtResource("5_r")]
+position = Vector2(790, 296)
+scale = Vector2(0.55, 0.55)
+data = ExtResource("12_r")
+
+[node name="CandleBox" parent="HiddenObjects" node_paths=PackedStringArray("contents") instance=ExtResource("21_r")]
+position = Vector2(575, 340)
+container_id = &"candle_box"
+contents = NodePath("../CandleSnuffer")
+open_title = "You open the tin candle box..."
+open_message = "Spare candles, a box of matches, and a long brass snuffer."
+style = 7
+tint = Color(0.4, 0.42, 0.45, 1)
+size = Vector2(44, 20)
+
+[node name="CandleSnuffer" parent="HiddenObjects" instance=ExtResource("5_r")]
+position = Vector2(575, 336)
+rotation = -0.1
+scale = Vector2(0.5, 0.5)
+data = ExtResource("16_r")
+
+[node name="RoomForeground" type="Node2D" parent="."]
+script = ExtResource("4_r")
+layer = 1
+
+[node name="CandleLights" type="Node2D" parent="."]
+script = ExtResource("22_r")
+
+[node name="HintHighlight" type="Node2D" parent="."]
+unique_name_in_owner = true
+visible = false
+script = ExtResource("23_r")
+
+[node name="HUD" parent="." instance=ExtResource("24_r")]
+unique_name_in_owner = true
+
+[node name="Notification" parent="." instance=ExtResource("25_r")]
+unique_name_in_owner = true
+
+[node name="VictoryScreen" parent="." instance=ExtResource("26_r")]
+unique_name_in_owner = true
+
+[node name="PauseMenu" parent="." instance=ExtResource("27_r")]
+unique_name_in_owner = true
+
+[node name="LetterPopup" parent="." instance=ExtResource("28_r")]
+unique_name_in_owner = true
+
+[node name="KeypadLock" parent="." instance=ExtResource("29_r")]

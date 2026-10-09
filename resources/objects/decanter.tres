@@ -1,0 +1,16 @@
+[gd_resource type="Resource" script_class="HiddenObjectData" format=3]
+
+[ext_resource type="Script" path="res://scripts/hidden_object_data.gd" id="1_data"]
+
+[resource]
+script = ExtResource("1_data")
+object_id = &"decanter"
+display_name = "Decanter"
+description = "A cut-glass decanter of brandy, half empty."
+collection_message = "You found a decanter!"
+clue_text = "Half of it gone tonight. Vane needed his courage. The label round its neck says 'For the nerves'."
+hint_text = "It stands right on top of the tall glass medicine cabinet."
+riddle_text = ""
+placeholder_style = 183
+is_required = true
+starts_visible = true

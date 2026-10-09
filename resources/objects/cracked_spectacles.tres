@@ -1,0 +1,15 @@
+[gd_resource type="Resource" script_class="HiddenObjectData" format=3]
+
+[ext_resource type="Script" path="res://scripts/hidden_object_data.gd" id="1_data"]
+
+[resource]
+script = ExtResource("1_data")
+object_id = &"cracked_spectacles"
+display_name = "Cracked Spectacles"
+description = "Wire-rimmed reading glasses."
+collection_message = "You found a pair of cracked spectacles."
+clue_text = "One lens is freshly cracked. Eleanor never wore glasses. Someone sat up here watching the garden, and left in a hurry."
+hint_text = "Someone sat by the window, rocking slowly back and forth."
+placeholder_style = 16
+is_required = true
+starts_visible = true

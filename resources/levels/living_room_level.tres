@@ -1,0 +1,21 @@
+[gd_resource type="Resource" script_class="LevelData" format=3]
+
+[ext_resource type="Script" path="res://scripts/level_data.gd" id="1_level"]
+
+[resource]
+script = ExtResource("1_level")
+chapter_id = &"living_room"
+room_name = "The Living Room"
+intro_message = "A record crackles on the gramophone. The lights here are failing - they will cut out at random. Keep searching by match light when they do. Find the 8 hidden objects."
+hint_cooldown_seconds = 35.0
+hint_area_radius = 180.0
+hint_area_offset = 95.0
+chapter_title = "Chapter Six Complete"
+chapter_hook = "The lights die one last time. When they flicker back on, the kitchen door at the end of the hall is standing open."
+final_letter_title = "A Letter in the Record Sleeve"
+final_letter_text = "Mara, if he ever learns that you are alive, he will come for you.
+
+The old servants' door in the kitchen leads to the lake path. Mother hid its key the way she hid our birthday sweets, and she left her rhymes to find it.
+
+You always remembered her rhymes better than I did."
+final_letter_signature = "- E."

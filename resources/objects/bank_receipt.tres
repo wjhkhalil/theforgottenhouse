@@ -1,0 +1,16 @@
+[gd_resource type="Resource" script_class="HiddenObjectData" format=3]
+
+[ext_resource type="Script" path="res://scripts/hidden_object_data.gd" id="1_data"]
+
+[resource]
+script = ExtResource("1_data")
+object_id = &"bank_receipt"
+display_name = "Bank Receipt"
+description = "A bank slip for a monthly payment."
+collection_message = "You found a bank receipt!"
+clue_text = "Paid by R. Vane to T. Greaves, every month since May 1987. Vane has been paying Greaves to keep quiet ever since."
+hint_text = "The workbench drawer is locked. Its key is somewhere wet."
+riddle_text = ""
+placeholder_style = 79
+is_required = true
+starts_visible = false

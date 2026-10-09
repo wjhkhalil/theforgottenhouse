@@ -1,0 +1,16 @@
+[gd_resource type="Resource" script_class="HiddenObjectData" format=3]
+
+[ext_resource type="Script" path="res://scripts/hidden_object_data.gd" id="1_data"]
+
+[resource]
+script = ExtResource("1_data")
+object_id = &"cottage_map"
+display_name = "Cottage Map"
+description = "A hand-drawn map of the lake."
+collection_message = "You found a map to Vane's cottage!"
+clue_text = "Drawn in Vane's neat hand: a path across the lake from the island to a cottage on the far shore, marked with a cross."
+hint_text = "The map is in the vestry. Open the arched vestry door with the vestry key."
+riddle_text = ""
+placeholder_style = 176
+is_required = true
+starts_visible = false

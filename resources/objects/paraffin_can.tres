@@ -1,0 +1,16 @@
+[gd_resource type="Resource" script_class="HiddenObjectData" format=3]
+
+[ext_resource type="Script" path="res://scripts/hidden_object_data.gd" id="1_data"]
+
+[resource]
+script = ExtResource("1_data")
+object_id = &"paraffin_can"
+display_name = "Paraffin Can"
+description = "A small red can of lamp oil with a bent spout."
+collection_message = "You found a paraffin can!"
+clue_text = "Lamp oil for the great light. A few drops of it would free anything the sea air has rusted shut."
+hint_text = "Agnes kept the lamp oil locked in the iron locker under the lowest flight of stairs, at the bottom of the tower."
+riddle_text = ""
+placeholder_style = 137
+is_required = true
+starts_visible = false

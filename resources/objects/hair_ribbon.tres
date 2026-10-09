@@ -1,0 +1,16 @@
+[gd_resource type="Resource" script_class="HiddenObjectData" format=3]
+
+[ext_resource type="Script" path="res://scripts/hidden_object_data.gd" id="1_data"]
+
+[resource]
+script = ExtResource("1_data")
+object_id = &"hair_ribbon"
+display_name = "Blue Hair Ribbon"
+description = "A blue ribbon tied in a double knot."
+collection_message = "You found a blue hair ribbon."
+clue_text = "Tied to the banister in a double knot - the way the twins marked their trail by the lake. Mara is leading you down."
+hint_text = "Something blue is tied where hands slide down the stairs."
+riddle_text = ""
+placeholder_style = 21
+is_required = true
+starts_visible = true

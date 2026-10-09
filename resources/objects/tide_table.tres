@@ -1,0 +1,16 @@
+[gd_resource type="Resource" script_class="HiddenObjectData" format=3]
+
+[ext_resource type="Script" path="res://scripts/hidden_object_data.gd" id="1_data"]
+
+[resource]
+script = ExtResource("1_data")
+object_id = &"tide_table"
+display_name = "Tide Table"
+description = "A printed tide table for 1988, with one night ringed in red."
+collection_message = "You found a tide table!"
+clue_text = "One night is ringed in red: the 2nd of October 1988. Agnes wrote beside it: 'Boat lights on the water near midnight. Then nothing.'"
+hint_text = "It is pinned to the wall below the keeper's landing, on the left above the lifebelt. Wait for the beam to light it."
+riddle_text = ""
+placeholder_style = 141
+is_required = true
+starts_visible = true

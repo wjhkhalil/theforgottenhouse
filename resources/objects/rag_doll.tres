@@ -1,0 +1,16 @@
+[gd_resource type="Resource" script_class="HiddenObjectData" format=3]
+
+[ext_resource type="Script" path="res://scripts/hidden_object_data.gd" id="1_data"]
+
+[resource]
+script = ExtResource("1_data")
+object_id = &"rag_doll"
+display_name = "Rag Doll"
+description = "A doll sewn from sacking, with odd button eyes."
+collection_message = "You found a rag doll!"
+clue_text = "Stitched on its dress: 'For Ellie.' Mara made it for her sister, hoping to give it to her one day."
+hint_text = "The striped hatbox on top of the sea chest has something soft inside."
+riddle_text = ""
+placeholder_style = 87
+is_required = true
+starts_visible = false

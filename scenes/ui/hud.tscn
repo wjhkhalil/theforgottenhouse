@@ -1,0 +1,120 @@
+[gd_scene format=3]
+
+[ext_resource type="Script" path="res://scripts/hud.gd" id="1_hud"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBox_top_bar"]
+content_margin_left = 18.0
+content_margin_top = 8.0
+content_margin_right = 14.0
+content_margin_bottom = 8.0
+bg_color = Color(0.055, 0.067, 0.11, 0.92)
+border_width_bottom = 2
+border_color = Color(0.45, 0.36, 0.26, 1)
+shadow_color = Color(0, 0, 0, 0.4)
+shadow_size = 6
+
+[node name="HUD" type="CanvasLayer"]
+script = ExtResource("1_hud")
+
+[node name="Root" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="TopBar" type="PanelContainer" parent="Root"]
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_bottom = 56.0
+grow_horizontal = 2
+theme_override_styles/panel = SubResource("StyleBox_top_bar")
+
+[node name="HBox" type="HBoxContainer" parent="Root/TopBar"]
+layout_mode = 2
+theme_override_constants/separation = 12
+
+[node name="RoomLabel" type="Label" parent="Root/TopBar/HBox"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_colors/font_color = Color(0.95, 0.76, 0.48, 1)
+theme_override_font_sizes/font_size = 22
+text = "The Old Bedroom"
+vertical_alignment = 1
+
+[node name="Spacer" type="Control" parent="Root/TopBar/HBox"]
+layout_mode = 2
+size_flags_horizontal = 3
+mouse_filter = 2
+
+[node name="ProgressLabel" type="Label" parent="Root/TopBar/HBox"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_font_sizes/font_size = 20
+text = "Objects Found: 0 / 5"
+vertical_alignment = 1
+
+[node name="Gap" type="Control" parent="Root/TopBar/HBox"]
+custom_minimum_size = Vector2(16, 0)
+layout_mode = 2
+mouse_filter = 2
+
+[node name="HintButton" type="Button" parent="Root/TopBar/HBox"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(90, 0)
+layout_mode = 2
+tooltip_text = "Get a clue about where an object is hidden (H)"
+text = "Hint"
+
+[node name="SoundButton" type="Button" parent="Root/TopBar/HBox"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(124, 0)
+layout_mode = 2
+tooltip_text = "Turn sound on or off"
+text = "Sound: On"
+
+[node name="PauseButton" type="Button" parent="Root/TopBar/HBox"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(90, 0)
+layout_mode = 2
+tooltip_text = "Pause the game (Esc or P)"
+text = "Pause"
+
+[node name="ObjectivePanel" type="PanelContainer" parent="Root"]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -262.0
+offset_top = 70.0
+offset_right = -12.0
+offset_bottom = 120.0
+grow_horizontal = 0
+
+[node name="VBox" type="VBoxContainer" parent="Root/ObjectivePanel"]
+layout_mode = 2
+theme_override_constants/separation = 8
+
+[node name="Title" type="Label" parent="Root/ObjectivePanel/VBox"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.95, 0.76, 0.48, 1)
+theme_override_font_sizes/font_size = 20
+text = "Objects to Find"
+horizontal_alignment = 1
+
+[node name="Separator" type="HSeparator" parent="Root/ObjectivePanel/VBox"]
+layout_mode = 2
+
+[node name="ObjectiveScroll" type="ScrollContainer" parent="Root/ObjectivePanel/VBox"]
+unique_name_in_owner = true
+layout_mode = 2
+horizontal_scroll_mode = 0
+
+[node name="ObjectiveList" type="VBoxContainer" parent="Root/ObjectivePanel/VBox/ObjectiveScroll"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/separation = 8

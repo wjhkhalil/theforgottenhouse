@@ -1,0 +1,16 @@
+[gd_resource type="Resource" script_class="HiddenObjectData" format=3]
+
+[ext_resource type="Script" path="res://scripts/hidden_object_data.gd" id="1_data"]
+
+[resource]
+script = ExtResource("1_data")
+object_id = &"bandage_roll"
+display_name = "Bandage Roll"
+description = "A roll of white cotton bandage with a safety pin."
+collection_message = "You found a bandage roll!"
+clue_text = "Half the roll is used. The logbook says: 'Dressed the cuts on her wrists again.' Marks from a shackle. Agnes must have wondered who had chained her."
+hint_text = "The white first aid tin stands on the bench by the window at the bottom of the tower."
+riddle_text = ""
+placeholder_style = 140
+is_required = true
+starts_visible = false

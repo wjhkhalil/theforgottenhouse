@@ -1,0 +1,16 @@
+[gd_resource type="Resource" script_class="HiddenObjectData" format=3]
+
+[ext_resource type="Script" path="res://scripts/hidden_object_data.gd" id="1_data"]
+
+[resource]
+script = ExtResource("1_data")
+object_id = &"boathouse_key"
+display_name = "Boathouse Key"
+description = "A heavy key tagged 'Boathouse'."
+collection_message = "You found the boathouse key!"
+clue_text = "A heavy iron key tagged 'Boathouse'. Eleanor is on the other side of the lock it opens."
+hint_text = "The desk drawer is jammed shut. Something thin and strong could force it."
+riddle_text = ""
+placeholder_style = 57
+is_required = true
+starts_visible = false

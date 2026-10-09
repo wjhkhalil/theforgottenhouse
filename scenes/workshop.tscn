@@ -1,0 +1,214 @@
+[gd_scene format=3]
+
+[ext_resource type="Script" path="res://scripts/room_level.gd" id="1_room"]
+[ext_resource type="Resource" path="res://resources/levels/workshop_level.tres" id="2_level"]
+[ext_resource type="Script" path="res://scripts/game_manager.gd" id="3_manager"]
+[ext_resource type="Script" path="res://scripts/workshop_art.gd" id="4_art"]
+[ext_resource type="PackedScene" path="res://scenes/objects/hidden_object.tscn" id="5_object"]
+[ext_resource type="Resource" path="res://resources/objects/hand_drill.tres" id="6_hand_drill"]
+[ext_resource type="Resource" path="res://resources/objects/wooden_bung.tres" id="7_wooden_bung"]
+[ext_resource type="Resource" path="res://resources/objects/oil_can.tres" id="8_oil_can"]
+[ext_resource type="Resource" path="res://resources/objects/wood_plane.tres" id="9_wood_plane"]
+[ext_resource type="Resource" path="res://resources/objects/paint_tin.tres" id="10_paint_tin"]
+[ext_resource type="Resource" path="res://resources/objects/letter_stencil.tres" id="11_letter_stencil"]
+[ext_resource type="Resource" path="res://resources/objects/work_glove.tres" id="12_work_glove"]
+[ext_resource type="Resource" path="res://resources/objects/job_book.tres" id="13_job_book"]
+[ext_resource type="Resource" path="res://resources/objects/hull_plan.tres" id="14_hull_plan"]
+[ext_resource type="Resource" path="res://resources/objects/cupboard_key.tres" id="15_cupboard_key"]
+[ext_resource type="Resource" path="res://resources/objects/boat_model.tres" id="16_boat_model"]
+[ext_resource type="Resource" path="res://resources/objects/mallet.tres" id="17_mallet"]
+[ext_resource type="Resource" path="res://resources/objects/diving_lamp.tres" id="18_diving_lamp"]
+[ext_resource type="PackedScene" path="res://scenes/objects/openable_container.tscn" id="19_container"]
+[ext_resource type="Script" path="res://scripts/torn_pieces.gd" id="20_pieces"]
+[ext_resource type="Script" path="res://scripts/hint_highlight.gd" id="21_hint"]
+[ext_resource type="PackedScene" path="res://scenes/ui/hud.tscn" id="22_hud"]
+[ext_resource type="PackedScene" path="res://scenes/ui/notification.tscn" id="23_note"]
+[ext_resource type="PackedScene" path="res://scenes/victory_screen.tscn" id="24_victory"]
+[ext_resource type="PackedScene" path="res://scenes/ui/pause_menu.tscn" id="25_pause"]
+[ext_resource type="PackedScene" path="res://scenes/ui/letter_popup.tscn" id="26_letter"]
+[ext_resource type="PackedScene" path="res://scenes/ui/keypad_lock.tscn" id="27_keypad"]
+
+[node name="Workshop" type="Node2D" node_paths=PackedStringArray("keypad_lock")]
+script = ExtResource("1_room")
+level_data = ExtResource("2_level")
+keypad_lock = NodePath("KeypadLock")
+
+[node name="GameManager" type="Node" parent="."]
+unique_name_in_owner = true
+script = ExtResource("3_manager")
+
+[node name="RoomBackground" type="Node2D" parent="."]
+script = ExtResource("4_art")
+
+[node name="HiddenObjects" type="Node2D" parent="."]
+unique_name_in_owner = true
+
+[node name="HandDrill" parent="HiddenObjects" instance=ExtResource("5_object")]
+position = Vector2(940, 646)
+rotation = -0.25
+scale = Vector2(0.65, 0.65)
+data = ExtResource("6_hand_drill")
+
+[node name="OilCan" parent="HiddenObjects" instance=ExtResource("5_object")]
+position = Vector2(284, 422)
+scale = Vector2(0.6, 0.6)
+data = ExtResource("8_oil_can")
+
+[node name="WoodPlane" parent="HiddenObjects" instance=ExtResource("5_object")]
+position = Vector2(516, 428)
+rotation = 0.05
+scale = Vector2(0.62, 0.62)
+data = ExtResource("9_wood_plane")
+
+[node name="PaintTin" parent="HiddenObjects" instance=ExtResource("5_object")]
+position = Vector2(372, 585)
+scale = Vector2(0.7, 0.7)
+data = ExtResource("10_paint_tin")
+
+[node name="WorkGlove" parent="HiddenObjects" instance=ExtResource("5_object")]
+position = Vector2(612, 688)
+rotation = 0.6
+scale = Vector2(0.6, 0.6)
+data = ExtResource("12_work_glove")
+
+[node name="BoatModel" parent="HiddenObjects" instance=ExtResource("5_object")]
+position = Vector2(905, 286)
+scale = Vector2(0.6, 0.6)
+data = ExtResource("16_boat_model")
+
+[node name="HullPlan" parent="HiddenObjects" instance=ExtResource("5_object")]
+position = Vector2(350, 422)
+scale = Vector2(0.8, 0.8)
+data = ExtResource("14_hull_plan")
+
+[node name="BenchDrawer" parent="HiddenObjects" node_paths=PackedStringArray("contents") instance=ExtResource("19_container")]
+position = Vector2(430, 474)
+container_id = &"bench_drawer"
+contents = NodePath("../JobBook")
+open_title = "The bench drawer sticks, then slides out..."
+open_message = "Pencils, a rule, and a cloth-bound book with 'JOBS' on the cover."
+style = 4
+tint = Color(0.4, 0.29, 0.19, 1)
+size = Vector2(84, 24)
+
+[node name="JobBook" parent="HiddenObjects" instance=ExtResource("5_object")]
+position = Vector2(430, 468)
+scale = Vector2(0.5, 0.5)
+data = ExtResource("13_job_book")
+
+[node name="BungCrate" parent="HiddenObjects" node_paths=PackedStringArray("contents") instance=ExtResource("19_container")]
+position = Vector2(790, 630)
+container_id = &"bung_crate"
+contents = NodePath("../WoodenBung")
+open_title = "You lift the lid of the little crate..."
+open_message = "It smells of grease. Most of it is empty, but one wooden plug is left in the corner."
+style = 7
+tint = Color(0.5, 0.38, 0.24, 1)
+size = Vector2(70, 42)
+
+[node name="WoodenBung" parent="HiddenObjects" instance=ExtResource("5_object")]
+position = Vector2(790, 624)
+rotation = 0.3
+scale = Vector2(0.6, 0.6)
+data = ExtResource("7_wooden_bung")
+
+[node name="LogBasket" parent="HiddenObjects" node_paths=PackedStringArray("contents") instance=ExtResource("19_container")]
+position = Vector2(150, 512)
+container_id = &"log_basket"
+contents = NodePath("../Mallet")
+open_title = "You dig through the logs..."
+open_message = "Under the kindling, pushed down out of sight: a wooden mallet."
+style = 6
+tint = Color(0.45, 0.36, 0.22, 1)
+size = Vector2(72, 44)
+
+[node name="Mallet" parent="HiddenObjects" instance=ExtResource("5_object")]
+position = Vector2(150, 506)
+rotation = -0.3
+scale = Vector2(0.55, 0.55)
+data = ExtResource("17_mallet")
+
+[node name="StencilBox" parent="HiddenObjects" node_paths=PackedStringArray("contents") instance=ExtResource("19_container")]
+position = Vector2(500, 588)
+container_id = &"stencil_box"
+contents = NodePath("../LetterStencil")
+open_title = "The flat box slides open..."
+open_message = "Rows of brass letters. One plate is still sticky with white paint."
+style = 7
+tint = Color(0.3, 0.36, 0.42, 1)
+size = Vector2(78, 22)
+
+[node name="LetterStencil" parent="HiddenObjects" instance=ExtResource("5_object")]
+position = Vector2(500, 583)
+scale = Vector2(0.55, 0.55)
+data = ExtResource("11_letter_stencil")
+
+[node name="CashBox" parent="HiddenObjects" node_paths=PackedStringArray("contents") instance=ExtResource("19_container")]
+position = Vector2(300, 652)
+container_id = &"cash_box"
+contents = NodePath("../CupboardKey")
+open_title = "The four wheels click into place..."
+open_message = "No money inside. Just a long iron key with a paper tag."
+required_code = "0110"
+code_title = "Greaves's Cash Box"
+code_prompt = "A steel cash box with four number wheels. Scratched on the lid: 'Day and month of the Lady M's last job. T.G.'"
+code_hint_first = "Wrong. Greaves wrote every job on his calendar. Look at the old calendar on the wall by the stove."
+code_hint_second = "The October 1988 calendar has the 1st circled in red: 'LADY M - last job'. Day 01, month 10. The code is 0110."
+code_hint_first_after = 6
+code_hint_second_after = 9
+style = 5
+tint = Color(0.32, 0.34, 0.38, 1)
+size = Vector2(58, 44)
+
+[node name="CupboardKey" parent="HiddenObjects" instance=ExtResource("5_object")]
+position = Vector2(300, 646)
+scale = Vector2(0.6, 0.6)
+data = ExtResource("15_cupboard_key")
+
+[node name="ToolCupboard" parent="HiddenObjects" node_paths=PackedStringArray("contents", "required_object") instance=ExtResource("19_container")]
+position = Vector2(552, 330)
+container_id = &"tool_cupboard"
+contents = NodePath("../DivingLamp")
+open_title = "The cupboard key turns..."
+open_message = "Greaves's diving gear: a mask, a coil of line and a heavy brass lamp."
+required_object = NodePath("../CupboardKey")
+locked_title = "The tool cupboard is locked."
+locked_message = "A big iron lock. Greaves must have kept the key somewhere safe in the workshop."
+style = 3
+tint = Color(0.28, 0.36, 0.3, 1)
+size = Vector2(84, 112)
+
+[node name="DivingLamp" parent="HiddenObjects" instance=ExtResource("5_object")]
+position = Vector2(552, 324)
+scale = Vector2(0.7, 0.7)
+data = ExtResource("18_diving_lamp")
+
+[node name="TornPieces" type="Node2D" parent="." node_paths=PackedStringArray("hull_plan")]
+script = ExtResource("20_pieces")
+hull_plan = NodePath("../HiddenObjects/HullPlan")
+
+[node name="RoomForeground" type="Node2D" parent="."]
+script = ExtResource("4_art")
+layer = 1
+
+[node name="HintHighlight" type="Node2D" parent="."]
+unique_name_in_owner = true
+visible = false
+script = ExtResource("21_hint")
+
+[node name="HUD" parent="." instance=ExtResource("22_hud")]
+unique_name_in_owner = true
+
+[node name="Notification" parent="." instance=ExtResource("23_note")]
+unique_name_in_owner = true
+
+[node name="VictoryScreen" parent="." instance=ExtResource("24_victory")]
+unique_name_in_owner = true
+
+[node name="PauseMenu" parent="." instance=ExtResource("25_pause")]
+unique_name_in_owner = true
+
+[node name="LetterPopup" parent="." instance=ExtResource("26_letter")]
+unique_name_in_owner = true
+
+[node name="KeypadLock" parent="." instance=ExtResource("27_keypad")]

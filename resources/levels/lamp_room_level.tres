@@ -1,0 +1,25 @@
+[gd_resource type="Resource" script_class="LevelData" format=3]
+
+[ext_resource type="Script" path="res://scripts/level_data.gd" id="1_level"]
+
+[resource]
+script = ExtResource("1_level")
+chapter_id = &"lamp_room"
+room_name = "The Lamp Room"
+intro_message = "The storm howls in through a broken pane at the top of the lighthouse. When the window rattles, a gust blows Agnes's loose papers to new spots, and you can't catch them until they land. Find the 15 hidden objects."
+hint_cooldown_seconds = 85.0
+hint_area_radius = 280.0
+hint_area_offset = 155.0
+chapter_title = "House Two - Chapter Eight Complete"
+chapter_hook = "At dawn the island chapel's bell rings out across the water. The ferry still runs once a day, and Agnes's ticket is in your hand."
+final_letter_title = "A Letter to the Sisters"
+final_letter_text = "Reverend Mother,
+
+The lighthouse, March 1989.
+
+A doctor has been asking about the girl. He came to the harbour twice this week, and he knew things only her family could know. I am afraid of him.
+
+I am sending Margaret to you on the morning ferry. She still remembers nothing of before, and perhaps that is a mercy. I beg you, keep her safe and hidden on the island. If he comes, tell him nothing.
+
+She is the dearest thing I have."
+final_letter_signature = "- Agnes Hale"

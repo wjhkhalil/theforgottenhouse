@@ -1,0 +1,16 @@
+[gd_resource type="Resource" script_class="HiddenObjectData" format=3]
+
+[ext_resource type="Script" path="res://scripts/hidden_object_data.gd" id="1_data"]
+
+[resource]
+script = ExtResource("1_data")
+object_id = &"cellar_key"
+display_name = "Cellar Key"
+description = "A heavy iron key with a tag: 'CELLAR'."
+collection_message = "You found the cellar key!"
+clue_text = "From under the floor, very faintly, someone is humming a tune you both used to sing as girls. Open the cellar door!"
+hint_text = "It's inside Vane's black doctor's bag on the rug. The bag has a four-number lock."
+riddle_text = ""
+placeholder_style = 185
+is_required = true
+starts_visible = false

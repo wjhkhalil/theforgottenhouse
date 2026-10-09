@@ -1,0 +1,16 @@
+[gd_resource type="Resource" script_class="HiddenObjectData" format=3]
+
+[ext_resource type="Script" path="res://scripts/hidden_object_data.gd" id="1_data"]
+
+[resource]
+script = ExtResource("1_data")
+object_id = &"wooden_cross"
+display_name = "Wooden Cross"
+description = "A small hand-carved wooden cross on a cord."
+collection_message = "You found a wooden cross!"
+clue_text = "Carved on the back: 'For Margaret, from Agnes H.' The lighthouse keeper made it for her, all those years ago."
+hint_text = "Lift the wooden lid of the stone font, left of the altar."
+riddle_text = ""
+placeholder_style = 173
+is_required = true
+starts_visible = false

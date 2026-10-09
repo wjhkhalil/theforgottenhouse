@@ -1,0 +1,231 @@
+[gd_scene format=3]
+
+[ext_resource type="Script" path="res://scripts/room_level.gd" id="1_room"]
+[ext_resource type="Resource" path="res://resources/levels/ice_house_level.tres" id="2_level"]
+[ext_resource type="Script" path="res://scripts/game_manager.gd" id="3_manager"]
+[ext_resource type="Script" path="res://scripts/ice_house_art.gd" id="4_art"]
+[ext_resource type="PackedScene" path="res://scenes/objects/hidden_object.tscn" id="5_object"]
+[ext_resource type="Resource" path="res://resources/objects/ice_pick.tres" id="6_ice_pick"]
+[ext_resource type="Resource" path="res://resources/objects/ice_tongs.tres" id="7_ice_tongs"]
+[ext_resource type="Resource" path="res://resources/objects/horse_blanket.tres" id="8_horse_blanket"]
+[ext_resource type="Resource" path="res://resources/objects/torn_sleeve.tres" id="9_torn_sleeve"]
+[ext_resource type="Resource" path="res://resources/objects/frozen_pike.tres" id="10_frozen_pike"]
+[ext_resource type="Resource" path="res://resources/objects/soup_tin.tres" id="11_soup_tin"]
+[ext_resource type="Resource" path="res://resources/objects/lost_mitten.tres" id="12_lost_mitten"]
+[ext_resource type="Resource" path="res://resources/objects/keepers_note.tres" id="13_keepers_note"]
+[ext_resource type="Resource" path="res://resources/objects/signal_whistle.tres" id="14_signal_whistle"]
+[ext_resource type="Resource" path="res://resources/objects/scratched_slate.tres" id="15_scratched_slate"]
+[ext_resource type="Resource" path="res://resources/objects/ice_saw.tres" id="16_ice_saw"]
+[ext_resource type="Resource" path="res://resources/objects/frozen_brooch.tres" id="17_frozen_brooch"]
+[ext_resource type="Resource" path="res://resources/objects/snowshoe.tres" id="18_snowshoe"]
+[ext_resource type="Resource" path="res://resources/objects/lighthouse_key.tres" id="19_lighthouse_key"]
+[ext_resource type="PackedScene" path="res://scenes/objects/openable_container.tscn" id="20_container"]
+[ext_resource type="Script" path="res://scripts/frost_cover.gd" id="21_frost"]
+[ext_resource type="Script" path="res://scripts/hint_highlight.gd" id="22_hint"]
+[ext_resource type="PackedScene" path="res://scenes/ui/hud.tscn" id="23_hud"]
+[ext_resource type="PackedScene" path="res://scenes/ui/notification.tscn" id="24_note"]
+[ext_resource type="PackedScene" path="res://scenes/victory_screen.tscn" id="25_victory"]
+[ext_resource type="PackedScene" path="res://scenes/ui/pause_menu.tscn" id="26_pause"]
+[ext_resource type="PackedScene" path="res://scenes/ui/letter_popup.tscn" id="27_letter"]
+[ext_resource type="PackedScene" path="res://scenes/ui/keypad_lock.tscn" id="28_keypad"]
+
+[node name="IceHouse" type="Node2D" node_paths=PackedStringArray("keypad_lock")]
+script = ExtResource("1_room")
+level_data = ExtResource("2_level")
+keypad_lock = NodePath("KeypadLock")
+
+[node name="GameManager" type="Node" parent="."]
+unique_name_in_owner = true
+script = ExtResource("3_manager")
+
+[node name="RoomBackground" type="Node2D" parent="."]
+script = ExtResource("4_art")
+
+[node name="HiddenObjects" type="Node2D" parent="."]
+unique_name_in_owner = true
+
+[node name="IcePick" parent="HiddenObjects" instance=ExtResource("5_object")]
+position = Vector2(792, 502)
+rotation = 0.2
+scale = Vector2(0.6, 0.6)
+data = ExtResource("6_ice_pick")
+
+[node name="IceTongs" parent="HiddenObjects" instance=ExtResource("5_object")]
+position = Vector2(380, 336)
+scale = Vector2(0.6, 0.6)
+data = ExtResource("7_ice_tongs")
+
+[node name="HorseBlanket" parent="HiddenObjects" instance=ExtResource("5_object")]
+position = Vector2(418, 470)
+rotation = -0.06
+scale = Vector2(0.65, 0.65)
+data = ExtResource("8_horse_blanket")
+
+[node name="TornSleeve" parent="HiddenObjects" instance=ExtResource("5_object")]
+position = Vector2(254, 472)
+rotation = 0.5
+scale = Vector2(0.55, 0.55)
+data = ExtResource("9_torn_sleeve")
+
+[node name="LostMitten" parent="HiddenObjects" instance=ExtResource("5_object")]
+position = Vector2(356, 652)
+rotation = 0.4
+scale = Vector2(0.55, 0.55)
+data = ExtResource("12_lost_mitten")
+
+[node name="KeepersNote" parent="HiddenObjects" instance=ExtResource("5_object")]
+position = Vector2(124, 397)
+rotation = -0.08
+scale = Vector2(0.55, 0.55)
+data = ExtResource("13_keepers_note")
+
+[node name="ScratchedSlate" parent="HiddenObjects" instance=ExtResource("5_object")]
+position = Vector2(602, 528)
+rotation = -0.06
+scale = Vector2(0.7, 0.7)
+data = ExtResource("15_scratched_slate")
+
+[node name="Snowshoe" parent="HiddenObjects" instance=ExtResource("5_object")]
+position = Vector2(906, 642)
+rotation = 1.5
+scale = Vector2(0.6, 0.6)
+data = ExtResource("18_snowshoe")
+
+[node name="AgnesBasket" parent="HiddenObjects" node_paths=PackedStringArray("contents") instance=ExtResource("20_container")]
+position = Vector2(250, 640)
+container_id = &"agnes_basket"
+contents = NodePath("../SoupTin")
+open_title = "You lift the lid of the basket..."
+open_message = "A clean cloth, a spoon and an empty soup tin. Someone came here with food."
+style = 6
+tint = Color(0.6, 0.48, 0.3, 1)
+size = Vector2(58, 42)
+
+[node name="SoupTin" parent="HiddenObjects" instance=ExtResource("5_object")]
+position = Vector2(250, 634)
+scale = Vector2(0.55, 0.55)
+data = ExtResource("11_soup_tin")
+
+[node name="SawdustBin" parent="HiddenObjects" node_paths=PackedStringArray("contents") instance=ExtResource("20_container")]
+position = Vector2(470, 640)
+container_id = &"sawdust_bin"
+contents = NodePath("../SignalWhistle")
+open_title = "You dig into the sawdust bin..."
+open_message = "Your fingers close on something cold and metal, buried in the sawdust."
+style = 7
+tint = Color(0.42, 0.32, 0.22, 1)
+size = Vector2(72, 46)
+
+[node name="SignalWhistle" parent="HiddenObjects" instance=ExtResource("5_object")]
+position = Vector2(470, 634)
+rotation = 0.15
+scale = Vector2(0.55, 0.55)
+data = ExtResource("14_signal_whistle")
+
+[node name="ToolLocker" parent="HiddenObjects" node_paths=PackedStringArray("contents") instance=ExtResource("20_container")]
+position = Vector2(690, 470)
+container_id = &"tool_locker"
+contents = NodePath("../IceSaw")
+open_title = "The four wheels click into place..."
+open_message = "The locker door swings open. Among the rusty hooks hangs a long ice saw."
+required_code = "1896"
+code_title = "The Ice Cutters' Locker"
+code_prompt = "A tall tool locker with a four-number lock. Scratched beside the dial: 'Same as the year the company was founded.'"
+code_hint_first = "Wrong. The ice company's name is painted up somewhere in here, together with the year it began."
+code_hint_second = "The sign over the heavy door says 'Blackwater Ice Co. EST. 1896'. The code is 1896."
+code_hint_first_after = 7
+code_hint_second_after = 10
+style = 3
+tint = Color(0.3, 0.36, 0.42, 1)
+size = Vector2(78, 124)
+
+[node name="IceSaw" parent="HiddenObjects" instance=ExtResource("5_object")]
+position = Vector2(690, 464)
+scale = Vector2(0.55, 0.55)
+data = ExtResource("16_ice_saw")
+
+[node name="PikeIce" parent="HiddenObjects" node_paths=PackedStringArray("contents", "required_object") instance=ExtResource("20_container")]
+position = Vector2(885, 272)
+container_id = &"pike_ice"
+contents = NodePath("../FrozenPike")
+open_title = "The ice splits apart..."
+open_message = "Out slides a big pike, frozen stiff as a board."
+required_object = NodePath("../IcePick")
+locked_title = "The ice is rock hard."
+locked_message = "Your fingers just slide off this big block. You need a proper tool to break it: an ice pick, perhaps."
+hits_to_open = 3
+chip_title = "The ice cracks..."
+style = 9
+tint = Color(0.72, 0.86, 0.95, 1)
+size = Vector2(84, 52)
+
+[node name="FrozenPike" parent="HiddenObjects" instance=ExtResource("5_object")]
+position = Vector2(885, 268)
+scale = Vector2(0.6, 0.6)
+data = ExtResource("10_frozen_pike")
+
+[node name="BroochIce" parent="HiddenObjects" node_paths=PackedStringArray("contents") instance=ExtResource("20_container")]
+position = Vector2(940, 396)
+container_id = &"brooch_ice"
+contents = NodePath("../FrozenBrooch")
+open_title = "The little block falls apart..."
+open_message = "Something silver glints in the last chunk of ice."
+hits_to_open = 4
+chip_title = "The ice cracks..."
+style = 9
+tint = Color(0.72, 0.86, 0.95, 1)
+size = Vector2(56, 46)
+
+[node name="FrozenBrooch" parent="HiddenObjects" instance=ExtResource("5_object")]
+position = Vector2(940, 392)
+scale = Vector2(0.6, 0.6)
+data = ExtResource("17_frozen_brooch")
+
+[node name="DrainIce" parent="HiddenObjects" node_paths=PackedStringArray("contents", "required_object") instance=ExtResource("20_container")]
+position = Vector2(600, 654)
+container_id = &"drain_ice"
+contents = NodePath("../LighthouseKey")
+open_title = "The slab breaks in two..."
+open_message = "Frozen in the middle, right over the drain: a big iron key with a brass tag."
+required_object = NodePath("../IceSaw")
+locked_title = "A thick slab of ice over the drain."
+locked_message = "It's far too thick to chip by hand. Something dark is frozen in the middle of it. You need a saw to cut it."
+hits_to_open = 5
+chip_title = "The saw bites into the ice..."
+style = 9
+tint = Color(0.72, 0.86, 0.95, 1)
+size = Vector2(104, 48)
+
+[node name="LighthouseKey" parent="HiddenObjects" instance=ExtResource("5_object")]
+position = Vector2(600, 650)
+scale = Vector2(0.6, 0.6)
+data = ExtResource("19_lighthouse_key")
+
+[node name="FrostCover" type="Node2D" parent="."]
+script = ExtResource("21_frost")
+
+[node name="RoomForeground" type="Node2D" parent="."]
+script = ExtResource("4_art")
+layer = 1
+
+[node name="HintHighlight" type="Node2D" parent="."]
+unique_name_in_owner = true
+visible = false
+script = ExtResource("22_hint")
+
+[node name="HUD" parent="." instance=ExtResource("23_hud")]
+unique_name_in_owner = true
+
+[node name="Notification" parent="." instance=ExtResource("24_note")]
+unique_name_in_owner = true
+
+[node name="VictoryScreen" parent="." instance=ExtResource("25_victory")]
+unique_name_in_owner = true
+
+[node name="PauseMenu" parent="." instance=ExtResource("26_pause")]
+unique_name_in_owner = true
+
+[node name="LetterPopup" parent="." instance=ExtResource("27_letter")]
+unique_name_in_owner = true
+
+[node name="KeypadLock" parent="." instance=ExtResource("28_keypad")]

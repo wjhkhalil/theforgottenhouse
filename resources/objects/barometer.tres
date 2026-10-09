@@ -1,0 +1,16 @@
+[gd_resource type="Resource" script_class="HiddenObjectData" format=3]
+
+[ext_resource type="Script" path="res://scripts/hidden_object_data.gd" id="1_data"]
+
+[resource]
+script = ExtResource("1_data")
+object_id = &"barometer"
+display_name = "Barometer"
+description = "A banjo barometer in a wooden case, its needle swung right round to STORMY."
+collection_message = "You found a barometer!"
+clue_text = "The needle points to STORMY. A pencil note on the case: 'Lowest I have ever seen it - 2.10.88.'"
+hint_text = "High up on the curved wall at the top left of the tower, beside the window."
+riddle_text = ""
+placeholder_style = 142
+is_required = true
+starts_visible = true

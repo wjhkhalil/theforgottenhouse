@@ -1,0 +1,16 @@
+[gd_resource type="Resource" script_class="HiddenObjectData" format=3]
+
+[ext_resource type="Script" path="res://scripts/hidden_object_data.gd" id="1_data"]
+
+[resource]
+script = ExtResource("1_data")
+object_id = &"timetable"
+display_name = "Train Timetable"
+description = "A railway timetable, the 23:50 ringed in pencil."
+collection_message = "You found a train timetable!"
+clue_text = "The 23:50 again. He missed it on the night of the storm. Tonight he means to catch it, and leave her locked below."
+hint_text = "It has slipped onto the rug, under Vane's desk chair."
+riddle_text = ""
+placeholder_style = 186
+is_required = true
+starts_visible = true

@@ -1,0 +1,16 @@
+[gd_resource type="Resource" script_class="HiddenObjectData" format=3]
+
+[ext_resource type="Script" path="res://scripts/hidden_object_data.gd" id="1_data"]
+
+[resource]
+script = ExtResource("1_data")
+object_id = &"tobacco_pipe"
+display_name = "Tobacco Pipe"
+description = "A briar pipe, still warm."
+collection_message = "You found a tobacco pipe."
+clue_text = "The bowl is still warm. Greaves was sitting in this room only moments ago."
+hint_text = "Something still warm rests near the fireplace."
+riddle_text = ""
+placeholder_style = 35
+is_required = true
+starts_visible = true

@@ -1,0 +1,16 @@
+[gd_resource type="Resource" script_class="HiddenObjectData" format=3]
+
+[ext_resource type="Script" path="res://scripts/hidden_object_data.gd" id="1_data"]
+
+[resource]
+script = ExtResource("1_data")
+object_id = &"passport"
+display_name = "Passport"
+description = "Vane's passport, with a ticket tucked inside."
+collection_message = "You found a passport!"
+clue_text = "A one-way ticket to the continent for tomorrow morning. One passenger only. He meant to flee and never come back."
+hint_text = "Cut open the brown paper parcel on the rug near the fireplace. You need something sharp."
+riddle_text = ""
+placeholder_style = 187
+is_required = true
+starts_visible = false

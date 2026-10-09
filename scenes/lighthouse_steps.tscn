@@ -1,0 +1,236 @@
+[gd_scene format=3]
+
+[ext_resource type="Script" path="res://scripts/room_level.gd" id="1_room"]
+[ext_resource type="Resource" path="res://resources/levels/lighthouse_steps_level.tres" id="2_level"]
+[ext_resource type="Script" path="res://scripts/game_manager.gd" id="3_manager"]
+[ext_resource type="Script" path="res://scripts/lighthouse_steps_art.gd" id="4_art"]
+[ext_resource type="PackedScene" path="res://scenes/objects/hidden_object.tscn" id="5_object"]
+[ext_resource type="Resource" path="res://resources/objects/oilskin_hat.tres" id="6_oilskin_hat"]
+[ext_resource type="Resource" path="res://resources/objects/telescope.tres" id="7_telescope"]
+[ext_resource type="Resource" path="res://resources/objects/keeper_logbook.tres" id="8_keeper_logbook"]
+[ext_resource type="Resource" path="res://resources/objects/wick_trimmer.tres" id="9_wick_trimmer"]
+[ext_resource type="Resource" path="res://resources/objects/paraffin_can.tres" id="10_paraffin_can"]
+[ext_resource type="Resource" path="res://resources/objects/gull_feather.tres" id="11_gull_feather"]
+[ext_resource type="Resource" path="res://resources/objects/knitting_needles.tres" id="12_knitting_needles"]
+[ext_resource type="Resource" path="res://resources/objects/bandage_roll.tres" id="13_bandage_roll"]
+[ext_resource type="Resource" path="res://resources/objects/tide_table.tres" id="14_tide_table"]
+[ext_resource type="Resource" path="res://resources/objects/barometer.tres" id="15_barometer"]
+[ext_resource type="Resource" path="res://resources/objects/ship_in_bottle.tres" id="16_ship_in_bottle"]
+[ext_resource type="Resource" path="res://resources/objects/lifesaving_medal.tres" id="17_lifesaving_medal"]
+[ext_resource type="Resource" path="res://resources/objects/keepers_photo.tres" id="18_keepers_photo"]
+[ext_resource type="Resource" path="res://resources/objects/lamp_room_key.tres" id="19_lamp_room_key"]
+[ext_resource type="PackedScene" path="res://scenes/objects/openable_container.tscn" id="20_container"]
+[ext_resource type="Script" path="res://scripts/sweeping_beam.gd" id="21_beam"]
+[ext_resource type="Script" path="res://scripts/room_camera.gd" id="22_camera"]
+[ext_resource type="Script" path="res://scripts/hint_highlight.gd" id="23_hint"]
+[ext_resource type="PackedScene" path="res://scenes/ui/hud.tscn" id="24_hud"]
+[ext_resource type="PackedScene" path="res://scenes/ui/notification.tscn" id="25_note"]
+[ext_resource type="PackedScene" path="res://scenes/victory_screen.tscn" id="26_victory"]
+[ext_resource type="PackedScene" path="res://scenes/ui/pause_menu.tscn" id="27_pause"]
+[ext_resource type="PackedScene" path="res://scenes/ui/letter_popup.tscn" id="28_letter"]
+[ext_resource type="PackedScene" path="res://scenes/ui/keypad_lock.tscn" id="29_keypad"]
+
+[node name="LighthouseSteps" type="Node2D" node_paths=PackedStringArray("keypad_lock", "room_camera")]
+script = ExtResource("1_room")
+level_data = ExtResource("2_level")
+keypad_lock = NodePath("KeypadLock")
+room_camera = NodePath("RoomCamera")
+
+[node name="GameManager" type="Node" parent="."]
+unique_name_in_owner = true
+script = ExtResource("3_manager")
+
+[node name="RoomBackground" type="Node2D" parent="."]
+script = ExtResource("4_art")
+room_size = Vector2(1280, 1440)
+
+[node name="HiddenObjects" type="Node2D" parent="."]
+unique_name_in_owner = true
+
+[node name="Barometer" parent="HiddenObjects" instance=ExtResource("5_object")]
+position = Vector2(190, 300)
+scale = Vector2(0.75, 0.75)
+data = ExtResource("15_barometer")
+
+[node name="Telescope" parent="HiddenObjects" instance=ExtResource("5_object")]
+position = Vector2(340, 286)
+rotation = -0.06
+scale = Vector2(0.6, 0.6)
+data = ExtResource("7_telescope")
+
+[node name="GullFeather" parent="HiddenObjects" instance=ExtResource("5_object")]
+position = Vector2(884, 400)
+rotation = 0.18
+scale = Vector2(0.6, 0.6)
+data = ExtResource("11_gull_feather")
+
+[node name="OilStore" parent="HiddenObjects" node_paths=PackedStringArray("contents") instance=ExtResource("20_container")]
+position = Vector2(880, 1296)
+container_id = &"oil_store"
+contents = NodePath("../ParaffinCan")
+open_title = "The four wheels click round..."
+open_message = "The iron locker swings open. Wicks, mantles, a funnel, and one small red can of paraffin."
+required_code = "0310"
+code_title = "The Oil Locker"
+code_prompt = "An iron locker for the lamp oil, with a four-number lock. A brass plate on the door: Code is the night I will never forget. - A.H."
+code_hint_first = "Wrong. Agnes chalked that night on the wall of the keeper's landing, by the window."
+code_hint_second = "The chalk by the keeper's landing window says 3.10.88: the 3rd of October. The code is 0310."
+code_hint_first_after = 8
+code_hint_second_after = 11
+style = 3
+tint = Color(0.3, 0.36, 0.32, 1)
+size = Vector2(64, 92)
+
+[node name="ParaffinCan" parent="HiddenObjects" instance=ExtResource("5_object")]
+position = Vector2(880, 1290)
+scale = Vector2(0.65, 0.65)
+data = ExtResource("10_paraffin_can")
+
+[node name="KeeperLogbook" parent="HiddenObjects" instance=ExtResource("5_object")]
+position = Vector2(293, 632)
+rotation = 0.08
+scale = Vector2(0.6, 0.6)
+data = ExtResource("8_keeper_logbook")
+
+[node name="KnittingBasket" parent="HiddenObjects" node_paths=PackedStringArray("contents") instance=ExtResource("20_container")]
+position = Vector2(372, 684)
+container_id = &"knitting_basket"
+contents = NodePath("../KnittingNeedles")
+open_title = "You look in the knitting basket..."
+open_message = "Balls of wool, and a jumper half-knitted on two needles."
+style = 6
+tint = Color(0.5, 0.4, 0.26, 1)
+size = Vector2(48, 34)
+
+[node name="KnittingNeedles" parent="HiddenObjects" instance=ExtResource("5_object")]
+position = Vector2(372, 678)
+scale = Vector2(0.6, 0.6)
+data = ExtResource("12_knitting_needles")
+
+[node name="TwineParcel" parent="HiddenObjects" node_paths=PackedStringArray("contents", "required_object") instance=ExtResource("20_container")]
+position = Vector2(150, 686)
+container_id = &"twine_parcel"
+contents = NodePath("../KeepersPhoto")
+open_title = "You cut through the twine..."
+open_message = "The brown paper falls open. Inside, wrapped in a scarf, is a small framed photograph."
+required_object = NodePath("../WickTrimmer")
+locked_title = "The parcel is tied tight."
+locked_message = "Tarred twine, knotted again and again. You can't undo it with your fingers. Something sharp would cut it."
+style = 7
+tint = Color(0.56, 0.45, 0.3, 1)
+size = Vector2(52, 32)
+
+[node name="KeepersPhoto" parent="HiddenObjects" instance=ExtResource("5_object")]
+position = Vector2(150, 680)
+scale = Vector2(0.6, 0.6)
+data = ExtResource("18_keepers_photo")
+
+[node name="MedalBox" parent="HiddenObjects" node_paths=PackedStringArray("contents", "required_object") instance=ExtResource("20_container")]
+position = Vector2(382, 527)
+container_id = &"medal_box"
+contents = NodePath("../LifesavingMedal")
+open_title = "Click! The catch springs back..."
+open_message = "The lid lifts. On faded red velvet lies a silver medal."
+required_object = NodePath("../KnittingNeedles")
+locked_title = "The little box won't open."
+locked_message = "Its catch has slipped down inside the lid. You'd need something long and thin to push it back."
+style = 1
+tint = Color(0.4, 0.2, 0.18, 1)
+size = Vector2(40, 24)
+
+[node name="LifesavingMedal" parent="HiddenObjects" instance=ExtResource("5_object")]
+position = Vector2(382, 521)
+scale = Vector2(0.55, 0.55)
+data = ExtResource("17_lifesaving_medal")
+
+[node name="WickTrimmer" parent="HiddenObjects" instance=ExtResource("5_object")]
+position = Vector2(774, 851)
+rotation = -0.1
+scale = Vector2(0.55, 0.55)
+data = ExtResource("9_wick_trimmer")
+
+[node name="TideTable" parent="HiddenObjects" instance=ExtResource("5_object")]
+position = Vector2(400, 862)
+rotation = 0.08
+scale = Vector2(0.6, 0.6)
+data = ExtResource("14_tide_table")
+
+[node name="KeyBox" parent="HiddenObjects" node_paths=PackedStringArray("contents", "required_object") instance=ExtResource("20_container")]
+position = Vector2(846, 262)
+container_id = &"key_box"
+contents = NodePath("../LampRoomKey")
+open_title = "The oil frees the hinge..."
+open_message = "With a creak, the little key box opens. One key hangs inside, on a tag marked LAMP."
+required_object = NodePath("../ParaffinCan")
+locked_title = "The key box is rusted shut."
+locked_message = "The sea air has rusted its hinge solid. A few drops of oil might free it."
+style = 3
+tint = Color(0.36, 0.24, 0.16, 1)
+size = Vector2(44, 56)
+
+[node name="LampRoomKey" parent="HiddenObjects" instance=ExtResource("5_object")]
+position = Vector2(846, 256)
+scale = Vector2(0.6, 0.6)
+data = ExtResource("19_lamp_room_key")
+
+[node name="OilskinHat" parent="HiddenObjects" instance=ExtResource("5_object")]
+position = Vector2(318, 1166)
+rotation = 0.12
+scale = Vector2(0.65, 0.65)
+data = ExtResource("6_oilskin_hat")
+
+[node name="ShipInBottle" parent="HiddenObjects" instance=ExtResource("5_object")]
+position = Vector2(505, 1204)
+scale = Vector2(0.6, 0.6)
+data = ExtResource("16_ship_in_bottle")
+
+[node name="FirstAidTin" parent="HiddenObjects" node_paths=PackedStringArray("contents") instance=ExtResource("20_container")]
+position = Vector2(540, 1272)
+container_id = &"first_aid_tin"
+contents = NodePath("../BandageRoll")
+open_title = "You open the first aid tin..."
+open_message = "Iodine, lint, a pair of scissors, and a roll of bandage, half used."
+style = 7
+tint = Color(0.78, 0.76, 0.72, 1)
+size = Vector2(46, 30)
+
+[node name="BandageRoll" parent="HiddenObjects" instance=ExtResource("5_object")]
+position = Vector2(540, 1266)
+scale = Vector2(0.6, 0.6)
+data = ExtResource("13_bandage_roll")
+
+[node name="RoomForeground" type="Node2D" parent="."]
+script = ExtResource("4_art")
+layer = 1
+room_size = Vector2(1280, 1440)
+
+[node name="SweepingBeam" type="Node2D" parent="."]
+script = ExtResource("21_beam")
+beam_objects = Array[NodePath]([NodePath("../HiddenObjects/Telescope"), NodePath("../HiddenObjects/GullFeather"), NodePath("../HiddenObjects/WickTrimmer"), NodePath("../HiddenObjects/TideTable"), NodePath("../HiddenObjects/ShipInBottle")])
+windows = PackedVector2Array(340, 220, 505, 495, 1165, 760, 220, 915, 505, 1150)
+
+[node name="RoomCamera" type="Camera2D" parent="."]
+script = ExtResource("22_camera")
+room_size = Vector2(1280, 1440)
+
+[node name="HintHighlight" type="Node2D" parent="."]
+unique_name_in_owner = true
+visible = false
+script = ExtResource("23_hint")
+
+[node name="HUD" parent="." instance=ExtResource("24_hud")]
+unique_name_in_owner = true
+
+[node name="Notification" parent="." instance=ExtResource("25_note")]
+unique_name_in_owner = true
+
+[node name="VictoryScreen" parent="." instance=ExtResource("26_victory")]
+unique_name_in_owner = true
+
+[node name="PauseMenu" parent="." instance=ExtResource("27_pause")]
+unique_name_in_owner = true
+
+[node name="LetterPopup" parent="." instance=ExtResource("28_letter")]
+unique_name_in_owner = true
+
+[node name="KeypadLock" parent="." instance=ExtResource("29_keypad")]

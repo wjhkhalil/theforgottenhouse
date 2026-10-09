@@ -1,0 +1,16 @@
+[gd_resource type="Resource" script_class="HiddenObjectData" format=3]
+
+[ext_resource type="Script" path="res://scripts/hidden_object_data.gd" id="1_data"]
+
+[resource]
+script = ExtResource("1_data")
+object_id = &"wind_gauge"
+display_name = "Wind Gauge"
+description = "A hand-held wind gauge with three little cups."
+collection_message = "You found a wind gauge!"
+clue_text = "Agnes's wind gauge. Her log says the morning Margaret left was calm and clear, and the ferry sailed on time."
+hint_text = "It hangs on the wall on the far left, above the end of Agnes's desk."
+riddle_text = ""
+placeholder_style = 160
+is_required = true
+starts_visible = true

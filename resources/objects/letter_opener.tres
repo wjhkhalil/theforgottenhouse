@@ -1,0 +1,16 @@
+[gd_resource type="Resource" script_class="HiddenObjectData" format=3]
+
+[ext_resource type="Script" path="res://scripts/hidden_object_data.gd" id="1_data"]
+
+[resource]
+script = ExtResource("1_data")
+object_id = &"letter_opener"
+display_name = "Letter Opener"
+description = "A silver letter opener."
+collection_message = "You found a letter opener."
+clue_text = "Thin and strong - the right shape to force a stubborn desk drawer."
+hint_text = "Something for opening envelopes hides in the box of cigars."
+riddle_text = ""
+placeholder_style = 56
+is_required = true
+starts_visible = false

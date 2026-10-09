@@ -1,0 +1,15 @@
+[gd_resource type="Resource" script_class="HiddenObjectData" format=3]
+
+[ext_resource type="Script" path="res://scripts/hidden_object_data.gd" id="1_data"]
+
+[resource]
+script = ExtResource("1_data")
+object_id = &"muddy_boots"
+display_name = "Muddy Boots"
+description = "A pair of small rubber boots."
+collection_message = "You found a pair of muddy boots."
+clue_text = "The mud on these boots is still wet. Someone came in from outside tonight."
+hint_text = "Wet footprints lead somewhere dark. Follow them under the stairs."
+placeholder_style = 9
+is_required = true
+starts_visible = true

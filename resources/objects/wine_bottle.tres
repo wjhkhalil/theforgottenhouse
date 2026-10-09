@@ -1,0 +1,16 @@
+[gd_resource type="Resource" script_class="HiddenObjectData" format=3]
+
+[ext_resource type="Script" path="res://scripts/hidden_object_data.gd" id="1_data"]
+
+[resource]
+script = ExtResource("1_data")
+object_id = &"wine_bottle"
+display_name = "Wine Bottle"
+description = "A bottle of good red wine, still corked."
+collection_message = "You found a wine bottle!"
+clue_text = "Vane brought wine on board for the trip. To celebrate, or to steady his nerves for what he meant to do."
+hint_text = "A dark green bottle lies on its side in the silt, below the middle of the wreck."
+riddle_text = ""
+placeholder_style = 112
+is_required = true
+starts_visible = true

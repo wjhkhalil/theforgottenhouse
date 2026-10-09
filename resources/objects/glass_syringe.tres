@@ -1,0 +1,16 @@
+[gd_resource type="Resource" script_class="HiddenObjectData" format=3]
+
+[ext_resource type="Script" path="res://scripts/hidden_object_data.gd" id="1_data"]
+
+[resource]
+script = ExtResource("1_data")
+object_id = &"glass_syringe"
+display_name = "Glass Syringe"
+description = "An old glass syringe with a drop of cloudy liquid left in it."
+collection_message = "You found a glass syringe!"
+clue_text = "The same sedative as the vial in the loft. He has been keeping her asleep again, just like in 1988."
+hint_text = "Look in the cupboard at the bottom of the tall glass medicine cabinet."
+riddle_text = ""
+placeholder_style = 178
+is_required = true
+starts_visible = false

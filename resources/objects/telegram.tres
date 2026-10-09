@@ -1,0 +1,15 @@
+[gd_resource type="Resource" script_class="HiddenObjectData" format=3]
+
+[ext_resource type="Script" path="res://scripts/hidden_object_data.gd" id="1_data"]
+
+[resource]
+script = ExtResource("1_data")
+object_id = &"telegram"
+display_name = "Telegram"
+description = "A yellow telegram."
+collection_message = "You found a telegram."
+clue_text = "'HE KNOWS M IS ALIVE STOP DO NOT COME TO THE BOATHOUSE STOP E' It was sent three days ago. Eleanor is alive."
+hint_text = "Not every hat box holds a hat. Look at the one on the floor."
+placeholder_style = 18
+is_required = true
+starts_visible = false

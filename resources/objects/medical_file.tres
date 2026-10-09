@@ -1,0 +1,16 @@
+[gd_resource type="Resource" script_class="HiddenObjectData" format=3]
+
+[ext_resource type="Script" path="res://scripts/hidden_object_data.gd" id="1_data"]
+
+[resource]
+script = ExtResource("1_data")
+object_id = &"medical_file"
+display_name = "Medical File"
+description = "A buff folder: 'PATIENT M. - PRIVATE'."
+collection_message = "You found a medical file!"
+clue_text = "Notes on 'Patient M.', from 1987 to last week: doses, dates, 'memory still gone'. The last entry: 'Moved to the cellar.'"
+hint_text = "On the bookcase, second shelf down, a row of fake book spines swings open."
+riddle_text = ""
+placeholder_style = 190
+is_required = true
+starts_visible = false

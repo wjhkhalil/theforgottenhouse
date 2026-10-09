@@ -1,0 +1,16 @@
+[gd_resource type="Resource" script_class="HiddenObjectData" format=3]
+
+[ext_resource type="Script" path="res://scripts/hidden_object_data.gd" id="1_data"]
+
+[resource]
+script = ExtResource("1_data")
+object_id = &"dropped_torch"
+display_name = "Dropped Torch"
+description = "An electric torch, still switched on."
+collection_message = "You found a dropped torch!"
+clue_text = "Still switched on, lying at the bottom of the slip. Whoever dropped it ran off through the water rather than stop to pick it up."
+hint_text = "A faint light glows under the water in the slip. Wait for it to drain."
+riddle_text = ""
+placeholder_style = 75
+is_required = true
+starts_visible = true

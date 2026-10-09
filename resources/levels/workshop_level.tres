@@ -1,0 +1,23 @@
+[gd_resource type="Resource" script_class="LevelData" format=3]
+
+[ext_resource type="Script" path="res://scripts/level_data.gd" id="1_level"]
+
+[resource]
+script = ExtResource("1_level")
+chapter_id = &"workshop"
+room_name = "The Workshop"
+intro_message = "The stove is still burning: Vane was here minutes ago, getting rid of papers. He tore up a boat plan and threw the pieces around the workshop. Find all four torn scraps to put it back together. Find the 13 hidden objects."
+hint_cooldown_seconds = 65.0
+hint_area_radius = 240.0
+hint_area_offset = 135.0
+chapter_title = "House Two - Chapter Four Complete"
+chapter_hook = "Through the window, a rowing boat's lamp slips away across the lake and goes out. Vane is gone. But the Lady Margaret lies on the lake bed off the jetty: you take the diving lamp and go down to find her."
+final_letter_title = "The Job Book"
+final_letter_text = "1st October 1988. Lady Margaret - \"repairs\".
+
+Drilled five holes below the waterline, as marked on the plan. Plugged each one with a greased oak bung, knocked in just tight enough to hold.
+
+Tomorrow night I take her out past the jetty, with the girl locked in the cabin. In deep water I pull the bungs and row back in the dinghy. She will go down in minutes, and the lake keeps its secrets.
+
+Greaves is to say she broke her moorings in the storm."
+final_letter_signature = "- R.V., in Greaves's job book"

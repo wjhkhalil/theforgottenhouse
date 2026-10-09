@@ -1,0 +1,16 @@
+[gd_resource type="Resource" script_class="HiddenObjectData" format=3]
+
+[ext_resource type="Script" path="res://scripts/hidden_object_data.gd" id="1_data"]
+
+[resource]
+script = ExtResource("1_data")
+object_id = &"recipe_card"
+display_name = "Recipe Card"
+description = "Mother's handwritten recipe card."
+collection_message = "You found a recipe card."
+clue_text = "'Birthday Cake' in Mother's writing. On the back: 'For my girls - look where the bread sleeps.'"
+hint_text = "Mother's handwriting is pinned up near the window."
+riddle_text = "Mother's words for a cake"
+placeholder_style = 44
+is_required = true
+starts_visible = true

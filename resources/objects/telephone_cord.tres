@@ -1,0 +1,16 @@
+[gd_resource type="Resource" script_class="HiddenObjectData" format=3]
+
+[ext_resource type="Script" path="res://scripts/hidden_object_data.gd" id="1_data"]
+
+[resource]
+script = ExtResource("1_data")
+object_id = &"telephone_cord"
+display_name = "Cut Telephone Cord"
+description = "The telephone's cord, sliced through."
+collection_message = "You found a cut telephone cord."
+clue_text = "The wire has been sliced clean with a knife. Someone made sure nobody could call for help tonight."
+hint_text = "Something that once carried voices hangs limp in the front hall."
+riddle_text = ""
+placeholder_style = 19
+is_required = true
+starts_visible = true

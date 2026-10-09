@@ -1,0 +1,16 @@
+[gd_resource type="Resource" script_class="HiddenObjectData" format=3]
+
+[ext_resource type="Script" path="res://scripts/hidden_object_data.gd" id="1_data"]
+
+[resource]
+script = ExtResource("1_data")
+object_id = &"grey_veil"
+display_name = "Grey Veil"
+description = "A soft grey veil with a white band."
+collection_message = "You found a grey veil!"
+clue_text = "Sister Margaret's veil, still on its peg. She would never have gone out without it if she had gone willingly."
+hint_text = "Something grey hangs on a wooden peg on the wall, just left of the vestry door."
+riddle_text = ""
+placeholder_style = 165
+is_required = true
+starts_visible = true

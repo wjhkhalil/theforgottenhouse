@@ -1,0 +1,16 @@
+[gd_resource type="Resource" script_class="HiddenObjectData" format=3]
+
+[ext_resource type="Script" path="res://scripts/hidden_object_data.gd" id="1_data"]
+
+[resource]
+script = ExtResource("1_data")
+object_id = &"ferry_ticket"
+display_name = "Ferry Ticket"
+description = "A green card ticket for the island ferry."
+collection_message = "You found a ferry ticket!"
+clue_text = "A single ticket on the island ferry, 06:40. Agnes bought two in 1989, and only Margaret's was ever used."
+hint_text = "A small green ticket, one of the loose papers the wind blows around the room."
+riddle_text = ""
+placeholder_style = 159
+is_required = true
+starts_visible = true

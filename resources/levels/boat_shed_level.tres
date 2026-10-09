@@ -1,0 +1,21 @@
+[gd_resource type="Resource" script_class="LevelData" format=3]
+
+[ext_resource type="Script" path="res://scripts/level_data.gd" id="1_level"]
+
+[resource]
+script = ExtResource("1_level")
+chapter_id = &"boat_shed"
+room_name = "The Boat Shed"
+intro_message = "Inside the boathouse, the lake surges in through the broken boat doors, floods the slip and drains away again. Some things lie at the bottom of the slip: you can only reach them when the water is low. Find the 11 hidden objects."
+hint_cooldown_seconds = 55.0
+hint_area_radius = 220.0
+hint_area_offset = 125.0
+chapter_title = "House Two - Chapter Two Complete"
+chapter_hook = "Overhead, the loft floorboards creak. Someone is up there in the dark, and the hatch is locked from this side."
+final_letter_title = "A Note Under the Floorboards"
+final_letter_text = "If anyone ever finds this: I am kept in the loft above the boat shed.
+
+The doctor comes on Sundays with his bag and his kind voice. He tells me Eleanor thinks I am dead, and that it is better for everyone that way.
+
+I hear the lake under the floor every night. One day I will get out, and I will tell everyone what he did."
+final_letter_signature = "- Mara, 1988"

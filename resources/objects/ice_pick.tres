@@ -1,0 +1,16 @@
+[gd_resource type="Resource" script_class="HiddenObjectData" format=3]
+
+[ext_resource type="Script" path="res://scripts/hidden_object_data.gd" id="1_data"]
+
+[resource]
+script = ExtResource("1_data")
+object_id = &"ice_pick"
+display_name = "Ice Pick"
+description = "A long ice pick with a wooden handle and a sharp steel spike."
+collection_message = "You found an ice pick!"
+clue_text = "Chips of ice still cling to the spike. With this you can break into the blocks that are too hard to chip by hand."
+hint_text = "An ice pick leans against the left post of the ice shelves, near the floor."
+riddle_text = ""
+placeholder_style = 119
+is_required = true
+starts_visible = true

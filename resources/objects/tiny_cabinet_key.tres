@@ -1,0 +1,16 @@
+[gd_resource type="Resource" script_class="HiddenObjectData" format=3]
+
+[ext_resource type="Script" path="res://scripts/hidden_object_data.gd" id="1_data"]
+
+[resource]
+script = ExtResource("1_data")
+object_id = &"tiny_cabinet_key"
+display_name = "Tiny Cabinet Key"
+description = "A tiny key on a ribbon."
+collection_message = "You found a tiny key."
+clue_text = "It was hidden in the soap dish. The ribbon is tied in the twins' double knot."
+hint_text = "Something tiny rests where the soap should be."
+riddle_text = ""
+placeholder_style = 30
+is_required = true
+starts_visible = true

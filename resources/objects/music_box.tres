@@ -1,0 +1,15 @@
+[gd_resource type="Resource" script_class="HiddenObjectData" format=3]
+
+[ext_resource type="Script" path="res://scripts/hidden_object_data.gd" id="1_data"]
+
+[resource]
+script = ExtResource("1_data")
+object_id = &"music_box"
+display_name = "Music Box"
+description = "A small wooden music box with an inlaid flower."
+collection_message = "You found a little music box."
+clue_text = "It still plays a lullaby. Carved inside the lid: 'For M., so you can always find your way home.'"
+hint_text = "Something that sings is hiding among the jars on the shelves."
+placeholder_style = 8
+is_required = true
+starts_visible = true

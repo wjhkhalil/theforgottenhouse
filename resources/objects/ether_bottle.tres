@@ -1,0 +1,16 @@
+[gd_resource type="Resource" script_class="HiddenObjectData" format=3]
+
+[ext_resource type="Script" path="res://scripts/hidden_object_data.gd" id="1_data"]
+
+[resource]
+script = ExtResource("1_data")
+object_id = &"ether_bottle"
+display_name = "Bottle of Ether"
+description = "A brown glass bottle, half empty."
+collection_message = "You found a bottle of ether!"
+clue_text = "Labelled 'Ether - Dr R. Vane's Surgery'. A few drops on a cloth will put a grown man to sleep in seconds. Half of it is gone."
+hint_text = "The first-aid box on the left wall is not what it seems."
+riddle_text = ""
+placeholder_style = 77
+is_required = true
+starts_visible = false

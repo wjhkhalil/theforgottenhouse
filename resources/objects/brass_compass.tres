@@ -1,0 +1,16 @@
+[gd_resource type="Resource" script_class="HiddenObjectData" format=3]
+
+[ext_resource type="Script" path="res://scripts/hidden_object_data.gd" id="1_data"]
+
+[resource]
+script = ExtResource("1_data")
+object_id = &"brass_compass"
+display_name = "Brass Compass"
+description = "A ship's compass, its glass cracked."
+collection_message = "You found a brass compass!"
+clue_text = "Scratched inside the lid: 'Lady Margaret, 1985'. The needle still points across the lake, toward the far shore."
+hint_text = "Look among the ropes and barrels in the middle of the jetty."
+riddle_text = ""
+placeholder_style = 65
+is_required = true
+starts_visible = true

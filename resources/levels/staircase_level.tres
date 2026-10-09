@@ -1,0 +1,21 @@
+[gd_resource type="Resource" script_class="LevelData" format=3]
+
+[ext_resource type="Script" path="res://scripts/level_data.gd" id="1_level"]
+
+[resource]
+script = ExtResource("1_level")
+chapter_id = &"staircase"
+room_name = "The Grand Staircase"
+intro_message = "Every door out is locked and the telephone is dead. The grand staircase runs from the top landing down to the front hall. Scroll up and down with the mouse wheel or the arrow keys. Find the 7 hidden objects."
+hint_cooldown_seconds = 25.0
+hint_area_radius = 160.0
+hint_area_offset = 75.0
+chapter_title = "Chapter Four Complete"
+chapter_hook = "Somewhere upstairs, a tap starts running. Hot water hisses through the old pipes, and steam begins to curl under the washroom door."
+final_letter_title = "A Note on the Bottom Step"
+final_letter_text = "I saw your lantern in the attic. He has locked us both in.
+
+I am hiding where the water runs. The steam will hide you too, if you are quick.
+
+The door is locked from my side. Only my twin would know the code - but you have seen enough of our story to work it out."
+final_letter_signature = "- M."

@@ -1,0 +1,16 @@
+[gd_resource type="Resource" script_class="HiddenObjectData" format=3]
+
+[ext_resource type="Script" path="res://scripts/hidden_object_data.gd" id="1_data"]
+
+[resource]
+script = ExtResource("1_data")
+object_id = &"unsent_letter"
+display_name = "Unsent Letter"
+description = "An envelope addressed to Eleanor Ashworth, never posted."
+collection_message = "You found an unsent letter!"
+clue_text = "Addressed to 'Eleanor Ashworth, Ashworth Manor'. No stamp. There was never anyone to post it."
+hint_text = "One of the floorboards in front of the mattress is loose."
+riddle_text = ""
+placeholder_style = 90
+is_required = true
+starts_visible = false

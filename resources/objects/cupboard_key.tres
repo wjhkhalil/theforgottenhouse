@@ -1,0 +1,16 @@
+[gd_resource type="Resource" script_class="HiddenObjectData" format=3]
+
+[ext_resource type="Script" path="res://scripts/hidden_object_data.gd" id="1_data"]
+
+[resource]
+script = ExtResource("1_data")
+object_id = &"cupboard_key"
+display_name = "Cupboard Key"
+description = "A long iron key with a paper tag: 'TOOL CUPBD.'"
+collection_message = "You found the cupboard key!"
+clue_text = "The tag says 'Tool cupboard'. Greaves kept his diving gear locked in the cupboard on the wall."
+hint_text = "Greaves's steel cash box sits on the floor under the workbench. Its code is on the old calendar."
+riddle_text = ""
+placeholder_style = 102
+is_required = true
+starts_visible = false

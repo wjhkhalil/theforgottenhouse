@@ -1,0 +1,16 @@
+[gd_resource type="Resource" script_class="HiddenObjectData" format=3]
+
+[ext_resource type="Script" path="res://scripts/hidden_object_data.gd" id="1_data"]
+
+[resource]
+script = ExtResource("1_data")
+object_id = &"candle_snuffer"
+display_name = "Candle Snuffer"
+description = "A long brass candle snuffer."
+collection_message = "You found a candle snuffer!"
+clue_text = "Sister Margaret put out the chapel candles every night. The draught does it for her now."
+hint_text = "A small tin box sits on the left end of the altar. Open it."
+riddle_text = ""
+placeholder_style = 172
+is_required = true
+starts_visible = false

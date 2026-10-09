@@ -1,0 +1,15 @@
+[gd_resource type="Resource" script_class="HiddenObjectData" format=3]
+
+[ext_resource type="Script" path="res://scripts/hidden_object_data.gd" id="1_data"]
+
+[resource]
+script = ExtResource("1_data")
+object_id = &"newspaper_clipping"
+display_name = "Newspaper Clipping"
+description = "An old newspaper clipping."
+collection_message = "You found a newspaper clipping."
+clue_text = "'TWIN GIRL LOST AT BLACKWATER LAKE - search called off.' It is dated 18 April 1987."
+hint_text = "Some secrets are locked away. The old trunk on the floor has not been opened in years."
+placeholder_style = 11
+is_required = true
+starts_visible = false

@@ -1,0 +1,16 @@
+[gd_resource type="Resource" script_class="HiddenObjectData" format=3]
+
+[ext_resource type="Script" path="res://scripts/hidden_object_data.gd" id="1_data"]
+
+[resource]
+script = ExtResource("1_data")
+object_id = &"trowel"
+display_name = "Garden Trowel"
+description = "A small garden trowel with dry earth on the blade."
+collection_message = "You found a garden trowel!"
+clue_text = "Sister Margaret's trowel. She grew forget-me-nots by the chapel door. She did not know why she loved them."
+hint_text = "Look on the floor in front of the left-hand pews, near the bottom of the room."
+riddle_text = ""
+placeholder_style = 170
+is_required = true
+starts_visible = true

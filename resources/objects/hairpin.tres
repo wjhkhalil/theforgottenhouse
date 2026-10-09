@@ -1,0 +1,16 @@
+[gd_resource type="Resource" script_class="HiddenObjectData" format=3]
+
+[ext_resource type="Script" path="res://scripts/hidden_object_data.gd" id="1_data"]
+
+[resource]
+script = ExtResource("1_data")
+object_id = &"hairpin"
+display_name = "Bent Hairpin"
+description = "A black hairpin, bent and worn bright at the tip."
+collection_message = "You found a hairpin!"
+clue_text = "The tip is worn bright. Mara used it to scratch marks into the wooden post: one for every day."
+hint_text = "Look at the tall wooden post in the middle of the loft, near the scratched marks."
+riddle_text = ""
+placeholder_style = 83
+is_required = true
+starts_visible = true

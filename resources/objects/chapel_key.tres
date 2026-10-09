@@ -1,0 +1,16 @@
+[gd_resource type="Resource" script_class="HiddenObjectData" format=3]
+
+[ext_resource type="Script" path="res://scripts/hidden_object_data.gd" id="1_data"]
+
+[resource]
+script = ExtResource("1_data")
+object_id = &"chapel_key"
+display_name = "Chapel Key"
+description = "A big old iron key with a cross cut into its bow."
+collection_message = "You found the chapel key!"
+clue_text = "The key of the island chapel, labelled 'Chapel'. The Sisters gave it to Agnes, so she could always come to Margaret."
+hint_text = "Agnes's sea chest stands on the floor right of the lens. It is locked with a tiny key; look for one tied to something holy."
+riddle_text = ""
+placeholder_style = 161
+is_required = true
+starts_visible = false

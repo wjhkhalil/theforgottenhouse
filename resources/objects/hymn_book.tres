@@ -1,0 +1,16 @@
+[gd_resource type="Resource" script_class="HiddenObjectData" format=3]
+
+[ext_resource type="Script" path="res://scripts/hidden_object_data.gd" id="1_data"]
+
+[resource]
+script = ExtResource("1_data")
+object_id = &"hymn_book"
+display_name = "Hymn Book"
+description = "A worn black hymn book with a gold cross on the cover."
+collection_message = "You found a hymn book!"
+clue_text = "On the flyleaf, in pencil: 'Sister Margaret'. A ribbon marks 'Lead, Kindly Light'. She always asked for that one."
+hint_text = "Look on the sloping book rest at the top of the pulpit, by the pulpit candle."
+riddle_text = ""
+placeholder_style = 162
+is_required = true
+starts_visible = true

@@ -1,0 +1,16 @@
+[gd_resource type="Resource" script_class="HiddenObjectData" format=3]
+
+[ext_resource type="Script" path="res://scripts/hidden_object_data.gd" id="1_data"]
+
+[resource]
+script = ExtResource("1_data")
+object_id = &"message_bottle"
+display_name = "Bottle with a Note"
+description = "A corked green bottle with paper inside."
+collection_message = "You caught a bottle with a note inside!"
+clue_text = "'If anything happens to me, look in the dockmaster's locker. Her number opens it.' The handwriting is shaky and old."
+hint_text = "A green bottle is bobbing on the water, drifting with the current."
+riddle_text = ""
+placeholder_style = 64
+is_required = true
+starts_visible = true

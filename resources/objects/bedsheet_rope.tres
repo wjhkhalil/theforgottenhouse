@@ -1,0 +1,16 @@
+[gd_resource type="Resource" script_class="HiddenObjectData" format=3]
+
+[ext_resource type="Script" path="res://scripts/hidden_object_data.gd" id="1_data"]
+
+[resource]
+script = ExtResource("1_data")
+object_id = &"bedsheet_rope"
+display_name = "Knotted Bedsheet"
+description = "Torn sheets knotted together into a rope, cut short."
+collection_message = "You found a knotted bedsheet!"
+clue_text = "A rope made of sheets, tied to the window latch. It has been cut with a knife, far too short to reach the water."
+hint_text = "Something white hangs down from the round window."
+riddle_text = ""
+placeholder_style = 86
+is_required = true
+starts_visible = true

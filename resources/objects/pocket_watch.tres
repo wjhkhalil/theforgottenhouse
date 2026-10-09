@@ -1,0 +1,15 @@
+[gd_resource type="Resource" script_class="HiddenObjectData" format=3]
+
+[ext_resource type="Script" path="res://scripts/hidden_object_data.gd" id="1_data"]
+
+[resource]
+script = ExtResource("1_data")
+object_id = &"pocket_watch"
+display_name = "Pocket Watch"
+description = "A tarnished gold pocket watch."
+collection_message = "You found a pocket watch."
+clue_text = "Engraved on the back: 'E. & M. - never apart.' It is still ticking. Someone has been winding it."
+hint_text = "Something round and golden glints beside the coal, near the furnace."
+placeholder_style = 10
+is_required = true
+starts_visible = true

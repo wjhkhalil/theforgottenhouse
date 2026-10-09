@@ -1,0 +1,16 @@
+[gd_resource type="Resource" script_class="HiddenObjectData" format=3]
+
+[ext_resource type="Script" path="res://scripts/hidden_object_data.gd" id="1_data"]
+
+[resource]
+script = ExtResource("1_data")
+object_id = &"confession"
+display_name = "Vane's Confession"
+description = "Two pages in Vane's handwriting. Unsent, and unsigned."
+collection_message = "You found Vane's confession!"
+clue_text = "'I, Robert Vane, signed her away in 1987 and have lied ever since. The cellar key is in my bag, locked with the year of the lie.' He never signed it."
+hint_text = "It's in the small iron safe on the floor beside the desk. The safe needs a code."
+riddle_text = ""
+placeholder_style = 188
+is_required = true
+starts_visible = false

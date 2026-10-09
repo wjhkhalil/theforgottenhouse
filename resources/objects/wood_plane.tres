@@ -1,0 +1,16 @@
+[gd_resource type="Resource" script_class="HiddenObjectData" format=3]
+
+[ext_resource type="Script" path="res://scripts/hidden_object_data.gd" id="1_data"]
+
+[resource]
+script = ExtResource("1_data")
+object_id = &"wood_plane"
+display_name = "Wood Plane"
+description = "A beech smoothing plane with a curl of shaving in its mouth."
+collection_message = "You found a wood plane!"
+clue_text = "Its outline on the tool wall is empty. Pencilled on the bench underneath it: 'bungs - 5 - tight fit'. The plugs were shaped right here."
+hint_text = "On the right end of the workbench, among the curls of wood shavings."
+riddle_text = ""
+placeholder_style = 96
+is_required = true
+starts_visible = true

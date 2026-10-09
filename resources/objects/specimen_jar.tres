@@ -1,0 +1,16 @@
+[gd_resource type="Resource" script_class="HiddenObjectData" format=3]
+
+[ext_resource type="Script" path="res://scripts/hidden_object_data.gd" id="1_data"]
+
+[resource]
+script = ExtResource("1_data")
+object_id = &"specimen_jar"
+display_name = "Specimen Jar"
+description = "A stoppered glass jar with a label: 'M. 87'."
+collection_message = "You found a specimen jar!"
+clue_text = "Inside are dried violets from the boathouse shore and a blue hair ribbon. Mara's ribbon. He kept it all these years."
+hint_text = "Look through the glass of the medicine cabinet: it's on the middle shelf, among the bottles."
+riddle_text = ""
+placeholder_style = 184
+is_required = true
+starts_visible = true

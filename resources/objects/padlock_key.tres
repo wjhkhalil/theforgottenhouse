@@ -1,0 +1,16 @@
+[gd_resource type="Resource" script_class="HiddenObjectData" format=3]
+
+[ext_resource type="Script" path="res://scripts/hidden_object_data.gd" id="1_data"]
+
+[resource]
+script = ExtResource("1_data")
+object_id = &"padlock_key"
+display_name = "Padlock Key"
+description = "A little brass key on a loop of red string."
+collection_message = "You found a padlock key!"
+clue_text = "A tiny brass key on red string. It's far too small for a door. It must fit a padlock."
+hint_text = "Mara kept a sewing basket by her mattress. Look inside it."
+riddle_text = ""
+placeholder_style = 88
+is_required = true
+starts_visible = false

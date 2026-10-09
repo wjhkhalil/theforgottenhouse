@@ -1,0 +1,16 @@
+[gd_resource type="Resource" script_class="HiddenObjectData" format=3]
+
+[ext_resource type="Script" path="res://scripts/hidden_object_data.gd" id="1_data"]
+
+[resource]
+script = ExtResource("1_data")
+object_id = &"pencil_sketch"
+display_name = "Pencil Sketch"
+description = "A pencil drawing of a young woman's face, with a name written underneath."
+collection_message = "You found a pencil sketch!"
+clue_text = "Agnes drew the girl she called 'Margaret'. It is Mara, a little older, her hair grown long. She was safe here."
+hint_text = "A loose sheet of drawing paper that the wind blows around the room. Look for a pencil face on white paper."
+riddle_text = ""
+placeholder_style = 151
+is_required = true
+starts_visible = true

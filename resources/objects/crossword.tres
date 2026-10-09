@@ -1,0 +1,16 @@
+[gd_resource type="Resource" script_class="HiddenObjectData" format=3]
+
+[ext_resource type="Script" path="res://scripts/hidden_object_data.gd" id="1_data"]
+
+[resource]
+script = ExtResource("1_data")
+object_id = &"crossword"
+display_name = "Crossword"
+description = "A folded newspaper crossword."
+collection_message = "You found a crossword."
+clue_text = "Every answer filled in. 14 across, 'Where she waits': BOATHOUSE. Written in Greaves's handwriting."
+hint_text = "A puzzle in pencil lies folded by the armchair."
+riddle_text = ""
+placeholder_style = 38
+is_required = true
+starts_visible = true

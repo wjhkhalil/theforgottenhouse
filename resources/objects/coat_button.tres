@@ -1,0 +1,16 @@
+[gd_resource type="Resource" script_class="HiddenObjectData" format=3]
+
+[ext_resource type="Script" path="res://scripts/hidden_object_data.gd" id="1_data"]
+
+[resource]
+script = ExtResource("1_data")
+object_id = &"coat_button"
+display_name = "Brass Coat Button"
+description = "A brass button with a snake-and-staff crest."
+collection_message = "You found a brass coat button!"
+clue_text = "A doctor's crest: a snake wound round a staff. It was torn off on the nail by the oilskin coat, in a hurry."
+hint_text = "Look closely at the old coat hanging on the left wall."
+riddle_text = ""
+placeholder_style = 72
+is_required = true
+starts_visible = true

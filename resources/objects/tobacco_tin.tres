@@ -1,0 +1,16 @@
+[gd_resource type="Resource" script_class="HiddenObjectData" format=3]
+
+[ext_resource type="Script" path="res://scripts/hidden_object_data.gd" id="1_data"]
+
+[resource]
+script = ExtResource("1_data")
+object_id = &"tobacco_tin"
+display_name = "Tobacco Tin"
+description = "A flat red and gold tin of Navy Cut tobacco."
+collection_message = "You found a tobacco tin!"
+clue_text = "No tobacco inside. Just a lock of fair hair tied with thread, and a label: 'M., the day she came, October 1988.'"
+hint_text = "Agnes's desk has a drawer in the front. Open it."
+riddle_text = ""
+placeholder_style = 157
+is_required = true
+starts_visible = false

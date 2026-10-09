@@ -1,0 +1,173 @@
+[gd_scene format=3]
+
+[ext_resource type="Script" path="res://scripts/room_level.gd" id="1_room"]
+[ext_resource type="Resource" path="res://resources/levels/living_room_level.tres" id="2_level"]
+[ext_resource type="Script" path="res://scripts/game_manager.gd" id="3_manager"]
+[ext_resource type="Script" path="res://scripts/living_room_art.gd" id="4_art"]
+[ext_resource type="PackedScene" path="res://scenes/objects/hidden_object.tscn" id="5_object"]
+[ext_resource type="Resource" path="res://resources/objects/gramophone_record.tres" id="6_record"]
+[ext_resource type="Resource" path="res://resources/objects/tobacco_pipe.tres" id="7_pipe"]
+[ext_resource type="Resource" path="res://resources/objects/matchbox.tres" id="8_matchbox"]
+[ext_resource type="Resource" path="res://resources/objects/knitted_scarf.tres" id="9_scarf"]
+[ext_resource type="Resource" path="res://resources/objects/crossword.tres" id="10_crossword"]
+[ext_resource type="Resource" path="res://resources/objects/insurance_policy.tres" id="11_policy"]
+[ext_resource type="Resource" path="res://resources/objects/desk_key.tres" id="12_desk_key"]
+[ext_resource type="Resource" path="res://resources/objects/spare_keys.tres" id="13_spare_keys"]
+[ext_resource type="PackedScene" path="res://scenes/objects/openable_container.tscn" id="14_container"]
+[ext_resource type="Script" path="res://scripts/lantern_darkness.gd" id="15_lantern"]
+[ext_resource type="Script" path="res://scripts/power_cuts.gd" id="16_power"]
+[ext_resource type="Script" path="res://scripts/hint_highlight.gd" id="17_hint"]
+[ext_resource type="PackedScene" path="res://scenes/ui/hud.tscn" id="18_hud"]
+[ext_resource type="PackedScene" path="res://scenes/ui/notification.tscn" id="19_note"]
+[ext_resource type="PackedScene" path="res://scenes/victory_screen.tscn" id="20_victory"]
+[ext_resource type="PackedScene" path="res://scenes/ui/pause_menu.tscn" id="21_pause"]
+[ext_resource type="PackedScene" path="res://scenes/ui/letter_popup.tscn" id="22_letter"]
+
+[sub_resource type="Gradient" id="Gradient_dust"]
+offsets = PackedFloat32Array(0, 0.2, 0.8, 1)
+colors = PackedColorArray(1, 1, 1, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0)
+
+[node name="LivingRoom" type="Node2D"]
+script = ExtResource("1_room")
+level_data = ExtResource("2_level")
+
+[node name="GameManager" type="Node" parent="."]
+unique_name_in_owner = true
+script = ExtResource("3_manager")
+
+[node name="RoomBackground" type="Node2D" parent="."]
+script = ExtResource("4_art")
+
+[node name="HiddenObjects" type="Node2D" parent="."]
+unique_name_in_owner = true
+
+[node name="GramophoneRecord" parent="HiddenObjects" instance=ExtResource("5_object")]
+position = Vector2(690, 440)
+scale = Vector2(0.6, 0.6)
+data = ExtResource("6_record")
+
+[node name="TobaccoPipe" parent="HiddenObjects" instance=ExtResource("5_object")]
+position = Vector2(432, 481)
+rotation = -0.06
+scale = Vector2(0.6, 0.6)
+data = ExtResource("7_pipe")
+
+[node name="Matchbox" parent="HiddenObjects" instance=ExtResource("5_object")]
+position = Vector2(1212, 500)
+rotation = 0.1
+scale = Vector2(0.65, 0.65)
+data = ExtResource("8_matchbox")
+
+[node name="KnittedScarf" parent="HiddenObjects" instance=ExtResource("5_object")]
+position = Vector2(608, 440)
+rotation = 0.05
+scale = Vector2(0.6, 0.6)
+data = ExtResource("9_scarf")
+
+[node name="Crossword" parent="HiddenObjects" instance=ExtResource("5_object")]
+position = Vector2(462, 545)
+rotation = -0.12
+scale = Vector2(0.6, 0.6)
+data = ExtResource("10_crossword")
+
+[node name="PianoBench" parent="HiddenObjects" node_paths=PackedStringArray("contents") instance=ExtResource("14_container")]
+position = Vector2(880, 500)
+container_id = &"piano_bench"
+contents = NodePath("../InsurancePolicy")
+open_title = "You lift the piano bench seat..."
+open_message = "Under old sheet music lies an official-looking paper."
+style = 7
+tint = Color(0.2, 0.11, 0.07, 1)
+size = Vector2(96, 44)
+
+[node name="InsurancePolicy" parent="HiddenObjects" instance=ExtResource("5_object")]
+position = Vector2(880, 492)
+rotation = 0.08
+scale = Vector2(0.55, 0.55)
+data = ExtResource("11_policy")
+
+[node name="CigarBox" parent="HiddenObjects" node_paths=PackedStringArray("contents") instance=ExtResource("14_container")]
+position = Vector2(646, 600)
+container_id = &"cigar_box"
+contents = NodePath("../DeskKey")
+open_title = "The cigar box creaks open..."
+open_message = "Among the cigars is a small brass key."
+style = 7
+tint = Color(0.55, 0.26, 0.16, 1)
+size = Vector2(52, 30)
+
+[node name="DeskKey" parent="HiddenObjects" instance=ExtResource("5_object")]
+position = Vector2(646, 596)
+rotation = -0.1
+scale = Vector2(0.6, 0.6)
+data = ExtResource("12_desk_key")
+
+[node name="DeskDrawer" parent="HiddenObjects" node_paths=PackedStringArray("contents", "required_object") instance=ExtResource("14_container")]
+position = Vector2(1130, 560)
+container_id = &"desk_drawer"
+contents = NodePath("../SpareKeys")
+open_title = "The desk key turns..."
+open_message = "The drawer is full of keys."
+required_object = NodePath("../DeskKey")
+locked_title = "The writing desk is locked."
+locked_message = "It needs a small brass key."
+style = 4
+tint = Color(0.3, 0.17, 0.11, 1)
+size = Vector2(84, 30)
+
+[node name="SpareKeys" parent="HiddenObjects" instance=ExtResource("5_object")]
+position = Vector2(1130, 553)
+scale = Vector2(0.55, 0.55)
+data = ExtResource("13_spare_keys")
+
+[node name="RoomForeground" type="Node2D" parent="."]
+script = ExtResource("4_art")
+layer = 1
+
+[node name="DustMotes" type="CPUParticles2D" parent="."]
+position = Vector2(640, 380)
+amount = 24
+lifetime = 10.0
+preprocess = 10.0
+emission_shape = 3
+emission_rect_extents = Vector2(320, 200)
+direction = Vector2(0, -1)
+spread = 180.0
+gravity = Vector2(0, -3)
+initial_velocity_min = 2.0
+initial_velocity_max = 6.0
+scale_amount_min = 1.5
+scale_amount_max = 2.5
+color = Color(1, 0.88, 0.7, 0.35)
+color_ramp = SubResource("Gradient_dust")
+
+[node name="PowerCuts" type="Node" parent="." node_paths=PackedStringArray("darkness_layer")]
+script = ExtResource("16_power")
+darkness_layer = NodePath("../MatchLight")
+
+[node name="MatchLight" type="Node2D" parent="."]
+script = ExtResource("15_lantern")
+darkness = 0.95
+light_radius = 55.0
+soft_edge = 50.0
+flicker_strength = 4.0
+
+[node name="HintHighlight" type="Node2D" parent="."]
+unique_name_in_owner = true
+visible = false
+script = ExtResource("17_hint")
+
+[node name="HUD" parent="." instance=ExtResource("18_hud")]
+unique_name_in_owner = true
+
+[node name="Notification" parent="." instance=ExtResource("19_note")]
+unique_name_in_owner = true
+
+[node name="VictoryScreen" parent="." instance=ExtResource("20_victory")]
+unique_name_in_owner = true
+
+[node name="PauseMenu" parent="." instance=ExtResource("21_pause")]
+unique_name_in_owner = true
+
+[node name="LetterPopup" parent="." instance=ExtResource("22_letter")]
+unique_name_in_owner = true

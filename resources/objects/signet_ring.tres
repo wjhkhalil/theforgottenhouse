@@ -1,0 +1,16 @@
+[gd_resource type="Resource" script_class="HiddenObjectData" format=3]
+
+[ext_resource type="Script" path="res://scripts/hidden_object_data.gd" id="1_data"]
+
+[resource]
+script = ExtResource("1_data")
+object_id = &"signet_ring"
+display_name = "Signet Ring"
+description = "A gold ring stamped 'T.G.'"
+collection_message = "You found a signet ring."
+clue_text = "Pressed into red wax, it makes the seal on the false will. Greaves made his own seal."
+hint_text = "Something gold that seals letters lies beside the inkwell."
+riddle_text = ""
+placeholder_style = 54
+is_required = true
+starts_visible = true

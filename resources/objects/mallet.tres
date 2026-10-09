@@ -1,0 +1,16 @@
+[gd_resource type="Resource" script_class="HiddenObjectData" format=3]
+
+[ext_resource type="Script" path="res://scripts/hidden_object_data.gd" id="1_data"]
+
+[resource]
+script = ExtResource("1_data")
+object_id = &"mallet"
+display_name = "Mallet"
+description = "A beech mallet with dented faces."
+collection_message = "You found a mallet!"
+clue_text = "Its outline on the tool wall is empty. Splinters of greased oak are stuck to it: this is what knocked the bungs in."
+hint_text = "A log basket stands on the floor beside the stove. Look inside it."
+riddle_text = ""
+placeholder_style = 104
+is_required = true
+starts_visible = false

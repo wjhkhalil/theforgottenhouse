@@ -1,0 +1,16 @@
+[gd_resource type="Resource" script_class="HiddenObjectData" format=3]
+
+[ext_resource type="Script" path="res://scripts/hidden_object_data.gd" id="1_data"]
+
+[resource]
+script = ExtResource("1_data")
+object_id = &"frozen_brooch"
+display_name = "Frozen Brooch"
+description = "A little silver swallow brooch, caught in a disc of ice."
+collection_message = "You found a frozen brooch!"
+clue_text = "Mother's silver swallow. Mara wore it every day. She was here; there is no doubt now."
+hint_text = "It is frozen inside the small block of ice on the middle shelf, on the right."
+riddle_text = ""
+placeholder_style = 130
+is_required = true
+starts_visible = false

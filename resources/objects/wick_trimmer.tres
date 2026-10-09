@@ -1,0 +1,16 @@
+[gd_resource type="Resource" script_class="HiddenObjectData" format=3]
+
+[ext_resource type="Script" path="res://scripts/hidden_object_data.gd" id="1_data"]
+
+[resource]
+script = ExtResource("1_data")
+object_id = &"wick_trimmer"
+display_name = "Wick Trimmer"
+description = "Long-bladed scissors with a little box to catch the burnt wick."
+collection_message = "You found a wick trimmer!"
+clue_text = "Agnes trimmed the lamp's wick every night for thirty years. The blades are still sharp enough to cut cord."
+hint_text = "It lies on one of the iron steps of the middle flight, below the keeper's landing. Wait for the beam to light it."
+riddle_text = ""
+placeholder_style = 136
+is_required = true
+starts_visible = true

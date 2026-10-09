@@ -1,0 +1,15 @@
+[gd_resource type="Resource" script_class="HiddenObjectData" format=3]
+
+[ext_resource type="Script" path="res://scripts/hidden_object_data.gd" id="1_data"]
+
+[resource]
+script = ExtResource("1_data")
+object_id = &"brass_key"
+display_name = "Small Brass Key"
+description = "A tiny, ornate brass key."
+collection_message = "You found a small brass key."
+clue_text = "It is far too small for a door. A paper tag tied to it reads: 'For E. - your jewellery box.'"
+hint_text = "Something small catches the moonlight where the night comes in."
+placeholder_style = 12
+is_required = true
+starts_visible = true

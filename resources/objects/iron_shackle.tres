@@ -1,0 +1,16 @@
+[gd_resource type="Resource" script_class="HiddenObjectData" format=3]
+
+[ext_resource type="Script" path="res://scripts/hidden_object_data.gd" id="1_data"]
+
+[resource]
+script = ExtResource("1_data")
+object_id = &"iron_shackle"
+display_name = "Iron Shackle"
+description = "An iron shackle on a short chain, the cuff cut through."
+collection_message = "You found an iron shackle!"
+clue_text = "The cuff has been filed clean through. The cabin is empty: Mara was not chained in here when the boat went down."
+hint_text = "Mara's cabin is behind the bolted door on the left of the saloon. You need the cabin key to open it."
+riddle_text = ""
+placeholder_style = 110
+is_required = true
+starts_visible = false

@@ -1,0 +1,16 @@
+[gd_resource type="Resource" script_class="HiddenObjectData" format=3]
+
+[ext_resource type="Script" path="res://scripts/hidden_object_data.gd" id="1_data"]
+
+[resource]
+script = ExtResource("1_data")
+object_id = &"teacup"
+display_name = "China Teacup"
+description = "A china teacup painted with a little rose, still on its saucer."
+collection_message = "You found a china teacup!"
+clue_text = "A cup from the Ashworth Manor tea set. Grains of white powder are stuck in the bottom. Vane gave Mara tea before they cast off."
+hint_text = "Open the galley cupboard on the saloon wall, in the middle of the wreck."
+riddle_text = ""
+placeholder_style = 108
+is_required = true
+starts_visible = false

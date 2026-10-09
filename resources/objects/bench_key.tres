@@ -1,0 +1,16 @@
+[gd_resource type="Resource" script_class="HiddenObjectData" format=3]
+
+[ext_resource type="Script" path="res://scripts/hidden_object_data.gd" id="1_data"]
+
+[resource]
+script = ExtResource("1_data")
+object_id = &"bench_key"
+display_name = "Workbench Key"
+description = "A small key tagged 'bench'."
+collection_message = "You found the workbench key!"
+clue_text = "A small steel key with a cardboard tag: 'bench'. It was locked in a strongbox and dropped in the slip, where nobody would look."
+hint_text = "The rusty strongbox at the bottom of the slip can only be reached at low water."
+riddle_text = ""
+placeholder_style = 78
+is_required = true
+starts_visible = false

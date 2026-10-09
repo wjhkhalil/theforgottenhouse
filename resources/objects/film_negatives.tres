@@ -1,0 +1,15 @@
+[gd_resource type="Resource" script_class="HiddenObjectData" format=3]
+
+[ext_resource type="Script" path="res://scripts/hidden_object_data.gd" id="1_data"]
+
+[resource]
+script = ExtResource("1_data")
+object_id = &"film_negatives"
+display_name = "Film Negatives"
+description = "A strip of photographic film negatives."
+collection_message = "You found a strip of film negatives."
+clue_text = "Held up to the light, the negatives show the two people from the photograph. Their faces are exactly the same."
+hint_text = "Photographs were developed down here. Look closely at what is drying on the line."
+placeholder_style = 7
+is_required = true
+starts_visible = true

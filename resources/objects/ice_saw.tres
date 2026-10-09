@@ -1,0 +1,16 @@
+[gd_resource type="Resource" script_class="HiddenObjectData" format=3]
+
+[ext_resource type="Script" path="res://scripts/hidden_object_data.gd" id="1_data"]
+
+[resource]
+script = ExtResource("1_data")
+object_id = &"ice_saw"
+display_name = "Ice Saw"
+description = "A long two-handled saw with ragged teeth."
+collection_message = "You found an ice saw!"
+clue_text = "Made for cutting blocks out of the frozen lake. It will cut through the thick slab of ice over the drain."
+hint_text = "The ice saw is locked in the tall tool locker in the middle of the room."
+riddle_text = ""
+placeholder_style = 129
+is_required = true
+starts_visible = false

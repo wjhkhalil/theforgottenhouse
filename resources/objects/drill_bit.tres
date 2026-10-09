@@ -1,0 +1,16 @@
+[gd_resource type="Resource" script_class="HiddenObjectData" format=3]
+
+[ext_resource type="Script" path="res://scripts/hidden_object_data.gd" id="1_data"]
+
+[resource]
+script = ExtResource("1_data")
+object_id = &"drill_bit"
+display_name = "Drill Bit"
+description = "A long auger drill bit with a square shank."
+collection_message = "You found a drill bit!"
+clue_text = "It fits the hand drill in the workshop exactly. This is the bit that bored the holes in the hull."
+hint_text = "Vane's toolbox lies on the floor of the hold, just right of the coil of rope."
+riddle_text = ""
+placeholder_style = 116
+is_required = true
+starts_visible = false

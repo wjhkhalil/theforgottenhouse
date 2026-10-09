@@ -1,0 +1,15 @@
+[gd_resource type="Resource" script_class="HiddenObjectData" format=3]
+
+[ext_resource type="Script" path="res://scripts/hidden_object_data.gd" id="1_data"]
+
+[resource]
+script = ExtResource("1_data")
+object_id = &"old_photograph"
+display_name = "Old Photograph"
+description = "A faded photograph showing two people."
+collection_message = "You discovered an old photograph."
+clue_text = "The photograph shows two people. Someone has scratched out one face."
+hint_text = "A memory is propped up on the desk, close to the candle."
+placeholder_style = 2
+is_required = true
+starts_visible = true

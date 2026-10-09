@@ -1,0 +1,23 @@
+[gd_resource type="Resource" script_class="LevelData" format=3]
+
+[ext_resource type="Script" path="res://scripts/level_data.gd" id="1_level"]
+
+[resource]
+script = ExtResource("1_level")
+chapter_id = &"jetty"
+room_name = "The Jetty"
+intro_message = "Three nights after Greaves's arrest, a light burns in the boathouse again. The jetty runs the whole way out across the water. Look left and right, and catch the things drifting on the lake. Find the 10 hidden objects."
+hint_cooldown_seconds = 50.0
+hint_area_radius = 210.0
+hint_area_offset = 120.0
+chapter_title = "House Two - Chapter One Complete"
+chapter_hook = "R.V. - Dr Robert Vane, the doctor who signed Mara's death certificate in 1987. And tonight, someone is waiting for him inside the boathouse."
+final_letter_title = "A Note in the Locker"
+final_letter_text = "Robert,
+
+The girl's sister has found the house. If the police open the boathouse they will find the Lady Margaret, and then they will find you.
+
+Burn the papers. Sink the boat properly this time. I will say nothing, as long as you keep paying.
+
+You owe me that much."
+final_letter_signature = "- T.G."

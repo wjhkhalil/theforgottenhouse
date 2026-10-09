@@ -1,0 +1,16 @@
+[gd_resource type="Resource" script_class="HiddenObjectData" format=3]
+
+[ext_resource type="Script" path="res://scripts/hidden_object_data.gd" id="1_data"]
+
+[resource]
+script = ExtResource("1_data")
+object_id = &"scratched_slate"
+display_name = "Scratched Slate"
+description = "A small school slate in a wooden frame."
+collection_message = "You found a scratched slate!"
+clue_text = "Scratched into it with a nail: 'M.A. alive 3.10.88'. Mara was alive the morning after the Lady Margaret sank!"
+hint_text = "A slate leans against the wall behind the right-hand straw bale."
+riddle_text = ""
+placeholder_style = 128
+is_required = true
+starts_visible = true

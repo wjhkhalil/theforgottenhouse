@@ -1,0 +1,16 @@
+[gd_resource type="Resource" script_class="HiddenObjectData" format=3]
+
+[ext_resource type="Script" path="res://scripts/hidden_object_data.gd" id="1_data"]
+
+[resource]
+script = ExtResource("1_data")
+object_id = &"stethoscope"
+display_name = "Stethoscope"
+description = "Dr Vane's stethoscope, the rubber tubes cracked with age."
+collection_message = "You found a stethoscope!"
+clue_text = "'R. Vane' is engraved on the chest piece. He wore it at the chapel when he came for 'Sister Margaret'."
+hint_text = "It lies on the left end of Vane's desk, under the left window."
+riddle_text = ""
+placeholder_style = 177
+is_required = true
+starts_visible = true

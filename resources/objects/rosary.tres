@@ -1,0 +1,16 @@
+[gd_resource type="Resource" script_class="HiddenObjectData" format=3]
+
+[ext_resource type="Script" path="res://scripts/hidden_object_data.gd" id="1_data"]
+
+[resource]
+script = ExtResource("1_data")
+object_id = &"rosary"
+display_name = "Rosary"
+description = "A loop of wooden rosary beads with a small cross."
+collection_message = "You found a rosary!"
+clue_text = "A rosary given to Agnes by the Sisters. A tiny brass key is tied on beside the cross. It must open her sea chest."
+hint_text = "Agnes's writing box sits on the left of her desk. It has a number lock: the ferry board on the wall gives the code."
+riddle_text = ""
+placeholder_style = 158
+is_required = true
+starts_visible = false

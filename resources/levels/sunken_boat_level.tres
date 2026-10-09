@@ -1,0 +1,23 @@
+[gd_resource type="Resource" script_class="LevelData" format=3]
+
+[ext_resource type="Script" path="res://scripts/level_data.gd" id="1_level"]
+
+[resource]
+script = ExtResource("1_level")
+chapter_id = &"sunken_boat"
+room_name = "The Sunken Boat"
+intro_message = "You dive down to the wreck of the Lady Margaret with the diving lamp. Watch the air gauge at the bottom: when it runs out you must swim up for a breath, and for a moment you can't pick anything up. Find the 13 hidden objects."
+hint_cooldown_seconds = 70.0
+hint_area_radius = 250.0
+hint_area_offset = 140.0
+chapter_title = "House Two - Chapter Five Complete"
+chapter_hook = "But the porthole was forced from the inside, and Vane's key ring held the key to the old ice house on the far shore: the nearest shelter from that freezing water. Did Mara make it there?"
+final_letter_title = "The Last Log Entry"
+final_letter_text = "2nd October 1988.
+
+Cast off 21:40. Wind from the north, the water like ice.
+
+M. restless all evening. Gave her tea to settle her. At about eleven, while I was at the wheel, she went over the side in the dark. I searched with the lamp for an hour. Nothing. Nobody could swim to shore in water that cold.
+
+The boat has been taking water for weeks. I shall let her go down here and row back. A tragic accident, and an end to it."
+final_letter_signature = "- R.V."

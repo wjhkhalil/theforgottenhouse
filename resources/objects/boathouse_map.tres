@@ -1,0 +1,16 @@
+[gd_resource type="Resource" script_class="HiddenObjectData" format=3]
+
+[ext_resource type="Script" path="res://scripts/hidden_object_data.gd" id="1_data"]
+
+[resource]
+script = ExtResource("1_data")
+object_id = &"boathouse_map"
+display_name = "Boathouse Map"
+description = "A hand-drawn map of the lake path."
+collection_message = "You found a hand-drawn map."
+clue_text = "The path from the house to the boathouse on Blackwater Lake. An X marks the boathouse, with one word: 'HERE'."
+hint_text = "The hall table drawer is locked. Its key is somewhere on these stairs."
+riddle_text = ""
+placeholder_style = 25
+is_required = true
+starts_visible = false

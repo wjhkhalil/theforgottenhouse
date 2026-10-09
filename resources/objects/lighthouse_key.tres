@@ -1,0 +1,16 @@
+[gd_resource type="Resource" script_class="HiddenObjectData" format=3]
+
+[ext_resource type="Script" path="res://scripts/hidden_object_data.gd" id="1_data"]
+
+[resource]
+script = ExtResource("1_data")
+object_id = &"lighthouse_key"
+display_name = "Lighthouse Key"
+description = "A big iron key with a brass tag stamped with a lighthouse."
+collection_message = "You found the lighthouse key!"
+clue_text = "The tag reads 'Blackwater Point Light - Door'. Agnes dropped it when she lifted the girl, and it froze in the meltwater."
+hint_text = "It is frozen in the slab of ice over the drain in the floor. You'll need a saw to cut it out."
+riddle_text = ""
+placeholder_style = 132
+is_required = true
+starts_visible = false

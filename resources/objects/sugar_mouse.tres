@@ -1,0 +1,16 @@
+[gd_resource type="Resource" script_class="HiddenObjectData" format=3]
+
+[ext_resource type="Script" path="res://scripts/hidden_object_data.gd" id="1_data"]
+
+[resource]
+script = ExtResource("1_data")
+object_id = &"sugar_mouse"
+display_name = "Sugar Mouse"
+description = "A white sugar mouse in wax paper."
+collection_message = "You found a sugar mouse."
+clue_text = "A white sugar mouse - the twins' birthday sweet. Under it is a tiny note in Eleanor's writing: 'His safe: the day we lost you. Day first, then month.'"
+hint_text = "The biscuit tin is stuck shut. Something in this kitchen can open tins."
+riddle_text = "Sweet and white, with a string tail"
+placeholder_style = 49
+is_required = true
+starts_visible = false

@@ -1,0 +1,16 @@
+[gd_resource type="Resource" script_class="HiddenObjectData" format=3]
+
+[ext_resource type="Script" path="res://scripts/hidden_object_data.gd" id="1_data"]
+
+[resource]
+script = ExtResource("1_data")
+object_id = &"registration"
+display_name = "Boat Registration"
+description = "The Lady Margaret's registration papers."
+collection_message = "You found the boat's registration papers!"
+clue_text = "Owner from May 1987: T. Greaves. Witness to the sale: Dr R. Vane. A month after Mara 'drowned', her boat changed hands."
+hint_text = "The fish crate is padlocked. Its key must be somewhere on the jetty."
+riddle_text = ""
+placeholder_style = 68
+is_required = true
+starts_visible = false

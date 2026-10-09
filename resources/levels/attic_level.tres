@@ -1,0 +1,28 @@
+[gd_resource type="Resource" script_class="LevelData" format=3]
+
+[ext_resource type="Script" path="res://scripts/level_data.gd" id="1_level"]
+
+[resource]
+script = ExtResource("1_level")
+chapter_id = &"attic"
+room_name = "The Attic"
+intro_message = "You slipped out through the coal chute while the footsteps searched the basement. Your lantern is almost out of oil and its flame flickers. Find the 7 hidden objects. Some things here are locked away."
+hint_cooldown_seconds = 20.0
+hint_area_radius = 150.0
+hint_area_offset = 65.0
+entry_code = "1987"
+entry_title = "The Attic Hatch"
+entry_prompt = "At the top of the back stairs, a hatch in the ceiling is held shut by a combination padlock. Someone has scratched beside it: 'The year the lake took her.'"
+entry_hint_first = "Wrong. Think back to the basement: the newspaper clipping in the trunk said when Mara was lost."
+entry_hint_second = "The clipping was dated 18 April 1987. The lock wants the year."
+entry_hint_first_after = 3
+entry_hint_second_after = 6
+chapter_title = "Chapter Three Complete"
+chapter_hook = "Through the round window, a lantern bobs across the garden toward Blackwater Lake. Then, far below, the front door locks with a heavy click. Whoever it was has shut you inside the house."
+final_letter_title = "A Page Torn from the Ledger"
+final_letter_text = "Eleanor refused to sign the house over to me, so she will stay at the boathouse until she does.
+
+Her sister should have stayed drowned. When I find her, there will be no daughters left, and the will is very clear about who gets the house.
+
+Tonight I finish this."
+final_letter_signature = "- T. G."

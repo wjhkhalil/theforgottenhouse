@@ -1,0 +1,16 @@
+[gd_resource type="Resource" script_class="HiddenObjectData" format=3]
+
+[ext_resource type="Script" path="res://scripts/hidden_object_data.gd" id="1_data"]
+
+[resource]
+script = ExtResource("1_data")
+object_id = &"hand_drill"
+display_name = "Hand Drill"
+description = "An old wheel brace with a long auger bit."
+collection_message = "You found a hand drill!"
+clue_text = "The bit is exactly the width of a thumb, and 'L.M. - 5' is scratched on the handle. Five holes, drilled in the Lady Margaret."
+hint_text = "The drill's outline on the tool wall is empty. Look on the floor under the pointed bow of the boat on the trestles."
+riddle_text = ""
+placeholder_style = 93
+is_required = true
+starts_visible = true

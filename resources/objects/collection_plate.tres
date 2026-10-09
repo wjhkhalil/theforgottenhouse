@@ -1,0 +1,16 @@
+[gd_resource type="Resource" script_class="HiddenObjectData" format=3]
+
+[ext_resource type="Script" path="res://scripts/hidden_object_data.gd" id="1_data"]
+
+[resource]
+script = ExtResource("1_data")
+object_id = &"collection_plate"
+display_name = "Collection Plate"
+description = "A brass plate lined with faded red felt."
+collection_message = "You found a collection plate!"
+clue_text = "A few coins from Sunday, still in the plate. Nobody has tidied the chapel since yesterday."
+hint_text = "Look on the pews on the left, near the font. A brass plate rests on the back rail."
+riddle_text = ""
+placeholder_style = 163
+is_required = true
+starts_visible = true

@@ -1,0 +1,16 @@
+[gd_resource type="Resource" script_class="HiddenObjectData" format=3]
+
+[ext_resource type="Script" path="res://scripts/hidden_object_data.gd" id="1_data"]
+
+[resource]
+script = ExtResource("1_data")
+object_id = &"sedative_vial"
+display_name = "Sedative Vial"
+description = "A small vial with a chemist's label."
+collection_message = "You found a sedative vial!"
+clue_text = "'Chloral - Miss M. Ashworth - as directed by Dr R. Vane.' The doctor's 'kind' visits kept her asleep."
+hint_text = "The black doctor's case on the stool has a little padlock. Find its key first."
+riddle_text = ""
+placeholder_style = 89
+is_required = true
+starts_visible = false

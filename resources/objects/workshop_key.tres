@@ -1,0 +1,16 @@
+[gd_resource type="Resource" script_class="HiddenObjectData" format=3]
+
+[ext_resource type="Script" path="res://scripts/hidden_object_data.gd" id="1_data"]
+
+[resource]
+script = ExtResource("1_data")
+object_id = &"workshop_key"
+display_name = "Workshop Key"
+description = "A heavy iron key tagged WORKSHOP."
+collection_message = "You found the workshop key!"
+clue_text = "A heavy key tagged WORKSHOP. Fresh wet boot prints lead from the hatch to the back stairs, and down to the workshop."
+hint_text = "The sea chest at the right has a number lock. Mara counted the days from the day she came."
+riddle_text = ""
+placeholder_style = 92
+is_required = true
+starts_visible = false

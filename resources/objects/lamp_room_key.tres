@@ -1,0 +1,16 @@
+[gd_resource type="Resource" script_class="HiddenObjectData" format=3]
+
+[ext_resource type="Script" path="res://scripts/hidden_object_data.gd" id="1_data"]
+
+[resource]
+script = ExtResource("1_data")
+object_id = &"lamp_room_key"
+display_name = "Lamp Room Key"
+description = "A heavy iron key on a wooden tag marked LAMP."
+collection_message = "You found the lamp room key!"
+clue_text = "A heavy iron key on a tag marked LAMP. Agnes kept her papers up in the lamp room, at the very top of the tower."
+hint_text = "At the very top of the tower, in the little key box on the wall beside the ladder up to the lamp room. Its hinge is rusted."
+riddle_text = ""
+placeholder_style = 146
+is_required = true
+starts_visible = false

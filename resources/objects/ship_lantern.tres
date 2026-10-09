@@ -1,0 +1,16 @@
+[gd_resource type="Resource" script_class="HiddenObjectData" format=3]
+
+[ext_resource type="Script" path="res://scripts/hidden_object_data.gd" id="1_data"]
+
+[resource]
+script = ExtResource("1_data")
+object_id = &"ship_lantern"
+display_name = "Ship's Lantern"
+description = "The Lady Margaret's brass lantern, its glass cracked."
+collection_message = "You found the ship's lantern!"
+clue_text = "The wick is dry and unburnt. The Lady Margaret went out that night with no lights showing, so nobody on shore would see her."
+hint_text = "Something brass lies on its side on the stern deck, at the top left of the wreck, by the rail."
+riddle_text = ""
+placeholder_style = 107
+is_required = true
+starts_visible = true

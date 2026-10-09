@@ -1,0 +1,27 @@
+[gd_resource type="Resource" script_class="LevelData" format=3]
+
+[ext_resource type="Script" path="res://scripts/level_data.gd" id="1_level"]
+
+[resource]
+script = ExtResource("1_level")
+chapter_id = &"vane_cottage"
+room_name = "Dr Vane's Cottage"
+intro_message = "Vane is outside, pacing the garden path with a lantern. When you hear his footsteps, get ready: while his lantern looks in through the windows, keep still and click NOTHING, or he will see you. Find the 16 hidden objects."
+hint_cooldown_seconds = 95.0
+hint_area_radius = 300.0
+hint_area_offset = 165.0
+chapter_title = "The Blackwater Boathouse - House Two Complete"
+chapter_hook = "Police lanterns bob along the jetty as dawn breaks over Blackwater Lake. Vane is in handcuffs, Mara's hand is in yours, and this time you are taking her home."
+final_letter_title = "Home"
+final_letter_text = "Ellie,
+
+They took him on the jetty at dawn, still holding his lantern. He looked very small.
+
+When you opened the cellar door, I didn't know you at first. Then you said my name, and it all came back: the lake, the manor, the bracelet you gave me, the songs we sang on the stairs.
+
+All those years, you never stopped looking for me.
+
+Tomorrow we go home to Ashworth Manor, together. Leave a light on in my old room.
+
+Your sister, always,"
+final_letter_signature = "- Mara"

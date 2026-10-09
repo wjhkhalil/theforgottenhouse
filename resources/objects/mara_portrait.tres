@@ -1,0 +1,16 @@
+[gd_resource type="Resource" script_class="HiddenObjectData" format=3]
+
+[ext_resource type="Script" path="res://scripts/hidden_object_data.gd" id="1_data"]
+
+[resource]
+script = ExtResource("1_data")
+object_id = &"mara_portrait"
+display_name = "Mara's Portrait"
+description = "A small oil portrait."
+collection_message = "You found Mara's portrait."
+clue_text = "The painting cut from the empty frame on the landing. He could not bear to look at her - but he could not throw her away either."
+hint_text = "One shelf of books is not what it seems. Look closely at the bookcase."
+riddle_text = ""
+placeholder_style = 59
+is_required = true
+starts_visible = false

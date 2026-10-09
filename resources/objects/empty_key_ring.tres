@@ -1,0 +1,16 @@
+[gd_resource type="Resource" script_class="HiddenObjectData" format=3]
+
+[ext_resource type="Script" path="res://scripts/hidden_object_data.gd" id="1_data"]
+
+[resource]
+script = ExtResource("1_data")
+object_id = &"empty_key_ring"
+display_name = "Empty Key Ring"
+description = "A heavy iron ring with paper labels."
+collection_message = "You found an empty key ring."
+clue_text = "Labels for every door in the house, but every key has been taken off. Greaves took them all."
+hint_text = "Something that should jingle lies silent near the coats."
+riddle_text = ""
+placeholder_style = 22
+is_required = true
+starts_visible = true

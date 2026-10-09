@@ -1,0 +1,16 @@
+[gd_resource type="Resource" script_class="HiddenObjectData" format=3]
+
+[ext_resource type="Script" path="res://scripts/hidden_object_data.gd" id="1_data"]
+
+[resource]
+script = ExtResource("1_data")
+object_id = &"maras_purse"
+display_name = "Mara's Purse"
+description = "A small beaded purse, soaked through."
+collection_message = "You found Mara's purse!"
+clue_text = "Initials M.A. Inside, a note in a doctor's hand: 'Take two of these before the boat trip. You will sleep like a baby.'"
+hint_text = "Something small lies in the mud at the bottom of the slip. Wait for the water to drain."
+riddle_text = ""
+placeholder_style = 74
+is_required = true
+starts_visible = true

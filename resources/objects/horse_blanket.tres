@@ -1,0 +1,16 @@
+[gd_resource type="Resource" script_class="HiddenObjectData" format=3]
+
+[ext_resource type="Script" path="res://scripts/hidden_object_data.gd" id="1_data"]
+
+[resource]
+script = ExtResource("1_data")
+object_id = &"horse_blanket"
+display_name = "Horse Blanket"
+description = "A rough brown horse blanket with a red stripe."
+collection_message = "You found a horse blanket!"
+clue_text = "It is pressed into the shape of someone small, curled up tight. Mara wrapped herself in this to stay alive."
+hint_text = "A brown blanket lies draped over the top of the straw bales by the wall."
+riddle_text = ""
+placeholder_style = 121
+is_required = true
+starts_visible = true

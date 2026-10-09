@@ -1,0 +1,23 @@
+[gd_resource type="Resource" script_class="LevelData" format=3]
+
+[ext_resource type="Script" path="res://scripts/level_data.gd" id="1_level"]
+
+[resource]
+script = ExtResource("1_level")
+chapter_id = &"ice_house"
+room_name = "The Ice House"
+intro_message = "You unlock the old ice house on the far shore. Some things are frozen into blocks of ice: click a block several times to chip it open. Frost also keeps creeping back over things, so click a frosted object once to rub it clean. Find the 14 hidden objects."
+hint_cooldown_seconds = 75.0
+hint_area_radius = 260.0
+hint_area_offset = 145.0
+chapter_title = "House Two - Chapter Six Complete"
+chapter_hook = "Across the bay, the lighthouse on Blackwater Point still stands. Its beam still turns every night, though no ships come any more. Somebody is still up there, keeping the light."
+final_letter_title = "The Keeper's Note"
+final_letter_text = "To whoever comes looking,
+
+At first light on the 3rd of October I found a girl in the ice house, curled up in the horse blanket, half-frozen and soaked through with lake water.
+
+She cannot tell me her own name. She does not remember how she got here, only the cold and the dark water.
+
+I have given her soup and I am taking her to the lighthouse, where it is warm. If she is yours, come to Blackwater Point. I will keep her safe until you do."
+final_letter_signature = "- A. Hale, Keeper, Blackwater Point Light"

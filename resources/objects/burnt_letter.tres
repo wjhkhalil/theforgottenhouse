@@ -1,0 +1,16 @@
+[gd_resource type="Resource" script_class="HiddenObjectData" format=3]
+
+[ext_resource type="Script" path="res://scripts/hidden_object_data.gd" id="1_data"]
+
+[resource]
+script = ExtResource("1_data")
+object_id = &"burnt_letter"
+display_name = "Burnt Letter"
+description = "A half-burnt letter."
+collection_message = "You found a half-burnt letter."
+clue_text = "'...the Ashworth estate shall be transferred in full to T. Greaves upon...' The rest has burnt to ash."
+hint_text = "Somebody tried to burn something in the oven."
+riddle_text = "Paper the fire didn't finish"
+placeholder_style = 47
+is_required = true
+starts_visible = false

@@ -1,0 +1,16 @@
+[gd_resource type="Resource" script_class="HiddenObjectData" format=3]
+
+[ext_resource type="Script" path="res://scripts/hidden_object_data.gd" id="1_data"]
+
+[resource]
+script = ExtResource("1_data")
+object_id = &"sextant"
+display_name = "Sextant"
+description = "A brass sextant for finding your way by the stars."
+collection_message = "You found a sextant!"
+clue_text = "'R.V.' is scratched on the handle. Vane was a careful sailor. He knew exactly how far it was to the far shore."
+hint_text = "It lies on the right-hand end of the chart table in the wheelhouse, under the windows."
+riddle_text = ""
+placeholder_style = 113
+is_required = true
+starts_visible = true

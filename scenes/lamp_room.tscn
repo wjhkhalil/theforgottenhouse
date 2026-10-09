@@ -1,0 +1,244 @@
+[gd_scene format=3]
+
+[ext_resource type="Script" path="res://scripts/room_level.gd" id="1_room"]
+[ext_resource type="Resource" path="res://resources/levels/lamp_room_level.tres" id="2_level"]
+[ext_resource type="Script" path="res://scripts/game_manager.gd" id="3_manager"]
+[ext_resource type="Script" path="res://scripts/lamp_room_art.gd" id="4_art"]
+[ext_resource type="PackedScene" path="res://scenes/objects/hidden_object.tscn" id="5_object"]
+[ext_resource type="Resource" path="res://resources/objects/lens_cloth.tres" id="6_lens_cloth"]
+[ext_resource type="Resource" path="res://resources/objects/lamp_mantle.tres" id="7_lamp_mantle"]
+[ext_resource type="Resource" path="res://resources/objects/telegram_form.tres" id="8_telegram_form"]
+[ext_resource type="Resource" path="res://resources/objects/postcard.tres" id="9_postcard"]
+[ext_resource type="Resource" path="res://resources/objects/pencil_sketch.tres" id="10_pencil_sketch"]
+[ext_resource type="Resource" path="res://resources/objects/newspaper_page.tres" id="11_newspaper_page"]
+[ext_resource type="Resource" path="res://resources/objects/oil_funnel.tres" id="12_oil_funnel"]
+[ext_resource type="Resource" path="res://resources/objects/binoculars.tres" id="13_binoculars"]
+[ext_resource type="Resource" path="res://resources/objects/radio_valve.tres" id="14_radio_valve"]
+[ext_resource type="Resource" path="res://resources/objects/bell_hammer.tres" id="15_bell_hammer"]
+[ext_resource type="Resource" path="res://resources/objects/tobacco_tin.tres" id="16_tobacco_tin"]
+[ext_resource type="Resource" path="res://resources/objects/rosary.tres" id="17_rosary"]
+[ext_resource type="Resource" path="res://resources/objects/ferry_ticket.tres" id="18_ferry_ticket"]
+[ext_resource type="Resource" path="res://resources/objects/wind_gauge.tres" id="19_wind_gauge"]
+[ext_resource type="Resource" path="res://resources/objects/chapel_key.tres" id="20_chapel_key"]
+[ext_resource type="PackedScene" path="res://scenes/objects/openable_container.tscn" id="21_container"]
+[ext_resource type="Script" path="res://scripts/wind_gusts.gd" id="22_wind"]
+[ext_resource type="Script" path="res://scripts/hint_highlight.gd" id="23_hint"]
+[ext_resource type="PackedScene" path="res://scenes/ui/hud.tscn" id="24_hud"]
+[ext_resource type="PackedScene" path="res://scenes/ui/notification.tscn" id="25_note"]
+[ext_resource type="PackedScene" path="res://scenes/victory_screen.tscn" id="26_victory"]
+[ext_resource type="PackedScene" path="res://scenes/ui/pause_menu.tscn" id="27_pause"]
+[ext_resource type="PackedScene" path="res://scenes/ui/letter_popup.tscn" id="28_letter"]
+[ext_resource type="PackedScene" path="res://scenes/ui/keypad_lock.tscn" id="29_keypad"]
+
+[node name="LampRoom" type="Node2D" node_paths=PackedStringArray("keypad_lock")]
+script = ExtResource("1_room")
+level_data = ExtResource("2_level")
+keypad_lock = NodePath("KeypadLock")
+
+[node name="GameManager" type="Node" parent="."]
+unique_name_in_owner = true
+script = ExtResource("3_manager")
+
+[node name="RoomBackground" type="Node2D" parent="."]
+script = ExtResource("4_art")
+
+[node name="HiddenObjects" type="Node2D" parent="."]
+unique_name_in_owner = true
+
+[node name="TelegramForm" parent="HiddenObjects" instance=ExtResource("5_object")]
+position = Vector2(262, 450)
+rotation = 0.2
+scale = Vector2(0.62, 0.62)
+data = ExtResource("8_telegram_form")
+
+[node name="Postcard" parent="HiddenObjects" instance=ExtResource("5_object")]
+position = Vector2(170, 600)
+rotation = -0.3
+scale = Vector2(0.62, 0.62)
+data = ExtResource("9_postcard")
+
+[node name="PencilSketch" parent="HiddenObjects" instance=ExtResource("5_object")]
+position = Vector2(780, 300)
+rotation = 0.15
+scale = Vector2(0.58, 0.58)
+data = ExtResource("10_pencil_sketch")
+
+[node name="NewspaperPage" parent="HiddenObjects" instance=ExtResource("5_object")]
+position = Vector2(450, 640)
+rotation = 0.35
+scale = Vector2(0.62, 0.62)
+data = ExtResource("11_newspaper_page")
+
+[node name="FerryTicket" parent="HiddenObjects" instance=ExtResource("5_object")]
+position = Vector2(960, 660)
+rotation = -0.4
+scale = Vector2(0.6, 0.6)
+data = ExtResource("18_ferry_ticket")
+
+[node name="LampMantle" parent="HiddenObjects" instance=ExtResource("5_object")]
+position = Vector2(676, 545)
+scale = Vector2(0.55, 0.55)
+data = ExtResource("7_lamp_mantle")
+
+[node name="Binoculars" parent="HiddenObjects" instance=ExtResource("5_object")]
+position = Vector2(820, 341)
+rotation = 0.08
+scale = Vector2(0.55, 0.55)
+data = ExtResource("13_binoculars")
+
+[node name="WindGauge" parent="HiddenObjects" instance=ExtResource("5_object")]
+position = Vector2(120, 400)
+rotation = -0.12
+scale = Vector2(0.6, 0.6)
+data = ExtResource("19_wind_gauge")
+
+[node name="LensCupboard" parent="HiddenObjects" node_paths=PackedStringArray("contents") instance=ExtResource("21_container")]
+position = Vector2(445, 402)
+container_id = &"lens_cupboard"
+contents = NodePath("../LensCloth")
+open_title = "The little iron cupboard creaks open..."
+open_message = "Spare wicks, a tin of polish, and a folded chamois cloth."
+style = 3
+tint = Color(0.3, 0.38, 0.35, 1)
+size = Vector2(54, 56)
+
+[node name="LensCloth" parent="HiddenObjects" instance=ExtResource("5_object")]
+position = Vector2(445, 398)
+scale = Vector2(0.55, 0.55)
+data = ExtResource("6_lens_cloth")
+
+[node name="DeskDrawer" parent="HiddenObjects" node_paths=PackedStringArray("contents") instance=ExtResource("21_container")]
+position = Vector2(256, 489)
+container_id = &"desk_drawer"
+contents = NodePath("../TobaccoTin")
+open_title = "The desk drawer sticks, then slides out..."
+open_message = "Pencils, string, a pipe, and a flat red tin."
+style = 4
+tint = Color(0.44, 0.3, 0.18, 1)
+size = Vector2(100, 26)
+
+[node name="TobaccoTin" parent="HiddenObjects" instance=ExtResource("5_object")]
+position = Vector2(256, 484)
+scale = Vector2(0.55, 0.55)
+data = ExtResource("16_tobacco_tin")
+
+[node name="RadioCabinet" parent="HiddenObjects" node_paths=PackedStringArray("contents") instance=ExtResource("21_container")]
+position = Vector2(360, 434)
+container_id = &"radio_cabinet"
+contents = NodePath("../RadioValve")
+open_title = "You open the cabinet under the radio..."
+open_message = "Batteries, a coil of wire and a spare glass valve."
+style = 3
+tint = Color(0.34, 0.21, 0.12, 1)
+size = Vector2(70, 40)
+
+[node name="RadioValve" parent="HiddenObjects" instance=ExtResource("5_object")]
+position = Vector2(360, 430)
+scale = Vector2(0.55, 0.55)
+data = ExtResource("14_radio_valve")
+
+[node name="RopeBasket" parent="HiddenObjects" node_paths=PackedStringArray("contents") instance=ExtResource("21_container")]
+position = Vector2(870, 602)
+container_id = &"rope_basket"
+contents = NodePath("../BellHammer")
+open_title = "You lift the lid of the rope basket..."
+open_message = "Under the coils of rope lies the fog bell's hammer."
+style = 6
+tint = Color(0.55, 0.45, 0.28, 1)
+size = Vector2(64, 46)
+
+[node name="BellHammer" parent="HiddenObjects" instance=ExtResource("5_object")]
+position = Vector2(870, 596)
+rotation = -0.2
+scale = Vector2(0.6, 0.6)
+data = ExtResource("15_bell_hammer")
+
+[node name="OilLocker" parent="HiddenObjects" node_paths=PackedStringArray("contents", "required_object") instance=ExtResource("21_container")]
+position = Vector2(948, 458)
+container_id = &"oil_locker"
+contents = NodePath("../OilFunnel")
+open_title = "Clang! The hammer knocks the rusty latch free..."
+open_message = "The oil locker swings open. Cans of paraffin, and a brass funnel."
+required_object = NodePath("../BellHammer")
+locked_title = "The oil locker is rusted shut."
+locked_message = "The latch has rusted solid in the salt air. A sharp knock with something heavy might free it."
+style = 3
+tint = Color(0.5, 0.2, 0.15, 1)
+size = Vector2(66, 96)
+
+[node name="OilFunnel" parent="HiddenObjects" instance=ExtResource("5_object")]
+position = Vector2(948, 452)
+scale = Vector2(0.6, 0.6)
+data = ExtResource("12_oil_funnel")
+
+[node name="WritingBox" parent="HiddenObjects" node_paths=PackedStringArray("contents") instance=ExtResource("21_container")]
+position = Vector2(180, 441)
+container_id = &"writing_box"
+contents = NodePath("../Rosary")
+open_title = "The four wheels click into place..."
+open_message = "Agnes's writing box opens. On top of her letters lies a rosary."
+required_code = "0640"
+code_title = "Agnes's Writing Box"
+code_prompt = "A wooden writing box with a four-number lock. Burnt into the lid in small letters: 'When the boat leaves for her.'"
+code_hint_first = "Wrong. The lid talks about a boat. Is there a ferry time written anywhere in the lamp room?"
+code_hint_second = "The painted board on the wall says the island ferry sails once a day, at 06:40. The code is 0640."
+code_hint_first_after = 8
+code_hint_second_after = 11
+style = 7
+tint = Color(0.36, 0.22, 0.14, 1)
+size = Vector2(60, 28)
+
+[node name="Rosary" parent="HiddenObjects" instance=ExtResource("5_object")]
+position = Vector2(180, 436)
+scale = Vector2(0.55, 0.55)
+data = ExtResource("17_rosary")
+
+[node name="SeaChest" parent="HiddenObjects" node_paths=PackedStringArray("contents", "required_object") instance=ExtResource("21_container")]
+position = Vector2(735, 655)
+container_id = &"sea_chest"
+contents = NodePath("../ChapelKey")
+open_title = "The tiny brass key turns..."
+open_message = "Agnes's sea chest opens. On top of her Sunday coat lies a big iron key."
+required_object = NodePath("../Rosary")
+locked_title = "Agnes's sea chest is locked."
+locked_message = "A small brass padlock holds it shut. Agnes must have kept the key somewhere close to her heart."
+style = 0
+tint = Color(0.42, 0.29, 0.2, 1)
+size = Vector2(112, 58)
+
+[node name="ChapelKey" parent="HiddenObjects" instance=ExtResource("5_object")]
+position = Vector2(735, 649)
+scale = Vector2(0.6, 0.6)
+data = ExtResource("20_chapel_key")
+
+[node name="WindGusts" type="Node2D" parent="."]
+script = ExtResource("22_wind")
+papers = Array[NodePath]([NodePath("../HiddenObjects/TelegramForm"), NodePath("../HiddenObjects/Postcard"), NodePath("../HiddenObjects/PencilSketch"), NodePath("../HiddenObjects/NewspaperPage"), NodePath("../HiddenObjects/FerryTicket")])
+landing_spots = PackedVector2Array(262, 450, 170, 600, 780, 300, 450, 640, 960, 660, 330, 610, 610, 690, 440, 320, 790, 480, 130, 520, 870, 480)
+broken_pane = Rect2(14, 62, 150, 134)
+
+[node name="RoomForeground" type="Node2D" parent="."]
+script = ExtResource("4_art")
+layer = 1
+
+[node name="HintHighlight" type="Node2D" parent="."]
+unique_name_in_owner = true
+visible = false
+script = ExtResource("23_hint")
+
+[node name="HUD" parent="." instance=ExtResource("24_hud")]
+unique_name_in_owner = true
+
+[node name="Notification" parent="." instance=ExtResource("25_note")]
+unique_name_in_owner = true
+
+[node name="VictoryScreen" parent="." instance=ExtResource("26_victory")]
+unique_name_in_owner = true
+
+[node name="PauseMenu" parent="." instance=ExtResource("27_pause")]
+unique_name_in_owner = true
+
+[node name="LetterPopup" parent="." instance=ExtResource("28_letter")]
+unique_name_in_owner = true
+
+[node name="KeypadLock" parent="." instance=ExtResource("29_keypad")]

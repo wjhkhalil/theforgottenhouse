@@ -1,0 +1,106 @@
+[gd_scene format=3]
+
+[ext_resource type="Script" path="res://scripts/room_level.gd" id="1_room"]
+[ext_resource type="Resource" path="res://resources/levels/bedroom_level.tres" id="2_level"]
+[ext_resource type="Script" path="res://scripts/game_manager.gd" id="3_manager"]
+[ext_resource type="Script" path="res://scripts/bedroom_art.gd" id="4_art"]
+[ext_resource type="PackedScene" path="res://scenes/objects/hidden_object.tscn" id="5_object"]
+[ext_resource type="Resource" path="res://resources/objects/rusty_key.tres" id="6_key"]
+[ext_resource type="Resource" path="res://resources/objects/old_photograph.tres" id="7_photo"]
+[ext_resource type="Resource" path="res://resources/objects/missing_letter.tres" id="8_letter"]
+[ext_resource type="Resource" path="res://resources/objects/old_diary.tres" id="9_diary"]
+[ext_resource type="Resource" path="res://resources/objects/teddy_bear.tres" id="10_bear"]
+[ext_resource type="Script" path="res://scripts/hint_highlight.gd" id="11_hint"]
+[ext_resource type="PackedScene" path="res://scenes/ui/hud.tscn" id="12_hud"]
+[ext_resource type="PackedScene" path="res://scenes/ui/notification.tscn" id="13_note"]
+[ext_resource type="PackedScene" path="res://scenes/ui/pause_menu.tscn" id="14_pause"]
+[ext_resource type="PackedScene" path="res://scenes/ui/letter_popup.tscn" id="15_letter"]
+[ext_resource type="PackedScene" path="res://scenes/victory_screen.tscn" id="16_victory"]
+
+[sub_resource type="Gradient" id="Gradient_dust"]
+offsets = PackedFloat32Array(0, 0.2, 0.8, 1)
+colors = PackedColorArray(1, 1, 1, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0)
+
+[node name="Bedroom" type="Node2D"]
+script = ExtResource("1_room")
+level_data = ExtResource("2_level")
+
+[node name="GameManager" type="Node" parent="."]
+unique_name_in_owner = true
+script = ExtResource("3_manager")
+
+[node name="RoomBackground" type="Node2D" parent="."]
+script = ExtResource("4_art")
+
+[node name="HiddenObjects" type="Node2D" parent="."]
+unique_name_in_owner = true
+
+[node name="RustyKey" parent="HiddenObjects" instance=ExtResource("5_object")]
+position = Vector2(655, 560)
+rotation = 0.25
+scale = Vector2(0.85, 0.85)
+data = ExtResource("6_key")
+
+[node name="OldPhotograph" parent="HiddenObjects" instance=ExtResource("5_object")]
+position = Vector2(852, 394)
+rotation = -0.1
+scale = Vector2(0.85, 0.85)
+data = ExtResource("7_photo")
+
+[node name="MissingLetter" parent="HiddenObjects" instance=ExtResource("5_object")]
+position = Vector2(924, 428)
+rotation = 0.08
+scale = Vector2(0.85, 0.85)
+data = ExtResource("8_letter")
+
+[node name="OldDiary" parent="HiddenObjects" instance=ExtResource("5_object")]
+position = Vector2(180, 312)
+rotation = -0.18
+scale = Vector2(0.85, 0.85)
+data = ExtResource("9_diary")
+
+[node name="TeddyBear" parent="HiddenObjects" instance=ExtResource("5_object")]
+position = Vector2(350, 414)
+scale = Vector2(0.9, 0.9)
+data = ExtResource("10_bear")
+
+[node name="RoomForeground" type="Node2D" parent="."]
+script = ExtResource("4_art")
+layer = 1
+
+[node name="DustMotes" type="CPUParticles2D" parent="."]
+position = Vector2(740, 450)
+amount = 36
+lifetime = 10.0
+preprocess = 10.0
+emission_shape = 3
+emission_rect_extents = Vector2(230, 200)
+direction = Vector2(0, -1)
+spread = 180.0
+gravity = Vector2(0, -3)
+initial_velocity_min = 2.0
+initial_velocity_max = 8.0
+scale_amount_min = 1.5
+scale_amount_max = 3.0
+color = Color(1, 0.93, 0.78, 0.45)
+color_ramp = SubResource("Gradient_dust")
+
+[node name="HintHighlight" type="Node2D" parent="."]
+unique_name_in_owner = true
+visible = false
+script = ExtResource("11_hint")
+
+[node name="HUD" parent="." instance=ExtResource("12_hud")]
+unique_name_in_owner = true
+
+[node name="Notification" parent="." instance=ExtResource("13_note")]
+unique_name_in_owner = true
+
+[node name="VictoryScreen" parent="." instance=ExtResource("16_victory")]
+unique_name_in_owner = true
+
+[node name="PauseMenu" parent="." instance=ExtResource("14_pause")]
+unique_name_in_owner = true
+
+[node name="LetterPopup" parent="." instance=ExtResource("15_letter")]
+unique_name_in_owner = true

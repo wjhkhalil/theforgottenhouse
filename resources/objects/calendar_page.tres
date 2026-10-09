@@ -1,0 +1,16 @@
+[gd_resource type="Resource" script_class="HiddenObjectData" format=3]
+
+[ext_resource type="Script" path="res://scripts/hidden_object_data.gd" id="1_data"]
+
+[resource]
+script = ExtResource("1_data")
+object_id = &"calendar_page"
+display_name = "Calendar Page"
+description = "A page from a wall calendar."
+collection_message = "You found a calendar page."
+clue_text = "April, with the 17th circled in red - every year, the same day."
+hint_text = "A page torn from the wall calendar has fallen to the floor."
+riddle_text = ""
+placeholder_style = 55
+is_required = true
+starts_visible = true

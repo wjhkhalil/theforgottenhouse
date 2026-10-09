@@ -1,0 +1,185 @@
+[gd_scene format=3]
+
+[ext_resource type="Script" path="res://scripts/room_level.gd" id="1_room"]
+[ext_resource type="Resource" path="res://resources/levels/study_level.tres" id="2_level"]
+[ext_resource type="Script" path="res://scripts/game_manager.gd" id="3_manager"]
+[ext_resource type="Script" path="res://scripts/study_art.gd" id="4_art"]
+[ext_resource type="PackedScene" path="res://scenes/objects/hidden_object.tscn" id="5_object"]
+[ext_resource type="Resource" path="res://resources/objects/forged_signatures.tres" id="6_forged"]
+[ext_resource type="Resource" path="res://resources/objects/fountain_pen.tres" id="7_pen"]
+[ext_resource type="Resource" path="res://resources/objects/magnifying_glass.tres" id="8_magnifier"]
+[ext_resource type="Resource" path="res://resources/objects/signet_ring.tres" id="9_ring"]
+[ext_resource type="Resource" path="res://resources/objects/calendar_page.tres" id="10_calendar"]
+[ext_resource type="Resource" path="res://resources/objects/letter_opener.tres" id="11_opener"]
+[ext_resource type="Resource" path="res://resources/objects/boathouse_key.tres" id="12_key"]
+[ext_resource type="Resource" path="res://resources/objects/real_will.tres" id="13_will"]
+[ext_resource type="Resource" path="res://resources/objects/mara_portrait.tres" id="14_portrait"]
+[ext_resource type="PackedScene" path="res://scenes/objects/openable_container.tscn" id="15_container"]
+[ext_resource type="Script" path="res://scripts/hint_highlight.gd" id="16_hint"]
+[ext_resource type="PackedScene" path="res://scenes/ui/hud.tscn" id="17_hud"]
+[ext_resource type="PackedScene" path="res://scenes/ui/notification.tscn" id="18_note"]
+[ext_resource type="PackedScene" path="res://scenes/victory_screen.tscn" id="19_victory"]
+[ext_resource type="PackedScene" path="res://scenes/ui/pause_menu.tscn" id="20_pause"]
+[ext_resource type="PackedScene" path="res://scenes/ui/letter_popup.tscn" id="21_letter"]
+[ext_resource type="PackedScene" path="res://scenes/ui/keypad_lock.tscn" id="22_keypad"]
+
+[sub_resource type="Gradient" id="Gradient_dust"]
+offsets = PackedFloat32Array(0, 0.2, 0.8, 1)
+colors = PackedColorArray(1, 1, 1, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0)
+
+[node name="Study" type="Node2D" node_paths=PackedStringArray("keypad_lock")]
+script = ExtResource("1_room")
+level_data = ExtResource("2_level")
+keypad_lock = NodePath("KeypadLock")
+
+[node name="GameManager" type="Node" parent="."]
+unique_name_in_owner = true
+script = ExtResource("3_manager")
+
+[node name="RoomBackground" type="Node2D" parent="."]
+script = ExtResource("4_art")
+
+[node name="HiddenObjects" type="Node2D" parent="."]
+unique_name_in_owner = true
+
+[node name="ForgedSignatures" parent="HiddenObjects" instance=ExtResource("5_object")]
+position = Vector2(640, 444)
+rotation = -0.12
+scale = Vector2(0.6, 0.6)
+data = ExtResource("6_forged")
+
+[node name="FountainPen" parent="HiddenObjects" instance=ExtResource("5_object")]
+position = Vector2(892, 638)
+rotation = 0.35
+scale = Vector2(0.65, 0.65)
+data = ExtResource("7_pen")
+
+[node name="MagnifyingGlass" parent="HiddenObjects" instance=ExtResource("5_object")]
+position = Vector2(112, 399)
+rotation = -0.1
+scale = Vector2(0.62, 0.62)
+data = ExtResource("8_magnifier")
+
+[node name="SignetRing" parent="HiddenObjects" instance=ExtResource("5_object")]
+position = Vector2(876, 446)
+scale = Vector2(0.6, 0.6)
+data = ExtResource("9_ring")
+
+[node name="CalendarPage" parent="HiddenObjects" instance=ExtResource("5_object")]
+position = Vector2(204, 588)
+rotation = 0.25
+scale = Vector2(0.65, 0.65)
+data = ExtResource("10_calendar")
+
+[node name="Humidor" parent="HiddenObjects" node_paths=PackedStringArray("contents") instance=ExtResource("15_container")]
+position = Vector2(1160, 538)
+container_id = &"humidor"
+contents = NodePath("../LetterOpener")
+open_title = "You open the cigar humidor..."
+open_message = "A silver letter opener lies on top of the cigars."
+style = 7
+tint = Color(0.5, 0.3, 0.17, 1)
+size = Vector2(60, 36)
+
+[node name="LetterOpener" parent="HiddenObjects" instance=ExtResource("5_object")]
+position = Vector2(1160, 532)
+rotation = -0.08
+scale = Vector2(0.62, 0.62)
+data = ExtResource("11_opener")
+
+[node name="DeskDrawer" parent="HiddenObjects" node_paths=PackedStringArray("contents", "required_object") instance=ExtResource("15_container")]
+position = Vector2(670, 494)
+container_id = &"desk_drawer"
+contents = NodePath("../BoathouseKey")
+open_title = "The letter opener forces the drawer..."
+open_message = "A heavy iron key slides forward."
+required_object = NodePath("../LetterOpener")
+locked_title = "The desk drawer is jammed."
+locked_message = "It is stuck fast. You need something thin and strong to force it."
+style = 4
+tint = Color(0.32, 0.15, 0.1, 1)
+size = Vector2(90, 30)
+
+[node name="BoathouseKey" parent="HiddenObjects" instance=ExtResource("5_object")]
+position = Vector2(670, 488)
+scale = Vector2(0.6, 0.6)
+data = ExtResource("12_key")
+
+[node name="WallSafe" parent="HiddenObjects" node_paths=PackedStringArray("contents") instance=ExtResource("15_container")]
+position = Vector2(765, 180)
+container_id = &"wall_safe"
+contents = NodePath("../RealWill")
+open_title = "The safe door swings open..."
+open_message = "Inside, tied with a ribbon, is the real will."
+required_code = "1704"
+code_title = "Greaves's Safe"
+code_prompt = "A heavy safe with a four-digit dial. Eleanor's note said: 'The day we lost you. Day first, then month.'"
+code_hint_first = "Wrong. Mara was lost at the lake on a spring night in 1987. What was the date?"
+code_hint_second = "The 17th of April. Day first, then month: 1704."
+style = 5
+tint = Color(0.24, 0.29, 0.27, 1)
+size = Vector2(90, 90)
+
+[node name="RealWill" parent="HiddenObjects" instance=ExtResource("5_object")]
+position = Vector2(765, 174)
+rotation = -0.06
+scale = Vector2(0.65, 0.65)
+data = ExtResource("13_will")
+
+[node name="BookcaseCompartment" parent="HiddenObjects" node_paths=PackedStringArray("contents") instance=ExtResource("15_container")]
+position = Vector2(178, 309)
+container_id = &"bookcase_compartment"
+contents = NodePath("../MaraPortrait")
+open_title = "A row of fake book spines swings open..."
+open_message = "Hidden behind it is a small rolled painting."
+style = 8
+tint = Color(0.36, 0.2, 0.13, 1)
+size = Vector2(80, 60)
+
+[node name="MaraPortrait" parent="HiddenObjects" instance=ExtResource("5_object")]
+position = Vector2(178, 304)
+scale = Vector2(0.6, 0.6)
+data = ExtResource("14_portrait")
+
+[node name="RoomForeground" type="Node2D" parent="."]
+script = ExtResource("4_art")
+layer = 1
+
+[node name="DustMotes" type="CPUParticles2D" parent="."]
+position = Vector2(500, 420)
+amount = 22
+lifetime = 10.0
+preprocess = 10.0
+emission_shape = 3
+emission_rect_extents = Vector2(120, 90)
+direction = Vector2(0, -1)
+spread = 180.0
+gravity = Vector2(0, -3)
+initial_velocity_min = 2.0
+initial_velocity_max = 5.0
+scale_amount_min = 1.5
+scale_amount_max = 2.5
+color = Color(1, 0.9, 0.7, 0.35)
+color_ramp = SubResource("Gradient_dust")
+
+[node name="HintHighlight" type="Node2D" parent="."]
+unique_name_in_owner = true
+visible = false
+script = ExtResource("16_hint")
+
+[node name="HUD" parent="." instance=ExtResource("17_hud")]
+unique_name_in_owner = true
+
+[node name="Notification" parent="." instance=ExtResource("18_note")]
+unique_name_in_owner = true
+
+[node name="VictoryScreen" parent="." instance=ExtResource("19_victory")]
+unique_name_in_owner = true
+
+[node name="PauseMenu" parent="." instance=ExtResource("20_pause")]
+unique_name_in_owner = true
+
+[node name="LetterPopup" parent="." instance=ExtResource("21_letter")]
+unique_name_in_owner = true
+
+[node name="KeypadLock" parent="." instance=ExtResource("22_keypad")]

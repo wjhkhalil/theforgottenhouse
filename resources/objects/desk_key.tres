@@ -1,0 +1,16 @@
+[gd_resource type="Resource" script_class="HiddenObjectData" format=3]
+
+[ext_resource type="Script" path="res://scripts/hidden_object_data.gd" id="1_data"]
+
+[resource]
+script = ExtResource("1_data")
+object_id = &"desk_key"
+display_name = "Desk Key"
+description = "A brass desk key."
+collection_message = "You found a desk key."
+clue_text = "Hidden in his cigar box. It must open the writing desk."
+hint_text = "A box that smells of smoke hides something."
+riddle_text = ""
+placeholder_style = 40
+is_required = true
+starts_visible = false

@@ -1,0 +1,16 @@
+[gd_resource type="Resource" script_class="HiddenObjectData" format=3]
+
+[ext_resource type="Script" path="res://scripts/hidden_object_data.gd" id="1_data"]
+
+[resource]
+script = ExtResource("1_data")
+object_id = &"sleeping_pills"
+display_name = "Sleeping Pills"
+description = "A brown pill bottle."
+collection_message = "You found a bottle of sleeping pills."
+clue_text = "Prescribed to Eleanor Ashworth. Typed on the label: 'To be given by T. Greaves only.'"
+hint_text = "The medicine cabinet is locked. A tiny key is hidden somewhere in this room."
+riddle_text = ""
+placeholder_style = 31
+is_required = true
+starts_visible = false

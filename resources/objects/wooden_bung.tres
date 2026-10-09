@@ -1,0 +1,16 @@
+[gd_resource type="Resource" script_class="HiddenObjectData" format=3]
+
+[ext_resource type="Script" path="res://scripts/hidden_object_data.gd" id="1_data"]
+
+[resource]
+script = ExtResource("1_data")
+object_id = &"wooden_bung"
+display_name = "Wooden Bung"
+description = "A tapered oak plug, greased and dark with lake water."
+collection_message = "You found a wooden bung!"
+clue_text = "A spare plug, greased so it would pull out easily. One bung like this can hold back the whole lake, until somebody pulls it."
+hint_text = "A small wooden crate sits on the floor under the boat, between the two trestles. Look inside it."
+riddle_text = ""
+placeholder_style = 94
+is_required = true
+starts_visible = false

@@ -1,0 +1,16 @@
+[gd_resource type="Resource" script_class="HiddenObjectData" format=3]
+
+[ext_resource type="Script" path="res://scripts/hidden_object_data.gd" id="1_data"]
+
+[resource]
+script = ExtResource("1_data")
+object_id = &"binoculars"
+display_name = "Binoculars"
+description = "A pair of black marine binoculars with brass rims."
+collection_message = "You found the binoculars!"
+clue_text = "Agnes's binoculars, still focused on the island far across the water, where a tiny light burns in the chapel."
+hint_text = "They rest on the wooden window sill to the right, just above the painted ferry board."
+riddle_text = ""
+placeholder_style = 154
+is_required = true
+starts_visible = true

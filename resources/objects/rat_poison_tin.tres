@@ -1,0 +1,16 @@
+[gd_resource type="Resource" script_class="HiddenObjectData" format=3]
+
+[ext_resource type="Script" path="res://scripts/hidden_object_data.gd" id="1_data"]
+
+[resource]
+script = ExtResource("1_data")
+object_id = &"rat_poison_tin"
+display_name = "Rat Poison Tin"
+description = "A rusty tin of rat poison."
+collection_message = "You found a tin of rat poison."
+clue_text = "Bought by T. Greaves in the same week that Eleanor fell ill. The kitchen has no rats."
+hint_text = "Something dangerous is hidden low, under the sink."
+riddle_text = "Deadly to mice, so it says"
+placeholder_style = 45
+is_required = true
+starts_visible = true

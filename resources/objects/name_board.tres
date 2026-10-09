@@ -1,0 +1,16 @@
+[gd_resource type="Resource" script_class="HiddenObjectData" format=3]
+
+[ext_resource type="Script" path="res://scripts/hidden_object_data.gd" id="1_data"]
+
+[resource]
+script = ExtResource("1_data")
+object_id = &"name_board"
+display_name = "Boat Nameboard"
+description = "A broken plank with a boat's name painted on it."
+collection_message = "You pulled a nameboard out of the lake!"
+clue_text = "LADY MARGARET - BW 2209. Mara's boat, the one that sank in 1987. Its nameboard has only just broken free from the lake bed."
+hint_text = "A long painted plank is floating on the lake, drifting slowly."
+riddle_text = ""
+placeholder_style = 63
+is_required = true
+starts_visible = true

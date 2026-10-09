@@ -1,0 +1,16 @@
+[gd_resource type="Resource" script_class="HiddenObjectData" format=3]
+
+[ext_resource type="Script" path="res://scripts/hidden_object_data.gd" id="1_data"]
+
+[resource]
+script = ExtResource("1_data")
+object_id = &"keeper_logbook"
+display_name = "Keeper's Logbook"
+description = "A thick logbook bound in green leather, full of dated entries."
+collection_message = "You found the keeper's logbook!"
+clue_text = "Agnes Hale's logbook. 'October 1988: nursing the girl. Fever high. She holds on to that lifebelt even in her sleep.'"
+hint_text = "On the keeper's landing, halfway down, the logbook lies on the seat of Agnes's chair."
+riddle_text = ""
+placeholder_style = 135
+is_required = true
+starts_visible = true

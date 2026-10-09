@@ -1,0 +1,16 @@
+[gd_resource type="Resource" script_class="HiddenObjectData" format=3]
+
+[ext_resource type="Script" path="res://scripts/hidden_object_data.gd" id="1_data"]
+
+[resource]
+script = ExtResource("1_data")
+object_id = &"loft_key"
+display_name = "Loft Hatch Key"
+description = "A long iron key tagged 'LOFT'."
+collection_message = "You found the loft key!"
+clue_text = "A long iron key tagged LOFT. The ladder on the left leads up to a hatch in the ceiling, and something up there has just moved."
+hint_text = "The tool chest on the right has a number lock. Someone has a train to catch."
+riddle_text = ""
+placeholder_style = 80
+is_required = true
+starts_visible = false

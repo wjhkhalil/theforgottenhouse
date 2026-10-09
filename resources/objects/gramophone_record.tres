@@ -1,0 +1,16 @@
+[gd_resource type="Resource" script_class="HiddenObjectData" format=3]
+
+[ext_resource type="Script" path="res://scripts/hidden_object_data.gd" id="1_data"]
+
+[resource]
+script = ExtResource("1_data")
+object_id = &"gramophone_record"
+display_name = "Gramophone Record"
+description = "A black shellac record."
+collection_message = "You found a gramophone record."
+clue_text = "'The Lake Song' - the record that was playing the night Mara vanished. Someone has played it every night since."
+hint_text = "Something round and black has been taken off the music machine."
+riddle_text = ""
+placeholder_style = 34
+is_required = true
+starts_visible = true

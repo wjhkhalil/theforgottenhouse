@@ -1,0 +1,16 @@
+[gd_resource type="Resource" script_class="HiddenObjectData" format=3]
+
+[ext_resource type="Script" path="res://scripts/hidden_object_data.gd" id="1_data"]
+
+[resource]
+script = ExtResource("1_data")
+object_id = &"log_page"
+display_name = "Torn Logbook Page"
+description = "A page torn from a boat's logbook."
+collection_message = "You found a page from a logbook!"
+clue_text = "Lady Margaret, 17th April 1987: 'Sailed 9 pm. Passengers: M. Ashworth, R. Vane.' Two people went out on the lake that night."
+hint_text = "Something is hidden in the bait bucket at the left end of the jetty."
+riddle_text = ""
+placeholder_style = 67
+is_required = true
+starts_visible = false

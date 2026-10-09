@@ -1,0 +1,16 @@
+[gd_resource type="Resource" script_class="HiddenObjectData" format=3]
+
+[ext_resource type="Script" path="res://scripts/hidden_object_data.gd" id="1_data"]
+
+[resource]
+script = ExtResource("1_data")
+object_id = &"ice_tongs"
+display_name = "Ice Tongs"
+description = "Heavy iron tongs for lifting blocks of ice."
+collection_message = "You found a pair of ice tongs!"
+clue_text = "The ice cutters carried the lake ice in here with these. Nobody has cut ice on Blackwater Lake for years."
+hint_text = "Iron tongs hang from the wooden peg rail on the back wall, above the straw bales."
+riddle_text = ""
+placeholder_style = 120
+is_required = true
+starts_visible = true

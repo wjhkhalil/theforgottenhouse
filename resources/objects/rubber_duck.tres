@@ -1,0 +1,16 @@
+[gd_resource type="Resource" script_class="HiddenObjectData" format=3]
+
+[ext_resource type="Script" path="res://scripts/hidden_object_data.gd" id="1_data"]
+
+[resource]
+script = ExtResource("1_data")
+object_id = &"rubber_duck"
+display_name = "Rubber Duck"
+description = "An old faded rubber duck."
+collection_message = "You found a rubber duck."
+clue_text = "Painted on the bottom: 'E + M'. Their bath toy from when they were small."
+hint_text = "Something that floats has been left on the edge of the bath."
+riddle_text = ""
+placeholder_style = 27
+is_required = true
+starts_visible = true

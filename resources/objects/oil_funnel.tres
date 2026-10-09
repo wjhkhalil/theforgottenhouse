@@ -1,0 +1,16 @@
+[gd_resource type="Resource" script_class="HiddenObjectData" format=3]
+
+[ext_resource type="Script" path="res://scripts/hidden_object_data.gd" id="1_data"]
+
+[resource]
+script = ExtResource("1_data")
+object_id = &"oil_funnel"
+display_name = "Oil Funnel"
+description = "A small brass funnel for filling the lamp with paraffin."
+collection_message = "You found an oil funnel!"
+clue_text = "The funnel for the lamp's paraffin. Scratched on the brass: 'A.H. and M. - we kept the light together.'"
+hint_text = "The tall oil locker stands against the wall by the fog bell. Its latch is rusted: knock it free with something heavy."
+riddle_text = ""
+placeholder_style = 153
+is_required = true
+starts_visible = false

@@ -1,0 +1,16 @@
+[gd_resource type="Resource" script_class="HiddenObjectData" format=3]
+
+[ext_resource type="Script" path="res://scripts/hidden_object_data.gd" id="1_data"]
+
+[resource]
+script = ExtResource("1_data")
+object_id = &"boat_model"
+display_name = "Boat Model"
+description = "A painted model of the Lady Margaret on a little stand."
+collection_message = "You found a model of the Lady Margaret!"
+clue_text = "Under the stand, in Greaves's scrawl: 'She lies off the end of the jetty, thirty feet down. T.G.'"
+hint_text = "On the shelf under the tool wall, at the right end beside the jars of screws."
+riddle_text = ""
+placeholder_style = 103
+is_required = true
+starts_visible = true

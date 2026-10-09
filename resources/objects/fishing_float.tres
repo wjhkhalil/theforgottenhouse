@@ -1,0 +1,16 @@
+[gd_resource type="Resource" script_class="HiddenObjectData" format=3]
+
+[ext_resource type="Script" path="res://scripts/hidden_object_data.gd" id="1_data"]
+
+[resource]
+script = ExtResource("1_data")
+object_id = &"fishing_float"
+display_name = "Fishing Float"
+description = "A red and white float bobbing on the water."
+collection_message = "You fished out a float!"
+clue_text = "A note is wound round the float's stem: 'Wednesday. Midnight. Bring the papers. - R.' Today is Wednesday."
+hint_text = "Something red and white is bobbing on the water, drifting back and forth."
+riddle_text = ""
+placeholder_style = 62
+is_required = true
+starts_visible = true

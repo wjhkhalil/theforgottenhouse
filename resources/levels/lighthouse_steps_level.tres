@@ -1,0 +1,25 @@
+[gd_resource type="Resource" script_class="LevelData" format=3]
+
+[ext_resource type="Script" path="res://scripts/level_data.gd" id="1_level"]
+
+[resource]
+script = ExtResource("1_level")
+chapter_id = &"lighthouse_steps"
+room_name = "The Lighthouse Steps"
+intro_message = "The great lamp turns high above, and every few seconds its beam sweeps through the windows. Some things are too dark to make out: click them while the beam lights them up. Scroll down to search the whole tower. Find the 14 hidden objects."
+hint_cooldown_seconds = 80.0
+hint_area_radius = 270.0
+hint_area_offset = 150.0
+chapter_title = "House Two - Chapter Seven Complete"
+chapter_hook = "Agnes kept her papers in the lamp room at the very top of the tower. And someone has been up there tonight: above you, the lamp room door is banging in the wind."
+final_letter_title = "The Keeper's Log"
+final_letter_text = "4th October 1988. Wind north-west, gale.
+
+The girl I brought back from the old ice house has slept two days by the stove. Her fever broke tonight. She cannot remember her own name, nor how she came to be in the water. When I ask, she only shakes.
+
+She was clinging to a lifebelt painted LADY MARGARET, and she will not let go of it even now.
+
+A body needs a name. So Margaret I'll call her.
+
+I have told no one she is here. I can't say why, but I won't."
+final_letter_signature = "- A. Hale"

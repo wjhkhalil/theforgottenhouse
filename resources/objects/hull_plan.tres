@@ -1,0 +1,16 @@
+[gd_resource type="Resource" script_class="HiddenObjectData" format=3]
+
+[ext_resource type="Script" path="res://scripts/hidden_object_data.gd" id="1_data"]
+
+[resource]
+script = ExtResource("1_data")
+object_id = &"hull_plan"
+display_name = "Torn Hull Plan"
+description = "The Lady Margaret's hull plan, torn in four and put back together."
+collection_message = "You found the torn hull plan!"
+clue_text = "Five red crosses below the waterline, each marked 'bung'. This is exactly where the holes were drilled in the Lady Margaret."
+hint_text = "Vane tore the hull plan into four pieces and scattered them. Look for the scraps of pale blue paper: the next one is in the circle."
+riddle_text = ""
+placeholder_style = 101
+is_required = true
+starts_visible = false

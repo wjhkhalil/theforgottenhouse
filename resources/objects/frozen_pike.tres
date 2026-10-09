@@ -1,0 +1,16 @@
+[gd_resource type="Resource" script_class="HiddenObjectData" format=3]
+
+[ext_resource type="Script" path="res://scripts/hidden_object_data.gd" id="1_data"]
+
+[resource]
+script = ExtResource("1_data")
+object_id = &"frozen_pike"
+display_name = "Frozen Pike"
+description = "A big lake pike, frozen stiff."
+collection_message = "You found a frozen pike!"
+clue_text = "Someone caught this pike and put it on ice long ago. The fishermen used to keep their catch in here."
+hint_text = "It is frozen inside the block of ice on the top shelf, on the right. The ice is too hard: you'll need the ice pick."
+riddle_text = ""
+placeholder_style = 123
+is_required = true
+starts_visible = false

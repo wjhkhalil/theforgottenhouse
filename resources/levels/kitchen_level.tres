@@ -1,0 +1,22 @@
+[gd_resource type="Resource" script_class="LevelData" format=3]
+
+[ext_resource type="Script" path="res://scripts/level_data.gd" id="1_level"]
+
+[resource]
+script = ExtResource("1_level")
+chapter_id = &"kitchen"
+room_name = "The Kitchen"
+intro_message = "The kitchen fire is still burning. Mother's rhymes are all you have: the list shows riddles, not names. Solve each riddle to find the 9 hidden objects."
+hint_cooldown_seconds = 40.0
+hint_area_radius = 190.0
+hint_area_offset = 105.0
+objective_riddles = true
+chapter_title = "Chapter Seven Complete"
+chapter_hook = "The servants' door opens onto a narrow passage. At the far end, a line of lamplight glows under the study door."
+final_letter_title = "Words Scratched Inside the Pantry Door"
+final_letter_text = "You found Mother's rhymes. The servants' passage runs under his study.
+
+Everything he stole is in that study: the real will, and the key to the boathouse where he keeps Eleanor. The real will is in his safe.
+
+Find it, and we end this together."
+final_letter_signature = "- M."

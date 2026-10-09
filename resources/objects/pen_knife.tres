@@ -1,0 +1,16 @@
+[gd_resource type="Resource" script_class="HiddenObjectData" format=3]
+
+[ext_resource type="Script" path="res://scripts/hidden_object_data.gd" id="1_data"]
+
+[resource]
+script = ExtResource("1_data")
+object_id = &"pen_knife"
+display_name = "Pen Knife"
+description = "A small folding pen knife with a pearl handle."
+collection_message = "You found a pen knife!"
+clue_text = "Sharp enough to cut string. That brown paper parcel on the rug is tied up very tight."
+hint_text = "It lies at the right end of the mantelpiece, beside the candlestick."
+riddle_text = ""
+placeholder_style = 181
+is_required = true
+starts_visible = true

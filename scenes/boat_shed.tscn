@@ -1,0 +1,192 @@
+[gd_scene format=3]
+
+[ext_resource type="Script" path="res://scripts/room_level.gd" id="1_room"]
+[ext_resource type="Resource" path="res://resources/levels/boat_shed_level.tres" id="2_level"]
+[ext_resource type="Script" path="res://scripts/game_manager.gd" id="3_manager"]
+[ext_resource type="Script" path="res://scripts/boat_shed_art.gd" id="4_art"]
+[ext_resource type="PackedScene" path="res://scenes/objects/hidden_object.tscn" id="5_object"]
+[ext_resource type="Resource" path="res://resources/objects/handkerchief.tres" id="6_hanky"]
+[ext_resource type="Resource" path="res://resources/objects/train_ticket.tres" id="7_ticket"]
+[ext_resource type="Resource" path="res://resources/objects/coat_button.tres" id="8_button"]
+[ext_resource type="Resource" path="res://resources/objects/ship_bell.tres" id="9_bell"]
+[ext_resource type="Resource" path="res://resources/objects/maras_purse.tres" id="10_purse"]
+[ext_resource type="Resource" path="res://resources/objects/dropped_torch.tres" id="11_torch"]
+[ext_resource type="Resource" path="res://resources/objects/diving_goggles.tres" id="12_goggles"]
+[ext_resource type="Resource" path="res://resources/objects/ether_bottle.tres" id="13_ether"]
+[ext_resource type="Resource" path="res://resources/objects/bench_key.tres" id="14_key"]
+[ext_resource type="Resource" path="res://resources/objects/bank_receipt.tres" id="15_receipt"]
+[ext_resource type="Resource" path="res://resources/objects/loft_key.tres" id="16_loft"]
+[ext_resource type="PackedScene" path="res://scenes/objects/openable_container.tscn" id="17_container"]
+[ext_resource type="Script" path="res://scripts/tide_water.gd" id="18_water"]
+[ext_resource type="Script" path="res://scripts/hint_highlight.gd" id="19_hint"]
+[ext_resource type="PackedScene" path="res://scenes/ui/hud.tscn" id="20_hud"]
+[ext_resource type="PackedScene" path="res://scenes/ui/notification.tscn" id="21_note"]
+[ext_resource type="PackedScene" path="res://scenes/victory_screen.tscn" id="22_victory"]
+[ext_resource type="PackedScene" path="res://scenes/ui/pause_menu.tscn" id="23_pause"]
+[ext_resource type="PackedScene" path="res://scenes/ui/letter_popup.tscn" id="24_letter"]
+[ext_resource type="PackedScene" path="res://scenes/ui/keypad_lock.tscn" id="25_keypad"]
+
+[node name="BoatShed" type="Node2D" node_paths=PackedStringArray("keypad_lock")]
+script = ExtResource("1_room")
+level_data = ExtResource("2_level")
+keypad_lock = NodePath("KeypadLock")
+
+[node name="GameManager" type="Node" parent="."]
+unique_name_in_owner = true
+script = ExtResource("3_manager")
+
+[node name="RoomBackground" type="Node2D" parent="."]
+script = ExtResource("4_art")
+
+[node name="HiddenObjects" type="Node2D" parent="."]
+unique_name_in_owner = true
+
+[node name="Handkerchief" parent="HiddenObjects" instance=ExtResource("5_object")]
+position = Vector2(162, 368)
+rotation = 0.1
+scale = Vector2(0.6, 0.6)
+data = ExtResource("6_hanky")
+
+[node name="TrainTicket" parent="HiddenObjects" instance=ExtResource("5_object")]
+position = Vector2(990, 210)
+rotation = -0.12
+scale = Vector2(0.6, 0.6)
+data = ExtResource("7_ticket")
+
+[node name="CoatButton" parent="HiddenObjects" instance=ExtResource("5_object")]
+position = Vector2(286, 304)
+scale = Vector2(0.55, 0.55)
+data = ExtResource("8_button")
+
+[node name="ShipBell" parent="HiddenObjects" instance=ExtResource("5_object")]
+position = Vector2(420, 668)
+rotation = 0.35
+scale = Vector2(0.7, 0.7)
+data = ExtResource("9_bell")
+
+[node name="DroppedTorch" parent="HiddenObjects" instance=ExtResource("5_object")]
+position = Vector2(548, 686)
+rotation = -0.1
+scale = Vector2(0.65, 0.65)
+data = ExtResource("11_torch")
+
+[node name="MarasPurse" parent="HiddenObjects" instance=ExtResource("5_object")]
+position = Vector2(776, 678)
+rotation = 0.2
+scale = Vector2(0.62, 0.62)
+data = ExtResource("10_purse")
+
+[node name="FirstAidBox" parent="HiddenObjects" node_paths=PackedStringArray("contents") instance=ExtResource("17_container")]
+position = Vector2(170, 240)
+container_id = &"first_aid_box"
+contents = NodePath("../EtherBottle")
+open_title = "You open the first-aid box..."
+open_message = "No bandages at all. Just one brown bottle, half empty."
+style = 3
+tint = Color(0.82, 0.8, 0.74, 1)
+size = Vector2(52, 48)
+
+[node name="EtherBottle" parent="HiddenObjects" instance=ExtResource("5_object")]
+position = Vector2(170, 236)
+scale = Vector2(0.6, 0.6)
+data = ExtResource("13_ether")
+
+[node name="Strongbox" parent="HiddenObjects" node_paths=PackedStringArray("contents") instance=ExtResource("17_container")]
+position = Vector2(660, 664)
+container_id = &"strongbox"
+contents = NodePath("../BenchKey")
+open_title = "You prise open the rusty strongbox..."
+open_message = "Lake water pours out. Inside is a small key with a tag."
+style = 0
+tint = Color(0.36, 0.3, 0.26, 1)
+size = Vector2(70, 42)
+
+[node name="BenchKey" parent="HiddenObjects" instance=ExtResource("5_object")]
+position = Vector2(660, 658)
+scale = Vector2(0.65, 0.65)
+data = ExtResource("14_key")
+
+[node name="WorkbenchDrawer" parent="HiddenObjects" node_paths=PackedStringArray("contents", "required_object") instance=ExtResource("17_container")]
+position = Vector2(215, 403)
+container_id = &"workbench_drawer"
+contents = NodePath("../BankReceipt")
+open_title = "The little key turns..."
+open_message = "The drawer slides out. On top of the screws and nails is a folded bank slip."
+required_object = NodePath("../BenchKey")
+locked_title = "The workbench drawer is locked."
+locked_message = "A small steel lock. The key isn't anywhere dry."
+style = 4
+tint = Color(0.34, 0.24, 0.16, 1)
+size = Vector2(84, 20)
+
+[node name="BankReceipt" parent="HiddenObjects" instance=ExtResource("5_object")]
+position = Vector2(215, 398)
+rotation = 1.45
+scale = Vector2(0.5, 0.5)
+data = ExtResource("15_receipt")
+
+[node name="NetBasket" parent="HiddenObjects" node_paths=PackedStringArray("contents") instance=ExtResource("17_container")]
+position = Vector2(932, 276)
+container_id = &"net_basket"
+contents = NodePath("../DivingGoggles")
+open_title = "You pull the old nets out of the basket..."
+open_message = "Tangled in the bottom, still dripping, is a pair of goggles."
+style = 6
+tint = Color(0.5, 0.42, 0.28, 1)
+size = Vector2(62, 46)
+
+[node name="DivingGoggles" parent="HiddenObjects" instance=ExtResource("5_object")]
+position = Vector2(932, 270)
+scale = Vector2(0.6, 0.6)
+data = ExtResource("12_goggles")
+
+[node name="ToolChest" parent="HiddenObjects" node_paths=PackedStringArray("contents") instance=ExtResource("17_container")]
+position = Vector2(918, 424)
+container_id = &"tool_chest"
+contents = NodePath("../LoftKey")
+open_title = "The lock clicks open..."
+open_message = "Under the trays of tools lies a long iron key."
+required_code = "2350"
+code_title = "The Tool Chest"
+code_prompt = "A heavy tool chest with a four-number lock. Someone has scratched on the lid: 'When the last train leaves.'"
+code_hint_first = "Wrong. Someone in this shed has a train to catch tonight. Look for their ticket."
+code_hint_second = "The train ticket on the notice board says 23:50. The code is 2350."
+code_hint_first_after = 5
+code_hint_second_after = 8
+style = 0
+tint = Color(0.22, 0.3, 0.4, 1)
+size = Vector2(96, 50)
+
+[node name="LoftKey" parent="HiddenObjects" instance=ExtResource("5_object")]
+position = Vector2(918, 418)
+scale = Vector2(0.6, 0.6)
+data = ExtResource("16_loft")
+
+[node name="TideWater" type="Node2D" parent="."]
+script = ExtResource("18_water")
+
+[node name="RoomForeground" type="Node2D" parent="."]
+script = ExtResource("4_art")
+layer = 1
+
+[node name="HintHighlight" type="Node2D" parent="."]
+unique_name_in_owner = true
+visible = false
+script = ExtResource("19_hint")
+
+[node name="HUD" parent="." instance=ExtResource("20_hud")]
+unique_name_in_owner = true
+
+[node name="Notification" parent="." instance=ExtResource("21_note")]
+unique_name_in_owner = true
+
+[node name="VictoryScreen" parent="." instance=ExtResource("22_victory")]
+unique_name_in_owner = true
+
+[node name="PauseMenu" parent="." instance=ExtResource("23_pause")]
+unique_name_in_owner = true
+
+[node name="LetterPopup" parent="." instance=ExtResource("24_letter")]
+unique_name_in_owner = true
+
+[node name="KeypadLock" parent="." instance=ExtResource("25_keypad")]

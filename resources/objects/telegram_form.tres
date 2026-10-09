@@ -1,0 +1,16 @@
+[gd_resource type="Resource" script_class="HiddenObjectData" format=3]
+
+[ext_resource type="Script" path="res://scripts/hidden_object_data.gd" id="1_data"]
+
+[resource]
+script = ExtResource("1_data")
+object_id = &"telegram_form"
+display_name = "Telegram Form"
+description = "A yellow Post Office telegram with typed strips pasted on."
+collection_message = "You found a telegram form!"
+clue_text = "A telegram to Agnes from the harbour, 1989: 'DOCTOR ASKING QUESTIONS ABOUT THE GIRL STOP'. Someone was hunting for Mara."
+hint_text = "The wind keeps blowing Agnes's loose papers around. Look for a small yellow telegram with a red band along the top."
+riddle_text = ""
+placeholder_style = 149
+is_required = true
+starts_visible = true

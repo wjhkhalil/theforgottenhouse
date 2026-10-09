@@ -1,0 +1,16 @@
+[gd_resource type="Resource" script_class="HiddenObjectData" format=3]
+
+[ext_resource type="Script" path="res://scripts/hidden_object_data.gd" id="1_data"]
+
+[resource]
+script = ExtResource("1_data")
+object_id = &"doctors_letter"
+display_name = "Doctor's Letter"
+description = "A letter on a doctor's headed paper."
+collection_message = "You found the doctor's letter!"
+clue_text = "From Dr R. Vane, dated last month: 'I will take Sister Margaret into my care for treatment.' He has found her."
+hint_text = "Open the little drawer in the front of the pulpit."
+riddle_text = ""
+placeholder_style = 171
+is_required = true
+starts_visible = false

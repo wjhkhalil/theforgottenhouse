@@ -1,0 +1,15 @@
+[gd_resource type="Resource" script_class="HiddenObjectData" format=3]
+
+[ext_resource type="Script" path="res://scripts/hidden_object_data.gd" id="1_data"]
+
+[resource]
+script = ExtResource("1_data")
+object_id = &"childs_drawing"
+display_name = "Child's Drawing"
+description = "A crayon drawing pinned to the wood."
+collection_message = "You found a child's drawing."
+clue_text = "Two little girls at a lake, signed 'E + M, age 7'. A tall man beside them has been scribbled over in black."
+hint_text = "Someone pinned a picture to the wood that holds up the roof."
+placeholder_style = 15
+is_required = true
+starts_visible = true

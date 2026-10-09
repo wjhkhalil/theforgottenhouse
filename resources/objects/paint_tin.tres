@@ -1,0 +1,16 @@
+[gd_resource type="Resource" script_class="HiddenObjectData" format=3]
+
+[ext_resource type="Script" path="res://scripts/hidden_object_data.gd" id="1_data"]
+
+[resource]
+script = ExtResource("1_data")
+object_id = &"paint_tin"
+display_name = "Paint Tin"
+description = "A tin of white boat paint with the lid off."
+collection_message = "You found a paint tin!"
+clue_text = "The paint is still wet, and white drips lead across the floor to the lake doors. Somebody painted something in a hurry tonight."
+hint_text = "Under the workbench, on the bottom shelf, in the row of old paint tins."
+riddle_text = ""
+placeholder_style = 97
+is_required = true
+starts_visible = true

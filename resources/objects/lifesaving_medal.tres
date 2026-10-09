@@ -1,0 +1,16 @@
+[gd_resource type="Resource" script_class="HiddenObjectData" format=3]
+
+[ext_resource type="Script" path="res://scripts/hidden_object_data.gd" id="1_data"]
+
+[resource]
+script = ExtResource("1_data")
+object_id = &"lifesaving_medal"
+display_name = "Lifesaving Medal"
+description = "A silver medal on a blue and white ribbon."
+collection_message = "You found a lifesaving medal!"
+clue_text = "'Awarded to Agnes Hale for gallantry, 1971.' She had pulled people out of the water before. This time she kept the one she saved hidden."
+hint_text = "Agnes kept her medal in the little red box on the shelf of the keeper's landing."
+riddle_text = ""
+placeholder_style = 144
+is_required = true
+starts_visible = false

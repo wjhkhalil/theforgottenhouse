@@ -1,0 +1,16 @@
+[gd_resource type="Resource" script_class="HiddenObjectData" format=3]
+
+[ext_resource type="Script" path="res://scripts/hidden_object_data.gd" id="1_data"]
+
+[resource]
+script = ExtResource("1_data")
+object_id = &"death_certificate"
+display_name = "Death Certificate"
+description = "A death certificate for Mara Ashworth, aged 16, dated 1987."
+collection_message = "You found the death certificate!"
+clue_text = "'Cause of death: drowning. 1987. Signed R. Vane.' He signed it while she was alive in his loft. This lie made the world forget her."
+hint_text = "It's in the top drawer on the left side of Vane's desk."
+riddle_text = ""
+placeholder_style = 179
+is_required = true
+starts_visible = false

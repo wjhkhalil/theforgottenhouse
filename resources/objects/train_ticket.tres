@@ -1,0 +1,16 @@
+[gd_resource type="Resource" script_class="HiddenObjectData" format=3]
+
+[ext_resource type="Script" path="res://scripts/hidden_object_data.gd" id="1_data"]
+
+[resource]
+script = ExtResource("1_data")
+object_id = &"train_ticket"
+display_name = "Train Ticket"
+description = "A one-way railway ticket."
+collection_message = "You found a train ticket!"
+clue_text = "Single, Blackwater to London. Tonight, 23:50. Whoever pinned this here means to run, and soon."
+hint_text = "Something small is pinned to the wall on the right, above the shelf."
+riddle_text = ""
+placeholder_style = 71
+is_required = true
+starts_visible = true

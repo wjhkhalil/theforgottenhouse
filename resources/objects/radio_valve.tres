@@ -1,0 +1,16 @@
+[gd_resource type="Resource" script_class="HiddenObjectData" format=3]
+
+[ext_resource type="Script" path="res://scripts/hidden_object_data.gd" id="1_data"]
+
+[resource]
+script = ExtResource("1_data")
+object_id = &"radio_valve"
+display_name = "Radio Valve"
+description = "A glass radio valve with a black base and little pins."
+collection_message = "You found a radio valve!"
+clue_text = "A spare valve for the radio set. Pencilled inside the cabinet: 'Island chapel, 8 each evening.' Agnes spoke to the Sisters every night."
+hint_text = "Agnes's radio set stands on the right end of her desk. Open the cabinet underneath its dial."
+riddle_text = ""
+placeholder_style = 155
+is_required = true
+starts_visible = false

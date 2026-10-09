@@ -1,0 +1,16 @@
+[gd_resource type="Resource" script_class="HiddenObjectData" format=3]
+
+[ext_resource type="Script" path="res://scripts/hidden_object_data.gd" id="1_data"]
+
+[resource]
+script = ExtResource("1_data")
+object_id = &"knitted_scarf"
+display_name = "Knitted Scarf"
+description = "A half-finished scarf."
+collection_message = "You found a knitted scarf."
+clue_text = "Half finished, with an 'E' stitched in one corner. Eleanor was knitting it for her sister."
+hint_text = "Something soft and unfinished is draped over a chair."
+riddle_text = ""
+placeholder_style = 37
+is_required = true
+starts_visible = true

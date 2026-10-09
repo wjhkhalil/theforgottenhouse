@@ -1,0 +1,16 @@
+[gd_resource type="Resource" script_class="HiddenObjectData" format=3]
+
+[ext_resource type="Script" path="res://scripts/hidden_object_data.gd" id="1_data"]
+
+[resource]
+script = ExtResource("1_data")
+object_id = &"tin_opener"
+display_name = "Tin Opener"
+description = "An old tin opener."
+collection_message = "You found a tin opener."
+clue_text = "An old lever opener. It could open a stuck tin."
+hint_text = "Something for opening tins was left among the pots."
+riddle_text = "I bite through metal lids"
+placeholder_style = 46
+is_required = true
+starts_visible = true

@@ -1,0 +1,16 @@
+[gd_resource type="Resource" script_class="HiddenObjectData" format=3]
+
+[ext_resource type="Script" path="res://scripts/hidden_object_data.gd" id="1_data"]
+
+[resource]
+script = ExtResource("1_data")
+object_id = &"gull_feather"
+display_name = "Gull Feather"
+description = "A long grey-and-white feather, blown in through a window."
+collection_message = "You found a gull feather!"
+clue_text = "The logbook says the girl collected feathers on the stairs while she got better. She'd sit for hours watching the gulls."
+hint_text = "At the very top, on the first iron step down from the top landing. Wait for the beam to light it."
+riddle_text = ""
+placeholder_style = 138
+is_required = true
+starts_visible = true

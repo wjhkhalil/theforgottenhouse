@@ -1,0 +1,16 @@
+[gd_resource type="Resource" script_class="HiddenObjectData" format=3]
+
+[ext_resource type="Script" path="res://scripts/hidden_object_data.gd" id="1_data"]
+
+[resource]
+script = ExtResource("1_data")
+object_id = &"steel_file"
+display_name = "Steel File"
+description = "A small steel file with a wooden handle."
+collection_message = "You found a steel file!"
+clue_text = "Its teeth are worn smooth on iron. Mara filed through her shackle, then dropped the file in the silt as she squeezed out."
+hint_text = "It lies in the silt on the lake bed, below and a little to the right of the open porthole."
+riddle_text = ""
+placeholder_style = 111
+is_required = true
+starts_visible = true

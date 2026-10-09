@@ -1,0 +1,16 @@
+[gd_resource type="Resource" script_class="HiddenObjectData" format=3]
+
+[ext_resource type="Script" path="res://scripts/hidden_object_data.gd" id="1_data"]
+
+[resource]
+script = ExtResource("1_data")
+object_id = &"knitting_needles"
+display_name = "Knitting Needles"
+description = "Two wooden needles stuck through a ball of blue wool."
+collection_message = "You found knitting needles!"
+clue_text = "A jumper half-finished, far too small for Agnes. She was knitting for someone. The needles are long and thin enough to push back a tiny catch."
+hint_text = "Look in the knitting basket on the floor of the keeper's landing, next to the chair."
+riddle_text = ""
+placeholder_style = 139
+is_required = true
+starts_visible = false

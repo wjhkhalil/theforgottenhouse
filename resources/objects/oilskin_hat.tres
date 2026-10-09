@@ -1,0 +1,16 @@
+[gd_resource type="Resource" script_class="HiddenObjectData" format=3]
+
+[ext_resource type="Script" path="res://scripts/hidden_object_data.gd" id="1_data"]
+
+[resource]
+script = ExtResource("1_data")
+object_id = &"oilskin_hat"
+display_name = "Oilskin Hat"
+description = "Agnes Hale's yellow sou'wester, still beaded with rain."
+collection_message = "You found an oilskin hat!"
+clue_text = "Still wet. Agnes went out in every storm in this hat. On the night of the 3rd of October 1988 it took her across the water to the old ice house."
+hint_text = "At the very bottom of the tower, by the door, a yellow hat hangs on the coat pegs."
+riddle_text = ""
+placeholder_style = 133
+is_required = true
+starts_visible = true

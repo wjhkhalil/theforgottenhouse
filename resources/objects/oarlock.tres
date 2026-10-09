@@ -1,0 +1,16 @@
+[gd_resource type="Resource" script_class="HiddenObjectData" format=3]
+
+[ext_resource type="Script" path="res://scripts/hidden_object_data.gd" id="1_data"]
+
+[resource]
+script = ExtResource("1_data")
+object_id = &"oarlock"
+display_name = "Oarlock"
+description = "An iron oarlock with lake weed caught on it."
+collection_message = "You found an oarlock!"
+clue_text = "Torn off the chapel's ferry boat. The boat was taken from the landing yesterday and rowed across the lake."
+hint_text = "Look on the floor at the right end of the right-hand pews, lit by the tall candle stand there."
+riddle_text = ""
+placeholder_style = 174
+is_required = true
+starts_visible = true

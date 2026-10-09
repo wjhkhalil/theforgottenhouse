@@ -1,0 +1,16 @@
+[gd_resource type="Resource" script_class="HiddenObjectData" format=3]
+
+[ext_resource type="Script" path="res://scripts/hidden_object_data.gd" id="1_data"]
+
+[resource]
+script = ExtResource("1_data")
+object_id = &"ship_bell"
+display_name = "Ship's Bell"
+description = "A small brass bell, green with age."
+collection_message = "You found the Lady Margaret's bell!"
+clue_text = "Engraved LADY MARGARET. Fresh rope is tied to it, and the scratches are new. Someone hauled it up from the wreck this week."
+hint_text = "Something heavy lies on the bottom of the slip. Wait for the water to drain."
+riddle_text = ""
+placeholder_style = 73
+is_required = true
+starts_visible = true

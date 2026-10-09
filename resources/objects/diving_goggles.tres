@@ -1,0 +1,16 @@
+[gd_resource type="Resource" script_class="HiddenObjectData" format=3]
+
+[ext_resource type="Script" path="res://scripts/hidden_object_data.gd" id="1_data"]
+
+[resource]
+script = ExtResource("1_data")
+object_id = &"diving_goggles"
+display_name = "Diving Goggles"
+description = "Rubber diving goggles, still wet."
+collection_message = "You found a pair of diving goggles!"
+clue_text = "Still wet, with lake weed caught in the strap. Someone has been diving down to the Lady Margaret."
+hint_text = "Look inside the basket of fishing nets on the right-hand shelf."
+riddle_text = ""
+placeholder_style = 76
+is_required = true
+starts_visible = false

@@ -1,0 +1,15 @@
+[gd_resource type="Resource" script_class="HiddenObjectData" format=3]
+
+[ext_resource type="Script" path="res://scripts/hidden_object_data.gd" id="1_data"]
+
+[resource]
+script = ExtResource("1_data")
+object_id = &"last_will"
+display_name = "Last Will"
+description = "A folded legal document with a black ribbon."
+collection_message = "You found a last will."
+clue_text = "'The house shall pass to my daughters, Eleanor and Mara. Should neither survive me, it passes to my caretaker, Thomas Greaves.'"
+hint_text = "Something official is tucked under a ghost that never moves."
+placeholder_style = 13
+is_required = true
+starts_visible = true

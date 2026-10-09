@@ -1,0 +1,15 @@
+[gd_resource type="Resource" script_class="HiddenObjectData" format=3]
+
+[ext_resource type="Script" path="res://scripts/hidden_object_data.gd" id="1_data"]
+
+[resource]
+script = ExtResource("1_data")
+object_id = &"old_diary"
+display_name = "Old Diary"
+description = "A worn diary belonging to the former owner."
+collection_message = "You found the owner's old diary."
+clue_text = "The final entry reads: 'Tonight, I heard someone opening the front door.'"
+hint_text = "Not every book on the shelf was meant for reading. One leans away from the others."
+placeholder_style = 4
+is_required = true
+starts_visible = true

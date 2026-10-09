@@ -1,0 +1,16 @@
+[gd_resource type="Resource" script_class="HiddenObjectData" format=3]
+
+[ext_resource type="Script" path="res://scripts/hidden_object_data.gd" id="1_data"]
+
+[resource]
+script = ExtResource("1_data")
+object_id = &"job_book"
+display_name = "Job Book"
+description = "Greaves's job book, open at October 1988."
+collection_message = "You found the job book!"
+clue_text = "The page for 1st October 1988 is not in Greaves's hand. It is Vane's: 'Lady Margaret - repairs. Five holes below the waterline.'"
+hint_text = "The workbench has a drawer under its top, in the middle. Pull it open."
+riddle_text = ""
+placeholder_style = 100
+is_required = true
+starts_visible = false

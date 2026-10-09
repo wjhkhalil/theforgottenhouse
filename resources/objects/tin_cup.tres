@@ -1,0 +1,16 @@
+[gd_resource type="Resource" script_class="HiddenObjectData" format=3]
+
+[ext_resource type="Script" path="res://scripts/hidden_object_data.gd" id="1_data"]
+
+[resource]
+script = ExtResource("1_data")
+object_id = &"tin_cup"
+display_name = "Dented Tin Cup"
+description = "A battered tin cup with chipped blue enamel."
+collection_message = "You found a tin cup!"
+clue_text = "Scratched into the bottom: M.A. Mara drank from this cup for months, maybe years."
+hint_text = "Something that holds water sits on the floor near the hatch."
+riddle_text = ""
+placeholder_style = 82
+is_required = true
+starts_visible = true

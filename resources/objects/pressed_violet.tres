@@ -1,0 +1,16 @@
+[gd_resource type="Resource" script_class="HiddenObjectData" format=3]
+
+[ext_resource type="Script" path="res://scripts/hidden_object_data.gd" id="1_data"]
+
+[resource]
+script = ExtResource("1_data")
+object_id = &"pressed_violet"
+display_name = "Pressed Violet"
+description = "A dried violet folded in a scrap of paper."
+collection_message = "You found a pressed violet!"
+clue_text = "Written on the paper: 'From the lake shore, the only time he let me out. May 1988.'"
+hint_text = "The old biscuit tin on the shelf rattles when you touch the shelf."
+riddle_text = ""
+placeholder_style = 91
+is_required = true
+starts_visible = false

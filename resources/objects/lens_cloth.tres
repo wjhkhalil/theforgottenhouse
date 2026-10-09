@@ -1,0 +1,16 @@
+[gd_resource type="Resource" script_class="HiddenObjectData" format=3]
+
+[ext_resource type="Script" path="res://scripts/hidden_object_data.gd" id="1_data"]
+
+[resource]
+script = ExtResource("1_data")
+object_id = &"lens_cloth"
+display_name = "Lens Cloth"
+description = "A soft yellow chamois leather, black with soot at one corner."
+collection_message = "You found a lens cloth!"
+clue_text = "Folded inside the cloth is a note in Agnes's hand: 'M. helps me polish the lens now. She hums while she works.'"
+hint_text = "A little iron cupboard is set into the wall just left of the great lens. Look inside it."
+riddle_text = ""
+placeholder_style = 147
+is_required = true
+starts_visible = false

@@ -1,0 +1,16 @@
+[gd_resource type="Resource" script_class="HiddenObjectData" format=3]
+
+[ext_resource type="Script" path="res://scripts/hidden_object_data.gd" id="1_data"]
+
+[resource]
+script = ExtResource("1_data")
+object_id = &"pearl_earring"
+display_name = "Pearl Earring"
+description = "A single pearl drop earring on a gold hook."
+collection_message = "You found a pearl earring!"
+clue_text = "Mara's earring, snagged on the porthole rim. The clamps are bent outwards: the porthole was forced open from the INSIDE."
+hint_text = "Look closely at the rim of the open porthole on the stern, at the left of the wreck."
+riddle_text = ""
+placeholder_style = 115
+is_required = true
+starts_visible = true

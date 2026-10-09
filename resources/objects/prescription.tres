@@ -1,0 +1,16 @@
+[gd_resource type="Resource" script_class="HiddenObjectData" format=3]
+
+[ext_resource type="Script" path="res://scripts/hidden_object_data.gd" id="1_data"]
+
+[resource]
+script = ExtResource("1_data")
+object_id = &"prescription"
+display_name = "Prescription Pad"
+description = "A doctor's prescription pad, half the pages missing."
+collection_message = "You found Dr Vane's prescription pad!"
+clue_text = "Dr Robert Vane - R.V. The same doctor whose pills kept Eleanor asleep. Greaves never worked alone."
+hint_text = "The dockmaster's locker needs a four-digit number. Something floating in the lake has a number on it."
+riddle_text = ""
+placeholder_style = 69
+is_required = true
+starts_visible = false

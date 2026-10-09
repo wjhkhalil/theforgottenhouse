@@ -1,0 +1,18 @@
+[gd_resource type="Resource" script_class="LevelData" format=3]
+
+[ext_resource type="Script" path="res://scripts/level_data.gd" id="1_level"]
+
+[resource]
+script = ExtResource("1_level")
+chapter_id = &"bedroom"
+room_name = "The Old Bedroom"
+intro_message = "The owner vanished years ago, but they left something behind. Find the 5 hidden objects. Click an object to collect it."
+chapter_title = "Chapter One Complete"
+chapter_hook = "Every object has been found... yet the house is not finished with you. Somewhere below, a door creaks open."
+final_letter_title = "A Letter Left Behind"
+final_letter_text = "If you are reading this, you have found what I left behind.
+
+But there is something you must understand.
+
+The person in the photograph was never supposed to return."
+final_letter_signature = "- E."

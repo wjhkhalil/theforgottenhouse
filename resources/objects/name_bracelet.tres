@@ -1,0 +1,16 @@
+[gd_resource type="Resource" script_class="HiddenObjectData" format=3]
+
+[ext_resource type="Script" path="res://scripts/hidden_object_data.gd" id="1_data"]
+
+[resource]
+script = ExtResource("1_data")
+object_id = &"name_bracelet"
+display_name = "Name Bracelet"
+description = "A small silver bracelet engraved 'MARA'."
+collection_message = "You found Mara's name bracelet!"
+clue_text = "The bracelet you gave her on her 16th birthday. A voice calls your name up the cellar steps. Mara is alive, and she remembers you."
+hint_text = "It's behind the heavy cellar door on the left. You need the cellar key."
+riddle_text = ""
+placeholder_style = 192
+is_required = true
+starts_visible = false

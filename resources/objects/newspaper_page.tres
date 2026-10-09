@@ -1,0 +1,16 @@
+[gd_resource type="Resource" script_class="HiddenObjectData" format=3]
+
+[ext_resource type="Script" path="res://scripts/hidden_object_data.gd" id="1_data"]
+
+[resource]
+script = ExtResource("1_data")
+object_id = &"newspaper_page"
+display_name = "Newspaper Page"
+description = "A yellowed page from the Blackwater Gazette."
+collection_message = "You found a newspaper page!"
+clue_text = "'Ashworth girl declared dead, 1987.' Agnes circled the photograph. She knew who 'Margaret' really was, and kept the secret."
+hint_text = "A grey newspaper page, one of the loose papers the wind blows around the lamp room."
+riddle_text = ""
+placeholder_style = 152
+is_required = true
+starts_visible = true

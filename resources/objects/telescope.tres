@@ -1,0 +1,16 @@
+[gd_resource type="Resource" script_class="HiddenObjectData" format=3]
+
+[ext_resource type="Script" path="res://scripts/hidden_object_data.gd" id="1_data"]
+
+[resource]
+script = ExtResource("1_data")
+object_id = &"telescope"
+display_name = "Telescope"
+description = "A brass spyglass with a worn leather grip."
+collection_message = "You found a telescope!"
+clue_text = "Agnes's spyglass. From the top window she could see right across the water to the ice house on the far shore. That's how she saw the girl."
+hint_text = "High up at the top of the tower, it lies on the sill of the window on the left. Wait for the beam to light it."
+riddle_text = ""
+placeholder_style = 134
+is_required = true
+starts_visible = true

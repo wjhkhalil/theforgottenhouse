@@ -1,0 +1,16 @@
+[gd_resource type="Resource" script_class="HiddenObjectData" format=3]
+
+[ext_resource type="Script" path="res://scripts/hidden_object_data.gd" id="1_data"]
+
+[resource]
+script = ExtResource("1_data")
+object_id = &"soap_imprint"
+display_name = "Soap with a Key Mark"
+description = "A bar of soap with a key pressed into it."
+collection_message = "You found a strange bar of soap."
+clue_text = "Someone pressed a key into the soap to copy its shape - the front door key. That is how he got in."
+hint_text = "Not every bar of soap is for washing. One lies on the floor by the bath."
+riddle_text = ""
+placeholder_style = 33
+is_required = true
+starts_visible = true

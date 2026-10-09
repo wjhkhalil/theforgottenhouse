@@ -1,0 +1,16 @@
+[gd_resource type="Resource" script_class="HiddenObjectData" format=3]
+
+[ext_resource type="Script" path="res://scripts/hidden_object_data.gd" id="1_data"]
+
+[resource]
+script = ExtResource("1_data")
+object_id = &"police_seal"
+display_name = "Broken Police Seal"
+description = "Police tape that sealed the boathouse door, torn through."
+collection_message = "You found the broken police seal!"
+clue_text = "POLICE - DO NOT ENTER. The police sealed the boathouse three days ago. Someone has torn straight through it."
+hint_text = "Look at the boathouse door, at the far right end of the jetty."
+riddle_text = ""
+placeholder_style = 60
+is_required = true
+starts_visible = true

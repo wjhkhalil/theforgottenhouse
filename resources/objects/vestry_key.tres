@@ -1,0 +1,16 @@
+[gd_resource type="Resource" script_class="HiddenObjectData" format=3]
+
+[ext_resource type="Script" path="res://scripts/hidden_object_data.gd" id="1_data"]
+
+[resource]
+script = ExtResource("1_data")
+object_id = &"vestry_key"
+display_name = "Vestry Key"
+description = "A long iron key with a paper tag: VESTRY."
+collection_message = "You found the vestry key!"
+clue_text = "The tag says 'Vestry'. Mother Agatha keeps the parish papers through that door."
+hint_text = "The vestry key is locked in the iron alms box on the wall, left of the stained-glass window."
+riddle_text = ""
+placeholder_style = 175
+is_required = true
+starts_visible = false

@@ -1,0 +1,16 @@
+[gd_resource type="Resource" script_class="HiddenObjectData" format=3]
+
+[ext_resource type="Script" path="res://scripts/hidden_object_data.gd" id="1_data"]
+
+[resource]
+script = ExtResource("1_data")
+object_id = &"hairbrush"
+display_name = "Hairbrush"
+description = "A silver-backed hairbrush."
+collection_message = "You found a hairbrush."
+clue_text = "Long dark hairs in the bristles, still damp. Mara was here only minutes ago."
+hint_text = "Something with bristles lies by the basin."
+riddle_text = ""
+placeholder_style = 26
+is_required = true
+starts_visible = true

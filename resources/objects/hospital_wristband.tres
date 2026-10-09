@@ -1,0 +1,15 @@
+[gd_resource type="Resource" script_class="HiddenObjectData" format=3]
+
+[ext_resource type="Script" path="res://scripts/hidden_object_data.gd" id="1_data"]
+
+[resource]
+script = ExtResource("1_data")
+object_id = &"hospital_wristband"
+display_name = "Hospital Wristband"
+description = "A small plastic hospital wristband."
+collection_message = "You found a hospital wristband."
+clue_text = "Patient: M. Ashford. Admitted: 17 April 1987. The discharge date was never filled in."
+hint_text = "Something small and pale hangs from a hook beside the stairs."
+placeholder_style = 6
+is_required = true
+starts_visible = true

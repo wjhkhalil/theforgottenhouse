@@ -1,0 +1,16 @@
+[gd_resource type="Resource" script_class="HiddenObjectData" format=3]
+
+[ext_resource type="Script" path="res://scripts/hidden_object_data.gd" id="1_data"]
+
+[resource]
+script = ExtResource("1_data")
+object_id = &"cigarette_case"
+display_name = "Silver Cigarette Case"
+description = "A dented silver case engraved 'R.V.'"
+collection_message = "You found a silver cigarette case!"
+clue_text = "Engraved 'R.V.' and still warm from a pocket. Greaves doesn't smoke. Someone else was here tonight."
+hint_text = "Look along the jetty planks near the old rowing boat."
+riddle_text = ""
+placeholder_style = 61
+is_required = true
+starts_visible = true

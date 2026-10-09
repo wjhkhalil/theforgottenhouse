@@ -1,0 +1,15 @@
+[gd_resource type="Resource" script_class="HiddenObjectData" format=3]
+
+[ext_resource type="Script" path="res://scripts/hidden_object_data.gd" id="1_data"]
+
+[resource]
+script = ExtResource("1_data")
+object_id = &"silver_locket"
+display_name = "Silver Locket"
+description = "A silver locket on a fine chain."
+collection_message = "You found a silver locket."
+clue_text = "Inside are two tiny portraits of the twins. Scratched behind them: 'Boathouse. Midnight. Bring M.'"
+hint_text = "It is locked away with Eleanor's jewellery. You will need the right key first."
+placeholder_style = 17
+is_required = true
+starts_visible = false

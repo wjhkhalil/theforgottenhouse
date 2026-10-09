@@ -1,0 +1,208 @@
+[gd_scene format=3]
+
+[ext_resource type="Script" path="res://scripts/room_level.gd" id="1_room"]
+[ext_resource type="Resource" path="res://resources/levels/loft_level.tres" id="2_level"]
+[ext_resource type="Script" path="res://scripts/game_manager.gd" id="3_manager"]
+[ext_resource type="Script" path="res://scripts/loft_art.gd" id="4_art"]
+[ext_resource type="PackedScene" path="res://scenes/objects/hidden_object.tscn" id="5_object"]
+[ext_resource type="Resource" path="res://resources/objects/candle_stub.tres" id="6_candle_stub"]
+[ext_resource type="Resource" path="res://resources/objects/tin_cup.tres" id="7_tin_cup"]
+[ext_resource type="Resource" path="res://resources/objects/hairpin.tres" id="8_hairpin"]
+[ext_resource type="Resource" path="res://resources/objects/visiting_card.tres" id="9_visiting_card"]
+[ext_resource type="Resource" path="res://resources/objects/pocket_mirror.tres" id="10_pocket_mirror"]
+[ext_resource type="Resource" path="res://resources/objects/bedsheet_rope.tres" id="11_bedsheet_rope"]
+[ext_resource type="Resource" path="res://resources/objects/rag_doll.tres" id="12_rag_doll"]
+[ext_resource type="Resource" path="res://resources/objects/padlock_key.tres" id="13_padlock_key"]
+[ext_resource type="Resource" path="res://resources/objects/sedative_vial.tres" id="14_sedative_vial"]
+[ext_resource type="Resource" path="res://resources/objects/unsent_letter.tres" id="15_unsent_letter"]
+[ext_resource type="Resource" path="res://resources/objects/pressed_violet.tres" id="16_pressed_violet"]
+[ext_resource type="Resource" path="res://resources/objects/workshop_key.tres" id="17_workshop_key"]
+[ext_resource type="PackedScene" path="res://scenes/objects/openable_container.tscn" id="18_container"]
+[ext_resource type="Script" path="res://scripts/bat_colony.gd" id="19_bats"]
+[ext_resource type="Script" path="res://scripts/hint_highlight.gd" id="20_hint"]
+[ext_resource type="PackedScene" path="res://scenes/ui/hud.tscn" id="21_hud"]
+[ext_resource type="PackedScene" path="res://scenes/ui/notification.tscn" id="22_note"]
+[ext_resource type="PackedScene" path="res://scenes/victory_screen.tscn" id="23_victory"]
+[ext_resource type="PackedScene" path="res://scenes/ui/pause_menu.tscn" id="24_pause"]
+[ext_resource type="PackedScene" path="res://scenes/ui/letter_popup.tscn" id="25_letter"]
+[ext_resource type="PackedScene" path="res://scenes/ui/keypad_lock.tscn" id="26_keypad"]
+
+[node name="Loft" type="Node2D" node_paths=PackedStringArray("keypad_lock")]
+script = ExtResource("1_room")
+level_data = ExtResource("2_level")
+keypad_lock = NodePath("KeypadLock")
+
+[node name="GameManager" type="Node" parent="."]
+unique_name_in_owner = true
+script = ExtResource("3_manager")
+
+[node name="RoomBackground" type="Node2D" parent="."]
+script = ExtResource("4_art")
+
+[node name="HiddenObjects" type="Node2D" parent="."]
+unique_name_in_owner = true
+
+[node name="CandleStub" parent="HiddenObjects" instance=ExtResource("5_object")]
+position = Vector2(382, 652)
+scale = Vector2(0.6, 0.6)
+data = ExtResource("6_candle_stub")
+
+[node name="TinCup" parent="HiddenObjects" instance=ExtResource("5_object")]
+position = Vector2(300, 598)
+rotation = 0.15
+scale = Vector2(0.55, 0.55)
+data = ExtResource("7_tin_cup")
+
+[node name="Hairpin" parent="HiddenObjects" instance=ExtResource("5_object")]
+position = Vector2(420, 452)
+rotation = -0.5
+scale = Vector2(0.55, 0.55)
+data = ExtResource("8_hairpin")
+
+[node name="VisitingCard" parent="HiddenObjects" instance=ExtResource("5_object")]
+position = Vector2(282, 694)
+rotation = 0.3
+scale = Vector2(0.55, 0.55)
+data = ExtResource("9_visiting_card")
+
+[node name="PocketMirror" parent="HiddenObjects" instance=ExtResource("5_object")]
+position = Vector2(602, 300)
+rotation = 0.2
+scale = Vector2(0.5, 0.5)
+data = ExtResource("10_pocket_mirror")
+
+[node name="BedsheetRope" parent="HiddenObjects" instance=ExtResource("5_object")]
+position = Vector2(690, 326)
+scale = Vector2(0.75, 0.75)
+data = ExtResource("11_bedsheet_rope")
+
+[node name="SewingBasket" parent="HiddenObjects" node_paths=PackedStringArray("contents") instance=ExtResource("18_container")]
+position = Vector2(706, 618)
+container_id = &"sewing_basket"
+contents = NodePath("../PadlockKey")
+open_title = "You lift the lid of the sewing basket..."
+open_message = "Cotton reels, a thimble, and a tiny brass key on red string."
+style = 6
+tint = Color(0.55, 0.46, 0.3, 1)
+size = Vector2(50, 38)
+
+[node name="PadlockKey" parent="HiddenObjects" instance=ExtResource("5_object")]
+position = Vector2(706, 612)
+scale = Vector2(0.55, 0.55)
+data = ExtResource("13_padlock_key")
+
+[node name="Hatbox" parent="HiddenObjects" node_paths=PackedStringArray("contents") instance=ExtResource("18_container")]
+position = Vector2(948, 598)
+container_id = &"hatbox"
+contents = NodePath("../RagDoll")
+open_title = "You lift the lid off the hatbox..."
+open_message = "No hat inside. Just a little doll, wrapped in a scrap of blanket."
+style = 2
+tint = Color(0.5, 0.42, 0.38, 1)
+size = Vector2(56, 44)
+
+[node name="RagDoll" parent="HiddenObjects" instance=ExtResource("5_object")]
+position = Vector2(948, 590)
+scale = Vector2(0.6, 0.6)
+data = ExtResource("12_rag_doll")
+
+[node name="BiscuitTin" parent="HiddenObjects" node_paths=PackedStringArray("contents") instance=ExtResource("18_container")]
+position = Vector2(872, 384)
+container_id = &"biscuit_tin"
+contents = NodePath("../PressedViolet")
+open_title = "You prise the lid off the tin..."
+open_message = "No biscuits. A folded scrap of paper with something pressed inside."
+style = 7
+tint = Color(0.32, 0.4, 0.5, 1)
+size = Vector2(48, 30)
+
+[node name="PressedViolet" parent="HiddenObjects" instance=ExtResource("5_object")]
+position = Vector2(872, 380)
+scale = Vector2(0.5, 0.5)
+data = ExtResource("16_pressed_violet")
+
+[node name="LooseFloorboard" parent="HiddenObjects" node_paths=PackedStringArray("contents") instance=ExtResource("18_container")]
+position = Vector2(556, 672)
+container_id = &"loose_floorboard"
+contents = NodePath("../UnsentLetter")
+open_title = "The loose board lifts up..."
+open_message = "In the dusty gap underneath lies an envelope."
+style = 4
+tint = Color(0.3, 0.23, 0.16, 1)
+size = Vector2(110, 16)
+
+[node name="UnsentLetter" parent="HiddenObjects" instance=ExtResource("5_object")]
+position = Vector2(556, 668)
+rotation = 0.1
+scale = Vector2(0.55, 0.55)
+data = ExtResource("15_unsent_letter")
+
+[node name="DoctorsCase" parent="HiddenObjects" node_paths=PackedStringArray("contents", "required_object") instance=ExtResource("18_container")]
+position = Vector2(800, 562)
+container_id = &"doctors_case"
+contents = NodePath("../SedativeVial")
+open_title = "The little padlock opens..."
+open_message = "Inside the doctor's case: a syringe, cotton wool and rows of small glass vials."
+required_object = NodePath("../PadlockKey")
+locked_title = "The doctor's case is padlocked."
+locked_message = "A tiny brass padlock holds the clasp shut. Mara must have hidden a key for it somewhere."
+style = 7
+tint = Color(0.12, 0.1, 0.1, 1)
+size = Vector2(72, 38)
+
+[node name="SedativeVial" parent="HiddenObjects" instance=ExtResource("5_object")]
+position = Vector2(800, 556)
+scale = Vector2(0.55, 0.55)
+data = ExtResource("14_sedative_vial")
+
+[node name="SeaChest" parent="HiddenObjects" node_paths=PackedStringArray("contents") instance=ExtResource("18_container")]
+position = Vector2(970, 650)
+container_id = &"sea_chest"
+contents = NodePath("../WorkshopKey")
+open_title = "The four wheels click into place..."
+open_message = "The lid creaks open. On top of a folded coat lies a heavy iron key."
+required_code = "1405"
+code_title = "The Sea Chest"
+code_prompt = "An old sea chest with a four-number lock. Painted on the lid, in Vane's neat hand: 'The day she came to us.'"
+code_hint_first = "Wrong. Mara counted every day she was kept up here. Look where she kept count."
+code_hint_second = "The post in the middle has '14.5.87' carved at the top: the 14th of May. The code is 1405."
+code_hint_first_after = 6
+code_hint_second_after = 9
+style = 0
+tint = Color(0.42, 0.29, 0.2, 1)
+size = Vector2(120, 62)
+
+[node name="WorkshopKey" parent="HiddenObjects" instance=ExtResource("5_object")]
+position = Vector2(970, 644)
+scale = Vector2(0.6, 0.6)
+data = ExtResource("17_workshop_key")
+
+[node name="BatColony" type="Node2D" parent="."]
+script = ExtResource("19_bats")
+roosts = PackedVector2Array(206, 118, 240, 118, 470, 118, 504, 118, 538, 118, 742, 118, 776, 118, 900, 118, 934, 118, 968, 118)
+
+[node name="RoomForeground" type="Node2D" parent="."]
+script = ExtResource("4_art")
+layer = 1
+
+[node name="HintHighlight" type="Node2D" parent="."]
+unique_name_in_owner = true
+visible = false
+script = ExtResource("20_hint")
+
+[node name="HUD" parent="." instance=ExtResource("21_hud")]
+unique_name_in_owner = true
+
+[node name="Notification" parent="." instance=ExtResource("22_note")]
+unique_name_in_owner = true
+
+[node name="VictoryScreen" parent="." instance=ExtResource("23_victory")]
+unique_name_in_owner = true
+
+[node name="PauseMenu" parent="." instance=ExtResource("24_pause")]
+unique_name_in_owner = true
+
+[node name="LetterPopup" parent="." instance=ExtResource("25_letter")]
+unique_name_in_owner = true
+
+[node name="KeypadLock" parent="." instance=ExtResource("26_keypad")]

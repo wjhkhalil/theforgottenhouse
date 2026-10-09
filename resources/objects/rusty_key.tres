@@ -1,0 +1,15 @@
+[gd_resource type="Resource" script_class="HiddenObjectData" format=3]
+
+[ext_resource type="Script" path="res://scripts/hidden_object_data.gd" id="1_data"]
+
+[resource]
+script = ExtResource("1_data")
+object_id = &"rusty_key"
+display_name = "Rusty Key"
+description = "An old rusty key that may unlock something in the house."
+collection_message = "You found the rusty key!"
+clue_text = "This key is covered in rust, but its teeth look recently cleaned."
+hint_text = "Something small and metal fell to the floor. Check the shadows beneath the bedside table."
+placeholder_style = 1
+is_required = true
+starts_visible = true

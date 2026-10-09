@@ -1,0 +1,16 @@
+[gd_resource type="Resource" script_class="HiddenObjectData" format=3]
+
+[ext_resource type="Script" path="res://scripts/hidden_object_data.gd" id="1_data"]
+
+[resource]
+script = ExtResource("1_data")
+object_id = &"work_glove"
+display_name = "Wet Work Glove"
+description = "A leather work glove, soaked through."
+collection_message = "You found a wet work glove!"
+clue_text = "Still dripping with lake water, and 'R.V.' is inked inside the cuff. Vane was here tonight, only minutes ago."
+hint_text = "On the floor in the middle of the room, beside the wet boot prints."
+riddle_text = ""
+placeholder_style = 99
+is_required = true
+starts_visible = true

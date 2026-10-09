@@ -1,0 +1,199 @@
+[gd_scene format=3]
+
+[ext_resource type="Script" path="res://scripts/room_level.gd" id="1_room"]
+[ext_resource type="Resource" path="res://resources/levels/jetty_level.tres" id="2_level"]
+[ext_resource type="Script" path="res://scripts/game_manager.gd" id="3_manager"]
+[ext_resource type="Script" path="res://scripts/jetty_art.gd" id="4_art"]
+[ext_resource type="PackedScene" path="res://scenes/objects/hidden_object.tscn" id="5_object"]
+[ext_resource type="Resource" path="res://resources/objects/police_seal.tres" id="6_seal"]
+[ext_resource type="Resource" path="res://resources/objects/cigarette_case.tres" id="7_case"]
+[ext_resource type="Resource" path="res://resources/objects/fishing_float.tres" id="8_float"]
+[ext_resource type="Resource" path="res://resources/objects/name_board.tres" id="9_board"]
+[ext_resource type="Resource" path="res://resources/objects/message_bottle.tres" id="10_bottle"]
+[ext_resource type="Resource" path="res://resources/objects/brass_compass.tres" id="11_compass"]
+[ext_resource type="Resource" path="res://resources/objects/tackle_key.tres" id="12_key"]
+[ext_resource type="Resource" path="res://resources/objects/log_page.tres" id="13_log"]
+[ext_resource type="Resource" path="res://resources/objects/registration.tres" id="14_registration"]
+[ext_resource type="Resource" path="res://resources/objects/prescription.tres" id="15_prescription"]
+[ext_resource type="PackedScene" path="res://scenes/objects/openable_container.tscn" id="16_container"]
+[ext_resource type="Script" path="res://scripts/drifter.gd" id="17_drifter"]
+[ext_resource type="Script" path="res://scripts/room_camera.gd" id="18_camera"]
+[ext_resource type="Script" path="res://scripts/hint_highlight.gd" id="19_hint"]
+[ext_resource type="PackedScene" path="res://scenes/ui/hud.tscn" id="20_hud"]
+[ext_resource type="PackedScene" path="res://scenes/ui/notification.tscn" id="21_note"]
+[ext_resource type="PackedScene" path="res://scenes/victory_screen.tscn" id="22_victory"]
+[ext_resource type="PackedScene" path="res://scenes/ui/pause_menu.tscn" id="23_pause"]
+[ext_resource type="PackedScene" path="res://scenes/ui/letter_popup.tscn" id="24_letter"]
+[ext_resource type="PackedScene" path="res://scenes/ui/keypad_lock.tscn" id="25_keypad"]
+
+[node name="Jetty" type="Node2D" node_paths=PackedStringArray("keypad_lock", "room_camera")]
+script = ExtResource("1_room")
+level_data = ExtResource("2_level")
+keypad_lock = NodePath("KeypadLock")
+room_camera = NodePath("RoomCamera")
+
+[node name="GameManager" type="Node" parent="."]
+unique_name_in_owner = true
+script = ExtResource("3_manager")
+
+[node name="RoomBackground" type="Node2D" parent="."]
+script = ExtResource("4_art")
+room_size = Vector2(2560, 720)
+
+[node name="HiddenObjects" type="Node2D" parent="."]
+unique_name_in_owner = true
+
+[node name="PoliceSeal" parent="HiddenObjects" instance=ExtResource("5_object")]
+position = Vector2(2046, 300)
+rotation = 0.08
+scale = Vector2(0.75, 0.75)
+data = ExtResource("6_seal")
+
+[node name="CigaretteCase" parent="HiddenObjects" instance=ExtResource("5_object")]
+position = Vector2(822, 448)
+rotation = -0.15
+scale = Vector2(0.6, 0.6)
+data = ExtResource("7_case")
+
+[node name="BrassCompass" parent="HiddenObjects" instance=ExtResource("5_object")]
+position = Vector2(1418, 446)
+scale = Vector2(0.62, 0.62)
+data = ExtResource("11_compass")
+
+[node name="FishingFloat" parent="HiddenObjects" instance=ExtResource("5_object")]
+position = Vector2(560, 640)
+scale = Vector2(0.75, 0.75)
+data = ExtResource("8_float")
+
+[node name="Drifter" type="Node" parent="HiddenObjects/FishingFloat"]
+script = ExtResource("17_drifter")
+drift_distance = 140.0
+drift_period = 13.0
+
+[node name="NameBoard" parent="HiddenObjects" instance=ExtResource("5_object")]
+position = Vector2(1260, 655)
+scale = Vector2(0.8, 0.8)
+data = ExtResource("9_board")
+
+[node name="Drifter" type="Node" parent="HiddenObjects/NameBoard"]
+script = ExtResource("17_drifter")
+drift_distance = 200.0
+drift_period = 18.0
+bob_height = 2.0
+start_phase = 0.4
+
+[node name="MessageBottle" parent="HiddenObjects" instance=ExtResource("5_object")]
+position = Vector2(1150, 362)
+scale = Vector2(0.65, 0.65)
+data = ExtResource("10_bottle")
+
+[node name="Drifter" type="Node" parent="HiddenObjects/MessageBottle"]
+script = ExtResource("17_drifter")
+drift_distance = 150.0
+drift_period = 16.0
+bob_height = 2.5
+start_phase = 0.7
+
+[node name="BaitBucket" parent="HiddenObjects" node_paths=PackedStringArray("contents") instance=ExtResource("16_container")]
+position = Vector2(210, 426)
+container_id = &"bait_bucket"
+contents = NodePath("../LogPage")
+open_title = "You tip over the bait bucket..."
+open_message = "Under the old bait is a folded page, wrapped in oilcloth."
+style = 6
+tint = Color(0.42, 0.44, 0.46, 1)
+size = Vector2(56, 48)
+
+[node name="LogPage" parent="HiddenObjects" instance=ExtResource("5_object")]
+position = Vector2(210, 420)
+rotation = 0.1
+scale = Vector2(0.6, 0.6)
+data = ExtResource("13_log")
+
+[node name="TackleBox" parent="HiddenObjects" node_paths=PackedStringArray("contents") instance=ExtResource("16_container")]
+position = Vector2(1090, 438)
+container_id = &"tackle_box"
+contents = NodePath("../TackleKey")
+open_title = "You open the tackle box..."
+open_message = "Among the hooks and lures is a little key on a cork."
+style = 7
+tint = Color(0.2, 0.36, 0.25, 1)
+size = Vector2(64, 32)
+
+[node name="TackleKey" parent="HiddenObjects" instance=ExtResource("5_object")]
+position = Vector2(1090, 432)
+scale = Vector2(0.65, 0.65)
+data = ExtResource("12_key")
+
+[node name="FishCrate" parent="HiddenObjects" node_paths=PackedStringArray("contents", "required_object") instance=ExtResource("16_container")]
+position = Vector2(1660, 422)
+container_id = &"fish_crate"
+contents = NodePath("../Registration")
+open_title = "The little key turns in the padlock..."
+open_message = "The crate is empty of fish. Instead there is a bundle of papers."
+required_object = NodePath("../TackleKey")
+locked_title = "The fish crate is padlocked."
+locked_message = "A small, rusty padlock. Its key must be somewhere on the jetty."
+style = 0
+tint = Color(0.38, 0.3, 0.2, 1)
+size = Vector2(92, 56)
+
+[node name="Registration" parent="HiddenObjects" instance=ExtResource("5_object")]
+position = Vector2(1660, 414)
+rotation = -0.05
+scale = Vector2(0.65, 0.65)
+data = ExtResource("14_registration")
+
+[node name="DockLocker" parent="HiddenObjects" node_paths=PackedStringArray("contents") instance=ExtResource("16_container")]
+position = Vector2(2192, 362)
+container_id = &"dock_locker"
+contents = NodePath("../Prescription")
+open_title = "The locker door clanks open..."
+open_message = "Inside, behind an old oilskin coat, is a doctor's prescription pad."
+required_code = "2209"
+code_title = "The Dockmaster's Locker"
+code_prompt = "A steel locker with a four-number lock. Scratched into the paint: 'Her number, as painted under her name.'"
+code_hint_first = "Wrong. 'Her' is a boat. Her name and number were painted on a board, and something like that is floating on the lake."
+code_hint_second = "The nameboard reads LADY MARGARET - BW 2209. The code is 2209."
+code_hint_first_after = 4
+code_hint_second_after = 7
+style = 3
+tint = Color(0.24, 0.3, 0.28, 1)
+size = Vector2(72, 92)
+
+[node name="Prescription" parent="HiddenObjects" instance=ExtResource("5_object")]
+position = Vector2(2192, 356)
+scale = Vector2(0.65, 0.65)
+data = ExtResource("15_prescription")
+
+[node name="RoomForeground" type="Node2D" parent="."]
+script = ExtResource("4_art")
+layer = 1
+room_size = Vector2(2560, 720)
+
+
+[node name="RoomCamera" type="Camera2D" parent="."]
+script = ExtResource("18_camera")
+room_size = Vector2(2560, 720)
+
+[node name="HintHighlight" type="Node2D" parent="."]
+unique_name_in_owner = true
+visible = false
+script = ExtResource("19_hint")
+
+[node name="HUD" parent="." instance=ExtResource("20_hud")]
+unique_name_in_owner = true
+
+[node name="Notification" parent="." instance=ExtResource("21_note")]
+unique_name_in_owner = true
+
+[node name="VictoryScreen" parent="." instance=ExtResource("22_victory")]
+unique_name_in_owner = true
+
+[node name="PauseMenu" parent="." instance=ExtResource("23_pause")]
+unique_name_in_owner = true
+
+[node name="LetterPopup" parent="." instance=ExtResource("24_letter")]
+unique_name_in_owner = true
+
+[node name="KeypadLock" parent="." instance=ExtResource("25_keypad")]

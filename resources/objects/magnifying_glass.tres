@@ -1,0 +1,16 @@
+[gd_resource type="Resource" script_class="HiddenObjectData" format=3]
+
+[ext_resource type="Script" path="res://scripts/hidden_object_data.gd" id="1_data"]
+
+[resource]
+script = ExtResource("1_data")
+object_id = &"magnifying_glass"
+display_name = "Magnifying Glass"
+description = "A brass magnifying glass."
+collection_message = "You found a magnifying glass."
+clue_text = "Used to copy the tiny loops of Eleanor's handwriting."
+hint_text = "Something that makes small things big sits near the books."
+riddle_text = ""
+placeholder_style = 53
+is_required = true
+starts_visible = true

@@ -1,0 +1,16 @@
+[gd_resource type="Resource" script_class="HiddenObjectData" format=3]
+
+[ext_resource type="Script" path="res://scripts/hidden_object_data.gd" id="1_data"]
+
+[resource]
+script = ExtResource("1_data")
+object_id = &"pewter_cup"
+display_name = "Pewter Cup"
+description = "A plain pewter communion cup."
+collection_message = "You found a pewter cup!"
+clue_text = "Polished until it shines. Mother Agatha says Sister Margaret looked after the chapel silver like treasure."
+hint_text = "There is a small cupboard set into the wall right of the altar, below the right-hand sconce."
+riddle_text = ""
+placeholder_style = 168
+is_required = true
+starts_visible = false

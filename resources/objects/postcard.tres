@@ -1,0 +1,16 @@
+[gd_resource type="Resource" script_class="HiddenObjectData" format=3]
+
+[ext_resource type="Script" path="res://scripts/hidden_object_data.gd" id="1_data"]
+
+[resource]
+script = ExtResource("1_data")
+object_id = &"postcard"
+display_name = "Postcard"
+description = "A picture postcard of a white chapel on a green island."
+collection_message = "You found a postcard!"
+clue_text = "A postcard of the island chapel. On the back: 'Send her to us. The Sisters will keep her safe.' The chapel is across the water."
+hint_text = "One of the loose papers the wind blows about: a postcard with a picture of a white chapel on a green island."
+riddle_text = ""
+placeholder_style = 150
+is_required = true
+starts_visible = true

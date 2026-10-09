@@ -1,0 +1,16 @@
+[gd_resource type="Resource" script_class="HiddenObjectData" format=3]
+
+[ext_resource type="Script" path="res://scripts/hidden_object_data.gd" id="1_data"]
+
+[resource]
+script = ExtResource("1_data")
+object_id = &"letter_stencil"
+display_name = "Letter Stencil"
+description = "A brass stencil plate cut with the letters S W A N."
+collection_message = "You found a letter stencil!"
+clue_text = "Wet white paint on the letters SWAN. Vane painted a new name on the rowing boat before he took it, so nobody on the lake would know it."
+hint_text = "A flat stencil box lies on the shelf under the workbench, at the right end. Open it."
+riddle_text = ""
+placeholder_style = 98
+is_required = true
+starts_visible = false
