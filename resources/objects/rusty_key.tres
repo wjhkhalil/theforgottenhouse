@@ -1,6 +1,7 @@
 [gd_resource type="Resource" script_class="HiddenObjectData" format=3]
 
 [ext_resource type="Script" path="res://scripts/hidden_object_data.gd" id="1_data"]
+[ext_resource type="Texture2D" path="res://assets/objects/rusty_key_v1.png" id="2_texture"]
 
 [resource]
 script = ExtResource("1_data")
@@ -9,7 +10,9 @@ display_name = "Rusty Key"
 description = "An old rusty key that may unlock something in the house."
 collection_message = "You found the rusty key!"
 clue_text = "This key is covered in rust, but its teeth look recently cleaned."
-hint_text = "Something small and metal fell to the floor. Check the shadows beneath the bedside table."
+hint_text = "Something small and metal glints on the bedside table, right beside the lamp."
 placeholder_style = 1
+texture = ExtResource("2_texture")
+icon_texture = ExtResource("2_texture")
 is_required = true
 starts_visible = true

@@ -16,6 +16,7 @@
 [ext_resource type="PackedScene" path="res://scenes/ui/pause_menu.tscn" id="14_pause"]
 [ext_resource type="PackedScene" path="res://scenes/ui/letter_popup.tscn" id="15_letter"]
 [ext_resource type="PackedScene" path="res://scenes/victory_screen.tscn" id="16_victory"]
+[ext_resource type="Texture2D" path="res://assets/backgrounds/bedroom_background_v1.png" id="17_bedroom_bg"]
 
 [sub_resource type="Gradient" id="Gradient_dust"]
 offsets = PackedFloat32Array(0, 0.2, 0.8, 1)
@@ -31,40 +32,47 @@ script = ExtResource("3_manager")
 
 [node name="RoomBackground" type="Node2D" parent="."]
 script = ExtResource("4_art")
+replacement_texture = ExtResource("17_bedroom_bg")
 
 [node name="HiddenObjects" type="Node2D" parent="."]
 unique_name_in_owner = true
 
 [node name="RustyKey" parent="HiddenObjects" instance=ExtResource("5_object")]
-position = Vector2(655, 560)
-rotation = 0.25
+position = Vector2(523, 339)
+rotation = 0.12
 scale = Vector2(0.85, 0.85)
+texture_scale = Vector2(0.032, 0.032)
 data = ExtResource("6_key")
 
 [node name="OldPhotograph" parent="HiddenObjects" instance=ExtResource("5_object")]
-position = Vector2(852, 394)
-rotation = -0.1
+position = Vector2(986, 334)
+rotation = -0.08
 scale = Vector2(0.85, 0.85)
+texture_scale = Vector2(0.04, 0.04)
 data = ExtResource("7_photo")
 
 [node name="MissingLetter" parent="HiddenObjects" instance=ExtResource("5_object")]
-position = Vector2(924, 428)
-rotation = 0.08
-scale = Vector2(0.85, 0.85)
+position = Vector2(792, 353)
+rotation = 0.05
+scale = Vector2(0.85, 0.6)
+texture_scale = Vector2(0.04, 0.04)
 data = ExtResource("8_letter")
 
 [node name="OldDiary" parent="HiddenObjects" instance=ExtResource("5_object")]
-position = Vector2(180, 312)
-rotation = -0.18
+position = Vector2(72, 357)
+rotation = -0.1
 scale = Vector2(0.85, 0.85)
+texture_scale = Vector2(0.04, 0.04)
 data = ExtResource("9_diary")
 
 [node name="TeddyBear" parent="HiddenObjects" instance=ExtResource("5_object")]
-position = Vector2(350, 414)
+position = Vector2(398, 353)
 scale = Vector2(0.9, 0.9)
+texture_scale = Vector2(0.045, 0.045)
 data = ExtResource("10_bear")
 
 [node name="RoomForeground" type="Node2D" parent="."]
+visible = false
 script = ExtResource("4_art")
 layer = 1
 
