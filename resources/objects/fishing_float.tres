@@ -2,6 +2,8 @@
 
 [ext_resource type="Script" path="res://scripts/hidden_object_data.gd" id="1_data"]
 
+[ext_resource type="Texture2D" path="res://assets/objects/fishing_float_v1.png" id="2_texture"]
+
 [resource]
 script = ExtResource("1_data")
 object_id = &"fishing_float"
@@ -12,5 +14,7 @@ clue_text = "A note is wound round the float's stem: 'Wednesday. Midnight. Bring
 hint_text = "Something red and white is bobbing on the water, drifting back and forth."
 riddle_text = ""
 placeholder_style = 62
+texture = ExtResource("2_texture")
+icon_texture = ExtResource("2_texture")
 is_required = true
 starts_visible = true

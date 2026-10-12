@@ -97,7 +97,7 @@ for raw in sys.stdin:
             k = float(kv["h"]) / th if "h" in kv else float(kv["w"]) / tw
             setprop(name, "scale", f"Vector2({fmt(k * flip)}, {fmt(k)})")
         else:
-            cur = get(name, "scale"); k = abs(float(re.findall(r"[-\d.]+", cur)[0])) if cur else 1.0
+            cur = get(name, "scale"); k = abs(float(re.findall(r"[-\d.]+", cur.split("(", 1)[1])[0])) if cur else 1.0
         if "hit" in kv:
             hw, hh = [float(v) for v in kv["hit"].split(",")]
             setprop(name, "size", f"Vector2({fmt(hw / k)}, {fmt(hh / k)})")

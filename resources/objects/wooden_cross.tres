@@ -2,6 +2,8 @@
 
 [ext_resource type="Script" path="res://scripts/hidden_object_data.gd" id="1_data"]
 
+[ext_resource type="Texture2D" path="res://assets/objects/wooden_cross_v1.png" id="2_texture"]
+
 [resource]
 script = ExtResource("1_data")
 object_id = &"wooden_cross"
@@ -12,5 +14,7 @@ clue_text = "Carved on the back: 'For Margaret, from Agnes H.' The lighthouse ke
 hint_text = "Lift the wooden lid of the stone font, left of the altar."
 riddle_text = ""
 placeholder_style = 173
+texture = ExtResource("2_texture")
+icon_texture = ExtResource("2_texture")
 is_required = true
 starts_visible = false

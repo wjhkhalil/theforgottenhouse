@@ -23,6 +23,14 @@
 [ext_resource type="PackedScene" path="res://scenes/ui/letter_popup.tscn" id="21_letter"]
 [ext_resource type="PackedScene" path="res://scenes/ui/keypad_lock.tscn" id="22_keypad"]
 [ext_resource type="Texture2D" path="res://assets/backgrounds/study_background_v1.png" id="bg_study"]
+[ext_resource type="Texture2D" path="res://assets/objects/study_humidor_closed_v1.png" id="tex_study_humidor_closed_v1"]
+[ext_resource type="Texture2D" path="res://assets/objects/study_humidor_open_v1.png" id="tex_study_humidor_open_v1"]
+[ext_resource type="Texture2D" path="res://assets/objects/study_desk_drawer_closed_v1.png" id="tex_study_desk_drawer_closed_v1"]
+[ext_resource type="Texture2D" path="res://assets/objects/study_desk_drawer_open_v1.png" id="tex_study_desk_drawer_open_v1"]
+[ext_resource type="Texture2D" path="res://assets/objects/study_wall_safe_closed_v1.png" id="tex_study_wall_safe_closed_v1"]
+[ext_resource type="Texture2D" path="res://assets/objects/study_wall_safe_open_v1.png" id="tex_study_wall_safe_open_v1"]
+[ext_resource type="Texture2D" path="res://assets/objects/study_bookcase_compartment_closed_v1.png" id="tex_study_bookcase_compartment_closed_v1"]
+[ext_resource type="Texture2D" path="res://assets/objects/study_bookcase_compartment_open_v1.png" id="tex_study_bookcase_compartment_open_v1"]
 
 [sub_resource type="Gradient" id="Gradient_dust"]
 offsets = PackedFloat32Array(0, 0.2, 0.8, 1)
@@ -45,52 +53,57 @@ replacement_texture = ExtResource("bg_study")
 unique_name_in_owner = true
 
 [node name="ForgedSignatures" parent="HiddenObjects" instance=ExtResource("5_object")]
-position = Vector2(640, 444)
-rotation = -0.12
-scale = Vector2(0.6, 0.6)
+position = Vector2(662, 413)
+rotation = 0
 data = ExtResource("6_forged")
+texture_scale = Vector2(0.2638, 0.2638)
+modulate = Color(0.9, 0.84, 0.74, 1)
 
 [node name="FountainPen" parent="HiddenObjects" instance=ExtResource("5_object")]
-position = Vector2(892, 638)
-rotation = 0.35
-scale = Vector2(0.65, 0.65)
+position = Vector2(585, 662)
+rotation = 0.2
 data = ExtResource("7_pen")
+texture_scale = Vector2(0.1742, 0.1742)
 
 [node name="MagnifyingGlass" parent="HiddenObjects" instance=ExtResource("5_object")]
-position = Vector2(112, 399)
-rotation = -0.1
-scale = Vector2(0.62, 0.62)
+position = Vector2(98, 309)
+rotation = 0.75
 data = ExtResource("8_magnifier")
+texture_scale = Vector2(0.1818, 0.1818)
 
 [node name="SignetRing" parent="HiddenObjects" instance=ExtResource("5_object")]
-position = Vector2(876, 446)
-scale = Vector2(0.6, 0.6)
+position = Vector2(809, 429)
 data = ExtResource("9_ring")
+texture_scale = Vector2(0.0644, 0.0644)
 
 [node name="CalendarPage" parent="HiddenObjects" instance=ExtResource("5_object")]
-position = Vector2(204, 588)
-rotation = 0.25
-scale = Vector2(0.65, 0.65)
+position = Vector2(150, 548)
+rotation = 0
 data = ExtResource("10_calendar")
+texture_scale = Vector2(0.209, 0.209)
+modulate = Color(0.82, 0.74, 0.64, 1)
 
 [node name="Humidor" parent="HiddenObjects" node_paths=PackedStringArray("contents") instance=ExtResource("15_container")]
-position = Vector2(1160, 538)
+position = Vector2(945, 403)
 container_id = &"humidor"
 contents = NodePath("../LetterOpener")
 open_title = "You open the cigar humidor..."
 open_message = "A silver letter opener lies on top of the cigars."
 style = 7
 tint = Color(0.5, 0.3, 0.17, 1)
-size = Vector2(60, 36)
+size = Vector2(348.741, 295.901)
+closed_texture = ExtResource("tex_study_humidor_closed_v1")
+open_texture = ExtResource("tex_study_humidor_open_v1")
+scale = Vector2(0.1893, 0.1893)
 
 [node name="LetterOpener" parent="HiddenObjects" instance=ExtResource("5_object")]
-position = Vector2(1160, 532)
+position = Vector2(945, 417)
 rotation = -0.08
-scale = Vector2(0.62, 0.62)
 data = ExtResource("11_opener")
+texture_scale = Vector2(0.1894, 0.1894)
 
 [node name="DeskDrawer" parent="HiddenObjects" node_paths=PackedStringArray("contents", "required_object") instance=ExtResource("15_container")]
-position = Vector2(670, 494)
+position = Vector2(450, 492)
 container_id = &"desk_drawer"
 contents = NodePath("../BoathouseKey")
 open_title = "The letter opener forces the drawer..."
@@ -100,15 +113,18 @@ locked_title = "The desk drawer is jammed."
 locked_message = "It is stuck fast. You need something thin and strong to force it."
 style = 4
 tint = Color(0.32, 0.15, 0.1, 1)
-size = Vector2(90, 30)
+size = Vector2(383.724, 188.91)
+closed_texture = ExtResource("tex_study_desk_drawer_closed_v1")
+open_texture = ExtResource("tex_study_desk_drawer_open_v1")
+scale = Vector2(0.3388, 0.3388)
 
 [node name="BoathouseKey" parent="HiddenObjects" instance=ExtResource("5_object")]
-position = Vector2(670, 488)
-scale = Vector2(0.6, 0.6)
+position = Vector2(450, 478)
 data = ExtResource("12_key")
+texture_scale = Vector2(0.1288, 0.1288)
 
 [node name="WallSafe" parent="HiddenObjects" node_paths=PackedStringArray("contents") instance=ExtResource("15_container")]
-position = Vector2(765, 180)
+position = Vector2(833, 196)
 container_id = &"wall_safe"
 contents = NodePath("../RealWill")
 open_title = "The safe door swings open..."
@@ -120,28 +136,36 @@ code_hint_first = "Wrong. Mara was lost at the lake on a spring night in 1987. W
 code_hint_second = "The 17th of April. Day first, then month: 1704."
 style = 5
 tint = Color(0.24, 0.29, 0.27, 1)
-size = Vector2(90, 90)
+size = Vector2(393.786, 373.592)
+closed_texture = ExtResource("tex_study_wall_safe_closed_v1")
+open_texture = ExtResource("tex_study_wall_safe_open_v1")
+scale = Vector2(0.1981, 0.1981)
+self_modulate = Color(0.88, 0.84, 0.8, 1)
 
 [node name="RealWill" parent="HiddenObjects" instance=ExtResource("5_object")]
-position = Vector2(765, 174)
+position = Vector2(839, 214)
 rotation = -0.06
-scale = Vector2(0.65, 0.65)
 data = ExtResource("13_will")
+texture_scale = Vector2(0.1667, 0.1667)
 
 [node name="BookcaseCompartment" parent="HiddenObjects" node_paths=PackedStringArray("contents") instance=ExtResource("15_container")]
-position = Vector2(178, 309)
+position = Vector2(167, 236.3)
 container_id = &"bookcase_compartment"
 contents = NodePath("../MaraPortrait")
 open_title = "A row of fake book spines swings open..."
 open_message = "Hidden behind it is a small rolled painting."
 style = 8
 tint = Color(0.36, 0.2, 0.13, 1)
-size = Vector2(80, 60)
+size = Vector2(387.719, 296.491)
+closed_texture = ExtResource("tex_study_bookcase_compartment_closed_v1")
+open_texture = ExtResource("tex_study_bookcase_compartment_open_v1")
+scale = Vector2(0.1754, 0.1754)
+self_modulate = Color(0.74, 0.68, 0.62, 1)
 
 [node name="MaraPortrait" parent="HiddenObjects" instance=ExtResource("5_object")]
-position = Vector2(178, 304)
-scale = Vector2(0.6, 0.6)
+position = Vector2(180, 237)
 data = ExtResource("14_portrait")
+texture_scale = Vector2(0.1402, 0.1402)
 
 [node name="RoomForeground" type="Node2D" parent="."]
 visible = false

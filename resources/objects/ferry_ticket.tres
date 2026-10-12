@@ -2,6 +2,8 @@
 
 [ext_resource type="Script" path="res://scripts/hidden_object_data.gd" id="1_data"]
 
+[ext_resource type="Texture2D" path="res://assets/objects/ferry_ticket_v1.png" id="2_texture"]
+
 [resource]
 script = ExtResource("1_data")
 object_id = &"ferry_ticket"
@@ -12,5 +14,7 @@ clue_text = "A single ticket on the island ferry, 06:40. Agnes bought two in 198
 hint_text = "A small green ticket, one of the loose papers the wind blows around the room."
 riddle_text = ""
 placeholder_style = 159
+texture = ExtResource("2_texture")
+icon_texture = ExtResource("2_texture")
 is_required = true
 starts_visible = true

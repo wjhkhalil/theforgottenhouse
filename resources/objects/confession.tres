@@ -2,6 +2,8 @@
 
 [ext_resource type="Script" path="res://scripts/hidden_object_data.gd" id="1_data"]
 
+[ext_resource type="Texture2D" path="res://assets/objects/confession_v1.png" id="2_texture"]
+
 [resource]
 script = ExtResource("1_data")
 object_id = &"confession"
@@ -12,5 +14,7 @@ clue_text = "'I, Robert Vane, signed her away in 1987 and have lied ever since. 
 hint_text = "It's in the small iron safe on the floor beside the desk. The safe needs a code."
 riddle_text = ""
 placeholder_style = 188
+texture = ExtResource("2_texture")
+icon_texture = ExtResource("2_texture")
 is_required = true
 starts_visible = false

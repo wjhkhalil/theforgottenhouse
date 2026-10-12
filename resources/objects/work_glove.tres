@@ -2,6 +2,8 @@
 
 [ext_resource type="Script" path="res://scripts/hidden_object_data.gd" id="1_data"]
 
+[ext_resource type="Texture2D" path="res://assets/objects/work_glove_v1.png" id="2_texture"]
+
 [resource]
 script = ExtResource("1_data")
 object_id = &"work_glove"
@@ -12,5 +14,7 @@ clue_text = "Still dripping with lake water, and 'R.V.' is inked inside the cuff
 hint_text = "On the floor in the middle of the room, beside the wet boot prints."
 riddle_text = ""
 placeholder_style = 99
+texture = ExtResource("2_texture")
+icon_texture = ExtResource("2_texture")
 is_required = true
 starts_visible = true

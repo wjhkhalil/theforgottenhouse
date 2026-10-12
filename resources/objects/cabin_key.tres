@@ -2,6 +2,8 @@
 
 [ext_resource type="Script" path="res://scripts/hidden_object_data.gd" id="1_data"]
 
+[ext_resource type="Texture2D" path="res://assets/objects/cabin_key_v1.png" id="2_texture"]
+
 [resource]
 script = ExtResource("1_data")
 object_id = &"cabin_key"
@@ -9,8 +11,10 @@ display_name = "Cabin Key"
 description = "A brass key on a bone tag marked CABIN."
 collection_message = "You found the cabin key!"
 clue_text = "The key to Mara's cabin. Vane locked her in from the outside, and bolted the door too."
-hint_text = "Look in the drawer under the chart table in the wheelhouse."
+hint_text = "Look in the drawer in the front of the chart desk in the wheelhouse, to the right of the ship's wheel."
 riddle_text = ""
 placeholder_style = 114
+texture = ExtResource("2_texture")
+icon_texture = ExtResource("2_texture")
 is_required = true
 starts_visible = false

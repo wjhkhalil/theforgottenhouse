@@ -2,6 +2,8 @@
 
 [ext_resource type="Script" path="res://scripts/hidden_object_data.gd" id="1_data"]
 
+[ext_resource type="Texture2D" path="res://assets/objects/keepers_photo_v1.png" id="2_texture"]
+
 [resource]
 script = ExtResource("1_data")
 object_id = &"keepers_photo"
@@ -12,5 +14,7 @@ clue_text = "Agnes, smiling, with her arm round a young woman with long dark hai
 hint_text = "Look in the brown paper parcel tied with twine on the floor of the keeper's landing, at the left."
 riddle_text = ""
 placeholder_style = 145
+texture = ExtResource("2_texture")
+icon_texture = ExtResource("2_texture")
 is_required = true
 starts_visible = false

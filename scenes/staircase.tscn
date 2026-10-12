@@ -21,6 +21,10 @@
 [ext_resource type="PackedScene" path="res://scenes/ui/pause_menu.tscn" id="19_pause"]
 [ext_resource type="PackedScene" path="res://scenes/ui/letter_popup.tscn" id="20_letter"]
 [ext_resource type="Texture2D" path="res://assets/backgrounds/staircase_background_v2.png" id="bg_staircase"]
+[ext_resource type="Texture2D" path="res://assets/objects/staircase_grandfather_clock_closed_v1.png" id="tex_staircase_grandfather_clock_closed_v1"]
+[ext_resource type="Texture2D" path="res://assets/objects/staircase_grandfather_clock_open_v1.png" id="tex_staircase_grandfather_clock_open_v1"]
+[ext_resource type="Texture2D" path="res://assets/objects/staircase_hall_table_drawer_closed_v1.png" id="tex_staircase_hall_table_drawer_closed_v1"]
+[ext_resource type="Texture2D" path="res://assets/objects/staircase_hall_table_drawer_open_v1.png" id="tex_staircase_hall_table_drawer_open_v1"]
 
 [sub_resource type="Gradient" id="Gradient_dust"]
 offsets = PackedFloat32Array(0, 0.2, 0.8, 1)
@@ -44,52 +48,61 @@ room_size = Vector2(1280, 1440)
 unique_name_in_owner = true
 
 [node name="PortraitNameplate" parent="HiddenObjects" instance=ExtResource("5_object")]
-position = Vector2(296, 488)
-rotation = 0.12
-scale = Vector2(0.7, 0.7)
+position = Vector2(562, 497)
+rotation = -0.05
 data = ExtResource("7_nameplate")
+texture_scale = Vector2(0.1818, 0.1818)
+modulate = Color(0.8, 0.8, 0.85, 1)
 
 [node name="LeatherGlove" parent="HiddenObjects" instance=ExtResource("5_object")]
-position = Vector2(666, 664)
-rotation = -0.08
-scale = Vector2(0.65, 0.65)
+position = Vector2(640, 598)
+rotation = 0.1
 data = ExtResource("10_glove")
+texture_scale = Vector2(0.1742, 0.1742)
+modulate = Color(0.85, 0.85, 0.9, 1)
 
 [node name="HairRibbon" parent="HiddenObjects" instance=ExtResource("5_object")]
-position = Vector2(585, 937)
-rotation = 0.15
-scale = Vector2(0.62, 0.62)
+position = Vector2(896, 1072)
+rotation = 0
 data = ExtResource("8_ribbon")
+texture_scale = Vector2(0.2687, 0.2687)
 
 [node name="TelephoneCord" parent="HiddenObjects" instance=ExtResource("5_object")]
-position = Vector2(522, 1196)
-scale = Vector2(0.7, 0.7)
+position = Vector2(441, 1126)
 data = ExtResource("6_cord")
+rotation = 0
+texture_scale = Vector2(0.2348, 0.2348)
+modulate = Color(1.35, 1.35, 1.4, 1)
 
 [node name="EmptyKeyRing" parent="HiddenObjects" instance=ExtResource("5_object")]
-position = Vector2(232, 1302)
-rotation = 0.2
-scale = Vector2(0.65, 0.65)
+position = Vector2(347, 975)
+rotation = 0
 data = ExtResource("9_ring")
+texture_scale = Vector2(0.1667, 0.1667)
+modulate = Color(0.78, 0.78, 0.84, 1)
 
 [node name="GrandfatherClock" parent="HiddenObjects" node_paths=PackedStringArray("contents") instance=ExtResource("13_container")]
-position = Vector2(930, 1150)
+position = Vector2(932, 387)
 container_id = &"grandfather_clock"
 contents = NodePath("../IronKey")
 open_title = "The clock case swings open..."
 open_message = "Behind the still pendulum hangs a small iron key."
 style = 3
 tint = Color(0.3, 0.18, 0.11, 1)
-size = Vector2(70, 110)
+size = Vector2(119.303, 350.453)
+closed_texture = ExtResource("tex_staircase_grandfather_clock_closed_v1")
+open_texture = ExtResource("tex_staircase_grandfather_clock_open_v1")
+scale = Vector2(0.6706, 0.6706)
 
 [node name="IronKey" parent="HiddenObjects" instance=ExtResource("5_object")]
-position = Vector2(930, 1142)
-rotation = -0.1
-scale = Vector2(0.65, 0.65)
+position = Vector2(919, 412)
+rotation = 0
 data = ExtResource("11_key")
+texture_scale = Vector2(0.1515, 0.1515)
+modulate = Color(0.85, 0.85, 0.88, 1)
 
 [node name="HallTableDrawer" parent="HiddenObjects" node_paths=PackedStringArray("contents", "required_object") instance=ExtResource("13_container")]
-position = Vector2(692, 1204)
+position = Vector2(647, 1121)
 container_id = &"hall_table_drawer"
 contents = NodePath("../BoathouseMap")
 open_title = "The iron key fits the drawer..."
@@ -98,13 +111,17 @@ required_object = NodePath("../IronKey")
 locked_title = "The drawer is locked."
 locked_message = "A small keyhole. The key must be somewhere in the house - maybe nearby."
 style = 4
-size = Vector2(80, 30)
+size = Vector2(428, 142.667)
+closed_texture = ExtResource("tex_staircase_hall_table_drawer_closed_v1")
+open_texture = ExtResource("tex_staircase_hall_table_drawer_open_v1")
+scale = Vector2(0.1682, 0.1682)
 
 [node name="BoathouseMap" parent="HiddenObjects" instance=ExtResource("5_object")]
-position = Vector2(692, 1197)
-rotation = 0.06
-scale = Vector2(0.6, 0.6)
+position = Vector2(647, 1114)
+rotation = 0.04
 data = ExtResource("12_map")
+modulate = Color(0.85, 0.85, 0.88, 1)
+texture_scale = Vector2(0.1288, 0.0773)
 
 [node name="RoomForeground" type="Node2D" parent="."]
 visible = false

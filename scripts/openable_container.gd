@@ -206,6 +206,8 @@ func _draw() -> void:
 	var texture := open_texture if is_open else closed_texture
 	if texture != null:
 		draw_texture(texture, -texture.get_size() / 2.0)
+		if not is_open and hits_taken > 0:
+			_draw_cracks()
 		return
 	match style:
 		ContainerStyle.JEWELLERY_BOX:
@@ -456,11 +458,18 @@ func _draw_placeholder_ice_block() -> void:
 	# The shadow of whatever is frozen inside
 	PlaceholderArt.draw_ellipse(self, Vector2(0, 2), half.x * 0.45, half.y * 0.35, Color(0.2, 0.25, 0.3, 0.45))
 	draw_line(Vector2(-half.x + 6, -half.y + 6), Vector2(-half.x + 6, half.y - 10), Color(1, 1, 1, 0.6), 2.0)
-	# Cracks, more for every blow
+	_draw_cracks()
+
+
+## Cracks, more for every blow, on a container that needs several clicks (hits_to_open).
+## Drawn over the placeholder and over a painted texture alike, inside the click box (`size`).
+func _draw_cracks() -> void:
+	var half := size / 2.0
+	var reach := maxf(minf(half.x, half.y) * 0.45, 12.0)
 	var rng := RandomNumberGenerator.new()
 	rng.seed = hash(container_id)
 	for i in range(hits_taken * 3):
 		var start := Vector2(rng.randf_range(-half.x * 0.6, half.x * 0.6), rng.randf_range(-half.y * 0.6, half.y * 0.6))
-		var middle := start + Vector2(rng.randf_range(-14, 14), rng.randf_range(-14, 14))
-		draw_polyline(PackedVector2Array([start, middle, middle + Vector2(rng.randf_range(-12, 12), rng.randf_range(-12, 12))]),
-			Color(1, 1, 1, 0.85), 1.2)
+		var middle := start + Vector2(rng.randf_range(-reach, reach), rng.randf_range(-reach, reach))
+		draw_polyline(PackedVector2Array([start, middle, middle + Vector2(rng.randf_range(-reach, reach), rng.randf_range(-reach, reach))]),
+			Color(1, 1, 1, 0.85), maxf(1.2, reach / 10.0))

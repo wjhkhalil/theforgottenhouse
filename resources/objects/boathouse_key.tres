@@ -2,6 +2,8 @@
 
 [ext_resource type="Script" path="res://scripts/hidden_object_data.gd" id="1_data"]
 
+[ext_resource type="Texture2D" path="res://assets/objects/boathouse_key_v1.png" id="2_texture"]
+
 [resource]
 script = ExtResource("1_data")
 object_id = &"boathouse_key"
@@ -12,5 +14,7 @@ clue_text = "A heavy iron key tagged 'Boathouse'. Eleanor is on the other side o
 hint_text = "The desk drawer is jammed shut. Something thin and strong could force it."
 riddle_text = ""
 placeholder_style = 57
+texture = ExtResource("2_texture")
+icon_texture = ExtResource("2_texture")
 is_required = true
 starts_visible = false

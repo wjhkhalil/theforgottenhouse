@@ -2,6 +2,8 @@
 
 [ext_resource type="Script" path="res://scripts/hidden_object_data.gd" id="1_data"]
 
+[ext_resource type="Texture2D" path="res://assets/objects/snowshoe_v1.png" id="2_texture"]
+
 [resource]
 script = ExtResource("1_data")
 object_id = &"snowshoe"
@@ -9,8 +11,10 @@ display_name = "Snowshoe"
 description = "A wooden snowshoe strung with rawhide."
 collection_message = "You found a snowshoe!"
 clue_text = "Burnt into the frame: 'Blackwater Point Light'. The lighthouse keeper kept winter gear here, so she must have come by often."
-hint_text = "A snowshoe lies on the floor under the ice shelves, in the sawdust."
+hint_text = "A snowshoe leans against the front of the ice shelves, standing on the floor."
 riddle_text = ""
 placeholder_style = 131
+texture = ExtResource("2_texture")
+icon_texture = ExtResource("2_texture")
 is_required = true
 starts_visible = true

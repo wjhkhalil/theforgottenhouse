@@ -2,6 +2,8 @@
 
 [ext_resource type="Script" path="res://scripts/hidden_object_data.gd" id="1_data"]
 
+[ext_resource type="Texture2D" path="res://assets/objects/leather_glove_v1.png" id="2_texture"]
+
 [resource]
 script = ExtResource("1_data")
 object_id = &"leather_glove"
@@ -9,8 +11,10 @@ display_name = "Leather Glove"
 description = "A man's leather glove, caked with mud."
 collection_message = "You found a leather glove."
 clue_text = "Lake mud is still drying on the fingers. Too big to be Mara's. He came back from the lake tonight."
-hint_text = "Something that keeps a hand warm was dropped halfway up the stairs."
+hint_text = "Something that keeps a hand warm was left hanging halfway up the stairs."
 riddle_text = ""
 placeholder_style = 23
+texture = ExtResource("2_texture")
+icon_texture = ExtResource("2_texture")
 is_required = true
 starts_visible = true

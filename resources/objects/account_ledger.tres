@@ -2,6 +2,8 @@
 
 [ext_resource type="Script" path="res://scripts/hidden_object_data.gd" id="1_data"]
 
+[ext_resource type="Texture2D" path="res://assets/objects/account_ledger_v1.png" id="2_texture"]
+
 [resource]
 script = ExtResource("1_data")
 object_id = &"account_ledger"
@@ -11,5 +13,7 @@ collection_message = "You found an account ledger."
 clue_text = "Payments from the estate to 'T. Greaves', every month since 1987. The last page has been torn out."
 hint_text = "A book that counts money, not words, lies among books nobody reads."
 placeholder_style = 14
+texture = ExtResource("2_texture")
+icon_texture = ExtResource("2_texture")
 is_required = true
 starts_visible = true

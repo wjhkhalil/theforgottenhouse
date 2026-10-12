@@ -2,6 +2,8 @@
 
 [ext_resource type="Script" path="res://scripts/hidden_object_data.gd" id="1_data"]
 
+[ext_resource type="Texture2D" path="res://assets/objects/tackle_key_v1.png" id="2_texture"]
+
 [resource]
 script = ExtResource("1_data")
 object_id = &"tackle_key"
@@ -12,5 +14,7 @@ clue_text = "A cork key ring, so it floats if dropped. The tag says 'CRATE'."
 hint_text = "Open the green tackle box beside the mooring post."
 riddle_text = ""
 placeholder_style = 66
+texture = ExtResource("2_texture")
+icon_texture = ExtResource("2_texture")
 is_required = true
 starts_visible = false

@@ -1,0 +1,269 @@
+{
+ "objects": [
+  {
+   "id": "stethoscope",
+   "sheet": "vane_cottage_objects_sheet_v1.png",
+   "box": [
+    2,
+    2,
+    328,
+    338
+   ]
+  },
+  {
+   "id": "carriage_clock",
+   "sheet": "vane_cottage_objects_sheet_v1.png",
+   "box": [
+    947,
+    17,
+    1168,
+    343
+   ]
+  },
+  {
+   "id": "decanter",
+   "sheet": "vane_cottage_objects_sheet_v1.png",
+   "box": [
+    1217,
+    0,
+    1453,
+    343
+   ]
+  },
+  {
+   "id": "specimen_jar",
+   "sheet": "vane_cottage_objects_sheet_v1.png",
+   "box": [
+    1477,
+    17,
+    1672,
+    343
+   ]
+  },
+  {
+   "id": "timetable",
+   "sheet": "vane_cottage_objects_sheet_v1.png",
+   "box": [
+    27,
+    312,
+    218,
+    658
+   ]
+  },
+  {
+   "id": "passport",
+   "sheet": "vane_cottage_objects_sheet_v1.png",
+   "box": [
+    17,
+    627,
+    278,
+    938
+   ]
+  },
+  {
+   "id": "confession",
+   "sheet": "vane_cottage_objects_sheet_v1.png",
+   "box": [
+    267,
+    607,
+    583,
+    938
+   ]
+  },
+  {
+   "id": "cellar_key",
+   "sheet": "vane_cottage_objects_sheet_v1.png",
+   "box": [
+    562,
+    672,
+    963,
+    923
+   ]
+  },
+  {
+   "id": "name_bracelet",
+   "sheet": "vane_cottage_objects_sheet_v1.png",
+   "box": [
+    922,
+    692,
+    1263,
+    878
+   ]
+  }
+ ],
+ "containers": [
+  {
+   "id": "vane_cottage_desk_drawer",
+   "closed": {
+    "sheet": "vane_cottage_containers_a_sheet_v1.png",
+    "box": [
+     2,
+     147,
+     428,
+     353
+    ],
+    "shadow": false
+   },
+   "open": {
+    "sheet": "vane_cottage_containers_a_sheet_v1.png",
+    "box": [
+     407,
+     112,
+     858,
+     418
+    ],
+    "shadow": false
+   },
+   "match": "width",
+   "align": "top"
+  },
+  {
+   "id": "vane_cottage_medicine_cupboard",
+   "closed": {
+    "sheet": "vane_cottage_containers_a_sheet_v1.png",
+    "box": [
+     842,
+     37,
+     1223,
+     433
+    ],
+    "shadow": false
+   },
+   "open": {
+    "sheet": "vane_cottage_containers_a_sheet_v1.png",
+    "box": [
+     1217,
+     37,
+     1672,
+     433
+    ],
+    "shadow": false
+   },
+   "match": "height"
+  },
+  {
+   "id": "vane_cottage_fake_spines",
+   "closed": {
+    "sheet": "vane_cottage_containers_a_sheet_v1.png",
+    "box": [
+     7,
+     462,
+     423,
+     868
+    ],
+    "shadow": false
+   },
+   "open": {
+    "sheet": "vane_cottage_containers_a_sheet_v1.png",
+    "box": [
+     397,
+     462,
+     868,
+     868
+    ],
+    "shadow": false
+   },
+   "match": "height"
+  },
+  {
+   "id": "vane_cottage_log_basket",
+   "closed": {
+    "sheet": "vane_cottage_containers_a_sheet_v1.png",
+    "box": [
+     872,
+     427,
+     1198,
+     878
+    ]
+   },
+   "open": {
+    "sheet": "vane_cottage_containers_a_sheet_v1.png",
+    "box": [
+     1202,
+     447,
+     1672,
+     883
+    ]
+   },
+   "match": "height",
+   "open_scale": 0.93,
+   "open_offset": [
+    -75,
+    0
+   ]
+  },
+  {
+   "id": "vane_cottage_parcel",
+   "closed": {
+    "sheet": "vane_cottage_containers_b_sheet_v1.png",
+    "box": [
+     22,
+     72,
+     408,
+     358
+    ]
+   },
+   "open": {
+    "sheet": "vane_cottage_containers_b_sheet_v1.png",
+    "box": [
+     407,
+     47,
+     853,
+     418
+    ]
+   },
+   "match": "width",
+   "open_scale": 1.15
+  },
+  {
+   "id": "vane_cottage_desk_safe",
+   "closed": {
+    "sheet": "vane_cottage_containers_b_sheet_v1.png",
+    "box": [
+     857,
+     22,
+     1223,
+     403
+    ]
+   },
+   "open": {
+    "sheet": "vane_cottage_containers_b_sheet_v1.png",
+    "box": [
+     1237,
+     22,
+     1672,
+     403
+    ]
+   },
+   "match": "height",
+   "open_offset": [
+    48,
+    0
+   ]
+  },
+  {
+   "id": "vane_cottage_cellar_door",
+   "closed": {
+    "sheet": "vane_cottage_containers_b_sheet_v1.png",
+    "box": [
+     847,
+     417,
+     1218,
+     878
+    ],
+    "shadow": false
+   },
+   "open": {
+    "sheet": "vane_cottage_containers_b_sheet_v1.png",
+    "box": [
+     1222,
+     412,
+     1668,
+     903
+    ],
+    "shadow": false
+   },
+   "match": "height"
+  }
+ ]
+}

@@ -2,6 +2,8 @@
 
 [ext_resource type="Script" path="res://scripts/hidden_object_data.gd" id="1_data"]
 
+[ext_resource type="Texture2D" path="res://assets/objects/paraffin_can_v1.png" id="2_texture"]
+
 [resource]
 script = ExtResource("1_data")
 object_id = &"paraffin_can"
@@ -12,5 +14,7 @@ clue_text = "Lamp oil for the great light. A few drops of it would free anything
 hint_text = "Agnes kept the lamp oil locked in the iron locker under the lowest flight of stairs, at the bottom of the tower."
 riddle_text = ""
 placeholder_style = 137
+texture = ExtResource("2_texture")
+icon_texture = ExtResource("2_texture")
 is_required = true
 starts_visible = false

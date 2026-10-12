@@ -2,6 +2,8 @@
 
 [ext_resource type="Script" path="res://scripts/hidden_object_data.gd" id="1_data"]
 
+[ext_resource type="Texture2D" path="res://assets/objects/unsent_letter_v1.png" id="2_texture"]
+
 [resource]
 script = ExtResource("1_data")
 object_id = &"unsent_letter"
@@ -12,5 +14,7 @@ clue_text = "Addressed to 'Eleanor Ashworth, Ashworth Manor'. No stamp. There wa
 hint_text = "One of the floorboards in front of the mattress is loose."
 riddle_text = ""
 placeholder_style = 90
+texture = ExtResource("2_texture")
+icon_texture = ExtResource("2_texture")
 is_required = true
 starts_visible = false

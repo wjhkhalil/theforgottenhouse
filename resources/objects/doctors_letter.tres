@@ -2,6 +2,8 @@
 
 [ext_resource type="Script" path="res://scripts/hidden_object_data.gd" id="1_data"]
 
+[ext_resource type="Texture2D" path="res://assets/objects/doctors_letter_v1.png" id="2_texture"]
+
 [resource]
 script = ExtResource("1_data")
 object_id = &"doctors_letter"
@@ -12,5 +14,7 @@ clue_text = "From Dr R. Vane, dated last month: 'I will take Sister Margaret int
 hint_text = "Open the little drawer in the front of the pulpit."
 riddle_text = ""
 placeholder_style = 171
+texture = ExtResource("2_texture")
+icon_texture = ExtResource("2_texture")
 is_required = true
 starts_visible = false

@@ -29,6 +29,19 @@
 [ext_resource type="PackedScene" path="res://scenes/ui/letter_popup.tscn" id="27_letter"]
 [ext_resource type="PackedScene" path="res://scenes/ui/keypad_lock.tscn" id="28_keypad"]
 [ext_resource type="Texture2D" path="res://assets/backgrounds/ice_house_background_v2.png" id="bg_ice_house"]
+[ext_resource type="Texture2D" path="res://assets/objects/ice_house_agnes_basket_closed_v1.png" id="tex_ice_house_agnes_basket_closed_v1"]
+[ext_resource type="Texture2D" path="res://assets/objects/ice_house_agnes_basket_open_v1.png" id="tex_ice_house_agnes_basket_open_v1"]
+[ext_resource type="Texture2D" path="res://assets/objects/ice_house_sawdust_bin_closed_v1.png" id="tex_ice_house_sawdust_bin_closed_v1"]
+[ext_resource type="Texture2D" path="res://assets/objects/ice_house_sawdust_bin_open_v1.png" id="tex_ice_house_sawdust_bin_open_v1"]
+[ext_resource type="Texture2D" path="res://assets/objects/ice_house_tool_locker_closed_v1.png" id="tex_ice_house_tool_locker_closed_v1"]
+[ext_resource type="Texture2D" path="res://assets/objects/ice_house_tool_locker_open_v1.png" id="tex_ice_house_tool_locker_open_v1"]
+[ext_resource type="Texture2D" path="res://assets/objects/ice_house_pike_ice_closed_v1.png" id="tex_ice_house_pike_ice_closed_v1"]
+[ext_resource type="Texture2D" path="res://assets/objects/ice_house_pike_ice_open_v1.png" id="tex_ice_house_pike_ice_open_v1"]
+[ext_resource type="Texture2D" path="res://assets/objects/ice_house_brooch_ice_closed_v1.png" id="tex_ice_house_brooch_ice_closed_v1"]
+[ext_resource type="Texture2D" path="res://assets/objects/ice_house_brooch_ice_open_v1.png" id="tex_ice_house_brooch_ice_open_v1"]
+[ext_resource type="Texture2D" path="res://assets/objects/ice_house_drain_ice_closed_v1.png" id="tex_ice_house_drain_ice_closed_v1"]
+[ext_resource type="Texture2D" path="res://assets/objects/ice_house_drain_ice_open_v1.png" id="tex_ice_house_drain_ice_open_v1"]
+[ext_resource type="Script" path="res://scripts/clue_mark.gd" id="clue_mark"]
 
 [node name="IceHouse" type="Node2D" node_paths=PackedStringArray("keypad_lock")]
 script = ExtResource("1_room")
@@ -43,89 +56,105 @@ script = ExtResource("3_manager")
 script = ExtResource("4_art")
 replacement_texture = ExtResource("bg_ice_house")
 
+[node name="SignWriting" type="Node2D" parent="."]
+position = Vector2(100, 181)
+rotation = 0.17
+script = ExtResource("clue_mark")
+lines = PackedStringArray("BLACKWATER ICE Co.", "EST. 1896")
+sizes = PackedInt32Array(12, 13)
+ink = Color(0.86, 0.8, 0.64, 0.82)
+carved = true
+line_spacing = 1.05
+
 [node name="HiddenObjects" type="Node2D" parent="."]
 unique_name_in_owner = true
 
 [node name="IcePick" parent="HiddenObjects" instance=ExtResource("5_object")]
-position = Vector2(792, 502)
-rotation = 0.2
-scale = Vector2(0.6, 0.6)
+position = Vector2(759, 500)
+rotation = -0.3
 data = ExtResource("6_ice_pick")
+texture_scale = Vector2(0.2576, 0.2576)
 
 [node name="IceTongs" parent="HiddenObjects" instance=ExtResource("5_object")]
-position = Vector2(380, 336)
-scale = Vector2(0.6, 0.6)
+position = Vector2(432, 327)
 data = ExtResource("7_ice_tongs")
+texture_scale = Vector2(0.3258, 0.3258)
 
 [node name="HorseBlanket" parent="HiddenObjects" instance=ExtResource("5_object")]
-position = Vector2(418, 470)
-rotation = -0.06
-scale = Vector2(0.65, 0.65)
+position = Vector2(428, 452)
+rotation = 0
 data = ExtResource("8_horse_blanket")
+texture_scale = Vector2(0.4735, 0.4735)
 
 [node name="TornSleeve" parent="HiddenObjects" instance=ExtResource("5_object")]
-position = Vector2(254, 472)
-rotation = 0.5
-scale = Vector2(0.55, 0.55)
+position = Vector2(176, 420)
+rotation = -1.2
 data = ExtResource("9_torn_sleeve")
+texture_scale = Vector2(0.1894, 0.1894)
 
 [node name="LostMitten" parent="HiddenObjects" instance=ExtResource("5_object")]
-position = Vector2(356, 652)
+position = Vector2(385, 590)
 rotation = 0.4
-scale = Vector2(0.55, 0.55)
 data = ExtResource("12_lost_mitten")
+texture_scale = Vector2(0.1515, 0.1515)
 
 [node name="KeepersNote" parent="HiddenObjects" instance=ExtResource("5_object")]
-position = Vector2(124, 397)
+position = Vector2(42, 365)
 rotation = -0.08
-scale = Vector2(0.55, 0.55)
 data = ExtResource("13_keepers_note")
+texture_scale = Vector2(0.1515, 0.1515)
 
 [node name="ScratchedSlate" parent="HiddenObjects" instance=ExtResource("5_object")]
-position = Vector2(602, 528)
+position = Vector2(522, 430)
 rotation = -0.06
-scale = Vector2(0.7, 0.7)
 data = ExtResource("15_scratched_slate")
+texture_scale = Vector2(0.2197, 0.2197)
 
 [node name="Snowshoe" parent="HiddenObjects" instance=ExtResource("5_object")]
-position = Vector2(906, 642)
-rotation = 1.5
-scale = Vector2(0.6, 0.6)
+position = Vector2(860, 506)
+rotation = 0.12
 data = ExtResource("18_snowshoe")
+texture_scale = Vector2(0.3977, 0.3977)
 
 [node name="AgnesBasket" parent="HiddenObjects" node_paths=PackedStringArray("contents") instance=ExtResource("20_container")]
-position = Vector2(250, 640)
+position = Vector2(258, 568)
 container_id = &"agnes_basket"
 contents = NodePath("../SoupTin")
 open_title = "You lift the lid of the basket..."
 open_message = "A clean cloth, a spoon and an empty soup tin. Someone came here with food."
 style = 6
 tint = Color(0.6, 0.48, 0.3, 1)
-size = Vector2(58, 42)
+size = Vector2(342.4, 233.454)
+closed_texture = ExtResource("tex_ice_house_agnes_basket_closed_v1")
+open_texture = ExtResource("tex_ice_house_agnes_basket_open_v1")
+scale = Vector2(0.257, 0.257)
 
 [node name="SoupTin" parent="HiddenObjects" instance=ExtResource("5_object")]
-position = Vector2(250, 634)
-scale = Vector2(0.55, 0.55)
+position = Vector2(258, 562)
 data = ExtResource("11_soup_tin")
+texture_scale = Vector2(0.1515, 0.1515)
 
 [node name="SawdustBin" parent="HiddenObjects" node_paths=PackedStringArray("contents") instance=ExtResource("20_container")]
-position = Vector2(470, 640)
+position = Vector2(495, 600)
 container_id = &"sawdust_bin"
 contents = NodePath("../SignalWhistle")
 open_title = "You dig into the sawdust bin..."
 open_message = "Your fingers close on something cold and metal, buried in the sawdust."
 style = 7
 tint = Color(0.42, 0.32, 0.22, 1)
-size = Vector2(72, 46)
+size = Vector2(342.4, 196.563)
+closed_texture = ExtResource("tex_ice_house_sawdust_bin_closed_v1")
+open_texture = ExtResource("tex_ice_house_sawdust_bin_open_v1")
+scale = Vector2(0.3154, 0.3154)
 
 [node name="SignalWhistle" parent="HiddenObjects" instance=ExtResource("5_object")]
-position = Vector2(470, 634)
+position = Vector2(500, 590)
 rotation = 0.15
-scale = Vector2(0.55, 0.55)
 data = ExtResource("14_signal_whistle")
+texture_scale = Vector2(0.1818, 0.1818)
 
 [node name="ToolLocker" parent="HiddenObjects" node_paths=PackedStringArray("contents") instance=ExtResource("20_container")]
-position = Vector2(690, 470)
+position = Vector2(670, 435.5)
 container_id = &"tool_locker"
 contents = NodePath("../IceSaw")
 open_title = "The four wheels click into place..."
@@ -139,15 +168,20 @@ code_hint_first_after = 7
 code_hint_second_after = 10
 style = 3
 tint = Color(0.3, 0.36, 0.42, 1)
-size = Vector2(78, 124)
+size = Vector2(225.483, 334.049)
+closed_texture = ExtResource("tex_ice_house_tool_locker_closed_v1")
+open_texture = ExtResource("tex_ice_house_tool_locker_open_v1")
+scale = Vector2(0.479, 0.479)
 
 [node name="IceSaw" parent="HiddenObjects" instance=ExtResource("5_object")]
-position = Vector2(690, 464)
-scale = Vector2(0.55, 0.55)
+position = Vector2(670, 432)
 data = ExtResource("16_ice_saw")
+rotation = 1.5708
+texture_scale = Vector2(0.4735, 0.4735)
 
 [node name="PikeIce" parent="HiddenObjects" node_paths=PackedStringArray("contents", "required_object") instance=ExtResource("20_container")]
-position = Vector2(885, 272)
+self_modulate = Color(0.86, 0.9, 0.95, 1)
+position = Vector2(835, 300)
 container_id = &"pike_ice"
 contents = NodePath("../FrozenPike")
 open_title = "The ice splits apart..."
@@ -159,15 +193,19 @@ hits_to_open = 3
 chip_title = "The ice cracks..."
 style = 9
 tint = Color(0.72, 0.86, 0.95, 1)
-size = Vector2(84, 52)
+size = Vector2(341.026, 201.026)
+closed_texture = ExtResource("tex_ice_house_pike_ice_closed_v1")
+open_texture = ExtResource("tex_ice_house_pike_ice_open_v1")
+scale = Vector2(0.2786, 0.2786)
 
 [node name="FrozenPike" parent="HiddenObjects" instance=ExtResource("5_object")]
-position = Vector2(885, 268)
-scale = Vector2(0.6, 0.6)
+position = Vector2(835, 318)
 data = ExtResource("10_frozen_pike")
+texture_scale = Vector2(0.3409, 0.3409)
 
 [node name="BroochIce" parent="HiddenObjects" node_paths=PackedStringArray("contents") instance=ExtResource("20_container")]
-position = Vector2(940, 396)
+self_modulate = Color(0.86, 0.9, 0.95, 1)
+position = Vector2(935, 396)
 container_id = &"brooch_ice"
 contents = NodePath("../FrozenBrooch")
 open_title = "The little block falls apart..."
@@ -176,15 +214,19 @@ hits_to_open = 4
 chip_title = "The ice cracks..."
 style = 9
 tint = Color(0.72, 0.86, 0.95, 1)
-size = Vector2(56, 46)
+size = Vector2(324.69, 339.448)
+closed_texture = ExtResource("tex_ice_house_brooch_ice_closed_v1")
+open_texture = ExtResource("tex_ice_house_brooch_ice_open_v1")
+scale = Vector2(0.1355, 0.1355)
 
 [node name="FrozenBrooch" parent="HiddenObjects" instance=ExtResource("5_object")]
-position = Vector2(940, 392)
-scale = Vector2(0.6, 0.6)
+position = Vector2(935, 404)
 data = ExtResource("17_frozen_brooch")
+texture_scale = Vector2(0.1136, 0.1136)
 
 [node name="DrainIce" parent="HiddenObjects" node_paths=PackedStringArray("contents", "required_object") instance=ExtResource("20_container")]
-position = Vector2(600, 654)
+self_modulate = Color(0.86, 0.9, 0.95, 1)
+position = Vector2(644, 648)
 container_id = &"drain_ice"
 contents = NodePath("../LighthouseKey")
 open_title = "The slab breaks in two..."
@@ -196,12 +238,16 @@ hits_to_open = 5
 chip_title = "The saw bites into the ice..."
 style = 9
 tint = Color(0.72, 0.86, 0.95, 1)
-size = Vector2(104, 48)
+size = Vector2(330.171, 177.314)
+closed_texture = ExtResource("tex_ice_house_drain_ice_closed_v1")
+open_texture = ExtResource("tex_ice_house_drain_ice_open_v1")
+scale = Vector2(0.3271, 0.3271)
 
 [node name="LighthouseKey" parent="HiddenObjects" instance=ExtResource("5_object")]
-position = Vector2(600, 650)
-scale = Vector2(0.6, 0.6)
+position = Vector2(646, 652)
 data = ExtResource("19_lighthouse_key")
+texture_scale = Vector2(0.2273, 0.2273)
+rotation = 0.1
 
 [node name="FrostCover" type="Node2D" parent="."]
 script = ExtResource("21_frost")

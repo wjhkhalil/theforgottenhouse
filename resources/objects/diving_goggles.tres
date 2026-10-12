@@ -2,6 +2,8 @@
 
 [ext_resource type="Script" path="res://scripts/hidden_object_data.gd" id="1_data"]
 
+[ext_resource type="Texture2D" path="res://assets/objects/diving_goggles_v1.png" id="2_texture"]
+
 [resource]
 script = ExtResource("1_data")
 object_id = &"diving_goggles"
@@ -12,5 +14,7 @@ clue_text = "Still wet, with lake weed caught in the strap. Someone has been div
 hint_text = "Look inside the basket of fishing nets on the right-hand shelf."
 riddle_text = ""
 placeholder_style = 76
+texture = ExtResource("2_texture")
+icon_texture = ExtResource("2_texture")
 is_required = true
 starts_visible = false

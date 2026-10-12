@@ -2,6 +2,8 @@
 
 [ext_resource type="Script" path="res://scripts/hidden_object_data.gd" id="1_data"]
 
+[ext_resource type="Texture2D" path="res://assets/objects/chapel_key_v1.png" id="2_texture"]
+
 [resource]
 script = ExtResource("1_data")
 object_id = &"chapel_key"
@@ -12,5 +14,7 @@ clue_text = "The key of the island chapel, labelled 'Chapel'. The Sisters gave i
 hint_text = "Agnes's sea chest stands on the floor right of the lens. It is locked with a tiny key; look for one tied to something holy."
 riddle_text = ""
 placeholder_style = 161
+texture = ExtResource("2_texture")
+icon_texture = ExtResource("2_texture")
 is_required = true
 starts_visible = false

@@ -2,6 +2,8 @@
 
 [ext_resource type="Script" path="res://scripts/hidden_object_data.gd" id="1_data"]
 
+[ext_resource type="Texture2D" path="res://assets/objects/parish_register_v1.png" id="2_texture"]
+
 [resource]
 script = ExtResource("1_data")
 object_id = &"parish_register"
@@ -12,5 +14,7 @@ clue_text = "One entry is underlined: 'Sister Margaret, received 1989, no family
 hint_text = "The register is kept in the parish chest, on the floor to the right of the altar step."
 riddle_text = ""
 placeholder_style = 166
+texture = ExtResource("2_texture")
+icon_texture = ExtResource("2_texture")
 is_required = true
 starts_visible = false

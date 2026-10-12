@@ -2,6 +2,8 @@
 
 [ext_resource type="Script" path="res://scripts/hidden_object_data.gd" id="1_data"]
 
+[ext_resource type="Texture2D" path="res://assets/objects/hymn_book_v1.png" id="2_texture"]
+
 [resource]
 script = ExtResource("1_data")
 object_id = &"hymn_book"
@@ -12,5 +14,7 @@ clue_text = "On the flyleaf, in pencil: 'Sister Margaret'. A ribbon marks 'Lead,
 hint_text = "Look on the sloping book rest at the top of the pulpit, by the pulpit candle."
 riddle_text = ""
 placeholder_style = 162
+texture = ExtResource("2_texture")
+icon_texture = ExtResource("2_texture")
 is_required = true
 starts_visible = true

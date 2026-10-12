@@ -75,10 +75,9 @@ what they hand over).
 Progress is **saved automatically**: finished chapters, objects found so far, opened containers,
 the solved door code and the sound setting.
 
-Every room now has a **painted background**. The objects and containers of House Three, the
-Bedroom and the Basement are painted too; the rest of House One and all of House Two still show
-their objects and containers **drawn with code** as placeholder art, so the game stays fully
-playable while art is missing. Real art is swapped in **without changing any code**.
+Every room has a **painted background**, and every object and container is a **painted sprite**.
+The code-drawn placeholder art is still in the project and shows wherever an image is missing,
+so real art can be swapped in or out **without changing any code**.
 
 ---
 
@@ -353,10 +352,10 @@ You can also scale or rotate the whole object node.
 * Turn on **Debug › Visible Collision Shapes** in the editor menu and run the game
   to see the click areas.
 
-### Cutting sprites from a sprite sheet (how House Three was done)
+### Cutting sprites from a sprite sheet
 
-House Three's objects and containers were painted on grey sprite sheets
-(`assets/objects/<room>_*_sheet_*.png`) and put into the rooms with three tools:
+The objects and containers were painted on sprite sheets with a plain grey or magenta background
+(`assets/objects/<room>_*sheet_*.png`) and put into the rooms with three tools:
 
 1. `python3 tools/cut_sprites.py tools/sprite_cuts/<room>.json --preview <folder>` cuts every
    sprite out of its sheet, removes the grey background and keeps the soft shadow. The JSON file
@@ -368,6 +367,10 @@ House Three's objects and containers were painted on grey sprite sheets
 
 Open the editor once (or run `godot --path . --headless --import`) after adding PNGs. A few
 sprites need one more step after cutting: see `tools/sprite_fixes/README.md`.
+
+Writing that a keypad code is read from (a chalked time, a carved date, a sign, a ringed day on
+a calendar) is drawn over the painting by a `ClueMark` node (`scripts/clue_mark.gd`) placed right
+after `RoomBackground`: set its lines, sizes and ink colour in the Inspector.
 
 ### Background images
 

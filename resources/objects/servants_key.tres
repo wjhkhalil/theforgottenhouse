@@ -2,6 +2,8 @@
 
 [ext_resource type="Script" path="res://scripts/hidden_object_data.gd" id="1_data"]
 
+[ext_resource type="Texture2D" path="res://assets/objects/servants_key_v1.png" id="2_texture"]
+
 [resource]
 script = ExtResource("1_data")
 object_id = &"servants_key"
@@ -12,5 +14,7 @@ clue_text = "Labelled 'Servants' Door'. Mother hid it where the bread sleeps, ju
 hint_text = "Where does the bread sleep? Look for a box on the counter."
 riddle_text = "I sleep where the bread does"
 placeholder_style = 48
+texture = ExtResource("2_texture")
+icon_texture = ExtResource("2_texture")
 is_required = true
 starts_visible = false

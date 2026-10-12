@@ -1,0 +1,125 @@
+{
+ "objects": [
+  {
+   "id": "brass_key",
+   "sheet": "attic_objects_sheet_v1.png",
+   "box": [
+    30,
+    30,
+    400,
+    310
+   ]
+  },
+  {
+   "id": "last_will",
+   "sheet": "attic_objects_sheet_v1.png",
+   "box": [
+    405,
+    0,
+    840,
+    310
+   ]
+  },
+  {
+   "id": "account_ledger",
+   "sheet": "attic_objects_sheet_v1.png",
+   "box": [
+    845,
+    0,
+    1250,
+    312
+   ]
+  },
+  {
+   "id": "childs_drawing",
+   "sheet": "attic_objects_sheet_v1.png",
+   "box": [
+    1262,
+    0,
+    1672,
+    312
+   ]
+  },
+  {
+   "id": "cracked_spectacles",
+   "sheet": "attic_objects_sheet_v1.png",
+   "box": [
+    0,
+    335,
+    490,
+    560
+   ]
+  },
+  {
+   "id": "silver_locket",
+   "sheet": "attic_objects_sheet_v1.png",
+   "box": [
+    500,
+    315,
+    830,
+    592
+   ]
+  },
+  {
+   "id": "telegram",
+   "sheet": "attic_objects_sheet_v1.png",
+   "box": [
+    845,
+    300,
+    1270,
+    605
+   ]
+  }
+ ],
+ "containers": [
+  {
+   "id": "attic_jewellery_box",
+   "closed": {
+    "sheet": "attic_objects_sheet_v1.png",
+    "box": [
+     20,
+     630,
+     425,
+     890
+    ]
+   },
+   "open": {
+    "sheet": "attic_objects_sheet_v1.png",
+    "box": [
+     445,
+     592,
+     815,
+     915
+    ]
+   },
+   "match": "width"
+  },
+  {
+   "id": "attic_hat_box",
+   "closed": {
+    "sheet": "attic_objects_sheet_v1.png",
+    "box": [
+     830,
+     615,
+     1195,
+     915
+    ]
+   },
+   "open": {
+    "sheet": "attic_objects_sheet_v1.png",
+    "box": [
+     1200,
+     605,
+     1672,
+     915
+    ]
+   },
+   "match": "height",
+   "open_scale": 1.17,
+   "open_offset": [
+    88,
+    13
+   ]
+  }
+ ]
+}

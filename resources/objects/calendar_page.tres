@@ -2,6 +2,8 @@
 
 [ext_resource type="Script" path="res://scripts/hidden_object_data.gd" id="1_data"]
 
+[ext_resource type="Texture2D" path="res://assets/objects/calendar_page_v1.png" id="2_texture"]
+
 [resource]
 script = ExtResource("1_data")
 object_id = &"calendar_page"
@@ -12,5 +14,7 @@ clue_text = "April, with the 17th circled in red - every year, the same day."
 hint_text = "A page torn from the wall calendar has fallen to the floor."
 riddle_text = ""
 placeholder_style = 55
+texture = ExtResource("2_texture")
+icon_texture = ExtResource("2_texture")
 is_required = true
 starts_visible = true

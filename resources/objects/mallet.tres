@@ -2,6 +2,8 @@
 
 [ext_resource type="Script" path="res://scripts/hidden_object_data.gd" id="1_data"]
 
+[ext_resource type="Texture2D" path="res://assets/objects/mallet_v1.png" id="2_texture"]
+
 [resource]
 script = ExtResource("1_data")
 object_id = &"mallet"
@@ -12,5 +14,7 @@ clue_text = "Its outline on the tool wall is empty. Splinters of greased oak are
 hint_text = "A log basket stands on the floor beside the stove. Look inside it."
 riddle_text = ""
 placeholder_style = 104
+texture = ExtResource("2_texture")
+icon_texture = ExtResource("2_texture")
 is_required = true
 starts_visible = false

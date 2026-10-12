@@ -1,0 +1,21 @@
+{
+ "objects": [
+  {"id": "portrait_nameplate", "sheet": "staircase_objects_sheet_v1.png", "box": [20, 90, 430, 205]},
+  {"id": "leather_glove", "sheet": "staircase_objects_sheet_v1.png", "box": [520, 0, 765, 305], "shadow": false},
+  {"id": "hair_ribbon", "sheet": "staircase_objects_sheet_v1.png", "box": [980, 0, 1180, 310], "shadow": false},
+  {"id": "telephone_cord", "sheet": "staircase_objects_sheet_v1.png", "box": [1385, 0, 1535, 310], "shadow": false},
+  {"id": "empty_key_ring", "sheet": "staircase_objects_sheet_v1.png", "box": [30, 250, 410, 566], "shadow": false},
+  {"id": "iron_key", "sheet": "staircase_objects_sheet_v1.png", "box": [560, 296, 760, 566], "shadow": false},
+  {"id": "boathouse_map", "sheet": "staircase_objects_sheet_v1.png", "box": [845, 300, 1285, 585]}
+ ],
+ "containers": [
+  {"id": "staircase_grandfather_clock",
+   "closed": {"sheet": "staircase_objects_sheet_v1.png", "box": [130, 553, 310, 941]},
+   "open": {"sheet": "staircase_objects_sheet_v1.png", "box": [480, 553, 700, 941]},
+   "match": "height"},
+  {"id": "staircase_hall_table_drawer",
+   "closed": {"sheet": "staircase_objects_sheet_v1.png", "box": [765, 675, 1210, 845], "shadow": false},
+   "open": {"sheet": "staircase_objects_sheet_v1.png", "box": [1212, 630, 1672, 875], "shadow": false},
+   "match": "width", "align": "top"}
+ ]
+}

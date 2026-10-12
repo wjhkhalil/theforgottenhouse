@@ -2,6 +2,8 @@
 
 [ext_resource type="Script" path="res://scripts/hidden_object_data.gd" id="1_data"]
 
+[ext_resource type="Texture2D" path="res://assets/objects/pressed_violet_v1.png" id="2_texture"]
+
 [resource]
 script = ExtResource("1_data")
 object_id = &"pressed_violet"
@@ -12,5 +14,7 @@ clue_text = "Written on the paper: 'From the lake shore, the only time he let me
 hint_text = "The old biscuit tin on the shelf rattles when you touch the shelf."
 riddle_text = ""
 placeholder_style = 91
+texture = ExtResource("2_texture")
+icon_texture = ExtResource("2_texture")
 is_required = true
 starts_visible = false

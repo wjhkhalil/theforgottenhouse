@@ -2,6 +2,8 @@
 
 [ext_resource type="Script" path="res://scripts/hidden_object_data.gd" id="1_data"]
 
+[ext_resource type="Texture2D" path="res://assets/objects/perfume_bottle_v1.png" id="2_texture"]
+
 [resource]
 script = ExtResource("1_data")
 object_id = &"perfume_bottle"
@@ -12,5 +14,7 @@ clue_text = "Eleanor's perfume. Someone has been spraying it around the house, s
 hint_text = "Something that smells of Eleanor stands among the bottles on the shelf."
 riddle_text = ""
 placeholder_style = 28
+texture = ExtResource("2_texture")
+icon_texture = ExtResource("2_texture")
 is_required = true
 starts_visible = true

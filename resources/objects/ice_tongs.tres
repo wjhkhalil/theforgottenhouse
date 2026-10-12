@@ -2,6 +2,8 @@
 
 [ext_resource type="Script" path="res://scripts/hidden_object_data.gd" id="1_data"]
 
+[ext_resource type="Texture2D" path="res://assets/objects/ice_tongs_v1.png" id="2_texture"]
+
 [resource]
 script = ExtResource("1_data")
 object_id = &"ice_tongs"
@@ -12,5 +14,7 @@ clue_text = "The ice cutters carried the lake ice in here with these. Nobody has
 hint_text = "Iron tongs hang from the wooden peg rail on the back wall, above the straw bales."
 riddle_text = ""
 placeholder_style = 120
+texture = ExtResource("2_texture")
+icon_texture = ExtResource("2_texture")
 is_required = true
 starts_visible = true

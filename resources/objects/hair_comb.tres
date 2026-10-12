@@ -2,6 +2,8 @@
 
 [ext_resource type="Script" path="res://scripts/hidden_object_data.gd" id="1_data"]
 
+[ext_resource type="Texture2D" path="res://assets/objects/hair_comb_v1.png" id="2_texture"]
+
 [resource]
 script = ExtResource("1_data")
 object_id = &"hair_comb"
@@ -12,5 +14,7 @@ clue_text = "Mara's comb, caught in the weed on the lake bed. It lay far from th
 hint_text = "Look in the tall weed on the lake bed at the far left, below the stern."
 riddle_text = ""
 placeholder_style = 109
+texture = ExtResource("2_texture")
+icon_texture = ExtResource("2_texture")
 is_required = true
 starts_visible = true

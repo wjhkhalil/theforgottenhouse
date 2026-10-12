@@ -2,6 +2,8 @@
 
 [ext_resource type="Script" path="res://scripts/hidden_object_data.gd" id="1_data"]
 
+[ext_resource type="Texture2D" path="res://assets/objects/lighthouse_key_v1.png" id="2_texture"]
+
 [resource]
 script = ExtResource("1_data")
 object_id = &"lighthouse_key"
@@ -12,5 +14,7 @@ clue_text = "The tag reads 'Blackwater Point Light - Door'. Agnes dropped it whe
 hint_text = "It is frozen in the slab of ice over the drain in the floor. You'll need a saw to cut it out."
 riddle_text = ""
 placeholder_style = 132
+texture = ExtResource("2_texture")
+icon_texture = ExtResource("2_texture")
 is_required = true
 starts_visible = false

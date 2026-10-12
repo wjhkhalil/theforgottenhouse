@@ -26,6 +26,14 @@
 [ext_resource type="PackedScene" path="res://scenes/ui/letter_popup.tscn" id="24_letter"]
 [ext_resource type="PackedScene" path="res://scenes/ui/keypad_lock.tscn" id="25_keypad"]
 [ext_resource type="Texture2D" path="res://assets/backgrounds/jetty_background_v1.png" id="26_jetty_bg"]
+[ext_resource type="Texture2D" path="res://assets/objects/jetty_bait_bucket_closed_v1.png" id="tex_jetty_bait_bucket_closed_v1"]
+[ext_resource type="Texture2D" path="res://assets/objects/jetty_bait_bucket_open_v1.png" id="tex_jetty_bait_bucket_open_v1"]
+[ext_resource type="Texture2D" path="res://assets/objects/jetty_tackle_box_closed_v1.png" id="tex_jetty_tackle_box_closed_v1"]
+[ext_resource type="Texture2D" path="res://assets/objects/jetty_tackle_box_open_v1.png" id="tex_jetty_tackle_box_open_v1"]
+[ext_resource type="Texture2D" path="res://assets/objects/jetty_fish_crate_closed_v1.png" id="tex_jetty_fish_crate_closed_v1"]
+[ext_resource type="Texture2D" path="res://assets/objects/jetty_fish_crate_open_v1.png" id="tex_jetty_fish_crate_open_v1"]
+[ext_resource type="Texture2D" path="res://assets/objects/jetty_dock_locker_closed_v1.png" id="tex_jetty_dock_locker_closed_v1"]
+[ext_resource type="Texture2D" path="res://assets/objects/jetty_dock_locker_open_v1.png" id="tex_jetty_dock_locker_open_v1"]
 
 [node name="Jetty" type="Node2D" node_paths=PackedStringArray("keypad_lock", "room_camera")]
 script = ExtResource("1_room")
@@ -46,26 +54,29 @@ room_size = Vector2(1920, 720)
 unique_name_in_owner = true
 
 [node name="PoliceSeal" parent="HiddenObjects" instance=ExtResource("5_object")]
-position = Vector2(1541, 300)
-rotation = 0.08
-scale = Vector2(0.75, 0.75)
+position = Vector2(1545, 303)
+rotation = 0.05
 data = ExtResource("6_seal")
+texture_scale = Vector2(0.1591, 0.1591)
 
 [node name="CigaretteCase" parent="HiddenObjects" instance=ExtResource("5_object")]
-position = Vector2(620, 408)
-rotation = -0.15
-scale = Vector2(0.6, 0.6)
+modulate = Color(0.75, 0.78, 0.9, 1)
+position = Vector2(727, 400)
+rotation = -0.2
 data = ExtResource("7_case")
+texture_scale = Vector2(0.0985, 0.0985)
 
 [node name="BrassCompass" parent="HiddenObjects" instance=ExtResource("5_object")]
-position = Vector2(1175, 408)
-scale = Vector2(0.62, 0.62)
+modulate = Color(0.85, 0.85, 0.92, 1)
+position = Vector2(1128, 395)
 data = ExtResource("11_compass")
+texture_scale = Vector2(0.1061, 0.1061)
 
 [node name="FishingFloat" parent="HiddenObjects" instance=ExtResource("5_object")]
+modulate = Color(0.8, 0.82, 0.95, 1)
 position = Vector2(600, 640)
-scale = Vector2(0.75, 0.75)
 data = ExtResource("8_float")
+texture_scale = Vector2(0.1742, 0.1742)
 
 [node name="Drifter" type="Node" parent="HiddenObjects/FishingFloat"]
 script = ExtResource("17_drifter")
@@ -73,9 +84,10 @@ drift_distance = 140.0
 drift_period = 13.0
 
 [node name="NameBoard" parent="HiddenObjects" instance=ExtResource("5_object")]
+modulate = Color(0.85, 0.87, 0.97, 1)
 position = Vector2(1050, 655)
-scale = Vector2(0.8, 0.8)
 data = ExtResource("9_board")
+texture_scale = Vector2(0.4167, 0.4167)
 
 [node name="Drifter" type="Node" parent="HiddenObjects/NameBoard"]
 script = ExtResource("17_drifter")
@@ -85,9 +97,10 @@ bob_height = 2.0
 start_phase = 0.4
 
 [node name="MessageBottle" parent="HiddenObjects" instance=ExtResource("5_object")]
-position = Vector2(580, 340)
-scale = Vector2(0.65, 0.65)
+modulate = Color(0.9, 0.92, 1, 1)
+position = Vector2(580, 342)
 data = ExtResource("10_bottle")
+texture_scale = Vector2(0.1742, 0.1742)
 
 [node name="Drifter" type="Node" parent="HiddenObjects/MessageBottle"]
 script = ExtResource("17_drifter")
@@ -97,38 +110,46 @@ bob_height = 2.5
 start_phase = 0.7
 
 [node name="BaitBucket" parent="HiddenObjects" node_paths=PackedStringArray("contents") instance=ExtResource("16_container")]
-position = Vector2(130, 388)
+position = Vector2(162, 380)
 container_id = &"bait_bucket"
 contents = NodePath("../LogPage")
 open_title = "You tip over the bait bucket..."
 open_message = "Under the old bait is a folded page, wrapped in oilcloth."
 style = 6
 tint = Color(0.42, 0.44, 0.46, 1)
-size = Vector2(56, 48)
+size = Vector2(396.8, 342.4)
+closed_texture = ExtResource("tex_jetty_bait_bucket_closed_v1")
+open_texture = ExtResource("tex_jetty_bait_bucket_open_v1")
+scale = Vector2(0.1449, 0.1449)
 
 [node name="LogPage" parent="HiddenObjects" instance=ExtResource("5_object")]
-position = Vector2(130, 382)
-rotation = 0.1
-scale = Vector2(0.6, 0.6)
+position = Vector2(172, 402)
+rotation = 0.3
 data = ExtResource("13_log")
+texture_scale = Vector2(0.0833, 0.0833)
 
 [node name="TackleBox" parent="HiddenObjects" node_paths=PackedStringArray("contents") instance=ExtResource("16_container")]
-position = Vector2(798, 399)
+self_modulate = Color(0.78, 0.8, 0.92, 1)
+position = Vector2(800, 379)
 container_id = &"tackle_box"
 contents = NodePath("../TackleKey")
 open_title = "You open the tackle box..."
 open_message = "Among the hooks and lures is a little key on a cork."
 style = 7
 tint = Color(0.2, 0.36, 0.25, 1)
-size = Vector2(64, 32)
+size = Vector2(342.4, 328)
+closed_texture = ExtResource("tex_jetty_tackle_box_closed_v1")
+open_texture = ExtResource("tex_jetty_tackle_box_open_v1")
+scale = Vector2(0.1589, 0.1589)
 
 [node name="TackleKey" parent="HiddenObjects" instance=ExtResource("5_object")]
-position = Vector2(798, 393)
-scale = Vector2(0.65, 0.65)
+modulate = Color(0.8, 0.82, 0.92, 1)
+position = Vector2(800, 388)
 data = ExtResource("12_key")
+texture_scale = Vector2(0.0758, 0.0758)
 
 [node name="FishCrate" parent="HiddenObjects" node_paths=PackedStringArray("contents", "required_object") instance=ExtResource("16_container")]
-position = Vector2(1250, 386)
+position = Vector2(1262, 361)
 container_id = &"fish_crate"
 contents = NodePath("../Registration")
 open_title = "The little key turns in the padlock..."
@@ -138,16 +159,19 @@ locked_title = "The fish crate is padlocked."
 locked_message = "A small, rusty padlock. Its key must be somewhere on the jetty."
 style = 0
 tint = Color(0.38, 0.3, 0.2, 1)
-size = Vector2(92, 56)
+size = Vector2(342.4, 333.6)
+closed_texture = ExtResource("tex_jetty_fish_crate_closed_v1")
+open_texture = ExtResource("tex_jetty_fish_crate_open_v1")
+scale = Vector2(0.2523, 0.2523)
 
 [node name="Registration" parent="HiddenObjects" instance=ExtResource("5_object")]
-position = Vector2(1250, 378)
+position = Vector2(1262, 364)
 rotation = -0.05
-scale = Vector2(0.65, 0.65)
 data = ExtResource("14_registration")
+texture_scale = Vector2(0.1212, 0.1212)
 
 [node name="DockLocker" parent="HiddenObjects" node_paths=PackedStringArray("contents") instance=ExtResource("16_container")]
-position = Vector2(1624, 302)
+position = Vector2(1618, 341)
 container_id = &"dock_locker"
 contents = NodePath("../Prescription")
 open_title = "The locker door clanks open..."
@@ -161,12 +185,15 @@ code_hint_first_after = 4
 code_hint_second_after = 7
 style = 3
 tint = Color(0.24, 0.3, 0.28, 1)
-size = Vector2(60, 80)
+size = Vector2(185.254, 428)
+closed_texture = ExtResource("tex_jetty_dock_locker_closed_v1")
+open_texture = ExtResource("tex_jetty_dock_locker_open_v1")
+scale = Vector2(0.3131, 0.3131)
 
 [node name="Prescription" parent="HiddenObjects" instance=ExtResource("5_object")]
-position = Vector2(1624, 296)
-scale = Vector2(0.65, 0.65)
+position = Vector2(1620, 390)
 data = ExtResource("15_prescription")
+texture_scale = Vector2(0.0833, 0.0833)
 
 [node name="RoomForeground" type="Node2D" parent="."]
 visible = false

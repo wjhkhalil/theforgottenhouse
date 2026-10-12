@@ -2,6 +2,8 @@
 
 [ext_resource type="Script" path="res://scripts/hidden_object_data.gd" id="1_data"]
 
+[ext_resource type="Texture2D" path="res://assets/objects/glass_syringe_v1.png" id="2_texture"]
+
 [resource]
 script = ExtResource("1_data")
 object_id = &"glass_syringe"
@@ -12,5 +14,7 @@ clue_text = "The same sedative as the vial in the loft. He has been keeping her 
 hint_text = "Look in the cupboard at the bottom of the tall glass medicine cabinet."
 riddle_text = ""
 placeholder_style = 178
+texture = ExtResource("2_texture")
+icon_texture = ExtResource("2_texture")
 is_required = true
 starts_visible = false

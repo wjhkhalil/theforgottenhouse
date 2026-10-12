@@ -1,10 +1,11 @@
 extends SceneTree
 ## Screenshots of House Three rooms, closed and with every container open.
-##   godot --path . --resolution 1280x720 -s tools/room_shots.gd -- --out=DIR --rooms=gate_lodge,laundry [--zoom=2 --at=600,300]
+##   godot --path . --resolution 1280x720 -s tools/room_shots.gd -- --out=DIR --rooms=gate_lodge,laundry [--zoom=2 --at=600,300] [--effects]
 
 var _out := ""
 var _rooms: PackedStringArray = []
 var _zoom := 0.0
+var _effects := false
 var _at := Vector2.ZERO
 
 
@@ -14,6 +15,8 @@ func _initialize() -> void:
 			_out = argument.trim_prefix("--out=")
 		if argument.begins_with("--rooms="):
 			_rooms = argument.trim_prefix("--rooms=").split(",")
+		if argument == "--effects":
+			_effects = true
 		if argument.begins_with("--zoom="):
 			_zoom = float(argument.trim_prefix("--zoom="))
 		if argument.begins_with("--at="):
@@ -38,6 +41,20 @@ func _calm(scene: Node) -> void:
 				effect.call(method, true)
 	for hud in scene.find_children("HUD", "", true, false):
 		hud.visible = false
+	# Darkness, steam, frost and the like would hide the room: switch them off unless --effects is given.
+	if not _effects:
+		if scene.get("keypad_lock") != null:
+			scene.keypad_lock.visible = false
+		for node in scene.find_children("*", "", true, false):
+			var script: Script = node.get_script()
+			if script == null:
+				continue
+			var file := script.resource_path.get_file()
+			if file in ["lantern_darkness.gd", "steam_fog.gd", "frost_cover.gd", "candle_lights.gd", "power_cuts.gd", "air_supply.gd", "patrol_lantern.gd"]:
+				node.visible = false
+				node.process_mode = Node.PROCESS_MODE_DISABLED
+			if file == "tide_water.gd":
+				node.call("set_tide_low", true)
 
 
 func _run() -> void:
@@ -71,6 +88,14 @@ func _run() -> void:
 					await _shot("%s_%d%s" % [id, index, suffix])
 					x += 1100.0
 					index += 1
+			elif camera.room_size.y > 730.0:
+				var y := 0.0
+				var row := 0
+				while y < camera.room_size.y - 1.0:
+					camera.focus_on(Vector2(640, y + 360.0), true)
+					await _shot("%s_%d%s" % [id, row, suffix])
+					y += 620.0
+					row += 1
 			else:
 				await _shot(id + suffix)
 	quit()

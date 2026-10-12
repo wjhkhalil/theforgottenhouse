@@ -2,6 +2,8 @@
 
 [ext_resource type="Script" path="res://scripts/hidden_object_data.gd" id="1_data"]
 
+[ext_resource type="Texture2D" path="res://assets/objects/rosary_v1.png" id="2_texture"]
+
 [resource]
 script = ExtResource("1_data")
 object_id = &"rosary"
@@ -12,5 +14,7 @@ clue_text = "A rosary given to Agnes by the Sisters. A tiny brass key is tied on
 hint_text = "Agnes's writing box sits on the left of her desk. It has a number lock: the ferry board on the wall gives the code."
 riddle_text = ""
 placeholder_style = 158
+texture = ExtResource("2_texture")
+icon_texture = ExtResource("2_texture")
 is_required = true
 starts_visible = false

@@ -2,6 +2,8 @@
 
 [ext_resource type="Script" path="res://scripts/hidden_object_data.gd" id="1_data"]
 
+[ext_resource type="Texture2D" path="res://assets/objects/bench_key_v1.png" id="2_texture"]
+
 [resource]
 script = ExtResource("1_data")
 object_id = &"bench_key"
@@ -12,5 +14,7 @@ clue_text = "A small steel key with a cardboard tag: 'bench'. It was locked in a
 hint_text = "The rusty strongbox at the bottom of the slip can only be reached at low water."
 riddle_text = ""
 placeholder_style = 78
+texture = ExtResource("2_texture")
+icon_texture = ExtResource("2_texture")
 is_required = true
 starts_visible = false

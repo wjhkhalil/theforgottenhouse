@@ -2,6 +2,8 @@
 
 [ext_resource type="Script" path="res://scripts/hidden_object_data.gd" id="1_data"]
 
+[ext_resource type="Texture2D" path="res://assets/objects/forged_signatures_v1.png" id="2_texture"]
+
 [resource]
 script = ExtResource("1_data")
 object_id = &"forged_signatures"
@@ -12,5 +14,7 @@ clue_text = "'Eleanor Ashworth', written again and again, each one a little bett
 hint_text = "Something written over and over lies on the blotter."
 riddle_text = ""
 placeholder_style = 51
+texture = ExtResource("2_texture")
+icon_texture = ExtResource("2_texture")
 is_required = true
 starts_visible = true

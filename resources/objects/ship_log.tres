@@ -2,6 +2,8 @@
 
 [ext_resource type="Script" path="res://scripts/hidden_object_data.gd" id="1_data"]
 
+[ext_resource type="Texture2D" path="res://assets/objects/ship_log_v1.png" id="2_texture"]
+
 [resource]
 script = ExtResource("1_data")
 object_id = &"ship_log"
@@ -9,8 +11,10 @@ display_name = "Ship's Log"
 description = "Vane's leather-bound ship's log, swollen with lake water."
 collection_message = "You found the ship's log!"
 clue_text = "The last entry is dated 2 October 1988. It starts 'Cast off 21:40' and ends with a story about Mara going over the side in the dark."
-hint_text = "Vane kept his log locked away. Open the small locker on the wheelhouse floor, just left of the ship's wheel."
+hint_text = "Vane kept his log locked away. Open the small locker at the left end of the hold, below the ship's wheel."
 riddle_text = ""
 placeholder_style = 106
+texture = ExtResource("2_texture")
+icon_texture = ExtResource("2_texture")
 is_required = true
 starts_visible = false

@@ -2,6 +2,8 @@
 
 [ext_resource type="Script" path="res://scripts/hidden_object_data.gd" id="1_data"]
 
+[ext_resource type="Texture2D" path="res://assets/objects/message_bottle_v1.png" id="2_texture"]
+
 [resource]
 script = ExtResource("1_data")
 object_id = &"message_bottle"
@@ -12,5 +14,7 @@ clue_text = "'If anything happens to me, look in the dockmaster's locker. Her nu
 hint_text = "A green bottle is bobbing on the water, drifting with the current."
 riddle_text = ""
 placeholder_style = 64
+texture = ExtResource("2_texture")
+icon_texture = ExtResource("2_texture")
 is_required = true
 starts_visible = true

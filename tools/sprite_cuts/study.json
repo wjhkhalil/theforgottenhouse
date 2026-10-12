@@ -1,0 +1,196 @@
+{
+ "objects": [
+  {
+   "id": "forged_signatures",
+   "sheet": "study_objects_sheet_v1.png",
+   "box": [
+    0,
+    0,
+    440,
+    410
+   ]
+  },
+  {
+   "id": "fountain_pen",
+   "sheet": "study_objects_sheet_v1.png",
+   "box": [
+    400,
+    130,
+    850,
+    320
+   ]
+  },
+  {
+   "id": "magnifying_glass",
+   "sheet": "study_objects_sheet_v1.png",
+   "box": [
+    800,
+    0,
+    1280,
+    370
+   ]
+  },
+  {
+   "id": "signet_ring",
+   "sheet": "study_objects_sheet_v1.png",
+   "box": [
+    1255,
+    50,
+    1620,
+    355
+   ]
+  },
+  {
+   "id": "calendar_page",
+   "sheet": "study_objects_sheet_v1.png",
+   "box": [
+    1590,
+    0,
+    1983,
+    410
+   ]
+  },
+  {
+   "id": "letter_opener",
+   "sheet": "study_objects_sheet_v1.png",
+   "box": [
+    0,
+    460,
+    440,
+    650
+   ]
+  },
+  {
+   "id": "boathouse_key",
+   "sheet": "study_objects_sheet_v1.png",
+   "box": [
+    420,
+    395,
+    840,
+    760
+   ]
+  },
+  {
+   "id": "real_will",
+   "sheet": "study_objects_sheet_v1.png",
+   "box": [
+    820,
+    450,
+    1262,
+    720
+   ]
+  },
+  {
+   "id": "mara_portrait",
+   "sheet": "study_objects_sheet_v1.png",
+   "box": [
+    1225,
+    345,
+    1640,
+    793
+   ]
+  }
+ ],
+ "containers": [
+  {
+   "id": "study_humidor",
+   "closed": {
+    "sheet": "study_containers_fix_sheet_v1.png",
+    "box": [
+     0,
+     120,
+     412,
+     420
+    ]
+   },
+   "open": {
+    "sheet": "study_containers_fix_sheet_v1.png",
+    "box": [
+     0,
+     430,
+     412,
+     830
+    ]
+   },
+   "match": "width"
+  },
+  {
+   "id": "study_desk_drawer",
+   "closed": {
+    "sheet": "study_containers_fix_sheet_v1.png",
+    "box": [
+     395,
+     150,
+     900,
+     380
+    ],
+    "shadow": false
+   },
+   "open": {
+    "sheet": "study_containers_fix_sheet_v1.png",
+    "box": [
+     395,
+     510,
+     900,
+     820
+    ],
+    "shadow": false
+   },
+   "match": "width",
+   "align": "top"
+  },
+  {
+   "id": "study_wall_safe",
+   "closed": {
+    "sheet": "study_containers_fix_sheet_v1.png",
+    "box": [
+     930,
+     70,
+     1310,
+     450
+    ],
+    "shadow": false
+   },
+   "open": {
+    "sheet": "study_containers_fix_sheet_v1.png",
+    "box": [
+     895,
+     445,
+     1315,
+     830
+    ],
+    "shadow": false
+   },
+   "match": "height",
+   "open_scale": 1.05,
+   "open_offset": [
+    -31,
+    0
+   ]
+  },
+  {
+   "id": "study_bookcase_compartment",
+   "closed": {
+    "sheet": "study_containers_fix_sheet_v1.png",
+    "box": [
+     1305,
+     80,
+     1732,
+     440
+    ],
+    "shadow": false
+   },
+   "open": {
+    "sheet": "study_containers_fix_sheet_v1.png",
+    "box": [
+     1300,
+     440,
+     1732,
+     840
+    ],
+    "shadow": false
+   },
+   "match": "height"
+  }
+ ]
+}

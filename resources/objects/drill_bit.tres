@@ -2,6 +2,8 @@
 
 [ext_resource type="Script" path="res://scripts/hidden_object_data.gd" id="1_data"]
 
+[ext_resource type="Texture2D" path="res://assets/objects/drill_bit_v1.png" id="2_texture"]
+
 [resource]
 script = ExtResource("1_data")
 object_id = &"drill_bit"
@@ -9,8 +11,10 @@ display_name = "Drill Bit"
 description = "A long auger drill bit with a square shank."
 collection_message = "You found a drill bit!"
 clue_text = "It fits the hand drill in the workshop exactly. This is the bit that bored the holes in the hull."
-hint_text = "Vane's toolbox lies on the floor of the hold, just right of the coil of rope."
+hint_text = "Vane's toolbox lies on the floor of the hold, just behind the row of drilled holes."
 riddle_text = ""
 placeholder_style = 116
+texture = ExtResource("2_texture")
+icon_texture = ExtResource("2_texture")
 is_required = true
 starts_visible = false

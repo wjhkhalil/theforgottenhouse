@@ -2,6 +2,8 @@
 
 [ext_resource type="Script" path="res://scripts/hidden_object_data.gd" id="1_data"]
 
+[ext_resource type="Texture2D" path="res://assets/objects/boathouse_map_v1.png" id="2_texture"]
+
 [resource]
 script = ExtResource("1_data")
 object_id = &"boathouse_map"
@@ -12,5 +14,7 @@ clue_text = "The path from the house to the boathouse on Blackwater Lake. An X m
 hint_text = "The hall table drawer is locked. Its key is somewhere on these stairs."
 riddle_text = ""
 placeholder_style = 25
+texture = ExtResource("2_texture")
+icon_texture = ExtResource("2_texture")
 is_required = true
 starts_visible = false

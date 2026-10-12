@@ -2,6 +2,8 @@
 
 [ext_resource type="Script" path="res://scripts/hidden_object_data.gd" id="1_data"]
 
+[ext_resource type="Texture2D" path="res://assets/objects/egg_timer_v1.png" id="2_texture"]
+
 [resource]
 script = ExtResource("1_data")
 object_id = &"egg_timer"
@@ -12,5 +14,7 @@ clue_text = "The sand has run out, as if someone was counting the minutes until 
 hint_text = "Something that counts with sand sits on a shelf."
 riddle_text = "Sand that counts the minutes"
 placeholder_style = 43
+texture = ExtResource("2_texture")
+icon_texture = ExtResource("2_texture")
 is_required = true
 starts_visible = true

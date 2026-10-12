@@ -2,6 +2,8 @@
 
 [ext_resource type="Script" path="res://scripts/hidden_object_data.gd" id="1_data"]
 
+[ext_resource type="Texture2D" path="res://assets/objects/tobacco_tin_v1.png" id="2_texture"]
+
 [resource]
 script = ExtResource("1_data")
 object_id = &"tobacco_tin"
@@ -12,5 +14,7 @@ clue_text = "No tobacco inside. Just a lock of fair hair tied with thread, and a
 hint_text = "Agnes's desk has a drawer in the front. Open it."
 riddle_text = ""
 placeholder_style = 157
+texture = ExtResource("2_texture")
+icon_texture = ExtResource("2_texture")
 is_required = true
 starts_visible = false

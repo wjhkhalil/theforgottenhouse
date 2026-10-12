@@ -1,0 +1,412 @@
+{
+ "objects": [
+  {
+   "id": "telegram_form",
+   "sheet": "lamp_room_objects_fix_sheet_v1.png",
+   "grid": [
+    5,
+    3
+   ],
+   "cell": [
+    0,
+    0
+   ],
+   "grow": 0
+  },
+  {
+   "id": "postcard",
+   "sheet": "lamp_room_objects_fix_sheet_v1.png",
+   "grid": [
+    5,
+    3
+   ],
+   "cell": [
+    1,
+    0
+   ],
+   "grow": 0
+  },
+  {
+   "id": "pencil_sketch",
+   "sheet": "lamp_room_objects_fix_sheet_v1.png",
+   "grid": [
+    5,
+    3
+   ],
+   "cell": [
+    2,
+    0
+   ],
+   "grow": 0
+  },
+  {
+   "id": "newspaper_page",
+   "sheet": "lamp_room_objects_fix_sheet_v1.png",
+   "grid": [
+    5,
+    3
+   ],
+   "cell": [
+    3,
+    0
+   ],
+   "grow": 0
+  },
+  {
+   "id": "ferry_ticket",
+   "sheet": "lamp_room_objects_fix_sheet_v1.png",
+   "grid": [
+    5,
+    3
+   ],
+   "cell": [
+    4,
+    0
+   ],
+   "grow": 0
+  },
+  {
+   "id": "lamp_mantle",
+   "sheet": "lamp_room_objects_fix_sheet_v1.png",
+   "grid": [
+    5,
+    3
+   ],
+   "cell": [
+    0,
+    1
+   ],
+   "grow": 0
+  },
+  {
+   "id": "binoculars",
+   "sheet": "lamp_room_objects_fix_sheet_v1.png",
+   "grid": [
+    5,
+    3
+   ],
+   "cell": [
+    1,
+    1
+   ],
+   "grow": 0
+  },
+  {
+   "id": "wind_gauge",
+   "sheet": "lamp_room_objects_fix_sheet_v1.png",
+   "grid": [
+    5,
+    3
+   ],
+   "cell": [
+    2,
+    1
+   ],
+   "grow": 0
+  },
+  {
+   "id": "lens_cloth",
+   "sheet": "lamp_room_objects_fix_sheet_v1.png",
+   "grid": [
+    5,
+    3
+   ],
+   "cell": [
+    3,
+    1
+   ],
+   "grow": 0
+  },
+  {
+   "id": "tobacco_tin",
+   "sheet": "lamp_room_objects_fix_sheet_v1.png",
+   "grid": [
+    5,
+    3
+   ],
+   "cell": [
+    4,
+    1
+   ],
+   "grow": 0
+  },
+  {
+   "id": "radio_valve",
+   "sheet": "lamp_room_objects_fix_sheet_v1.png",
+   "grid": [
+    5,
+    3
+   ],
+   "cell": [
+    0,
+    2
+   ],
+   "grow": 0
+  },
+  {
+   "id": "bell_hammer",
+   "sheet": "lamp_room_objects_fix_sheet_v1.png",
+   "grid": [
+    5,
+    3
+   ],
+   "cell": [
+    1,
+    2
+   ],
+   "grow": 0
+  },
+  {
+   "id": "oil_funnel",
+   "sheet": "lamp_room_objects_fix_sheet_v1.png",
+   "grid": [
+    5,
+    3
+   ],
+   "cell": [
+    2,
+    2
+   ],
+   "grow": 0
+  },
+  {
+   "id": "rosary",
+   "sheet": "lamp_room_objects_fix_sheet_v1.png",
+   "grid": [
+    5,
+    3
+   ],
+   "cell": [
+    3,
+    2
+   ],
+   "grow": 0
+  },
+  {
+   "id": "chapel_key",
+   "sheet": "lamp_room_objects_fix_sheet_v1.png",
+   "grid": [
+    5,
+    3
+   ],
+   "cell": [
+    4,
+    2
+   ],
+   "grow": 0
+  }
+ ],
+ "containers": [
+  {
+   "id": "lamp_room_lens_cupboard",
+   "closed": {
+    "sheet": "lamp_room_containers_fix_sheet_v1.png",
+    "grid": [
+     4,
+     4
+    ],
+    "cell": [
+     0,
+     0
+    ],
+    "grow": 0,
+    "shadow": false
+   },
+   "open": {
+    "sheet": "lamp_room_containers_fix_sheet_v1.png",
+    "grid": [
+     4,
+     4
+    ],
+    "cell": [
+     1,
+     0
+    ],
+    "grow": 0,
+    "shadow": false
+   },
+   "open_offset": [
+    -90,
+    0
+   ]
+  },
+  {
+   "id": "lamp_room_desk_drawer",
+   "closed": {
+    "sheet": "lamp_room_containers_fix_sheet_v1.png",
+    "grid": [
+     4,
+     4
+    ],
+    "cell": [
+     2,
+     0
+    ],
+    "grow": 0,
+    "shadow": false
+   },
+   "open": {
+    "sheet": "lamp_room_containers_fix_sheet_v1.png",
+    "grid": [
+     4,
+     4
+    ],
+    "cell": [
+     3,
+     0
+    ],
+    "grow": 0,
+    "shadow": false
+   },
+   "match": "width"
+  },
+  {
+   "id": "lamp_room_radio_cabinet",
+   "closed": {
+    "sheet": "lamp_room_containers_fix_sheet_v1.png",
+    "grid": [
+     4,
+     4
+    ],
+    "cell": [
+     0,
+     1
+    ],
+    "grow": 0
+   },
+   "open": {
+    "sheet": "lamp_room_containers_fix_sheet_v1.png",
+    "grid": [
+     4,
+     4
+    ],
+    "cell": [
+     1,
+     1
+    ],
+    "grow": 0
+   }
+  },
+  {
+   "id": "lamp_room_rope_basket",
+   "closed": {
+    "sheet": "lamp_room_containers_fix_sheet_v1.png",
+    "grid": [
+     4,
+     4
+    ],
+    "cell": [
+     2,
+     1
+    ],
+    "grow": 0
+   },
+   "open": {
+    "sheet": "lamp_room_containers_fix_sheet_v1.png",
+    "grid": [
+     4,
+     4
+    ],
+    "cell": [
+     3,
+     1
+    ],
+    "grow": 0
+   },
+   "open_offset": [
+    -39,
+    0
+   ],
+   "open_scale": 0.97
+  },
+  {
+   "id": "lamp_room_oil_locker",
+   "closed": {
+    "sheet": "lamp_room_containers_fix_sheet_v1.png",
+    "grid": [
+     4,
+     4
+    ],
+    "cell": [
+     0,
+     2
+    ],
+    "grow": 0
+   },
+   "open": {
+    "sheet": "lamp_room_containers_fix_sheet_v1.png",
+    "grid": [
+     4,
+     4
+    ],
+    "cell": [
+     1,
+     2
+    ],
+    "grow": 0
+   },
+   "open_offset": [
+    -103,
+    0
+   ]
+  },
+  {
+   "id": "lamp_room_writing_box",
+   "closed": {
+    "sheet": "lamp_room_containers_fix_sheet_v1.png",
+    "grid": [
+     4,
+     4
+    ],
+    "cell": [
+     2,
+     2
+    ],
+    "grow": 0
+   },
+   "open": {
+    "sheet": "lamp_room_containers_fix_sheet_v1.png",
+    "grid": [
+     4,
+     4
+    ],
+    "cell": [
+     3,
+     2
+    ],
+    "grow": 0
+   },
+   "match": "width",
+   "open_scale": 1.05
+  },
+  {
+   "id": "lamp_room_sea_chest",
+   "closed": {
+    "sheet": "lamp_room_containers_fix_sheet_v1.png",
+    "grid": [
+     4,
+     4
+    ],
+    "cell": [
+     0,
+     3
+    ],
+    "grow": 0
+   },
+   "open": {
+    "sheet": "lamp_room_containers_fix_sheet_v1.png",
+    "grid": [
+     4,
+     4
+    ],
+    "cell": [
+     1,
+     3
+    ],
+    "grow": 0
+   },
+   "match": "width",
+   "open_scale": 1.1
+  }
+ ]
+}

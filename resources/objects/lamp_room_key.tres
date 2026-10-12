@@ -2,6 +2,8 @@
 
 [ext_resource type="Script" path="res://scripts/hidden_object_data.gd" id="1_data"]
 
+[ext_resource type="Texture2D" path="res://assets/objects/lamp_room_key_v1.png" id="2_texture"]
+
 [resource]
 script = ExtResource("1_data")
 object_id = &"lamp_room_key"
@@ -12,5 +14,7 @@ clue_text = "A heavy iron key on a tag marked LAMP. Agnes kept her papers up in 
 hint_text = "At the very top of the tower, in the little key box on the wall beside the ladder up to the lamp room. Its hinge is rusted."
 riddle_text = ""
 placeholder_style = 146
+texture = ExtResource("2_texture")
+icon_texture = ExtResource("2_texture")
 is_required = true
 starts_visible = false

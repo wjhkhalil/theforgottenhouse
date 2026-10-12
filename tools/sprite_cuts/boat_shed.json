@@ -1,0 +1,256 @@
+{
+ "objects": [
+  {
+   "id": "handkerchief",
+   "sheet": "boat_shed_objects_fix_sheet_v1.png",
+   "box": [
+    18,
+    34,
+    420,
+    304
+   ]
+  },
+  {
+   "id": "train_ticket",
+   "sheet": "boat_shed_objects_fix_sheet_v1.png",
+   "box": [
+    472,
+    30,
+    816,
+    294
+   ]
+  },
+  {
+   "id": "coat_button",
+   "sheet": "boat_shed_objects_fix_sheet_v1.png",
+   "box": [
+    924,
+    30,
+    1246,
+    300
+   ]
+  },
+  {
+   "id": "ship_bell",
+   "sheet": "boat_shed_objects_fix_sheet_v1.png",
+   "box": [
+    1366,
+    0,
+    1580,
+    334
+   ]
+  },
+  {
+   "id": "maras_purse",
+   "sheet": "boat_shed_objects_fix_sheet_v1.png",
+   "box": [
+    14,
+    322,
+    420,
+    612
+   ]
+  },
+  {
+   "id": "dropped_torch",
+   "sheet": "boat_shed_objects_fix_sheet_v1.png",
+   "box": [
+    422,
+    368,
+    850,
+    568
+   ]
+  },
+  {
+   "id": "diving_goggles",
+   "sheet": "boat_shed_objects_fix_sheet_v1.png",
+   "box": [
+    860,
+    332,
+    1282,
+    624
+   ]
+  },
+  {
+   "id": "ether_bottle",
+   "sheet": "boat_shed_objects_fix_sheet_v1.png",
+   "box": [
+    1380,
+    374,
+    1572,
+    692
+   ]
+  },
+  {
+   "id": "bench_key",
+   "sheet": "boat_shed_objects_fix_sheet_v1.png",
+   "box": [
+    114,
+    606,
+    344,
+    930
+   ]
+  },
+  {
+   "id": "bank_receipt",
+   "sheet": "boat_shed_objects_fix_sheet_v1.png",
+   "box": [
+    428,
+    630,
+    826,
+    898
+   ]
+  },
+  {
+   "id": "loft_key",
+   "sheet": "boat_shed_objects_fix_sheet_v1.png",
+   "box": [
+    848,
+    654,
+    1300,
+    920
+   ]
+  }
+ ],
+ "containers": [
+  {
+   "id": "boat_shed_first_aid_box",
+   "closed": {
+    "sheet": "boat_shed_containers_fix_sheet_v1.png",
+    "box": [
+     24,
+     120,
+     302,
+     408
+    ],
+    "shadow": false
+   },
+   "open": {
+    "sheet": "boat_shed_containers_fix_sheet_v1.png",
+    "box": [
+     0,
+     504,
+     324,
+     818
+    ],
+    "shadow": false
+   },
+   "match": "height",
+   "open_scale": 1.09,
+   "align": "center",
+   "open_offset": [
+    -47,
+    19
+   ]
+  },
+  {
+   "id": "boat_shed_strongbox",
+   "closed": {
+    "sheet": "boat_shed_containers_fix_sheet_v1.png",
+    "box": [
+     370,
+     118,
+     720,
+     416
+    ]
+   },
+   "open": {
+    "sheet": "boat_shed_containers_fix_sheet_v1.png",
+    "box": [
+     384,
+     458,
+     704,
+     828
+    ]
+   },
+   "match": "width",
+   "align": "center",
+   "open_offset": [
+    0,
+    -58
+   ]
+  },
+  {
+   "id": "boat_shed_workbench_drawer",
+   "closed": {
+    "sheet": "boat_shed_containers_fix_sheet_v1.png",
+    "box": [
+     770,
+     214,
+     1106,
+     366
+    ]
+   },
+   "open": {
+    "sheet": "boat_shed_containers_fix_sheet_v1.png",
+    "box": [
+     752,
+     546,
+     1102,
+     808
+    ]
+   },
+   "match": "width",
+   "align": "center",
+   "open_offset": [
+    0,
+    56
+   ]
+  },
+  {
+   "id": "boat_shed_net_basket",
+   "closed": {
+    "sheet": "boat_shed_containers_fix_sheet_v1.png",
+    "box": [
+     1150,
+     112,
+     1494,
+     410
+    ]
+   },
+   "open": {
+    "sheet": "boat_shed_containers_fix_sheet_v1.png",
+    "box": [
+     1142,
+     522,
+     1494,
+     846
+    ]
+   },
+   "match": "width",
+   "open_scale": 1.045,
+   "align": "center",
+   "open_offset": [
+    -12,
+    30
+   ]
+  },
+  {
+   "id": "boat_shed_tool_chest",
+   "closed": {
+    "sheet": "boat_shed_containers_fix_sheet_v1.png",
+    "box": [
+     1534,
+     148,
+     1910,
+     402
+    ]
+   },
+   "open": {
+    "sheet": "boat_shed_containers_fix_sheet_v1.png",
+    "box": [
+     1524,
+     470,
+     1912,
+     824
+    ]
+   },
+   "match": "width",
+   "open_scale": 1.04,
+   "align": "center",
+   "open_offset": [
+    0,
+    -52
+   ]
+  }
+ ]
+}

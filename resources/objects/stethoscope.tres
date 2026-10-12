@@ -2,6 +2,8 @@
 
 [ext_resource type="Script" path="res://scripts/hidden_object_data.gd" id="1_data"]
 
+[ext_resource type="Texture2D" path="res://assets/objects/stethoscope_v1.png" id="2_texture"]
+
 [resource]
 script = ExtResource("1_data")
 object_id = &"stethoscope"
@@ -12,5 +14,7 @@ clue_text = "'R. Vane' is engraved on the chest piece. He wore it at the chapel 
 hint_text = "It lies on the left end of Vane's desk, under the left window."
 riddle_text = ""
 placeholder_style = 177
+texture = ExtResource("2_texture")
+icon_texture = ExtResource("2_texture")
 is_required = true
 starts_visible = true

@@ -2,6 +2,8 @@
 
 [ext_resource type="Script" path="res://scripts/hidden_object_data.gd" id="1_data"]
 
+[ext_resource type="Texture2D" path="res://assets/objects/burnt_letter_v1.png" id="2_texture"]
+
 [resource]
 script = ExtResource("1_data")
 object_id = &"burnt_letter"
@@ -12,5 +14,7 @@ clue_text = "'...the Ashworth estate shall be transferred in full to T. Greaves 
 hint_text = "Somebody tried to burn something in the oven."
 riddle_text = "Paper the fire didn't finish"
 placeholder_style = 47
+texture = ExtResource("2_texture")
+icon_texture = ExtResource("2_texture")
 is_required = true
 starts_visible = false

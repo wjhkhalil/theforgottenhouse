@@ -29,6 +29,21 @@
 [ext_resource type="PackedScene" path="res://scenes/ui/letter_popup.tscn" id="27_letter"]
 [ext_resource type="PackedScene" path="res://scenes/ui/keypad_lock.tscn" id="28_keypad"]
 [ext_resource type="Texture2D" path="res://assets/backgrounds/sunken_boat_background_v2.png" id="bg_sunken_boat"]
+[ext_resource type="Texture2D" path="res://assets/objects/sunken_boat_chart_drawer_closed_v1.png" id="tex_sunken_boat_chart_drawer_closed_v1"]
+[ext_resource type="Texture2D" path="res://assets/objects/sunken_boat_chart_drawer_open_v1.png" id="tex_sunken_boat_chart_drawer_open_v1"]
+[ext_resource type="Texture2D" path="res://assets/objects/sunken_boat_cabin_door_closed_v1.png" id="tex_sunken_boat_cabin_door_closed_v1"]
+[ext_resource type="Texture2D" path="res://assets/objects/sunken_boat_cabin_door_open_v1.png" id="tex_sunken_boat_cabin_door_open_v1"]
+[ext_resource type="Texture2D" path="res://assets/objects/sunken_boat_key_box_closed_v1.png" id="tex_sunken_boat_key_box_closed_v1"]
+[ext_resource type="Texture2D" path="res://assets/objects/sunken_boat_key_box_open_v1.png" id="tex_sunken_boat_key_box_open_v1"]
+[ext_resource type="Texture2D" path="res://assets/objects/sunken_boat_skipper_locker_closed_v1.png" id="tex_sunken_boat_skipper_locker_closed_v1"]
+[ext_resource type="Texture2D" path="res://assets/objects/sunken_boat_skipper_locker_open_v1.png" id="tex_sunken_boat_skipper_locker_open_v1"]
+[ext_resource type="Texture2D" path="res://assets/objects/sunken_boat_galley_cupboard_closed_v1.png" id="tex_sunken_boat_galley_cupboard_closed_v1"]
+[ext_resource type="Texture2D" path="res://assets/objects/sunken_boat_galley_cupboard_open_v1.png" id="tex_sunken_boat_galley_cupboard_open_v1"]
+[ext_resource type="Texture2D" path="res://assets/objects/sunken_boat_toolbox_closed_v1.png" id="tex_sunken_boat_toolbox_closed_v1"]
+[ext_resource type="Texture2D" path="res://assets/objects/sunken_boat_toolbox_open_v1.png" id="tex_sunken_boat_toolbox_open_v1"]
+[ext_resource type="Texture2D" path="res://assets/objects/sunken_boat_ditty_box_closed_v1.png" id="tex_sunken_boat_ditty_box_closed_v1"]
+[ext_resource type="Texture2D" path="res://assets/objects/sunken_boat_ditty_box_open_v1.png" id="tex_sunken_boat_ditty_box_open_v1"]
+[ext_resource type="Script" path="res://scripts/clue_mark.gd" id="clue_mark"]
 
 [node name="SunkenBoat" type="Node2D" node_paths=PackedStringArray("keypad_lock")]
 script = ExtResource("1_room")
@@ -43,65 +58,85 @@ script = ExtResource("3_manager")
 script = ExtResource("4_art")
 replacement_texture = ExtResource("bg_sunken_boat")
 
+[node name="ChalkSlate" type="Node2D" parent="."]
+position = Vector2(846, 176)
+rotation = 0.1
+script = ExtResource("clue_mark")
+lines = PackedStringArray("CAST OFF", "21:40")
+sizes = PackedInt32Array(8, 14)
+ink = Color(0.82, 0.88, 0.84, 0.8)
+line_spacing = 1.2
+
 [node name="HiddenObjects" type="Node2D" parent="."]
 unique_name_in_owner = true
 
 [node name="ShipLantern" parent="HiddenObjects" instance=ExtResource("5_object")]
-position = Vector2(214, 270)
-rotation = 1.5
-scale = Vector2(0.55, 0.55)
+position = Vector2(285, 167)
+rotation = 1.45
 data = ExtResource("7_ship_lantern")
+texture_scale = Vector2(0.1742, 0.1742)
+modulate = Color(0.72, 0.85, 0.8, 1)
 
 [node name="HairComb" parent="HiddenObjects" instance=ExtResource("5_object")]
-position = Vector2(128, 634)
+position = Vector2(126, 606)
 rotation = -0.35
-scale = Vector2(0.6, 0.6)
 data = ExtResource("9_hair_comb")
+texture_scale = Vector2(0.1591, 0.1591)
+modulate = Color(0.72, 0.82, 0.72, 1)
 
 [node name="SteelFile" parent="HiddenObjects" instance=ExtResource("5_object")]
-position = Vector2(312, 664)
-rotation = 0.3
-scale = Vector2(0.55, 0.55)
+position = Vector2(352, 660)
+rotation = 0.2
 data = ExtResource("11_steel_file")
+texture_scale = Vector2(0.2273, 0.2273)
+modulate = Color(0.72, 0.78, 0.7, 1)
 
 [node name="WineBottle" parent="HiddenObjects" instance=ExtResource("5_object")]
-position = Vector2(604, 646)
-rotation = 1.35
-scale = Vector2(0.55, 0.55)
+position = Vector2(560, 630)
+rotation = 0.1
 data = ExtResource("12_wine_bottle")
+texture_scale = Vector2(0.2348, 0.2348)
+modulate = Color(0.72, 0.82, 0.72, 1)
 
 [node name="Sextant" parent="HiddenObjects" instance=ExtResource("5_object")]
-position = Vector2(764, 282)
-rotation = 0.12
-scale = Vector2(0.5, 0.5)
+position = Vector2(900, 234)
+rotation = 0.1
 data = ExtResource("13_sextant")
+texture_scale = Vector2(0.1515, 0.1515)
+modulate = Color(0.62, 0.66, 0.56, 1)
 
 [node name="PearlEarring" parent="HiddenObjects" instance=ExtResource("5_object")]
-position = Vector2(250, 432)
-rotation = 0.4
-scale = Vector2(0.55, 0.55)
+position = Vector2(186, 247)
+rotation = 0.2
 data = ExtResource("15_pearl_earring")
+texture_scale = Vector2(0.0758, 0.0758)
+modulate = Color(0.75, 0.85, 0.8, 1)
 
 [node name="ChartDrawer" parent="HiddenObjects" node_paths=PackedStringArray("contents") instance=ExtResource("19_container")]
-position = Vector2(718, 311)
-rotation = 0.12
+position = Vector2(878, 270)
+rotation = 0.1
 container_id = &"chart_drawer"
 contents = NodePath("../CabinKey")
 open_title = "The swollen drawer jerks open..."
 open_message = "Soggy charts, a pencil stub, and a brass key with a tag."
 style = 4
 tint = Color(0.3, 0.22, 0.15, 1)
-size = Vector2(64, 16)
+size = Vector2(401.25, 107)
+closed_texture = ExtResource("tex_sunken_boat_chart_drawer_closed_v1")
+open_texture = ExtResource("tex_sunken_boat_chart_drawer_open_v1")
+scale = Vector2(0.1495, 0.1495)
+self_modulate = Color(0.5, 0.5, 0.4, 1)
 
 [node name="CabinKey" parent="HiddenObjects" instance=ExtResource("5_object")]
-position = Vector2(718, 306)
-rotation = 0.12
-scale = Vector2(0.5, 0.5)
+position = Vector2(878, 262)
+rotation = 0.1
 data = ExtResource("14_cabin_key")
+texture_scale = Vector2(0.0909, 0.0909)
+modulate = Color(0.7, 0.72, 0.6, 1)
 
 [node name="CabinDoor" parent="HiddenObjects" node_paths=PackedStringArray("contents", "required_object") instance=ExtResource("19_container")]
-position = Vector2(403, 470)
-rotation = 0.12
+position = Vector2(406, 316)
+rotation = 0.09
 container_id = &"cabin_door"
 contents = NodePath("../IronShackle")
 open_title = "The cabin door swings open..."
@@ -111,17 +146,22 @@ locked_title = "The cabin door is locked."
 locked_message = "A heavy door with a bolt on the OUTSIDE. Its key must be somewhere on the boat."
 style = 3
 tint = Color(0.33, 0.25, 0.17, 1)
-size = Vector2(52, 100)
+size = Vector2(90.9474, 454.737)
+closed_texture = ExtResource("tex_sunken_boat_cabin_door_closed_v1")
+open_texture = ExtResource("tex_sunken_boat_cabin_door_open_v1")
+scale = Vector2(0.3958, 0.3958)
+self_modulate = Color(0.5, 0.5, 0.4, 1)
 
 [node name="IronShackle" parent="HiddenObjects" instance=ExtResource("5_object")]
-position = Vector2(403, 465)
-rotation = 0.12
-scale = Vector2(0.55, 0.55)
+position = Vector2(412, 395)
+rotation = 0.1
 data = ExtResource("10_iron_shackle")
+texture_scale = Vector2(0.1212, 0.1212)
+modulate = Color(0.78, 0.8, 0.7, 1)
 
 [node name="KeyBox" parent="HiddenObjects" node_paths=PackedStringArray("contents") instance=ExtResource("19_container")]
-position = Vector2(726, 261)
-rotation = 0.12
+position = Vector2(711, 246)
+rotation = 0.1
 container_id = &"key_box"
 contents = NodePath("../IceHouseKey")
 open_title = "The key box clicks open..."
@@ -135,16 +175,21 @@ code_hint_first_after = 7
 code_hint_second_after = 10
 style = 5
 tint = Color(0.42, 0.38, 0.26, 1)
-size = Vector2(36, 32)
+size = Vector2(370.533, 370.533)
+closed_texture = ExtResource("tex_sunken_boat_key_box_closed_v1")
+open_texture = ExtResource("tex_sunken_boat_key_box_open_v1")
+scale = Vector2(0.0756, 0.0756)
+self_modulate = Color(0.55, 0.6, 0.5, 1)
 
 [node name="IceHouseKey" parent="HiddenObjects" instance=ExtResource("5_object")]
-position = Vector2(726, 256)
-rotation = 0.12
-scale = Vector2(0.5, 0.5)
+position = Vector2(713, 247)
+rotation = 0.1
 data = ExtResource("18_ice_house_key")
+texture_scale = Vector2(0.072, 0.072)
+modulate = Color(0.7, 0.72, 0.62, 1)
 
 [node name="SkipperLocker" parent="HiddenObjects" node_paths=PackedStringArray("contents") instance=ExtResource("19_container")]
-position = Vector2(824, 335)
+position = Vector2(722, 436)
 rotation = 0.12
 container_id = &"skipper_locker"
 contents = NodePath("../ShipLog")
@@ -152,64 +197,84 @@ open_title = "The skipper's locker opens..."
 open_message = "Oilskins, a tin of matches, and a fat leather book: the ship's log."
 style = 7
 tint = Color(0.28, 0.3, 0.26, 1)
-size = Vector2(44, 28)
+size = Vector2(382, 364.636)
+closed_texture = ExtResource("tex_sunken_boat_skipper_locker_closed_v1")
+open_texture = ExtResource("tex_sunken_boat_skipper_locker_open_v1")
+scale = Vector2(0.1152, 0.1152)
+self_modulate = Color(0.45, 0.46, 0.38, 1)
 
 [node name="ShipLog" parent="HiddenObjects" instance=ExtResource("5_object")]
-position = Vector2(824, 330)
+position = Vector2(726, 440)
 rotation = 0.12
-scale = Vector2(0.5, 0.5)
 data = ExtResource("6_ship_log")
+texture_scale = Vector2(0.0985, 0.0985)
+modulate = Color(0.6, 0.62, 0.52, 1)
 
 [node name="GalleyCupboard" parent="HiddenObjects" node_paths=PackedStringArray("contents") instance=ExtResource("19_container")]
-position = Vector2(562, 423)
-rotation = 0.12
+position = Vector2(575, 270)
+rotation = 0.13
 container_id = &"galley_cupboard"
 contents = NodePath("../Teacup")
 open_title = "The cupboard doors drift open..."
 open_message = "Broken plates, a slime of tea leaves, and one china cup still on its saucer."
 style = 3
 tint = Color(0.36, 0.3, 0.22, 1)
-size = Vector2(60, 42)
+size = Vector2(409.043, 224)
+closed_texture = ExtResource("tex_sunken_boat_galley_cupboard_closed_v1")
+open_texture = ExtResource("tex_sunken_boat_galley_cupboard_open_v1")
+scale = Vector2(0.2054, 0.2054)
+self_modulate = Color(0.52, 0.52, 0.42, 1)
 
 [node name="Teacup" parent="HiddenObjects" instance=ExtResource("5_object")]
-position = Vector2(562, 418)
-rotation = 0.12
-scale = Vector2(0.5, 0.5)
+position = Vector2(592, 276)
+rotation = 0.13
 data = ExtResource("8_teacup")
+texture_scale = Vector2(0.0985, 0.0985)
+modulate = Color(0.62, 0.66, 0.56, 1)
 
 [node name="Toolbox" parent="HiddenObjects" node_paths=PackedStringArray("contents") instance=ExtResource("19_container")]
-position = Vector2(718, 572)
-rotation = 0.12
+position = Vector2(868, 464)
+rotation = 0.17
 container_id = &"toolbox"
 contents = NodePath("../DrillBit")
 open_title = "You prise open the rusty toolbox..."
 open_message = "Spanners, a box of wooden bungs, and a long drill bit."
 style = 7
 tint = Color(0.22, 0.3, 0.24, 1)
-size = Vector2(56, 28)
+size = Vector2(387.875, 173.875)
+closed_texture = ExtResource("tex_sunken_boat_toolbox_closed_v1")
+open_texture = ExtResource("tex_sunken_boat_toolbox_open_v1")
+scale = Vector2(0.1495, 0.1495)
+self_modulate = Color(0.5, 0.54, 0.48, 1)
 
 [node name="DrillBit" parent="HiddenObjects" instance=ExtResource("5_object")]
-position = Vector2(718, 567)
-rotation = 0.12
-scale = Vector2(0.55, 0.55)
+position = Vector2(862, 462)
+rotation = 0.17
 data = ExtResource("16_drill_bit")
+texture_scale = Vector2(0.1439, 0.1439)
+modulate = Color(0.62, 0.64, 0.56, 1)
 
 [node name="DittyBox" parent="HiddenObjects" node_paths=PackedStringArray("contents") instance=ExtResource("19_container")]
-position = Vector2(212, 680)
-rotation = 0.15
+position = Vector2(262, 628)
+rotation = 0.05
 container_id = &"ditty_box"
 contents = NodePath("../SilverFrame")
 open_title = "The little box opens..."
 open_message = "It's Mara's keepsake box. Inside, wrapped in a hair ribbon: a silver photo frame."
 style = 1
 tint = Color(0.42, 0.29, 0.2, 1)
-size = Vector2(40, 26)
+size = Vector2(394.211, 236.526)
+closed_texture = ExtResource("tex_sunken_boat_ditty_box_closed_v1")
+open_texture = ExtResource("tex_sunken_boat_ditty_box_open_v1")
+scale = Vector2(0.1776, 0.1776)
+self_modulate = Color(0.6, 0.68, 0.6, 1)
 
 [node name="SilverFrame" parent="HiddenObjects" instance=ExtResource("5_object")]
-position = Vector2(212, 675)
-rotation = 0.15
-scale = Vector2(0.5, 0.5)
+position = Vector2(262, 630)
+rotation = 0.05
 data = ExtResource("17_silver_frame")
+texture_scale = Vector2(0.1212, 0.1212)
+modulate = Color(0.7, 0.78, 0.72, 1)
 
 [node name="RoomForeground" type="Node2D" parent="."]
 visible = false

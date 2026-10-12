@@ -2,6 +2,8 @@
 
 [ext_resource type="Script" path="res://scripts/hidden_object_data.gd" id="1_data"]
 
+[ext_resource type="Texture2D" path="res://assets/objects/decanter_v1.png" id="2_texture"]
+
 [resource]
 script = ExtResource("1_data")
 object_id = &"decanter"
@@ -12,5 +14,7 @@ clue_text = "Half of it gone tonight. Vane needed his courage. The label round i
 hint_text = "It stands right on top of the tall glass medicine cabinet."
 riddle_text = ""
 placeholder_style = 183
+texture = ExtResource("2_texture")
+icon_texture = ExtResource("2_texture")
 is_required = true
 starts_visible = true

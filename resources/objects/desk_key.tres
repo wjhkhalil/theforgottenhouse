@@ -2,15 +2,19 @@
 
 [ext_resource type="Script" path="res://scripts/hidden_object_data.gd" id="1_data"]
 
+[ext_resource type="Texture2D" path="res://assets/objects/desk_key_v1.png" id="2_texture"]
+
 [resource]
 script = ExtResource("1_data")
 object_id = &"desk_key"
 display_name = "Desk Key"
 description = "A brass desk key."
 collection_message = "You found a desk key."
-clue_text = "Hidden in his cigar box. It must open the writing desk."
+clue_text = "Hidden in his cigar box. It must open a locked drawer somewhere in this room."
 hint_text = "A box that smells of smoke hides something."
 riddle_text = ""
 placeholder_style = 40
+texture = ExtResource("2_texture")
+icon_texture = ExtResource("2_texture")
 is_required = true
 starts_visible = false

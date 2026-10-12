@@ -2,6 +2,8 @@
 
 [ext_resource type="Script" path="res://scripts/hidden_object_data.gd" id="1_data"]
 
+[ext_resource type="Texture2D" path="res://assets/objects/rubber_duck_v1.png" id="2_texture"]
+
 [resource]
 script = ExtResource("1_data")
 object_id = &"rubber_duck"
@@ -12,5 +14,7 @@ clue_text = "Painted on the bottom: 'E + M'. Their bath toy from when they were 
 hint_text = "Something that floats has been left on the edge of the bath."
 riddle_text = ""
 placeholder_style = 27
+texture = ExtResource("2_texture")
+icon_texture = ExtResource("2_texture")
 is_required = true
 starts_visible = true

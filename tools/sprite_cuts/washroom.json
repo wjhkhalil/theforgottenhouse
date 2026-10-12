@@ -1,0 +1,140 @@
+{
+ "objects": [
+  {
+   "id": "tiny_cabinet_key",
+   "sheet": "washroom_objects_sheet_v1.png",
+   "box": [
+    10,
+    10,
+    410,
+    285
+   ]
+  },
+  {
+   "id": "hairbrush",
+   "sheet": "washroom_objects_sheet_v1.png",
+   "box": [
+    412,
+    0,
+    882,
+    292
+   ]
+  },
+  {
+   "id": "rubber_duck",
+   "sheet": "washroom_objects_sheet_v1.png",
+   "box": [
+    900,
+    0,
+    1206,
+    285
+   ]
+  },
+  {
+   "id": "perfume_bottle",
+   "sheet": "washroom_objects_sheet_v1.png",
+   "box": [
+    1350,
+    0,
+    1560,
+    297
+   ]
+  },
+  {
+   "id": "straight_razor",
+   "sheet": "washroom_objects_sheet_v1.png",
+   "box": [
+    0,
+    286,
+    462,
+    543
+   ]
+  },
+  {
+   "id": "soap_imprint",
+   "sheet": "washroom_objects_sheet_v1.png",
+   "box": [
+    468,
+    292,
+    852,
+    554
+   ]
+  },
+  {
+   "id": "sleeping_pills",
+   "sheet": "washroom_objects_sheet_v1.png",
+   "box": [
+    954,
+    274,
+    1148,
+    567
+   ]
+  },
+  {
+   "id": "wet_photograph",
+   "sheet": "washroom_objects_sheet_v1.png",
+   "box": [
+    1230,
+    276,
+    1668,
+    567
+   ]
+  }
+ ],
+ "containers": [
+  {
+   "id": "washroom_medicine_cabinet",
+   "closed": {
+    "sheet": "washroom_objects_sheet_v1.png",
+    "box": [
+     55,
+     541,
+     377,
+     916
+    ],
+    "shadow": false
+   },
+   "open": {
+    "sheet": "washroom_objects_sheet_v1.png",
+    "box": [
+     445,
+     541,
+     832,
+     916
+    ],
+    "shadow": false
+   },
+   "match": "height",
+   "open_offset": [
+    -46,
+    0
+   ]
+  },
+  {
+   "id": "washroom_laundry_basket",
+   "closed": {
+    "sheet": "washroom_objects_sheet_v1.png",
+    "box": [
+     862,
+     556,
+     1220,
+     921
+    ]
+   },
+   "open": {
+    "sheet": "washroom_objects_sheet_v1.png",
+    "box": [
+     1225,
+     556,
+     1658,
+     921
+    ]
+   },
+   "match": "height",
+   "open_offset": [
+    -50,
+    0
+   ]
+  }
+ ]
+}

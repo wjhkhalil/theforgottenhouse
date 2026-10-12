@@ -2,6 +2,8 @@
 
 [ext_resource type="Script" path="res://scripts/hidden_object_data.gd" id="1_data"]
 
+[ext_resource type="Texture2D" path="res://assets/objects/pewter_cup_v1.png" id="2_texture"]
+
 [resource]
 script = ExtResource("1_data")
 object_id = &"pewter_cup"
@@ -12,5 +14,7 @@ clue_text = "Polished until it shines. Mother Agatha says Sister Margaret looked
 hint_text = "There is a small cupboard set into the wall right of the altar, below the right-hand sconce."
 riddle_text = ""
 placeholder_style = 168
+texture = ExtResource("2_texture")
+icon_texture = ExtResource("2_texture")
 is_required = true
 starts_visible = false

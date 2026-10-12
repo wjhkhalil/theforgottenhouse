@@ -2,6 +2,8 @@
 
 [ext_resource type="Script" path="res://scripts/hidden_object_data.gd" id="1_data"]
 
+[ext_resource type="Texture2D" path="res://assets/objects/gull_feather_v1.png" id="2_texture"]
+
 [resource]
 script = ExtResource("1_data")
 object_id = &"gull_feather"
@@ -12,5 +14,7 @@ clue_text = "The logbook says the girl collected feathers on the stairs while sh
 hint_text = "At the very top, on the first iron step down from the top landing. Wait for the beam to light it."
 riddle_text = ""
 placeholder_style = 138
+texture = ExtResource("2_texture")
+icon_texture = ExtResource("2_texture")
 is_required = true
 starts_visible = true

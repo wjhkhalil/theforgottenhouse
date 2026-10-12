@@ -1,0 +1,145 @@
+{
+ "objects": [
+  {
+   "id": "gramophone_record",
+   "sheet": "living_room_objects_sheet_v1.png",
+   "box": [
+    10,
+    10,
+    312,
+    312
+   ]
+  },
+  {
+   "id": "tobacco_pipe",
+   "sheet": "living_room_objects_sheet_v1.png",
+   "box": [
+    328,
+    110,
+    681,
+    286
+   ]
+  },
+  {
+   "id": "matchbox",
+   "sheet": "living_room_objects_sheet_v1.png",
+   "box": [
+    676,
+    80,
+    976,
+    294
+   ]
+  },
+  {
+   "id": "knitted_scarf",
+   "sheet": "living_room_objects_sheet_v1.png",
+   "box": [
+    972,
+    34,
+    1358,
+    322
+   ]
+  },
+  {
+   "id": "crossword",
+   "sheet": "living_room_objects_sheet_v1.png",
+   "box": [
+    1356,
+    30,
+    1668,
+    312
+   ]
+  },
+  {
+   "id": "insurance_policy",
+   "sheet": "living_room_objects_sheet_v1.png",
+   "box": [
+    10,
+    310,
+    370,
+    596
+   ]
+  },
+  {
+   "id": "desk_key",
+   "sheet": "living_room_objects_sheet_v1.png",
+   "box": [
+    366,
+    360,
+    642,
+    530
+   ]
+  }
+ ],
+ "containers": [
+  {
+   "id": "living_room_piano_bench",
+   "closed": {
+    "sheet": "living_room_objects_sheet_v1.png",
+    "box": [
+     14,
+     602,
+     392,
+     912
+    ]
+   },
+   "open": {
+    "sheet": "living_room_objects_sheet_v1.png",
+    "box": [
+     410,
+     562,
+     778,
+     914
+    ]
+   },
+   "match": "width"
+  },
+  {
+   "id": "living_room_cigar_box",
+   "closed": {
+    "sheet": "living_room_objects_sheet_v1.png",
+    "box": [
+     964,
+     368,
+     1328,
+     568
+    ]
+   },
+   "open": {
+    "sheet": "living_room_objects_sheet_v1.png",
+    "box": [
+     1324,
+     296,
+     1662,
+     602
+    ]
+   },
+   "match": "width"
+  },
+  {
+   "id": "living_room_desk_drawer",
+   "closed": {
+    "sheet": "living_room_objects_sheet_v1.png",
+    "box": [
+     788,
+     678,
+     1204,
+     828
+    ],
+    "shadow": false
+   },
+   "open": {
+    "sheet": "living_room_objects_sheet_v1.png",
+    "box": [
+     1200,
+     638,
+     1660,
+     866
+    ],
+    "shadow": false
+   },
+   "match": "width",
+   "align": "top"
+  }
+ ]
+}

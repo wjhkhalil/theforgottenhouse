@@ -2,6 +2,8 @@
 
 [ext_resource type="Script" path="res://scripts/hidden_object_data.gd" id="1_data"]
 
+[ext_resource type="Texture2D" path="res://assets/objects/newspaper_page_v1.png" id="2_texture"]
+
 [resource]
 script = ExtResource("1_data")
 object_id = &"newspaper_page"
@@ -12,5 +14,7 @@ clue_text = "'Ashworth girl declared dead, 1987.' Agnes circled the photograph. 
 hint_text = "A grey newspaper page, one of the loose papers the wind blows around the lamp room."
 riddle_text = ""
 placeholder_style = 152
+texture = ExtResource("2_texture")
+icon_texture = ExtResource("2_texture")
 is_required = true
 starts_visible = true

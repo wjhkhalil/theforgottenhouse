@@ -1,0 +1,136 @@
+{
+ "objects": [
+  {
+   "id": "oilskin_hat",
+   "sheet": "lighthouse_steps_objects_sheet_v1.png",
+   "box": [
+    10,
+    2,
+    330,
+    312
+   ],
+   "shadow": false
+  },
+  {
+   "id": "telescope",
+   "sheet": "lighthouse_steps_objects_sheet_v1.png",
+   "box": [
+    320,
+    112,
+    702,
+    252
+   ]
+  },
+  {
+   "id": "keeper_logbook",
+   "sheet": "lighthouse_steps_objects_sheet_v1.png",
+   "box": [
+    694,
+    20,
+    990,
+    340
+   ]
+  },
+  {
+   "id": "wick_trimmer",
+   "sheet": "lighthouse_steps_objects_sheet_v1.png",
+   "box": [
+    1000,
+    104,
+    1370,
+    264
+   ]
+  },
+  {
+   "id": "bandage_roll",
+   "sheet": "lighthouse_steps_objects_sheet_v1.png",
+   "box": [
+    720,
+    350,
+    1044,
+    596
+   ]
+  },
+  {
+   "id": "tide_table",
+   "sheet": "lighthouse_steps_objects_sheet_v1.png",
+   "box": [
+    1080,
+    296,
+    1284,
+    632
+   ],
+   "shadow": false
+  },
+  {
+   "id": "ship_in_bottle",
+   "sheet": "lighthouse_steps_objects_sheet_v1.png",
+   "box": [
+    16,
+    652,
+    476,
+    896
+   ]
+  },
+  {
+   "id": "lifesaving_medal",
+   "sheet": "lighthouse_steps_objects_sheet_v1.png",
+   "box": [
+    504,
+    610,
+    692,
+    916
+   ]
+  },
+  {
+   "id": "keepers_photo",
+   "sheet": "lighthouse_steps_objects_sheet_v1.png",
+   "box": [
+    752,
+    610,
+    1020,
+    912
+   ]
+  },
+  {
+   "id": "lamp_room_key",
+   "sheet": "lighthouse_steps_objects_sheet_v1.png",
+   "box": [
+    1032,
+    664,
+    1496,
+    904
+   ]
+  }
+ ],
+ "containers": [
+  {
+   "id": "lighthouse_steps_key_box",
+   "closed": {
+    "sheet": "lighthouse_steps_containers_sheet_v1.png",
+    "box": [
+     68,
+     600,
+     338,
+     912
+    ],
+    "shadow": false
+   },
+   "open": {
+    "sheet": "lighthouse_steps_containers_sheet_v1.png",
+    "box": [
+     396,
+     600,
+     808,
+     904
+    ],
+    "shadow": false
+   },
+   "match": "height",
+   "open_offset": [
+    -98,
+    0
+   ]
+  }
+ ]
+}

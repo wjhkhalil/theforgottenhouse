@@ -2,6 +2,8 @@
 
 [ext_resource type="Script" path="res://scripts/hidden_object_data.gd" id="1_data"]
 
+[ext_resource type="Texture2D" path="res://assets/objects/lamp_mantle_v1.png" id="2_texture"]
+
 [resource]
 script = ExtResource("1_data")
 object_id = &"lamp_mantle"
@@ -9,8 +11,10 @@ display_name = "Lamp Mantle"
 description = "A spare gas mantle for the lamp, a little white woven sock."
 collection_message = "You found a lamp mantle!"
 clue_text = "A spare mantle for the great lamp. Agnes kept the light burning alone for years, and the girl she called Margaret helped her."
-hint_text = "Look at the foot of the great lens, on the step of its pedestal, behind the brass rail."
+hint_text = "Look at the foot of the great lens, on the left of the iron step of its pedestal."
 riddle_text = ""
 placeholder_style = 148
+texture = ExtResource("2_texture")
+icon_texture = ExtResource("2_texture")
 is_required = true
 starts_visible = true

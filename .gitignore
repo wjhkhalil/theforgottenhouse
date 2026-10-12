@@ -9,3 +9,6 @@ build/
 
 # Local tool files
 .claude/
+
+# Python cache
+__pycache__/

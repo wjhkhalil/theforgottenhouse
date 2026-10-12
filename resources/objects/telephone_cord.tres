@@ -2,6 +2,8 @@
 
 [ext_resource type="Script" path="res://scripts/hidden_object_data.gd" id="1_data"]
 
+[ext_resource type="Texture2D" path="res://assets/objects/telephone_cord_v1.png" id="2_texture"]
+
 [resource]
 script = ExtResource("1_data")
 object_id = &"telephone_cord"
@@ -12,5 +14,7 @@ clue_text = "The wire has been sliced clean with a knife. Someone made sure nobo
 hint_text = "Something that once carried voices hangs limp in the front hall."
 riddle_text = ""
 placeholder_style = 19
+texture = ExtResource("2_texture")
+icon_texture = ExtResource("2_texture")
 is_required = true
 starts_visible = true

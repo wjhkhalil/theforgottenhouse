@@ -2,6 +2,8 @@
 
 [ext_resource type="Script" path="res://scripts/hidden_object_data.gd" id="1_data"]
 
+[ext_resource type="Texture2D" path="res://assets/objects/signet_ring_v1.png" id="2_texture"]
+
 [resource]
 script = ExtResource("1_data")
 object_id = &"signet_ring"
@@ -12,5 +14,7 @@ clue_text = "Pressed into red wax, it makes the seal on the false will. Greaves 
 hint_text = "Something gold that seals letters lies beside the inkwell."
 riddle_text = ""
 placeholder_style = 54
+texture = ExtResource("2_texture")
+icon_texture = ExtResource("2_texture")
 is_required = true
 starts_visible = true

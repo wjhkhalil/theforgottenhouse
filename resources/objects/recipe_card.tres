@@ -2,6 +2,8 @@
 
 [ext_resource type="Script" path="res://scripts/hidden_object_data.gd" id="1_data"]
 
+[ext_resource type="Texture2D" path="res://assets/objects/recipe_card_v1.png" id="2_texture"]
+
 [resource]
 script = ExtResource("1_data")
 object_id = &"recipe_card"
@@ -12,5 +14,7 @@ clue_text = "'Birthday Cake' in Mother's writing. On the back: 'For my girls - l
 hint_text = "Mother's handwriting is pinned up near the window."
 riddle_text = "Mother's words for a cake"
 placeholder_style = 44
+texture = ExtResource("2_texture")
+icon_texture = ExtResource("2_texture")
 is_required = true
 starts_visible = true

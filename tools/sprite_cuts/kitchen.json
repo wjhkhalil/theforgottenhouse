@@ -1,0 +1,185 @@
+{
+ "objects": [
+  {
+   "id": "wooden_spoon",
+   "sheet": "kitchen_objects_sheet_v1.png",
+   "box": [
+    71,
+    0,
+    219,
+    359
+   ],
+   "shadow": false
+  },
+  {
+   "id": "egg_timer",
+   "sheet": "kitchen_objects_sheet_v1.png",
+   "box": [
+    286,
+    0,
+    559,
+    336
+   ]
+  },
+  {
+   "id": "recipe_card",
+   "sheet": "kitchen_objects_sheet_v1.png",
+   "box": [
+    561,
+    61,
+    949,
+    314
+   ],
+   "shadow": false
+  },
+  {
+   "id": "rat_poison_tin",
+   "sheet": "kitchen_objects_sheet_v1.png",
+   "box": [
+    971,
+    26,
+    1229,
+    314
+   ]
+  },
+  {
+   "id": "tin_opener",
+   "sheet": "kitchen_objects_sheet_v1.png",
+   "box": [
+    1241,
+    81,
+    1672,
+    254
+   ],
+   "shadow": false
+  },
+  {
+   "id": "lake_pebble",
+   "sheet": "kitchen_objects_sheet_v1.png",
+   "box": [
+    1,
+    366,
+    304,
+    559
+   ]
+  },
+  {
+   "id": "servants_key",
+   "sheet": "kitchen_objects_sheet_v1.png",
+   "box": [
+    291,
+    351,
+    659,
+    599
+   ]
+  },
+  {
+   "id": "burnt_letter",
+   "sheet": "kitchen_objects_sheet_v1.png",
+   "box": [
+    636,
+    306,
+    929,
+    604
+   ]
+  },
+  {
+   "id": "sugar_mouse",
+   "sheet": "kitchen_objects_sheet_v1.png",
+   "box": [
+    926,
+    351,
+    1294,
+    589
+   ]
+  }
+ ],
+ "containers": [
+  {
+   "id": "kitchen_bread_bin",
+   "closed": {
+    "sheet": "kitchen_objects_sheet_v1.png",
+    "box": [
+     1276,
+     291,
+     1672,
+     586
+    ]
+   },
+   "open": {
+    "sheet": "kitchen_objects_sheet_v1.png",
+    "box": [
+     0,
+     598,
+     419,
+     882
+    ]
+   },
+   "match": "none",
+   "open_scale": 1.175,
+   "align": "center",
+   "open_offset": [
+    52,
+    -1
+   ]
+  },
+  {
+   "id": "kitchen_oven",
+   "closed": {
+    "sheet": "kitchen_objects_sheet_v1.png",
+    "box": [
+     412,
+     598,
+     723,
+     882
+    ],
+    "shadow": false
+   },
+   "open": {
+    "sheet": "kitchen_objects_sheet_v1.png",
+    "box": [
+     709,
+     598,
+     1080,
+     894
+    ],
+    "shadow": false
+   },
+   "match": "none",
+   "open_scale": 1.1945,
+   "align": "center",
+   "open_offset": [
+    -71,
+    11
+   ]
+  },
+  {
+   "id": "kitchen_biscuit_tin",
+   "closed": {
+    "sheet": "kitchen_objects_sheet_v1.png",
+    "box": [
+     1081,
+     598,
+     1354,
+     876
+    ]
+   },
+   "open": {
+    "sheet": "kitchen_objects_sheet_v1.png",
+    "box": [
+     1336,
+     591,
+     1654,
+     914
+    ]
+   },
+   "match": "none",
+   "open_scale": 1.3351,
+   "align": "center",
+   "open_offset": [
+    -57,
+    53
+   ]
+  }
+ ]
+}

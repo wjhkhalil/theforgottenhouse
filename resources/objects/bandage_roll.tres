@@ -2,6 +2,8 @@
 
 [ext_resource type="Script" path="res://scripts/hidden_object_data.gd" id="1_data"]
 
+[ext_resource type="Texture2D" path="res://assets/objects/bandage_roll_v1.png" id="2_texture"]
+
 [resource]
 script = ExtResource("1_data")
 object_id = &"bandage_roll"
@@ -12,5 +14,7 @@ clue_text = "Half the roll is used. The logbook says: 'Dressed the cuts on her w
 hint_text = "The white first aid tin stands on the bench by the window at the bottom of the tower."
 riddle_text = ""
 placeholder_style = 140
+texture = ExtResource("2_texture")
+icon_texture = ExtResource("2_texture")
 is_required = true
 starts_visible = false

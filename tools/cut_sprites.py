@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Cut named sprites out of sprite sheets painted on a plain grey background.
+"""Cut named sprites out of sprite sheets painted on a plain grey or magenta background.
 
     python3 tools/cut_sprites.py tools/sprite_cuts/<room>.json [--preview DIR]
 
@@ -32,8 +32,10 @@ closed one ("height", "width" or "none"), "open_scale" then scales the open
 picture a little more or less, and "align" is where both pictures are pinned
 on the canvas ("bottom", "center" or "top").
 
-The grey background is made transparent. The soft shadow under each object is
-kept as a see-through dark patch, so the sprite still looks grounded.
+The plain background is made transparent. On grey sheets the soft shadow under each
+object is kept as a see-through dark patch. Magenta sheets have no shadows, so a soft one
+is added under each sprite ("shadow": false in a cut switches it off) and glass that the
+magenta shows through is made see-through.
 Needs Pillow (pip install pillow).
 """
 
@@ -55,17 +57,61 @@ NEUTRAL = 16            # largest gap between colour channels that still counts 
 BACKGROUND_RANGE = 26   # how far from the background brightness still counts as background
 SHADOW_STRENGTH = 1.5
 
+KEY_KEEP = 20          # magenta sheets: this little magenta or less is kept whole
+KEY_REMOVE = 140       # magenta sheets: this much magenta or more is removed
+SYNTHETIC_SHADOW = 0.42  # darkness of the shadow added to sprites cut from magenta sheets
+
 _matted: dict[str, Image.Image] = {}
+_magenta_sheets: set[str] = set()
 
 
 def _mask(image: Image.Image, test) -> Image.Image:
     return image.point(lambda v: 255 if test(v) else 0)
 
 
+def matte_magenta(rgb: Image.Image) -> Image.Image:
+    """Removes a bright magenta background (the House One and Two sheets).
+
+    How magenta a pixel is = the smaller of red and blue, minus green. The background is
+    fully magenta and is removed; glass that the magenta shows through is partly magenta
+    and becomes see-through; the pink cast is taken out of whatever is kept.
+    """
+    r, g, b = rgb.split()
+    key = ImageChops.subtract(ImageChops.darker(r, b), g)
+    # True magenta has equal red and blue; real pinks, reds and purples in the art do not,
+    # so the gap between red and blue is taken off before deciding.
+    magenta = ImageChops.subtract(key, ImageChops.difference(r, b))
+    alpha = magenta.point(lambda v: 255 if v <= KEY_KEEP else (0 if v >= KEY_REMOVE else int(255 * (KEY_REMOVE - v) / (KEY_REMOVE - KEY_KEEP))))
+    # Take the pink cast out of whatever is at all magenta: pull red and blue down to green.
+    spill = ImageChops.multiply(key, magenta.point(lambda v: 0 if v <= 8 else min(255, (v - 8) * 21)))
+    r = ImageChops.subtract(r, spill)
+    b = ImageChops.subtract(b, spill)
+    result = Image.merge("RGB", (r, g, b)).convert("RGBA")
+    result.putalpha(alpha)
+    return result
+
+
+def add_shadow(piece: Image.Image) -> Image.Image:
+    """Puts a soft dark shadow under and just below a sprite that was painted without one."""
+    size = max(piece.size)
+    blur, drop, margin = size * 0.03, int(size * 0.025), int(size * 0.07)
+    canvas = Image.new("RGBA", (piece.width + margin * 2, piece.height + margin * 2), (0, 0, 0, 0))
+    shape = Image.new("L", canvas.size, 0)
+    shape.paste(piece.getchannel("A"), (margin, margin + drop))
+    shade = shape.filter(ImageFilter.GaussianBlur(blur)).point(lambda v: int(v * SYNTHETIC_SHADOW))
+    canvas.putalpha(shade)
+    canvas.alpha_composite(piece, (margin, margin))
+    return canvas
+
+
 def matte(path: Path) -> Image.Image:
-    """Returns the sheet as RGBA with its grey background removed."""
+    """Returns the sheet as RGBA with its plain background (grey or magenta) removed."""
     rgb = Image.open(path).convert("RGB")
     w, h = rgb.size
+    corner = rgb.getpixel((3, 3))
+    if corner[0] > 180 and corner[2] > 180 and corner[1] < 90:
+        _magenta_sheets.add(path.name)
+        return matte_magenta(rgb)
     r, g, b = rgb.split()
     high = ImageChops.lighter(ImageChops.lighter(r, g), b)
     low = ImageChops.darker(ImageChops.darker(r, g), b)
@@ -174,7 +220,10 @@ def cut(spec: dict) -> Image.Image:
     # A margin so the soft shadow is not cut off square.
     margin = 10
     tight = (max(0, tight[0] - margin), max(0, tight[1] - margin), min(piece.width, tight[2] + margin), min(piece.height, tight[3] + margin))
-    return piece.crop(tight)
+    piece = piece.crop(tight)
+    if spec["sheet"] in _magenta_sheets and spec.get("shadow", True):
+        piece = add_shadow(piece)
+    return piece
 
 
 def fit(piece: Image.Image, longest: float) -> Image.Image:

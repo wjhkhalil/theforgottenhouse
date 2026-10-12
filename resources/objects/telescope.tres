@@ -2,6 +2,8 @@
 
 [ext_resource type="Script" path="res://scripts/hidden_object_data.gd" id="1_data"]
 
+[ext_resource type="Texture2D" path="res://assets/objects/telescope_v1.png" id="2_texture"]
+
 [resource]
 script = ExtResource("1_data")
 object_id = &"telescope"
@@ -12,5 +14,7 @@ clue_text = "Agnes's spyglass. From the top window she could see right across th
 hint_text = "High up at the top of the tower, it lies on the sill of the window on the left. Wait for the beam to light it."
 riddle_text = ""
 placeholder_style = 134
+texture = ExtResource("2_texture")
+icon_texture = ExtResource("2_texture")
 is_required = true
 starts_visible = true

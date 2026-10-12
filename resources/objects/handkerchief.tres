@@ -2,6 +2,8 @@
 
 [ext_resource type="Script" path="res://scripts/hidden_object_data.gd" id="1_data"]
 
+[ext_resource type="Texture2D" path="res://assets/objects/handkerchief_v1.png" id="2_texture"]
+
 [resource]
 script = ExtResource("1_data")
 object_id = &"handkerchief"
@@ -12,5 +14,7 @@ clue_text = "Embroidered 'R.V.' and still damp. It smells sickly sweet, like a h
 hint_text = "Look on top of the workbench on the left."
 riddle_text = ""
 placeholder_style = 70
+texture = ExtResource("2_texture")
+icon_texture = ExtResource("2_texture")
 is_required = true
 starts_visible = true

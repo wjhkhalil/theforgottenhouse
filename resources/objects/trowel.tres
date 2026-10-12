@@ -2,6 +2,8 @@
 
 [ext_resource type="Script" path="res://scripts/hidden_object_data.gd" id="1_data"]
 
+[ext_resource type="Texture2D" path="res://assets/objects/trowel_v1.png" id="2_texture"]
+
 [resource]
 script = ExtResource("1_data")
 object_id = &"trowel"
@@ -9,8 +11,10 @@ display_name = "Garden Trowel"
 description = "A small garden trowel with dry earth on the blade."
 collection_message = "You found a garden trowel!"
 clue_text = "Sister Margaret's trowel. She grew forget-me-nots by the chapel door. She did not know why she loved them."
-hint_text = "Look on the floor in front of the left-hand pews, near the bottom of the room."
+hint_text = "Look on the floor at the foot of the pulpit steps, just behind the front pew on the left."
 riddle_text = ""
 placeholder_style = 170
+texture = ExtResource("2_texture")
+icon_texture = ExtResource("2_texture")
 is_required = true
 starts_visible = true

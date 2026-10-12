@@ -2,6 +2,8 @@
 
 [ext_resource type="Script" path="res://scripts/hidden_object_data.gd" id="1_data"]
 
+[ext_resource type="Texture2D" path="res://assets/objects/frozen_brooch_v1.png" id="2_texture"]
+
 [resource]
 script = ExtResource("1_data")
 object_id = &"frozen_brooch"
@@ -12,5 +14,7 @@ clue_text = "Mother's silver swallow. Mara wore it every day. She was here; ther
 hint_text = "It is frozen inside the small block of ice on the middle shelf, on the right."
 riddle_text = ""
 placeholder_style = 130
+texture = ExtResource("2_texture")
+icon_texture = ExtResource("2_texture")
 is_required = true
 starts_visible = false

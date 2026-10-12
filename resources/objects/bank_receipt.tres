@@ -2,6 +2,8 @@
 
 [ext_resource type="Script" path="res://scripts/hidden_object_data.gd" id="1_data"]
 
+[ext_resource type="Texture2D" path="res://assets/objects/bank_receipt_v1.png" id="2_texture"]
+
 [resource]
 script = ExtResource("1_data")
 object_id = &"bank_receipt"
@@ -12,5 +14,7 @@ clue_text = "Paid by R. Vane to T. Greaves, every month since May 1987. Vane has
 hint_text = "The workbench drawer is locked. Its key is somewhere wet."
 riddle_text = ""
 placeholder_style = 79
+texture = ExtResource("2_texture")
+icon_texture = ExtResource("2_texture")
 is_required = true
 starts_visible = false

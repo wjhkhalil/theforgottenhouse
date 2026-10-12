@@ -2,6 +2,8 @@
 
 [ext_resource type="Script" path="res://scripts/hidden_object_data.gd" id="1_data"]
 
+[ext_resource type="Texture2D" path="res://assets/objects/binoculars_v1.png" id="2_texture"]
+
 [resource]
 script = ExtResource("1_data")
 object_id = &"binoculars"
@@ -9,8 +11,10 @@ display_name = "Binoculars"
 description = "A pair of black marine binoculars with brass rims."
 collection_message = "You found the binoculars!"
 clue_text = "Agnes's binoculars, still focused on the island far across the water, where a tiny light burns in the chapel."
-hint_text = "They rest on the wooden window sill to the right, just above the painted ferry board."
+hint_text = "They rest on the window sill to the right of the great lens, just above the ferry board on the wall."
 riddle_text = ""
 placeholder_style = 154
+texture = ExtResource("2_texture")
+icon_texture = ExtResource("2_texture")
 is_required = true
 starts_visible = true

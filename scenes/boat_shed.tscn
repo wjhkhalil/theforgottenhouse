@@ -26,6 +26,16 @@
 [ext_resource type="PackedScene" path="res://scenes/ui/letter_popup.tscn" id="24_letter"]
 [ext_resource type="PackedScene" path="res://scenes/ui/keypad_lock.tscn" id="25_keypad"]
 [ext_resource type="Texture2D" path="res://assets/backgrounds/boat_shed_background_v1.png" id="bg_boat_shed"]
+[ext_resource type="Texture2D" path="res://assets/objects/boat_shed_first_aid_box_closed_v1.png" id="tex_boat_shed_first_aid_box_closed_v1"]
+[ext_resource type="Texture2D" path="res://assets/objects/boat_shed_first_aid_box_open_v1.png" id="tex_boat_shed_first_aid_box_open_v1"]
+[ext_resource type="Texture2D" path="res://assets/objects/boat_shed_strongbox_closed_v1.png" id="tex_boat_shed_strongbox_closed_v1"]
+[ext_resource type="Texture2D" path="res://assets/objects/boat_shed_strongbox_open_v1.png" id="tex_boat_shed_strongbox_open_v1"]
+[ext_resource type="Texture2D" path="res://assets/objects/boat_shed_workbench_drawer_closed_v1.png" id="tex_boat_shed_workbench_drawer_closed_v1"]
+[ext_resource type="Texture2D" path="res://assets/objects/boat_shed_workbench_drawer_open_v1.png" id="tex_boat_shed_workbench_drawer_open_v1"]
+[ext_resource type="Texture2D" path="res://assets/objects/boat_shed_net_basket_closed_v1.png" id="tex_boat_shed_net_basket_closed_v1"]
+[ext_resource type="Texture2D" path="res://assets/objects/boat_shed_net_basket_open_v1.png" id="tex_boat_shed_net_basket_open_v1"]
+[ext_resource type="Texture2D" path="res://assets/objects/boat_shed_tool_chest_closed_v1.png" id="tex_boat_shed_tool_chest_closed_v1"]
+[ext_resource type="Texture2D" path="res://assets/objects/boat_shed_tool_chest_open_v1.png" id="tex_boat_shed_tool_chest_open_v1"]
 
 [node name="BoatShed" type="Node2D" node_paths=PackedStringArray("keypad_lock")]
 script = ExtResource("1_room")
@@ -44,72 +54,90 @@ replacement_texture = ExtResource("bg_boat_shed")
 unique_name_in_owner = true
 
 [node name="Handkerchief" parent="HiddenObjects" instance=ExtResource("5_object")]
-position = Vector2(162, 368)
-rotation = 0.1
-scale = Vector2(0.6, 0.6)
+position = Vector2(176, 295)
+rotation = 0
 data = ExtResource("6_hanky")
+texture_scale = Vector2(0.1515, 0.1515)
+modulate = Color(0.86, 0.72, 0.56, 1)
 
 [node name="TrainTicket" parent="HiddenObjects" instance=ExtResource("5_object")]
-position = Vector2(990, 210)
-rotation = -0.12
-scale = Vector2(0.6, 0.6)
+position = Vector2(969, 167)
+rotation = -0.06
 data = ExtResource("7_ticket")
+texture_scale = Vector2(0.1288, 0.1288)
+modulate = Color(0.86, 0.72, 0.56, 1)
 
 [node name="CoatButton" parent="HiddenObjects" instance=ExtResource("5_object")]
-position = Vector2(286, 304)
-scale = Vector2(0.55, 0.55)
+position = Vector2(312, 200)
 data = ExtResource("8_button")
+rotation = 0
+texture_scale = Vector2(0.0682, 0.0682)
+modulate = Color(0.9, 0.8, 0.65, 1)
 
 [node name="ShipBell" parent="HiddenObjects" instance=ExtResource("5_object")]
-position = Vector2(420, 668)
-rotation = 0.35
-scale = Vector2(0.7, 0.7)
+position = Vector2(570, 598)
+rotation = 1.25
 data = ExtResource("9_bell")
+texture_scale = Vector2(0.2121, 0.2121)
+modulate = Color(0.9, 0.78, 0.64, 1)
 
 [node name="DroppedTorch" parent="HiddenObjects" instance=ExtResource("5_object")]
-position = Vector2(548, 686)
+position = Vector2(612, 674)
 rotation = -0.1
-scale = Vector2(0.65, 0.65)
 data = ExtResource("11_torch")
+texture_scale = Vector2(0.2273, 0.2273)
+modulate = Color(0.9, 0.78, 0.64, 1)
 
 [node name="MarasPurse" parent="HiddenObjects" instance=ExtResource("5_object")]
-position = Vector2(776, 678)
-rotation = 0.2
-scale = Vector2(0.62, 0.62)
+position = Vector2(452, 618)
+rotation = 0.1
 data = ExtResource("10_purse")
+texture_scale = Vector2(0.1742, 0.1742)
+modulate = Color(1, 0.92, 0.82, 1)
 
 [node name="FirstAidBox" parent="HiddenObjects" node_paths=PackedStringArray("contents") instance=ExtResource("17_container")]
-position = Vector2(170, 240)
+position = Vector2(205, 148)
 container_id = &"first_aid_box"
 contents = NodePath("../EtherBottle")
 open_title = "You open the first-aid box..."
 open_message = "No bandages at all. Just one brown bottle, half empty."
 style = 3
 tint = Color(0.82, 0.8, 0.74, 1)
-size = Vector2(52, 48)
+size = Vector2(378, 392)
+closed_texture = ExtResource("tex_boat_shed_first_aid_box_closed_v1")
+open_texture = ExtResource("tex_boat_shed_first_aid_box_open_v1")
+scale = Vector2(0.1429, 0.1429)
+self_modulate = Color(0.82, 0.68, 0.5, 1)
 
 [node name="EtherBottle" parent="HiddenObjects" instance=ExtResource("5_object")]
-position = Vector2(170, 236)
-scale = Vector2(0.6, 0.6)
+position = Vector2(208, 160)
 data = ExtResource("13_ether")
+texture_scale = Vector2(0.0985, 0.0985)
+modulate = Color(0.86, 0.72, 0.56, 1)
 
 [node name="Strongbox" parent="HiddenObjects" node_paths=PackedStringArray("contents") instance=ExtResource("17_container")]
-position = Vector2(660, 664)
+position = Vector2(745, 626)
 container_id = &"strongbox"
 contents = NodePath("../BenchKey")
 open_title = "You prise open the rusty strongbox..."
 open_message = "Lake water pours out. Inside is a small key with a tag."
 style = 0
 tint = Color(0.36, 0.3, 0.26, 1)
-size = Vector2(70, 42)
+size = Vector2(340.815, 277.407)
+closed_texture = ExtResource("tex_boat_shed_strongbox_closed_v1")
+open_texture = ExtResource("tex_boat_shed_strongbox_open_v1")
+scale = Vector2(0.2523, 0.2523)
+self_modulate = Color(0.9, 0.78, 0.64, 1)
 
 [node name="BenchKey" parent="HiddenObjects" instance=ExtResource("5_object")]
-position = Vector2(660, 658)
-scale = Vector2(0.65, 0.65)
+position = Vector2(745, 610)
 data = ExtResource("14_key")
+rotation = 0.9
+texture_scale = Vector2(0.1061, 0.1061)
+modulate = Color(0.9, 0.78, 0.64, 1)
 
 [node name="WorkbenchDrawer" parent="HiddenObjects" node_paths=PackedStringArray("contents", "required_object") instance=ExtResource("17_container")]
-position = Vector2(215, 403)
+position = Vector2(240, 325)
 container_id = &"workbench_drawer"
 contents = NodePath("../BankReceipt")
 open_title = "The little key turns..."
@@ -119,31 +147,41 @@ locked_title = "The workbench drawer is locked."
 locked_message = "A small steel lock. The key isn't anywhere dry."
 style = 4
 tint = Color(0.34, 0.24, 0.16, 1)
-size = Vector2(84, 20)
+size = Vector2(344.368, 137.747)
+closed_texture = ExtResource("tex_boat_shed_workbench_drawer_closed_v1")
+open_texture = ExtResource("tex_boat_shed_workbench_drawer_open_v1")
+scale = Vector2(0.2033, 0.2033)
+self_modulate = Color(0.78, 0.66, 0.54, 1)
 
 [node name="BankReceipt" parent="HiddenObjects" instance=ExtResource("5_object")]
-position = Vector2(215, 398)
-rotation = 1.45
-scale = Vector2(0.5, 0.5)
+position = Vector2(240, 338)
+rotation = 0.1
 data = ExtResource("15_receipt")
+texture_scale = Vector2(0.1364, 0.1364)
+modulate = Color(0.86, 0.72, 0.56, 1)
 
 [node name="NetBasket" parent="HiddenObjects" node_paths=PackedStringArray("contents") instance=ExtResource("17_container")]
-position = Vector2(932, 276)
+position = Vector2(949, 225)
 container_id = &"net_basket"
 contents = NodePath("../DivingGoggles")
 open_title = "You pull the old nets out of the basket..."
 open_message = "Tangled in the bottom, still dripping, is a pair of goggles."
 style = 6
 tint = Color(0.5, 0.42, 0.28, 1)
-size = Vector2(62, 46)
+size = Vector2(335.19, 288.957)
+closed_texture = ExtResource("tex_boat_shed_net_basket_closed_v1")
+open_texture = ExtResource("tex_boat_shed_net_basket_open_v1")
+scale = Vector2(0.173, 0.173)
+self_modulate = Color(0.88, 0.78, 0.66, 1)
 
 [node name="DivingGoggles" parent="HiddenObjects" instance=ExtResource("5_object")]
-position = Vector2(932, 270)
-scale = Vector2(0.6, 0.6)
+position = Vector2(955, 220)
 data = ExtResource("12_goggles")
+texture_scale = Vector2(0.1212, 0.1212)
+modulate = Color(0.86, 0.72, 0.56, 1)
 
 [node name="ToolChest" parent="HiddenObjects" node_paths=PackedStringArray("contents") instance=ExtResource("17_container")]
-position = Vector2(918, 424)
+position = Vector2(946, 390)
 container_id = &"tool_chest"
 contents = NodePath("../LoftKey")
 open_title = "The lock clicks open..."
@@ -157,15 +195,22 @@ code_hint_first_after = 5
 code_hint_second_after = 8
 style = 0
 tint = Color(0.22, 0.3, 0.4, 1)
-size = Vector2(96, 50)
+size = Vector2(341.028, 216.262)
+closed_texture = ExtResource("tex_boat_shed_tool_chest_closed_v1")
+open_texture = ExtResource("tex_boat_shed_tool_chest_open_v1")
+scale = Vector2(0.2404, 0.2404)
+self_modulate = Color(0.88, 0.78, 0.66, 1)
 
 [node name="LoftKey" parent="HiddenObjects" instance=ExtResource("5_object")]
-position = Vector2(918, 418)
-scale = Vector2(0.6, 0.6)
+position = Vector2(946, 384)
 data = ExtResource("16_loft")
+rotation = 0.1
+texture_scale = Vector2(0.1667, 0.1667)
+modulate = Color(0.86, 0.72, 0.56, 1)
 
 [node name="TideWater" type="Node2D" parent="."]
 script = ExtResource("18_water")
+slip_rect = Rect2(283, 470, 682, 250)
 
 [node name="RoomForeground" type="Node2D" parent="."]
 visible = false

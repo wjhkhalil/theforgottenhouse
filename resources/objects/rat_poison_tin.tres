@@ -2,6 +2,8 @@
 
 [ext_resource type="Script" path="res://scripts/hidden_object_data.gd" id="1_data"]
 
+[ext_resource type="Texture2D" path="res://assets/objects/rat_poison_tin_v1.png" id="2_texture"]
+
 [resource]
 script = ExtResource("1_data")
 object_id = &"rat_poison_tin"
@@ -12,5 +14,7 @@ clue_text = "Bought by T. Greaves in the same week that Eleanor fell ill. The ki
 hint_text = "Something dangerous is hidden low, under the sink."
 riddle_text = "Deadly to mice, so it says"
 placeholder_style = 45
+texture = ExtResource("2_texture")
+icon_texture = ExtResource("2_texture")
 is_required = true
 starts_visible = true

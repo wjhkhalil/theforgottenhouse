@@ -30,6 +30,24 @@
 [ext_resource type="PackedScene" path="res://scenes/ui/letter_popup.tscn" id="28_r"]
 [ext_resource type="PackedScene" path="res://scenes/ui/keypad_lock.tscn" id="29_r"]
 [ext_resource type="Texture2D" path="res://assets/backgrounds/island_chapel_background_v1.png" id="bg_island_chapel"]
+[ext_resource type="Texture2D" path="res://assets/objects/island_chapel_alms_box_closed_v1.png" id="tex_island_chapel_alms_box_closed_v1"]
+[ext_resource type="Texture2D" path="res://assets/objects/island_chapel_alms_box_open_v1.png" id="tex_island_chapel_alms_box_open_v1"]
+[ext_resource type="Texture2D" path="res://assets/objects/island_chapel_vestry_door_closed_v1.png" id="tex_island_chapel_vestry_door_closed_v1"]
+[ext_resource type="Texture2D" path="res://assets/objects/island_chapel_vestry_door_open_v1.png" id="tex_island_chapel_vestry_door_open_v1"]
+[ext_resource type="Texture2D" path="res://assets/objects/island_chapel_sewing_basket_closed_v1.png" id="tex_island_chapel_sewing_basket_closed_v1"]
+[ext_resource type="Texture2D" path="res://assets/objects/island_chapel_sewing_basket_open_v1.png" id="tex_island_chapel_sewing_basket_open_v1"]
+[ext_resource type="Texture2D" path="res://assets/objects/island_chapel_pulpit_drawer_closed_v1.png" id="tex_island_chapel_pulpit_drawer_closed_v1"]
+[ext_resource type="Texture2D" path="res://assets/objects/island_chapel_pulpit_drawer_open_v1.png" id="tex_island_chapel_pulpit_drawer_open_v1"]
+[ext_resource type="Texture2D" path="res://assets/objects/island_chapel_parish_chest_closed_v1.png" id="tex_island_chapel_parish_chest_closed_v1"]
+[ext_resource type="Texture2D" path="res://assets/objects/island_chapel_parish_chest_open_v1.png" id="tex_island_chapel_parish_chest_open_v1"]
+[ext_resource type="Texture2D" path="res://assets/objects/island_chapel_font_cover_closed_v1.png" id="tex_island_chapel_font_cover_closed_v1"]
+[ext_resource type="Texture2D" path="res://assets/objects/island_chapel_font_cover_open_v1.png" id="tex_island_chapel_font_cover_open_v1"]
+[ext_resource type="Texture2D" path="res://assets/objects/island_chapel_pew_box_closed_v1.png" id="tex_island_chapel_pew_box_closed_v1"]
+[ext_resource type="Texture2D" path="res://assets/objects/island_chapel_pew_box_open_v1.png" id="tex_island_chapel_pew_box_open_v1"]
+[ext_resource type="Texture2D" path="res://assets/objects/island_chapel_aumbry_closed_v1.png" id="tex_island_chapel_aumbry_closed_v1"]
+[ext_resource type="Texture2D" path="res://assets/objects/island_chapel_aumbry_open_v1.png" id="tex_island_chapel_aumbry_open_v1"]
+[ext_resource type="Texture2D" path="res://assets/objects/island_chapel_candle_box_closed_v1.png" id="tex_island_chapel_candle_box_closed_v1"]
+[ext_resource type="Texture2D" path="res://assets/objects/island_chapel_candle_box_open_v1.png" id="tex_island_chapel_candle_box_open_v1"]
 
 [node name="IslandChapel" type="Node2D" node_paths=PackedStringArray("keypad_lock")]
 script = ExtResource("1_r")
@@ -48,42 +66,43 @@ replacement_texture = ExtResource("bg_island_chapel")
 unique_name_in_owner = true
 
 [node name="HymnBook" parent="HiddenObjects" instance=ExtResource("5_r")]
-position = Vector2(250, 236)
-rotation = -0.2
-scale = Vector2(0.55, 0.55)
+position = Vector2(278, 219)
+rotation = 0
 data = ExtResource("6_r")
+texture_scale = Vector2(0.1742, 0.1742)
 
 [node name="CollectionPlate" parent="HiddenObjects" instance=ExtResource("5_r")]
-position = Vector2(420, 598)
-rotation = 0.1
-scale = Vector2(0.6, 0.6)
+position = Vector2(393, 487)
+rotation = 0
 data = ExtResource("7_r")
+texture_scale = Vector2(0.1515, 0.1515)
 
 [node name="GreyVeil" parent="HiddenObjects" instance=ExtResource("5_r")]
-position = Vector2(835, 372)
-scale = Vector2(0.6, 0.6)
+position = Vector2(864, 338)
 data = ExtResource("9_r")
+rotation = 0
+texture_scale = Vector2(0.25, 0.25)
 
 [node name="HandBell" parent="HiddenObjects" instance=ExtResource("5_r")]
-position = Vector2(338, 418)
-rotation = 0.25
-scale = Vector2(0.55, 0.55)
+position = Vector2(372, 434)
+rotation = 0
 data = ExtResource("11_r")
+texture_scale = Vector2(0.1439, 0.1439)
 
 [node name="Trowel" parent="HiddenObjects" instance=ExtResource("5_r")]
-position = Vector2(212, 668)
-rotation = -0.15
-scale = Vector2(0.6, 0.6)
+position = Vector2(345, 487)
+rotation = 0
 data = ExtResource("14_r")
+texture_scale = Vector2(0.1515, 0.1515)
 
 [node name="Oarlock" parent="HiddenObjects" instance=ExtResource("5_r")]
-position = Vector2(952, 652)
-rotation = 0.4
-scale = Vector2(0.6, 0.6)
+position = Vector2(752, 535)
+rotation = 0
 data = ExtResource("18_r")
+texture_scale = Vector2(0.1288, 0.1288)
 
 [node name="AlmsBox" parent="HiddenObjects" node_paths=PackedStringArray("contents") instance=ExtResource("21_r")]
-position = Vector2(510, 292)
+position = Vector2(493, 288)
 container_id = &"alms_box"
 contents = NodePath("../VestryKey")
 open_title = "The four numbers click into place..."
@@ -97,15 +116,19 @@ code_hint_first_after = 9
 code_hint_second_after = 12
 style = 5
 tint = Color(0.3, 0.3, 0.32, 1)
-size = Vector2(40, 38)
+size = Vector2(356.667, 356.667)
+closed_texture = ExtResource("tex_island_chapel_alms_box_closed_v1")
+open_texture = ExtResource("tex_island_chapel_alms_box_open_v1")
+scale = Vector2(0.1121, 0.1121)
 
 [node name="VestryKey" parent="HiddenObjects" instance=ExtResource("5_r")]
-position = Vector2(510, 288)
-scale = Vector2(0.5, 0.5)
+position = Vector2(493, 270)
 data = ExtResource("19_r")
+texture_scale = Vector2(0.0985, 0.0985)
 
 [node name="VestryDoor" parent="HiddenObjects" node_paths=PackedStringArray("contents", "required_object") instance=ExtResource("21_r")]
-position = Vector2(905, 352)
+self_modulate = Color(0.8, 0.8, 0.86, 1)
+position = Vector2(972, 348)
 container_id = &"vestry_door"
 contents = NodePath("../CottageMap")
 open_title = "The vestry door creaks open..."
@@ -115,121 +138,149 @@ locked_title = "The vestry door is locked."
 locked_message = "A heavy old lock. The vestry key must be somewhere in the chapel."
 style = 3
 tint = Color(0.33, 0.22, 0.14, 1)
-size = Vector2(90, 186)
+size = Vector2(83.0909, 332.364)
+closed_texture = ExtResource("tex_island_chapel_vestry_door_closed_v1")
+open_texture = ExtResource("tex_island_chapel_vestry_door_open_v1")
+scale = Vector2(-0.6018, 0.6018)
 
 [node name="CottageMap" parent="HiddenObjects" instance=ExtResource("5_r")]
-position = Vector2(905, 346)
-scale = Vector2(0.6, 0.6)
+position = Vector2(958, 378)
 data = ExtResource("20_r")
+texture_scale = Vector2(0.1136, 0.1136)
 
 [node name="SewingBasket" parent="HiddenObjects" node_paths=PackedStringArray("contents") instance=ExtResource("21_r")]
-position = Vector2(160, 602)
+self_modulate = Color(0.85, 0.85, 0.88, 1)
+position = Vector2(130, 466)
 container_id = &"sewing_basket"
 contents = NodePath("../EmbroideryHoop")
 open_title = "You lift the lid of the sewing basket..."
 open_message = "Skeins of blue and red thread, and an embroidery hoop, half finished."
 style = 6
 tint = Color(0.5, 0.42, 0.28, 1)
-size = Vector2(48, 34)
+size = Vector2(356.667, 285.333)
+closed_texture = ExtResource("tex_island_chapel_sewing_basket_closed_v1")
+open_texture = ExtResource("tex_island_chapel_sewing_basket_open_v1")
+scale = Vector2(0.1402, 0.1402)
 
 [node name="EmbroideryHoop" parent="HiddenObjects" instance=ExtResource("5_r")]
-position = Vector2(160, 596)
-rotation = -0.1
-scale = Vector2(0.55, 0.55)
+position = Vector2(130, 462)
+rotation = 0
 data = ExtResource("13_r")
+texture_scale = Vector2(0.0985, 0.0985)
 
 [node name="PulpitDrawer" parent="HiddenObjects" node_paths=PackedStringArray("contents") instance=ExtResource("21_r")]
-position = Vector2(232, 330)
+position = Vector2(232, 372)
 container_id = &"pulpit_drawer"
 contents = NodePath("../DoctorsLetter")
 open_title = "The little drawer slides out..."
 open_message = "Sermon notes, a pencil stub, and a letter on stiff white paper."
 style = 4
 tint = Color(0.4, 0.28, 0.17, 1)
-size = Vector2(60, 16)
+size = Vector2(374.5, 107)
+closed_texture = ExtResource("tex_island_chapel_pulpit_drawer_closed_v1")
+open_texture = ExtResource("tex_island_chapel_pulpit_drawer_open_v1")
+scale = Vector2(0.1869, 0.1869)
 
 [node name="DoctorsLetter" parent="HiddenObjects" instance=ExtResource("5_r")]
-position = Vector2(232, 326)
-rotation = 0.1
-scale = Vector2(0.5, 0.5)
+position = Vector2(232, 372)
+rotation = 0
 data = ExtResource("15_r")
+texture_scale = Vector2(0.0909, 0.0909)
 
 [node name="ParishChest" parent="HiddenObjects" node_paths=PackedStringArray("contents") instance=ExtResource("21_r")]
-position = Vector2(790, 478)
+self_modulate = Color(0.85, 0.85, 0.88, 1)
+position = Vector2(838, 457)
 container_id = &"parish_chest"
 contents = NodePath("../ParishRegister")
 open_title = "You lift the lid of the parish chest..."
 open_message = "Old candle ends, a folded altar cloth, and the heavy parish register."
 style = 0
 tint = Color(0.42, 0.29, 0.2, 1)
-size = Vector2(84, 46)
+size = Vector2(389.091, 214)
+closed_texture = ExtResource("tex_island_chapel_parish_chest_closed_v1")
+open_texture = ExtResource("tex_island_chapel_parish_chest_open_v1")
+scale = Vector2(0.2056, 0.2056)
 
 [node name="ParishRegister" parent="HiddenObjects" instance=ExtResource("5_r")]
-position = Vector2(790, 472)
-scale = Vector2(0.55, 0.55)
+position = Vector2(838, 453)
 data = ExtResource("10_r")
+texture_scale = Vector2(0.0985, 0.0985)
 
 [node name="FontCover" parent="HiddenObjects" node_paths=PackedStringArray("contents") instance=ExtResource("21_r")]
-position = Vector2(430, 449)
+self_modulate = Color(0.86, 0.88, 0.94, 1)
+position = Vector2(448, 393)
 container_id = &"font_cover"
 contents = NodePath("../WoodenCross")
 open_title = "You lift the wooden lid of the font..."
 open_message = "The bowl is dry. Someone has hidden a small wooden cross in it."
 style = 7
 tint = Color(0.3, 0.2, 0.13, 1)
-size = Vector2(74, 18)
+size = Vector2(374.5, 133.75)
+closed_texture = ExtResource("tex_island_chapel_font_cover_closed_v1")
+open_texture = ExtResource("tex_island_chapel_font_cover_open_v1")
+scale = Vector2(0.2243, 0.2243)
 
 [node name="WoodenCross" parent="HiddenObjects" instance=ExtResource("5_r")]
-position = Vector2(430, 444)
-scale = Vector2(0.55, 0.55)
+position = Vector2(448, 393)
 data = ExtResource("17_r")
+texture_scale = Vector2(0.1136, 0.1136)
 
 [node name="PewBox" parent="HiddenObjects" node_paths=PackedStringArray("contents") instance=ExtResource("21_r")]
-position = Vector2(820, 612)
+position = Vector2(885, 508)
 container_id = &"pew_box"
 contents = NodePath("../PrayerCard")
 open_title = "You open the little pew box..."
 open_message = "A stack of prayer cards. The top one has writing on the back."
 style = 7
 tint = Color(0.38, 0.26, 0.16, 1)
-size = Vector2(40, 24)
+size = Vector2(372.174, 186.087)
+closed_texture = ExtResource("tex_island_chapel_pew_box_closed_v1")
+open_texture = ExtResource("tex_island_chapel_pew_box_open_v1")
+scale = Vector2(0.1075, 0.1075)
 
 [node name="PrayerCard" parent="HiddenObjects" instance=ExtResource("5_r")]
-position = Vector2(820, 608)
-rotation = 0.15
-scale = Vector2(0.5, 0.5)
+position = Vector2(885, 500)
+rotation = 0
 data = ExtResource("8_r")
+texture_scale = Vector2(0.0758, 0.0758)
 
 [node name="Aumbry" parent="HiddenObjects" node_paths=PackedStringArray("contents") instance=ExtResource("21_r")]
-position = Vector2(790, 300)
+self_modulate = Color(0.8, 0.82, 0.9, 1)
+position = Vector2(790, 269)
 container_id = &"aumbry"
 contents = NodePath("../PewterCup")
 open_title = "The aumbry's little doors open..."
 open_message = "A folded linen cloth and a shining pewter cup."
 style = 3
 tint = Color(0.36, 0.26, 0.16, 1)
-size = Vector2(40, 48)
+size = Vector2(253.898, 326.441)
+closed_texture = ExtResource("tex_island_chapel_aumbry_closed_v1")
+open_texture = ExtResource("tex_island_chapel_aumbry_open_v1")
+scale = Vector2(0.2757, 0.2757)
 
 [node name="PewterCup" parent="HiddenObjects" instance=ExtResource("5_r")]
-position = Vector2(790, 296)
-scale = Vector2(0.55, 0.55)
+position = Vector2(792, 300)
 data = ExtResource("12_r")
+texture_scale = Vector2(0.1136, 0.1136)
 
 [node name="CandleBox" parent="HiddenObjects" node_paths=PackedStringArray("contents") instance=ExtResource("21_r")]
-position = Vector2(575, 340)
+position = Vector2(562, 348)
 container_id = &"candle_box"
 contents = NodePath("../CandleSnuffer")
 open_title = "You open the tin candle box..."
 open_message = "Spare candles, a box of matches, and a long brass snuffer."
 style = 7
 tint = Color(0.4, 0.42, 0.45, 1)
-size = Vector2(44, 20)
+size = Vector2(368.571, 168.929)
+closed_texture = ExtResource("tex_island_chapel_candle_box_closed_v1")
+open_texture = ExtResource("tex_island_chapel_candle_box_open_v1")
+scale = Vector2(0.1302, 0.1302)
 
 [node name="CandleSnuffer" parent="HiddenObjects" instance=ExtResource("5_r")]
-position = Vector2(575, 336)
-rotation = -0.1
-scale = Vector2(0.5, 0.5)
+position = Vector2(560, 346)
+rotation = 0
 data = ExtResource("16_r")
+texture_scale = Vector2(0.1364, 0.1364)
 
 [node name="RoomForeground" type="Node2D" parent="."]
 visible = false
@@ -238,6 +289,7 @@ layer = 1
 
 [node name="CandleLights" type="Node2D" parent="."]
 script = ExtResource("22_r")
+positions = PackedVector2Array(715, 300, 172, 222, 470, 180, 800, 152, 300, 505, 930, 515)
 
 [node name="HintHighlight" type="Node2D" parent="."]
 unique_name_in_owner = true

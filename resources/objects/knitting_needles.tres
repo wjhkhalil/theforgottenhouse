@@ -2,6 +2,8 @@
 
 [ext_resource type="Script" path="res://scripts/hidden_object_data.gd" id="1_data"]
 
+[ext_resource type="Texture2D" path="res://assets/objects/knitting_needles_v1.png" id="2_texture"]
+
 [resource]
 script = ExtResource("1_data")
 object_id = &"knitting_needles"
@@ -12,5 +14,7 @@ clue_text = "A jumper half-finished, far too small for Agnes. She was knitting f
 hint_text = "Look in the knitting basket on the floor of the keeper's landing, next to the chair."
 riddle_text = ""
 placeholder_style = 139
+texture = ExtResource("2_texture")
+icon_texture = ExtResource("2_texture")
 is_required = true
 starts_visible = false

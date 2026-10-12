@@ -1,0 +1,212 @@
+{
+ "objects": [
+  {
+   "id": "ship_lantern",
+   "sheet": "sunken_boat_objects_sheet_v1.png",
+   "box": [
+    64,
+    2,
+    271,
+    354
+   ],
+   "shadow": false
+  },
+  {
+   "id": "hair_comb",
+   "sheet": "sunken_boat_objects_sheet_v1.png",
+   "box": [
+    322,
+    74,
+    645,
+    348
+   ]
+  },
+  {
+   "id": "steel_file",
+   "sheet": "sunken_boat_objects_sheet_v1.png",
+   "box": [
+    633,
+    191,
+    975,
+    273
+   ]
+  },
+  {
+   "id": "wine_bottle",
+   "sheet": "sunken_boat_objects_sheet_v1.png",
+   "box": [
+    966,
+    145,
+    1347,
+    296
+   ]
+  },
+  {
+   "id": "sextant",
+   "sheet": "sunken_boat_objects_sheet_v1.png",
+   "box": [
+    1339,
+    2,
+    1654,
+    353
+   ]
+  },
+  {
+   "id": "pearl_earring",
+   "sheet": "sunken_boat_objects_sheet_v1.png",
+   "box": [
+    102,
+    376,
+    214,
+    608
+   ],
+   "shadow": false
+  },
+  {
+   "id": "cabin_key",
+   "sheet": "sunken_boat_objects_sheet_v1.png",
+   "box": [
+    295,
+    423,
+    623,
+    625
+   ]
+  },
+  {
+   "id": "iron_shackle",
+   "sheet": "sunken_boat_objects_sheet_v1.png",
+   "box": [
+    625,
+    361,
+    971,
+    605
+   ]
+  },
+  {
+   "id": "ice_house_key",
+   "sheet": "sunken_boat_objects_sheet_v1.png",
+   "box": [
+    971,
+    429,
+    1319,
+    640
+   ]
+  },
+  {
+   "id": "ship_log",
+   "sheet": "sunken_boat_objects_sheet_v1.png",
+   "box": [
+    1332,
+    346,
+    1650,
+    637
+   ]
+  },
+  {
+   "id": "teacup",
+   "sheet": "sunken_boat_objects_sheet_v1.png",
+   "box": [
+    24,
+    662,
+    384,
+    888
+   ]
+  },
+  {
+   "id": "drill_bit",
+   "sheet": "sunken_boat_objects_sheet_v1.png",
+   "box": [
+    392,
+    711,
+    831,
+    819
+   ]
+  },
+  {
+   "id": "silver_frame",
+   "sheet": "sunken_boat_objects_sheet_v1.png",
+   "box": [
+    861,
+    617,
+    1113,
+    911
+   ]
+  }
+ ],
+ "containers": [
+  {
+   "id": "sunken_boat_chart_drawer",
+   "closed": {
+    "sheet": "sunken_boat_containers_sheet_v1.png",
+    "box": [
+     22,
+     92,
+     444,
+     213
+    ],
+    "shadow": false
+   },
+   "open": {
+    "sheet": "sunken_boat_containers_sheet_v1.png",
+    "box": [
+     446,
+     28,
+     881,
+     245
+    ],
+    "shadow": false
+   },
+   "match": "width"
+  },
+  {
+   "id": "sunken_boat_key_box",
+   "closed": {
+    "sheet": "sunken_boat_containers_sheet_v1.png",
+    "box": [
+     97,
+     257,
+     347,
+     488
+    ],
+    "shadow": false
+   },
+   "open": {
+    "sheet": "sunken_boat_containers_sheet_v1.png",
+    "box": [
+     449,
+     257,
+     802,
+     489
+    ],
+    "shadow": false
+   },
+   "match": "height",
+   "open_offset": [
+    -78,
+    0
+   ]
+  },
+  {
+   "id": "sunken_boat_toolbox",
+   "closed": {
+    "sheet": "sunken_boat_containers_sheet_v1.png",
+    "box": [
+     838,
+     499,
+     1235,
+     693
+    ]
+   },
+   "open": {
+    "sheet": "sunken_boat_containers_sheet_v1.png",
+    "box": [
+     1239,
+     478,
+     1650,
+     705
+    ]
+   },
+   "match": "width"
+  }
+ ]
+}

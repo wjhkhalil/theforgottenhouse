@@ -1,0 +1,207 @@
+{
+ "objects": [
+  {
+   "id": "hand_drill",
+   "sheet": "workshop_objects_sheet_v1.png",
+   "box": [
+    15,
+    40,
+    468,
+    305
+   ]
+  },
+  {
+   "id": "oil_can",
+   "sheet": "workshop_objects_sheet_v1.png",
+   "box": [
+    372,
+    0,
+    672,
+    305
+   ]
+  },
+  {
+   "id": "wood_plane",
+   "sheet": "workshop_objects_sheet_v1.png",
+   "box": [
+    668,
+    30,
+    1030,
+    305
+   ]
+  },
+  {
+   "id": "paint_tin",
+   "sheet": "workshop_objects_sheet_v1.png",
+   "box": [
+    1022,
+    60,
+    1335,
+    310
+   ]
+  },
+  {
+   "id": "work_glove",
+   "sheet": "workshop_objects_sheet_v1.png",
+   "box": [
+    1330,
+    35,
+    1672,
+    315
+   ]
+  },
+  {
+   "id": "mallet",
+   "sheet": "workshop_objects_sheet_v1.png",
+   "box": [
+    1300,
+    370,
+    1672,
+    590
+   ]
+  },
+  {
+   "id": "letter_stencil",
+   "sheet": "workshop_objects_sheet_v1.png",
+   "box": [
+    10,
+    645,
+    400,
+    860
+   ]
+  },
+  {
+   "id": "cupboard_key",
+   "sheet": "workshop_objects_sheet_v1.png",
+   "box": [
+    395,
+    660,
+    805,
+    895
+   ]
+  },
+  {
+   "id": "diving_lamp",
+   "sheet": "workshop_objects_sheet_v1.png",
+   "box": [
+    800,
+    590,
+    1140,
+    900
+   ]
+  }
+ ],
+ "containers": [
+  {
+   "id": "workshop_bench_drawer",
+   "closed": {
+    "sheet": "workshop_containers_sheet_v1.png",
+    "box": [
+     15,
+     110,
+     420,
+     265
+    ],
+    "shadow": false
+   },
+   "open": {
+    "sheet": "workshop_containers_sheet_v1.png",
+    "box": [
+     424,
+     70,
+     820,
+     292
+    ],
+    "shadow": false
+   },
+   "match": "width",
+   "align": "center",
+   "open_offset": [
+    0,
+    -45
+   ]
+  },
+  {
+   "id": "workshop_bung_crate",
+   "closed": {
+    "sheet": "workshop_containers_sheet_v1.png",
+    "box": [
+     855,
+     70,
+     1230,
+     292
+    ]
+   },
+   "open": {
+    "sheet": "workshop_containers_sheet_v1.png",
+    "box": [
+     1244,
+     30,
+     1662,
+     295
+    ]
+   },
+   "match": "height",
+   "open_scale": 1.38,
+   "open_offset": [
+    -56,
+    0
+   ]
+  },
+  {
+   "id": "workshop_stencil_box",
+   "closed": {
+    "sheet": "workshop_containers_sheet_v1.png",
+    "box": [
+     832,
+     370,
+     1247,
+     522
+    ]
+   },
+   "open": {
+    "sheet": "workshop_containers_sheet_v1.png",
+    "box": [
+     1247,
+     306,
+     1662,
+     532
+    ]
+   },
+   "match": "width",
+   "align": "center",
+   "open_offset": [
+    0,
+    -34
+   ]
+  },
+  {
+   "id": "workshop_tool_cupboard",
+   "closed": {
+    "sheet": "workshop_containers_sheet_v1.png",
+    "box": [
+     892,
+     522,
+     1180,
+     880
+    ],
+    "shadow": false
+   },
+   "open": {
+    "sheet": "workshop_containers_sheet_v1.png",
+    "box": [
+     1222,
+     522,
+     1645,
+     885
+    ],
+    "shadow": false
+   },
+   "match": "height",
+   "open_offset": [
+    -52,
+    0
+   ]
+  }
+ ]
+}

@@ -2,6 +2,8 @@
 
 [ext_resource type="Script" path="res://scripts/hidden_object_data.gd" id="1_data"]
 
+[ext_resource type="Texture2D" path="res://assets/objects/train_ticket_v1.png" id="2_texture"]
+
 [resource]
 script = ExtResource("1_data")
 object_id = &"train_ticket"
@@ -12,5 +14,7 @@ clue_text = "Single, Blackwater to London. Tonight, 23:50. Whoever pinned this h
 hint_text = "Something small is pinned to the wall on the right, above the shelf."
 riddle_text = ""
 placeholder_style = 71
+texture = ExtResource("2_texture")
+icon_texture = ExtResource("2_texture")
 is_required = true
 starts_visible = true

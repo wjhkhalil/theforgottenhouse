@@ -2,6 +2,8 @@
 
 [ext_resource type="Script" path="res://scripts/hidden_object_data.gd" id="1_data"]
 
+[ext_resource type="Texture2D" path="res://assets/objects/tin_opener_v1.png" id="2_texture"]
+
 [resource]
 script = ExtResource("1_data")
 object_id = &"tin_opener"
@@ -12,5 +14,7 @@ clue_text = "An old lever opener. It could open a stuck tin."
 hint_text = "Something for opening tins was left among the pots."
 riddle_text = "I bite through metal lids"
 placeholder_style = 46
+texture = ExtResource("2_texture")
+icon_texture = ExtResource("2_texture")
 is_required = true
 starts_visible = true

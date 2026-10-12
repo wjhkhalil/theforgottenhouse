@@ -1,0 +1,272 @@
+{
+ "objects": [
+  {
+   "id": "candle_stub",
+   "sheet": "loft_objects_sheet_v1.png",
+   "box": [
+    45,
+    15,
+    400,
+    290
+   ]
+  },
+  {
+   "id": "tin_cup",
+   "sheet": "loft_objects_sheet_v1.png",
+   "box": [
+    450,
+    15,
+    815,
+    290
+   ]
+  },
+  {
+   "id": "hairpin",
+   "sheet": "loft_objects_sheet_v1.png",
+   "box": [
+    865,
+    35,
+    1225,
+    280
+   ],
+   "shadow": false
+  },
+  {
+   "id": "visiting_card",
+   "sheet": "loft_objects_sheet_v1.png",
+   "box": [
+    1255,
+    40,
+    1650,
+    280
+   ]
+  },
+  {
+   "id": "pocket_mirror",
+   "sheet": "loft_objects_sheet_v1.png",
+   "box": [
+    45,
+    310,
+    405,
+    595
+   ]
+  },
+  {
+   "id": "bedsheet_rope",
+   "sheet": "loft_objects_sheet_v1.png",
+   "box": [
+    555,
+    280,
+    690,
+    635
+   ],
+   "shadow": false
+  },
+  {
+   "id": "rag_doll",
+   "sheet": "loft_objects_sheet_v1.png",
+   "box": [
+    875,
+    295,
+    1195,
+    610
+   ]
+  },
+  {
+   "id": "padlock_key",
+   "sheet": "loft_objects_sheet_v1.png",
+   "box": [
+    1390,
+    300,
+    1525,
+    605
+   ]
+  },
+  {
+   "id": "sedative_vial",
+   "sheet": "loft_objects_sheet_v1.png",
+   "box": [
+    130,
+    595,
+    285,
+    915
+   ]
+  },
+  {
+   "id": "unsent_letter",
+   "sheet": "loft_objects_sheet_v1.png",
+   "box": [
+    425,
+    640,
+    830,
+    900
+   ]
+  },
+  {
+   "id": "pressed_violet",
+   "sheet": "loft_objects_sheet_v1.png",
+   "box": [
+    870,
+    610,
+    1205,
+    925
+   ]
+  },
+  {
+   "id": "workshop_key",
+   "sheet": "loft_objects_sheet_v1.png",
+   "box": [
+    1240,
+    615,
+    1665,
+    925
+   ]
+  }
+ ],
+ "containers": [
+  {
+   "id": "loft_sewing_basket",
+   "closed": {
+    "sheet": "loft_containers_sheet_v1.png",
+    "box": [
+     30,
+     20,
+     345,
+     300
+    ]
+   },
+   "open": {
+    "sheet": "loft_containers_sheet_v1.png",
+    "box": [
+     390,
+     25,
+     805,
+     300
+    ]
+   },
+   "match": "height",
+   "open_scale": 0.97,
+   "open_offset": [
+    62,
+    0
+   ]
+  },
+  {
+   "id": "loft_hatbox",
+   "closed": {
+    "sheet": "loft_containers_sheet_v1.png",
+    "box": [
+     835,
+     35,
+     1185,
+     300
+    ]
+   },
+   "open": {
+    "sheet": "loft_containers_sheet_v1.png",
+    "box": [
+     1200,
+     0,
+     1650,
+     300
+    ]
+   },
+   "match": "height",
+   "open_scale": 1.155,
+   "open_offset": [
+    -66,
+    0
+   ]
+  },
+  {
+   "id": "loft_biscuit_tin",
+   "closed": {
+    "sheet": "loft_containers_sheet_v1.png",
+    "box": [
+     15,
+     335,
+     408,
+     585
+    ]
+   },
+   "open": {
+    "sheet": "loft_containers_sheet_v1.png",
+    "box": [
+     408,
+     285,
+     785,
+     585
+    ]
+   },
+   "match": "width"
+  },
+  {
+   "id": "loft_loose_floorboard",
+   "closed": {
+    "sheet": "loft_containers_sheet_v1.png",
+    "box": [
+     780,
+     385,
+     1222,
+     560
+    ],
+    "shadow": false
+   },
+   "open": {
+    "sheet": "loft_containers_sheet_v1.png",
+    "box": [
+     1222,
+     320,
+     1672,
+     560
+    ],
+    "shadow": false
+   },
+   "match": "width"
+  },
+  {
+   "id": "loft_doctors_case",
+   "closed": {
+    "sheet": "loft_containers_sheet_v1.png",
+    "box": [
+     0,
+     575,
+     402,
+     920
+    ]
+   },
+   "open": {
+    "sheet": "loft_containers_sheet_v1.png",
+    "box": [
+     398,
+     575,
+     775,
+     920
+    ]
+   },
+   "match": "width"
+  },
+  {
+   "id": "loft_sea_chest",
+   "closed": {
+    "sheet": "loft_containers_sheet_v1.png",
+    "box": [
+     766,
+     585,
+     1246,
+     920
+    ]
+   },
+   "open": {
+    "sheet": "loft_containers_sheet_v1.png",
+    "box": [
+     1236,
+     548,
+     1672,
+     925
+    ]
+   },
+   "match": "width"
+  }
+ ]
+}

@@ -2,6 +2,8 @@
 
 [ext_resource type="Script" path="res://scripts/hidden_object_data.gd" id="1_data"]
 
+[ext_resource type="Texture2D" path="res://assets/objects/lens_cloth_v1.png" id="2_texture"]
+
 [resource]
 script = ExtResource("1_data")
 object_id = &"lens_cloth"
@@ -12,5 +14,7 @@ clue_text = "Folded inside the cloth is a note in Agnes's hand: 'M. helps me pol
 hint_text = "A little iron cupboard is set into the wall just left of the great lens. Look inside it."
 riddle_text = ""
 placeholder_style = 147
+texture = ExtResource("2_texture")
+icon_texture = ExtResource("2_texture")
 is_required = true
 starts_visible = false

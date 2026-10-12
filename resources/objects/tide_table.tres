@@ -2,6 +2,8 @@
 
 [ext_resource type="Script" path="res://scripts/hidden_object_data.gd" id="1_data"]
 
+[ext_resource type="Texture2D" path="res://assets/objects/tide_table_v1.png" id="2_texture"]
+
 [resource]
 script = ExtResource("1_data")
 object_id = &"tide_table"
@@ -12,5 +14,7 @@ clue_text = "One night is ringed in red: the 2nd of October 1988. Agnes wrote be
 hint_text = "It is pinned to the wall below the keeper's landing, on the left above the lifebelt. Wait for the beam to light it."
 riddle_text = ""
 placeholder_style = 141
+texture = ExtResource("2_texture")
+icon_texture = ExtResource("2_texture")
 is_required = true
 starts_visible = true

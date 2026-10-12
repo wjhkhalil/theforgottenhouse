@@ -1,0 +1,274 @@
+{
+ "notes": "horse_blanket and snowshoe touch each other on their sheet and are not listed here: cut them with tools/sprite_fixes/ice_house_cut_touching.py.",
+ "objects": [
+  {
+   "id": "ice_pick",
+   "sheet": "ice_house_objects_sheet_v1.png",
+   "box": [
+    8,
+    118,
+    428,
+    222
+   ]
+  },
+  {
+   "id": "ice_tongs",
+   "sheet": "ice_house_objects_sheet_v1.png",
+   "box": [
+    426,
+    12,
+    630,
+    326
+   ],
+   "shadow": false
+  },
+  {
+   "id": "torn_sleeve",
+   "sheet": "ice_house_objects_sheet_v1.png",
+   "box": [
+    1040,
+    44,
+    1414,
+    296
+   ],
+   "shadow": false
+  },
+  {
+   "id": "lost_mitten",
+   "sheet": "ice_house_objects_sheet_v1.png",
+   "box": [
+    1420,
+    6,
+    1664,
+    326
+   ]
+  },
+  {
+   "id": "keepers_note",
+   "sheet": "ice_house_objects_sheet_v1.png",
+   "box": [
+    22,
+    344,
+    324,
+    630
+   ],
+   "shadow": false
+  },
+  {
+   "id": "scratched_slate",
+   "sheet": "ice_house_objects_sheet_v1.png",
+   "box": [
+    360,
+    360,
+    702,
+    606
+   ]
+  },
+  {
+   "id": "soup_tin",
+   "sheet": "ice_house_objects_sheet_v1.png",
+   "box": [
+    1054,
+    304,
+    1274,
+    624
+   ]
+  },
+  {
+   "id": "signal_whistle",
+   "sheet": "ice_house_objects_sheet_v1.png",
+   "box": [
+    1290,
+    380,
+    1658,
+    576
+   ]
+  },
+  {
+   "id": "ice_saw",
+   "sheet": "ice_house_objects_sheet_v1.png",
+   "box": [
+    16,
+    656,
+    472,
+    866
+   ],
+   "shadow": false
+  },
+  {
+   "id": "frozen_pike",
+   "sheet": "ice_house_objects_sheet_v1.png",
+   "box": [
+    466,
+    696,
+    914,
+    852
+   ]
+  },
+  {
+   "id": "frozen_brooch",
+   "sheet": "ice_house_objects_sheet_v1.png",
+   "box": [
+    904,
+    610,
+    1202,
+    918
+   ]
+  },
+  {
+   "id": "lighthouse_key",
+   "sheet": "ice_house_objects_sheet_v1.png",
+   "box": [
+    1216,
+    662,
+    1652,
+    922
+   ]
+  }
+ ],
+ "containers": [
+  {
+   "id": "ice_house_agnes_basket",
+   "closed": {
+    "sheet": "ice_house_containers_sheet_v1.png",
+    "box": [
+     30,
+     6,
+     390,
+     288
+    ]
+   },
+   "open": {
+    "sheet": "ice_house_containers_sheet_v1.png",
+    "box": [
+     444,
+     0,
+     806,
+     292
+    ]
+   },
+   "match": "width",
+   "align": "bottom"
+  },
+  {
+   "id": "ice_house_sawdust_bin",
+   "closed": {
+    "sheet": "ice_house_containers_sheet_v1.png",
+    "box": [
+     848,
+     46,
+     1236,
+     300
+    ]
+   },
+   "open": {
+    "sheet": "ice_house_containers_sheet_v1.png",
+    "box": [
+     1266,
+     42,
+     1656,
+     308
+    ]
+   },
+   "match": "width",
+   "align": "bottom"
+  },
+  {
+   "id": "ice_house_tool_locker",
+   "closed": {
+    "sheet": "ice_house_containers_sheet_v1.png",
+    "box": [
+     92,
+     288,
+     324,
+     624
+    ]
+   },
+   "open": {
+    "sheet": "ice_house_containers_sheet_v1.png",
+    "box": [
+     408,
+     288,
+     768,
+     630
+    ]
+   },
+   "match": "height",
+   "align": "bottom",
+   "open_offset": [
+    -60,
+    0
+   ]
+  },
+  {
+   "id": "ice_house_pike_ice",
+   "closed": {
+    "sheet": "ice_house_containers_sheet_v1.png",
+    "box": [
+     808,
+     336,
+     1234,
+     596
+    ]
+   },
+   "open": {
+    "sheet": "ice_house_containers_sheet_v1.png",
+    "box": [
+     1236,
+     328,
+     1662,
+     616
+    ]
+   },
+   "match": "height",
+   "align": "bottom"
+  },
+  {
+   "id": "ice_house_brooch_ice",
+   "closed": {
+    "sheet": "ice_house_containers_sheet_v1.png",
+    "box": [
+     78,
+     636,
+     330,
+     906
+    ]
+   },
+   "open": {
+    "sheet": "ice_house_containers_sheet_v1.png",
+    "box": [
+     396,
+     654,
+     768,
+     912
+    ]
+   },
+   "match": "height",
+   "align": "bottom",
+   "open_scale": 0.85
+  },
+  {
+   "id": "ice_house_drain_ice",
+   "closed": {
+    "sheet": "ice_house_containers_sheet_v1.png",
+    "box": [
+     800,
+     644,
+     1218,
+     900
+    ]
+   },
+   "open": {
+    "sheet": "ice_house_containers_sheet_v1.png",
+    "box": [
+     1222,
+     636,
+     1656,
+     890
+    ]
+   },
+   "match": "width",
+   "align": "bottom"
+  }
+ ]
+}

@@ -2,6 +2,8 @@
 
 [ext_resource type="Script" path="res://scripts/hidden_object_data.gd" id="1_data"]
 
+[ext_resource type="Texture2D" path="res://assets/objects/barometer_v1.png" id="2_texture"]
+
 [resource]
 script = ExtResource("1_data")
 object_id = &"barometer"
@@ -12,5 +14,7 @@ clue_text = "The needle points to STORMY. A pencil note on the case: 'Lowest I h
 hint_text = "High up on the curved wall at the top left of the tower, beside the window."
 riddle_text = ""
 placeholder_style = 142
+texture = ExtResource("2_texture")
+icon_texture = ExtResource("2_texture")
 is_required = true
 starts_visible = true

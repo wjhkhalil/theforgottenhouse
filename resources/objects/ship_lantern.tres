@@ -2,6 +2,8 @@
 
 [ext_resource type="Script" path="res://scripts/hidden_object_data.gd" id="1_data"]
 
+[ext_resource type="Texture2D" path="res://assets/objects/ship_lantern_v1.png" id="2_texture"]
+
 [resource]
 script = ExtResource("1_data")
 object_id = &"ship_lantern"
@@ -12,5 +14,7 @@ clue_text = "The wick is dry and unburnt. The Lady Margaret went out that night 
 hint_text = "Something brass lies on its side on the stern deck, at the top left of the wreck, by the rail."
 riddle_text = ""
 placeholder_style = 107
+texture = ExtResource("2_texture")
+icon_texture = ExtResource("2_texture")
 is_required = true
 starts_visible = true

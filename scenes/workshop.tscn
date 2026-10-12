@@ -28,6 +28,19 @@
 [ext_resource type="PackedScene" path="res://scenes/ui/letter_popup.tscn" id="26_letter"]
 [ext_resource type="PackedScene" path="res://scenes/ui/keypad_lock.tscn" id="27_keypad"]
 [ext_resource type="Texture2D" path="res://assets/backgrounds/workshop_background_v1.png" id="bg_workshop"]
+[ext_resource type="Texture2D" path="res://assets/objects/workshop_bench_drawer_closed_v1.png" id="tex_workshop_bench_drawer_closed_v1"]
+[ext_resource type="Texture2D" path="res://assets/objects/workshop_bench_drawer_open_v1.png" id="tex_workshop_bench_drawer_open_v1"]
+[ext_resource type="Texture2D" path="res://assets/objects/workshop_bung_crate_closed_v1.png" id="tex_workshop_bung_crate_closed_v1"]
+[ext_resource type="Texture2D" path="res://assets/objects/workshop_bung_crate_open_v1.png" id="tex_workshop_bung_crate_open_v1"]
+[ext_resource type="Texture2D" path="res://assets/objects/workshop_log_basket_closed_v1.png" id="tex_workshop_log_basket_closed_v1"]
+[ext_resource type="Texture2D" path="res://assets/objects/workshop_log_basket_open_v1.png" id="tex_workshop_log_basket_open_v1"]
+[ext_resource type="Texture2D" path="res://assets/objects/workshop_stencil_box_closed_v1.png" id="tex_workshop_stencil_box_closed_v1"]
+[ext_resource type="Texture2D" path="res://assets/objects/workshop_stencil_box_open_v1.png" id="tex_workshop_stencil_box_open_v1"]
+[ext_resource type="Texture2D" path="res://assets/objects/workshop_cash_box_closed_v1.png" id="tex_workshop_cash_box_closed_v1"]
+[ext_resource type="Texture2D" path="res://assets/objects/workshop_cash_box_open_v1.png" id="tex_workshop_cash_box_open_v1"]
+[ext_resource type="Texture2D" path="res://assets/objects/workshop_tool_cupboard_closed_v1.png" id="tex_workshop_tool_cupboard_closed_v1"]
+[ext_resource type="Texture2D" path="res://assets/objects/workshop_tool_cupboard_open_v1.png" id="tex_workshop_tool_cupboard_open_v1"]
+[ext_resource type="Script" path="res://scripts/clue_mark.gd" id="clue_mark"]
 
 [node name="Workshop" type="Node2D" node_paths=PackedStringArray("keypad_lock")]
 script = ExtResource("1_room")
@@ -42,111 +55,142 @@ script = ExtResource("3_manager")
 script = ExtResource("4_art")
 replacement_texture = ExtResource("bg_workshop")
 
+[node name="WallCalendar" type="Node2D" parent="."]
+position = Vector2(485, 64)
+rotation = 0.02
+script = ExtResource("clue_mark")
+lines = PackedStringArray("OCTOBER 1988", "1st: LADY M", "- last job")
+sizes = PackedInt32Array(6, 5, 5)
+ink = Color(0.16, 0.13, 0.12, 1)
+paper_size = Vector2(52, 74)
+paper_color = Color(0.66, 0.6, 0.47, 1)
+calendar_days = 31
+first_day_column = 5
+ringed_day = 1
+
 [node name="HiddenObjects" type="Node2D" parent="."]
 unique_name_in_owner = true
 
 [node name="HandDrill" parent="HiddenObjects" instance=ExtResource("5_object")]
-position = Vector2(940, 646)
-rotation = -0.25
-scale = Vector2(0.65, 0.65)
+position = Vector2(938, 590)
+rotation = -0.2
 data = ExtResource("6_hand_drill")
+texture_scale = Vector2(0.303, 0.303)
 
 [node name="OilCan" parent="HiddenObjects" instance=ExtResource("5_object")]
-position = Vector2(284, 422)
-scale = Vector2(0.6, 0.6)
+position = Vector2(338, 336)
 data = ExtResource("8_oil_can")
+rotation = 0
+texture_scale = Vector2(0.2424, 0.2424)
 
 [node name="WoodPlane" parent="HiddenObjects" instance=ExtResource("5_object")]
-position = Vector2(516, 428)
-rotation = 0.05
-scale = Vector2(0.62, 0.62)
+position = Vector2(500, 343)
+rotation = 0
 data = ExtResource("9_wood_plane")
+texture_scale = Vector2(0.2576, 0.2576)
 
 [node name="PaintTin" parent="HiddenObjects" instance=ExtResource("5_object")]
-position = Vector2(372, 585)
-scale = Vector2(0.7, 0.7)
+position = Vector2(381, 464)
 data = ExtResource("10_paint_tin")
+texture_scale = Vector2(0.2652, 0.2652)
+modulate = Color(0.88, 0.78, 0.66, 1)
 
 [node name="WorkGlove" parent="HiddenObjects" instance=ExtResource("5_object")]
-position = Vector2(612, 688)
-rotation = 0.6
-scale = Vector2(0.6, 0.6)
+position = Vector2(600, 640)
+rotation = 0.3
 data = ExtResource("12_work_glove")
+texture_scale = Vector2(0.2197, 0.2197)
 
 [node name="BoatModel" parent="HiddenObjects" instance=ExtResource("5_object")]
-position = Vector2(905, 286)
-scale = Vector2(0.6, 0.6)
+position = Vector2(858, 293)
 data = ExtResource("16_boat_model")
+texture_scale = Vector2(0.2803, 0.2803)
+modulate = Color(0.9, 0.8, 0.68, 1)
 
 [node name="HullPlan" parent="HiddenObjects" instance=ExtResource("5_object")]
-position = Vector2(350, 422)
-scale = Vector2(0.8, 0.8)
+position = Vector2(412, 337)
 data = ExtResource("14_hull_plan")
+texture_scale = Vector2(0.2652, 0.2652)
 
 [node name="BenchDrawer" parent="HiddenObjects" node_paths=PackedStringArray("contents") instance=ExtResource("19_container")]
-position = Vector2(430, 474)
+position = Vector2(388, 406)
 container_id = &"bench_drawer"
 contents = NodePath("../JobBook")
 open_title = "The bench drawer sticks, then slides out..."
 open_message = "Pencils, a rule, and a cloth-bound book with 'JOBS' on the cover."
 style = 4
 tint = Color(0.4, 0.29, 0.19, 1)
-size = Vector2(84, 24)
+size = Vector2(389.091, 103.758)
+closed_texture = ExtResource("tex_workshop_bench_drawer_closed_v1")
+open_texture = ExtResource("tex_workshop_bench_drawer_open_v1")
+scale = Vector2(0.2313, 0.2313)
+self_modulate = Color(1, 0.88, 0.74, 1)
 
 [node name="JobBook" parent="HiddenObjects" instance=ExtResource("5_object")]
-position = Vector2(430, 468)
-scale = Vector2(0.5, 0.5)
+position = Vector2(388, 386)
 data = ExtResource("13_job_book")
+texture_scale = Vector2(0.1515, 0.1515)
 
 [node name="BungCrate" parent="HiddenObjects" node_paths=PackedStringArray("contents") instance=ExtResource("19_container")]
-position = Vector2(790, 630)
+position = Vector2(736, 509.5)
 container_id = &"bung_crate"
 contents = NodePath("../WoodenBung")
 open_title = "You lift the lid of the little crate..."
 open_message = "It smells of grease. Most of it is empty, but one wooden plug is left in the corner."
 style = 7
 tint = Color(0.5, 0.38, 0.24, 1)
-size = Vector2(70, 42)
+size = Vector2(328.293, 180.561)
+closed_texture = ExtResource("tex_workshop_bung_crate_closed_v1")
+open_texture = ExtResource("tex_workshop_bung_crate_open_v1")
+scale = Vector2(0.2437, 0.2437)
+self_modulate = Color(0.92, 0.78, 0.62, 1)
 
 [node name="WoodenBung" parent="HiddenObjects" instance=ExtResource("5_object")]
-position = Vector2(790, 624)
+position = Vector2(738, 492)
 rotation = 0.3
-scale = Vector2(0.6, 0.6)
 data = ExtResource("7_wooden_bung")
+texture_scale = Vector2(0.1515, 0.1515)
+modulate = Color(0.92, 0.78, 0.62, 1)
 
 [node name="LogBasket" parent="HiddenObjects" node_paths=PackedStringArray("contents") instance=ExtResource("19_container")]
-position = Vector2(150, 512)
+position = Vector2(150, 549)
 container_id = &"log_basket"
 contents = NodePath("../Mallet")
 open_title = "You dig through the logs..."
 open_message = "Under the kindling, pushed down out of sight: a wooden mallet."
 style = 6
 tint = Color(0.45, 0.36, 0.22, 1)
-size = Vector2(72, 44)
+size = Vector2(333.423, 246.098)
+closed_texture = ExtResource("tex_workshop_log_basket_closed_v1")
+open_texture = ExtResource("tex_workshop_log_basket_open_v1")
+scale = Vector2(0.2519, 0.2519)
 
 [node name="Mallet" parent="HiddenObjects" instance=ExtResource("5_object")]
-position = Vector2(150, 506)
-rotation = -0.3
-scale = Vector2(0.55, 0.55)
+position = Vector2(156, 530)
+rotation = -0.5
 data = ExtResource("17_mallet")
+texture_scale = Vector2(0.2045, 0.2045)
 
 [node name="StencilBox" parent="HiddenObjects" node_paths=PackedStringArray("contents") instance=ExtResource("19_container")]
-position = Vector2(500, 588)
+position = Vector2(468, 483)
 container_id = &"stencil_box"
 contents = NodePath("../LetterStencil")
 open_title = "The flat box slides open..."
 open_message = "Rows of brass letters. One plate is still sticky with white paint."
 style = 7
 tint = Color(0.3, 0.36, 0.42, 1)
-size = Vector2(78, 22)
+size = Vector2(340.653, 96.0816)
+closed_texture = ExtResource("tex_workshop_stencil_box_closed_v1")
+open_texture = ExtResource("tex_workshop_stencil_box_open_v1")
+scale = Vector2(0.229, 0.229)
 
 [node name="LetterStencil" parent="HiddenObjects" instance=ExtResource("5_object")]
-position = Vector2(500, 583)
-scale = Vector2(0.55, 0.55)
+position = Vector2(468, 474)
 data = ExtResource("11_letter_stencil")
+texture_scale = Vector2(0.1667, 0.1667)
 
 [node name="CashBox" parent="HiddenObjects" node_paths=PackedStringArray("contents") instance=ExtResource("19_container")]
-position = Vector2(300, 652)
+position = Vector2(400, 536)
 container_id = &"cash_box"
 contents = NodePath("../CupboardKey")
 open_title = "The four wheels click into place..."
@@ -160,15 +204,18 @@ code_hint_first_after = 6
 code_hint_second_after = 9
 style = 5
 tint = Color(0.32, 0.34, 0.38, 1)
-size = Vector2(58, 44)
+size = Vector2(318.512, 189.116)
+closed_texture = ExtResource("tex_workshop_cash_box_closed_v1")
+open_texture = ExtResource("tex_workshop_cash_box_open_v1")
+scale = Vector2(0.2009, 0.2009)
 
 [node name="CupboardKey" parent="HiddenObjects" instance=ExtResource("5_object")]
-position = Vector2(300, 646)
-scale = Vector2(0.6, 0.6)
+position = Vector2(400, 532)
 data = ExtResource("15_cupboard_key")
+texture_scale = Vector2(0.1591, 0.1591)
 
 [node name="ToolCupboard" parent="HiddenObjects" node_paths=PackedStringArray("contents", "required_object") instance=ExtResource("19_container")]
-position = Vector2(552, 330)
+position = Vector2(541, 190)
 container_id = &"tool_cupboard"
 contents = NodePath("../DivingLamp")
 open_title = "The cupboard key turns..."
@@ -178,16 +225,21 @@ locked_title = "The tool cupboard is locked."
 locked_message = "A big iron lock. Greaves must have kept the key somewhere safe in the workshop."
 style = 3
 tint = Color(0.28, 0.36, 0.3, 1)
-size = Vector2(84, 112)
+size = Vector2(290.429, 374.5)
+closed_texture = ExtResource("tex_workshop_tool_cupboard_closed_v1")
+open_texture = ExtResource("tex_workshop_tool_cupboard_open_v1")
+scale = Vector2(0.2617, 0.2617)
+self_modulate = Color(0.95, 0.85, 0.72, 1)
 
 [node name="DivingLamp" parent="HiddenObjects" instance=ExtResource("5_object")]
-position = Vector2(552, 324)
-scale = Vector2(0.7, 0.7)
+position = Vector2(544, 183)
 data = ExtResource("18_diving_lamp")
+texture_scale = Vector2(0.1515, 0.1515)
 
 [node name="TornPieces" type="Node2D" parent="." node_paths=PackedStringArray("hull_plan")]
 script = ExtResource("20_pieces")
 hull_plan = NodePath("../HiddenObjects/HullPlan")
+piece_positions = PackedVector2Array(468, 694, 222, 482, 706, 600, 332, 236)
 
 [node name="RoomForeground" type="Node2D" parent="."]
 visible = false

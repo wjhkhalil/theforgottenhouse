@@ -8,9 +8,7 @@ There are 156 containers. Containers have no "required" flag of their own, but e
 of the required objects, so every one must be opened. 44 need another object found first,
 26 need a keypad code, and the 3 ice blocks need several clicks.
 
-Painted art so far: 151 objects (the Bedroom's 5, the Basement's 6 and all 140 of House Three)
-and 76 containers (the Basement's old trunk and all 75 of House Three). The other 181 objects
-and 80 containers, in the rest of House One and all of House Two, still use placeholder art.
+Painted art: all 332 objects and all 156 containers now use painted sprites.
 
 ## Required objects
 

@@ -2,6 +2,8 @@
 
 [ext_resource type="Script" path="res://scripts/hidden_object_data.gd" id="1_data"]
 
+[ext_resource type="Texture2D" path="res://assets/objects/embroidery_hoop_v1.png" id="2_texture"]
+
 [resource]
 script = ExtResource("1_data")
 object_id = &"embroidery_hoop"
@@ -9,8 +11,10 @@ display_name = "Embroidery Hoop"
 description = "A wooden hoop with half-finished blue flowers."
 collection_message = "You found an embroidery hoop!"
 clue_text = "Forget-me-nots, and under them, in tiny red stitches: 'M.A.' Not 'Sister Margaret'. A memory was coming back to her."
-hint_text = "Sister Margaret's sewing basket is on the floor at the far left end of the back pew."
+hint_text = "Sister Margaret's sewing basket is on the floor at the far left, below the bell rope."
 riddle_text = ""
 placeholder_style = 169
+texture = ExtResource("2_texture")
+icon_texture = ExtResource("2_texture")
 is_required = true
 starts_visible = false

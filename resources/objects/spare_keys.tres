@@ -2,6 +2,8 @@
 
 [ext_resource type="Script" path="res://scripts/hidden_object_data.gd" id="1_data"]
 
+[ext_resource type="Texture2D" path="res://assets/objects/spare_keys_v1.png" id="2_texture"]
+
 [resource]
 script = ExtResource("1_data")
 object_id = &"spare_keys"
@@ -9,8 +11,10 @@ display_name = "Spare Key Ring"
 description = "A ring full of keys."
 collection_message = "You found the spare keys."
 clue_text = "Every key in the house, labelled in Greaves's writing - except one. The hook for the servants' door is empty. Its label says 'Kitchen'."
-hint_text = "The writing desk is locked. Its key is hidden in another box in this room."
+hint_text = "The drawer under the music machine is locked. Its key is hidden in another box in this room."
 riddle_text = ""
 placeholder_style = 41
+texture = ExtResource("2_texture")
+icon_texture = ExtResource("2_texture")
 is_required = true
 starts_visible = false

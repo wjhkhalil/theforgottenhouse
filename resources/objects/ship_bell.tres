@@ -2,6 +2,8 @@
 
 [ext_resource type="Script" path="res://scripts/hidden_object_data.gd" id="1_data"]
 
+[ext_resource type="Texture2D" path="res://assets/objects/ship_bell_v1.png" id="2_texture"]
+
 [resource]
 script = ExtResource("1_data")
 object_id = &"ship_bell"
@@ -12,5 +14,7 @@ clue_text = "Engraved LADY MARGARET. Fresh rope is tied to it, and the scratches
 hint_text = "Something heavy lies on the bottom of the slip. Wait for the water to drain."
 riddle_text = ""
 placeholder_style = 73
+texture = ExtResource("2_texture")
+icon_texture = ExtResource("2_texture")
 is_required = true
 starts_visible = true

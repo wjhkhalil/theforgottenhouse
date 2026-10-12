@@ -31,6 +31,23 @@
 [ext_resource type="PackedScene" path="res://scenes/ui/letter_popup.tscn" id="46_letter"]
 [ext_resource type="PackedScene" path="res://scenes/ui/keypad_lock.tscn" id="47_keypad"]
 [ext_resource type="Texture2D" path="res://assets/backgrounds/vane_cottage_background_v1.png" id="bg_vane_cottage"]
+[ext_resource type="Texture2D" path="res://assets/objects/vane_cottage_desk_drawer_closed_v1.png" id="tex_vane_cottage_desk_drawer_closed_v1"]
+[ext_resource type="Texture2D" path="res://assets/objects/vane_cottage_desk_drawer_open_v1.png" id="tex_vane_cottage_desk_drawer_open_v1"]
+[ext_resource type="Texture2D" path="res://assets/objects/vane_cottage_medicine_cupboard_closed_v1.png" id="tex_vane_cottage_medicine_cupboard_closed_v1"]
+[ext_resource type="Texture2D" path="res://assets/objects/vane_cottage_medicine_cupboard_open_v1.png" id="tex_vane_cottage_medicine_cupboard_open_v1"]
+[ext_resource type="Texture2D" path="res://assets/objects/vane_cottage_fake_spines_closed_v1.png" id="tex_vane_cottage_fake_spines_closed_v1"]
+[ext_resource type="Texture2D" path="res://assets/objects/vane_cottage_fake_spines_open_v1.png" id="tex_vane_cottage_fake_spines_open_v1"]
+[ext_resource type="Texture2D" path="res://assets/objects/vane_cottage_log_basket_closed_v1.png" id="tex_vane_cottage_log_basket_closed_v1"]
+[ext_resource type="Texture2D" path="res://assets/objects/vane_cottage_log_basket_open_v1.png" id="tex_vane_cottage_log_basket_open_v1"]
+[ext_resource type="Texture2D" path="res://assets/objects/vane_cottage_parcel_closed_v1.png" id="tex_vane_cottage_parcel_closed_v1"]
+[ext_resource type="Texture2D" path="res://assets/objects/vane_cottage_parcel_open_v1.png" id="tex_vane_cottage_parcel_open_v1"]
+[ext_resource type="Texture2D" path="res://assets/objects/vane_cottage_desk_safe_closed_v1.png" id="tex_vane_cottage_desk_safe_closed_v1"]
+[ext_resource type="Texture2D" path="res://assets/objects/vane_cottage_desk_safe_open_v1.png" id="tex_vane_cottage_desk_safe_open_v1"]
+[ext_resource type="Texture2D" path="res://assets/objects/vane_cottage_doctors_bag_closed_v1.png" id="tex_vane_cottage_doctors_bag_closed_v1"]
+[ext_resource type="Texture2D" path="res://assets/objects/vane_cottage_doctors_bag_open_v1.png" id="tex_vane_cottage_doctors_bag_open_v1"]
+[ext_resource type="Texture2D" path="res://assets/objects/vane_cottage_cellar_door_closed_v1.png" id="tex_vane_cottage_cellar_door_closed_v1"]
+[ext_resource type="Texture2D" path="res://assets/objects/vane_cottage_cellar_door_open_v1.png" id="tex_vane_cottage_cellar_door_open_v1"]
+[ext_resource type="Script" path="res://scripts/clue_mark.gd" id="clue_mark"]
 
 [node name="VaneCottage" type="Node2D" node_paths=PackedStringArray("keypad_lock")]
 script = ExtResource("1_room")
@@ -45,117 +62,144 @@ script = ExtResource("3_manager")
 script = ExtResource("4_art")
 replacement_texture = ExtResource("bg_vane_cottage")
 
+[node name="WallCalendar" type="Node2D" parent="."]
+position = Vector2(647, 116)
+script = ExtResource("clue_mark")
+lines = PackedStringArray("OCTOBER", "8th: fetch M.")
+sizes = PackedInt32Array(7, 5)
+ink = Color(0.16, 0.13, 0.12, 1)
+paper_size = Vector2(46, 68)
+paper_color = Color(0.62, 0.56, 0.46, 1)
+calendar_days = 31
+first_day_column = 5
+ringed_day = 8
+
 [node name="HiddenObjects" type="Node2D" parent="."]
 unique_name_in_owner = true
 
 [node name="Stethoscope" parent="HiddenObjects" instance=ExtResource("5_object")]
-position = Vector2(500, 418)
-rotation = 0.2
-scale = Vector2(0.65, 0.65)
+position = Vector2(512, 411)
+rotation = 0
 data = ExtResource("10_stethoscope")
+texture_scale = Vector2(0.25, 0.25)
 
 [node name="ChequeBook" parent="HiddenObjects" instance=ExtResource("5_object")]
-position = Vector2(585, 421)
-rotation = -0.08
-scale = Vector2(0.6, 0.6)
+position = Vector2(830, 414)
+rotation = 0
 data = ExtResource("13_cheque_book")
+texture_scale = Vector2(0.178, 0.178)
 
 [node name="PenKnife" parent="HiddenObjects" instance=ExtResource("5_object")]
-position = Vector2(424, 291)
-rotation = -0.1
-scale = Vector2(0.6, 0.6)
+position = Vector2(422, 288)
+rotation = 0
 data = ExtResource("14_pen_knife")
+texture_scale = Vector2(0.1645, 0.1645)
 
 [node name="CarriageClock" parent="HiddenObjects" instance=ExtResource("5_object")]
-position = Vector2(930, 359)
-scale = Vector2(0.6, 0.6)
+position = Vector2(556, 312)
 data = ExtResource("15_carriage_clock")
+texture_scale = Vector2(0.1667, 0.1667)
 
 [node name="Decanter" parent="HiddenObjects" instance=ExtResource("5_object")]
-position = Vector2(818, 134)
-scale = Vector2(0.6, 0.6)
+position = Vector2(866, 123)
 data = ExtResource("16_decanter")
+texture_scale = Vector2(0.1742, 0.1742)
 
 [node name="SpecimenJar" parent="HiddenObjects" instance=ExtResource("5_object")]
-position = Vector2(851, 279)
-scale = Vector2(0.6, 0.6)
+position = Vector2(925, 266)
 data = ExtResource("17_specimen_jar")
+texture_scale = Vector2(0.1326, 0.1326)
 
 [node name="Timetable" parent="HiddenObjects" instance=ExtResource("5_object")]
-position = Vector2(612, 642)
-rotation = 0.35
-scale = Vector2(0.6, 0.6)
+position = Vector2(672, 620)
+rotation = 0
 data = ExtResource("19_timetable")
+texture_scale = Vector2(0.251, 0.251)
 
 [node name="PoliceWhistle" parent="HiddenObjects" instance=ExtResource("5_object")]
-position = Vector2(432, 546)
-rotation = 0.15
-scale = Vector2(0.6, 0.6)
+position = Vector2(300, 537)
+rotation = 0
 data = ExtResource("24_police_whistle")
+texture_scale = Vector2(0.1645, 0.1645)
 
 [node name="DeskDrawer" parent="HiddenObjects" node_paths=PackedStringArray("contents") instance=ExtResource("6_container")]
-position = Vector2(522, 462)
+position = Vector2(522, 470)
 container_id = &"desk_drawer"
 contents = NodePath("../DeathCertificate")
 open_title = "You pull open the desk drawer..."
 open_message = "Old prescriptions, sealing wax, and a stiff official certificate."
 style = 4
 tint = Color(0.36, 0.23, 0.14, 1)
-size = Vector2(80, 24)
+size = Vector2(388.186, 248.837)
+closed_texture = ExtResource("tex_vane_cottage_desk_drawer_closed_v1")
+open_texture = ExtResource("tex_vane_cottage_desk_drawer_open_v1")
+scale = Vector2(0.2009, 0.2009)
+self_modulate = Color(0.78, 0.68, 0.6, 1)
 
 [node name="DeathCertificate" parent="HiddenObjects" instance=ExtResource("5_object")]
-position = Vector2(522, 456)
-rotation = -0.1
-scale = Vector2(0.55, 0.55)
+position = Vector2(520, 455)
+rotation = 0
 data = ExtResource("12_death_certificate")
+texture_scale = Vector2(0.1702, 0.1702)
 
 [node name="MedicineCupboard" parent="HiddenObjects" node_paths=PackedStringArray("contents") instance=ExtResource("6_container")]
-position = Vector2(840, 468)
+position = Vector2(899.5, 454)
 container_id = &"medicine_cupboard"
 contents = NodePath("../GlassSyringe")
 open_title = "You open the cupboard under the glass cabinet..."
 open_message = "Rolls of bandage, brown bottles, and a glass syringe lying in a steel tray."
 style = 3
 tint = Color(0.36, 0.23, 0.14, 1)
-size = Vector2(92, 100)
+size = Vector2(343.484, 421.548)
+closed_texture = ExtResource("tex_vane_cottage_medicine_cupboard_closed_v1")
+open_texture = ExtResource("tex_vane_cottage_medicine_cupboard_open_v1")
+scale = Vector2(0.2562, 0.2562)
+self_modulate = Color(0.62, 0.5, 0.42, 1)
 
 [node name="GlassSyringe" parent="HiddenObjects" instance=ExtResource("5_object")]
-position = Vector2(840, 462)
-scale = Vector2(0.6, 0.6)
+position = Vector2(902, 489)
 data = ExtResource("11_glass_syringe")
+texture_scale = Vector2(0.1136, 0.1136)
 
 [node name="FakeSpines" parent="HiddenObjects" node_paths=PackedStringArray("contents") instance=ExtResource("6_container")]
-position = Vector2(948, 257)
+position = Vector2(917, 116)
 container_id = &"fake_spines"
 contents = NodePath("../MedicalFile")
 open_title = "The row of books swings out..."
 open_message = "They are only fake spines glued to a little door. Behind it lies a buff folder."
 style = 8
 tint = Color(0.4, 0.15, 0.1, 1)
-size = Vector2(72, 42)
+size = Vector2(389.2, 389.2)
+closed_texture = ExtResource("tex_vane_cottage_fake_spines_closed_v1")
+open_texture = ExtResource("tex_vane_cottage_fake_spines_open_v1")
+scale = Vector2(0.1439, 0.1439)
+self_modulate = Color(0.8, 0.74, 0.68, 1)
 
 [node name="MedicalFile" parent="HiddenObjects" instance=ExtResource("5_object")]
-position = Vector2(948, 251)
-scale = Vector2(0.6, 0.6)
+position = Vector2(917, 118)
 data = ExtResource("23_medical_file")
+texture_scale = Vector2(0.1288, 0.1288)
 
 [node name="LogBasket" parent="HiddenObjects" node_paths=PackedStringArray("contents") instance=ExtResource("6_container")]
-position = Vector2(214, 606)
+position = Vector2(208, 544)
 container_id = &"log_basket"
 contents = NodePath("../GreyShawl")
 open_title = "You lift the logs out of the basket..."
 open_message = "Folded at the bottom, under the kindling, is something soft and grey."
 style = 6
 tint = Color(0.5, 0.38, 0.22, 1)
-size = Vector2(64, 52)
+size = Vector2(249.018, 326.836)
+closed_texture = ExtResource("tex_vane_cottage_log_basket_closed_v1")
+open_texture = ExtResource("tex_vane_cottage_log_basket_open_v1")
+scale = Vector2(0.257, 0.257)
 
 [node name="GreyShawl" parent="HiddenObjects" instance=ExtResource("5_object")]
-position = Vector2(214, 600)
-scale = Vector2(0.6, 0.6)
+position = Vector2(208, 516)
 data = ExtResource("22_grey_shawl")
+texture_scale = Vector2(0.1894, 0.1894)
 
 [node name="Parcel" parent="HiddenObjects" node_paths=PackedStringArray("contents", "required_object") instance=ExtResource("6_container")]
-position = Vector2(352, 628)
+position = Vector2(395, 612)
 container_id = &"parcel"
 contents = NodePath("../Passport")
 open_title = "You cut the string with the pen knife..."
@@ -165,15 +209,18 @@ locked_title = "The parcel is tied up tight."
 locked_message = "Brown paper and thick waxed string, knotted hard. The label says 'To be collected - R.V.'. You need something sharp to cut the string."
 style = 7
 tint = Color(0.62, 0.48, 0.3, 1)
-size = Vector2(66, 38)
+size = Vector2(392.8, 280.571)
+closed_texture = ExtResource("tex_vane_cottage_parcel_closed_v1")
+open_texture = ExtResource("tex_vane_cottage_parcel_open_v1")
+scale = Vector2(0.2138, 0.2138)
 
 [node name="Passport" parent="HiddenObjects" instance=ExtResource("5_object")]
-position = Vector2(352, 622)
-scale = Vector2(0.6, 0.6)
+position = Vector2(395, 622)
 data = ExtResource("20_passport")
+texture_scale = Vector2(0.2011, 0.2011)
 
 [node name="DeskSafe" parent="HiddenObjects" node_paths=PackedStringArray("contents") instance=ExtResource("6_container")]
-position = Vector2(790, 612)
+position = Vector2(926, 564)
 container_id = &"desk_safe"
 contents = NodePath("../Confession")
 open_title = "The dial clicks round to 0810..."
@@ -187,15 +234,19 @@ code_hint_first_after = 9
 code_hint_second_after = 12
 style = 5
 tint = Color(0.18, 0.26, 0.2, 1)
-size = Vector2(70, 62)
+size = Vector2(361.422, 389.956)
+closed_texture = ExtResource("tex_vane_cottage_desk_safe_closed_v1")
+open_texture = ExtResource("tex_vane_cottage_desk_safe_open_v1")
+scale = Vector2(0.2103, 0.2103)
+self_modulate = Color(0.85, 0.8, 0.75, 1)
 
 [node name="Confession" parent="HiddenObjects" instance=ExtResource("5_object")]
-position = Vector2(790, 606)
-scale = Vector2(0.6, 0.6)
+position = Vector2(922, 580)
 data = ExtResource("21_confession")
+texture_scale = Vector2(0.1136, 0.1136)
 
 [node name="DoctorsBag" parent="HiddenObjects" node_paths=PackedStringArray("contents") instance=ExtResource("6_container")]
-position = Vector2(926, 646)
+position = Vector2(805, 636)
 container_id = &"doctors_bag"
 contents = NodePath("../CellarKey")
 open_title = "The clasp springs open..."
@@ -209,15 +260,18 @@ code_hint_first_after = 9
 code_hint_second_after = 12
 style = 7
 tint = Color(0.1, 0.09, 0.09, 1)
-size = Vector2(84, 44)
+size = Vector2(376.146, 297.782)
+closed_texture = ExtResource("tex_vane_cottage_doctors_bag_closed_v1")
+open_texture = ExtResource("tex_vane_cottage_doctors_bag_open_v1")
+scale = Vector2(0.2552, 0.2552)
 
 [node name="CellarKey" parent="HiddenObjects" instance=ExtResource("5_object")]
-position = Vector2(926, 640)
-scale = Vector2(0.6, 0.6)
+position = Vector2(805, 632)
 data = ExtResource("18_cellar_key")
+texture_scale = Vector2(0.1288, 0.1288)
 
 [node name="CellarDoor" parent="HiddenObjects" node_paths=PackedStringArray("contents", "required_object") instance=ExtResource("6_container")]
-position = Vector2(148, 420)
+position = Vector2(138, 382)
 container_id = &"cellar_door"
 contents = NodePath("../NameBracelet")
 open_title = "The padlock falls away..."
@@ -227,12 +281,16 @@ locked_title = "The cellar door is padlocked."
 locked_message = "A heavy padlock hangs on an iron hasp. From somewhere below, very faintly, someone is humming. You need the cellar key."
 style = 3
 tint = Color(0.3, 0.2, 0.13, 1)
-size = Vector2(100, 200)
+size = Vector2(152, 440)
+closed_texture = ExtResource("tex_vane_cottage_cellar_door_closed_v1")
+open_texture = ExtResource("tex_vane_cottage_cellar_door_open_v1")
+scale = Vector2(0.5, 0.5)
+self_modulate = Color(0.82, 0.76, 0.7, 1)
 
 [node name="NameBracelet" parent="HiddenObjects" instance=ExtResource("5_object")]
-position = Vector2(148, 414)
-scale = Vector2(0.6, 0.6)
+position = Vector2(152, 484)
 data = ExtResource("25_name_bracelet")
+texture_scale = Vector2(0.1282, 0.1282)
 
 [node name="RoomForeground" type="Node2D" parent="."]
 visible = false
@@ -241,6 +299,7 @@ layer = 1
 
 [node name="PatrolLantern" type="Node2D" parent="."]
 script = ExtResource("40_lantern")
+window_rects = Array[Rect2]([Rect2(532, 113, 92, 205), Rect2(693, 113, 90, 205)])
 
 [node name="HintHighlight" type="Node2D" parent="."]
 unique_name_in_owner = true

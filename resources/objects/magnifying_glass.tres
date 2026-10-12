@@ -2,6 +2,8 @@
 
 [ext_resource type="Script" path="res://scripts/hidden_object_data.gd" id="1_data"]
 
+[ext_resource type="Texture2D" path="res://assets/objects/magnifying_glass_v1.png" id="2_texture"]
+
 [resource]
 script = ExtResource("1_data")
 object_id = &"magnifying_glass"
@@ -12,5 +14,7 @@ clue_text = "Used to copy the tiny loops of Eleanor's handwriting."
 hint_text = "Something that makes small things big sits near the books."
 riddle_text = ""
 placeholder_style = 53
+texture = ExtResource("2_texture")
+icon_texture = ExtResource("2_texture")
 is_required = true
 starts_visible = true

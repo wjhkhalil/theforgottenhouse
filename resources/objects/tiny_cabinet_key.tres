@@ -2,6 +2,8 @@
 
 [ext_resource type="Script" path="res://scripts/hidden_object_data.gd" id="1_data"]
 
+[ext_resource type="Texture2D" path="res://assets/objects/tiny_cabinet_key_v1.png" id="2_texture"]
+
 [resource]
 script = ExtResource("1_data")
 object_id = &"tiny_cabinet_key"
@@ -12,5 +14,7 @@ clue_text = "It was hidden in the soap dish. The ribbon is tied in the twins' do
 hint_text = "Something tiny rests where the soap should be."
 riddle_text = ""
 placeholder_style = 30
+texture = ExtResource("2_texture")
+icon_texture = ExtResource("2_texture")
 is_required = true
 starts_visible = true

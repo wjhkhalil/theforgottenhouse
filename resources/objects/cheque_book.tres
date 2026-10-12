@@ -2,6 +2,8 @@
 
 [ext_resource type="Script" path="res://scripts/hidden_object_data.gd" id="1_data"]
 
+[ext_resource type="Texture2D" path="res://assets/objects/cheque_book_v1.png" id="2_texture"]
+
 [resource]
 script = ExtResource("1_data")
 object_id = &"cheque_book"
@@ -9,8 +11,10 @@ display_name = "Cheque Book"
 description = "A cheque book, open at the stubs."
 collection_message = "You found a cheque book!"
 clue_text = "Every stub, month after month for years, says the same thing: 'T.G.'. Vane paid Greaves to keep quiet."
-hint_text = "It lies on the desk, by the pile of papers next to the green lamp."
+hint_text = "It lies on the right end of the desk, just past the green lamp."
 riddle_text = ""
 placeholder_style = 180
+texture = ExtResource("2_texture")
+icon_texture = ExtResource("2_texture")
 is_required = true
 starts_visible = true

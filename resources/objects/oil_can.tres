@@ -2,6 +2,8 @@
 
 [ext_resource type="Script" path="res://scripts/hidden_object_data.gd" id="1_data"]
 
+[ext_resource type="Texture2D" path="res://assets/objects/oil_can_v1.png" id="2_texture"]
+
 [resource]
 script = ExtResource("1_data")
 object_id = &"oil_can"
@@ -12,5 +14,7 @@ clue_text = "A label is tied to the handle in Vane's neat hand: 'For the bungs. 
 hint_text = "On the left end of the workbench, just beside the iron vice."
 riddle_text = ""
 placeholder_style = 95
+texture = ExtResource("2_texture")
+icon_texture = ExtResource("2_texture")
 is_required = true
 starts_visible = true

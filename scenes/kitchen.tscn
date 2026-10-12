@@ -22,6 +22,12 @@
 [ext_resource type="PackedScene" path="res://scenes/ui/pause_menu.tscn" id="20_pause"]
 [ext_resource type="PackedScene" path="res://scenes/ui/letter_popup.tscn" id="21_letter"]
 [ext_resource type="Texture2D" path="res://assets/backgrounds/kitchen_background_v1.png" id="bg_kitchen"]
+[ext_resource type="Texture2D" path="res://assets/objects/kitchen_bread_bin_closed_v1.png" id="tex_kitchen_bread_bin_closed_v1"]
+[ext_resource type="Texture2D" path="res://assets/objects/kitchen_bread_bin_open_v1.png" id="tex_kitchen_bread_bin_open_v1"]
+[ext_resource type="Texture2D" path="res://assets/objects/kitchen_oven_closed_v1.png" id="tex_kitchen_oven_closed_v1"]
+[ext_resource type="Texture2D" path="res://assets/objects/kitchen_oven_open_v1.png" id="tex_kitchen_oven_open_v1"]
+[ext_resource type="Texture2D" path="res://assets/objects/kitchen_biscuit_tin_closed_v1.png" id="tex_kitchen_biscuit_tin_closed_v1"]
+[ext_resource type="Texture2D" path="res://assets/objects/kitchen_biscuit_tin_open_v1.png" id="tex_kitchen_biscuit_tin_open_v1"]
 
 [sub_resource type="Gradient" id="Gradient_embers"]
 offsets = PackedFloat32Array(0, 0.2, 0.8, 1)
@@ -43,70 +49,85 @@ replacement_texture = ExtResource("bg_kitchen")
 unique_name_in_owner = true
 
 [node name="WoodenSpoon" parent="HiddenObjects" instance=ExtResource("5_object")]
-position = Vector2(296, 302)
-scale = Vector2(0.65, 0.65)
+position = Vector2(300, 262)
 data = ExtResource("6_spoon")
+rotation = 0
+texture_scale = Vector2(0.2348, 0.2348)
 
 [node name="EggTimer" parent="HiddenObjects" instance=ExtResource("5_object")]
-position = Vector2(952, 238)
-scale = Vector2(0.62, 0.62)
+modulate = Color(0.9, 0.82, 0.7, 1)
+position = Vector2(976, 210)
 data = ExtResource("7_timer")
+texture_scale = Vector2(0.1364, 0.1364)
 
 [node name="RecipeCard" parent="HiddenObjects" instance=ExtResource("5_object")]
-position = Vector2(616, 230)
+modulate = Color(0.85, 0.78, 0.64, 1)
+position = Vector2(609, 268)
 rotation = -0.08
-scale = Vector2(0.6, 0.6)
 data = ExtResource("8_card")
+texture_scale = Vector2(0.1591, 0.1591)
 
 [node name="RatPoisonTin" parent="HiddenObjects" instance=ExtResource("5_object")]
-position = Vector2(734, 488)
-scale = Vector2(0.62, 0.62)
+modulate = Color(0.78, 0.72, 0.64, 1)
+position = Vector2(727, 447)
 data = ExtResource("9_poison")
+texture_scale = Vector2(0.1288, 0.1288)
 
 [node name="TinOpener" parent="HiddenObjects" instance=ExtResource("5_object")]
-position = Vector2(520, 112)
-scale = Vector2(0.62, 0.62)
+position = Vector2(509, 118)
 data = ExtResource("10_opener")
+rotation = 1.5708
+texture_scale = Vector2(0.2197, 0.2197)
 
 [node name="LakePebble" parent="HiddenObjects" instance=ExtResource("5_object")]
-position = Vector2(764, 288)
-scale = Vector2(0.65, 0.65)
+position = Vector2(764, 285)
 data = ExtResource("11_pebble")
+texture_scale = Vector2(0.1061, 0.1061)
 
 [node name="BreadBin" parent="HiddenObjects" node_paths=PackedStringArray("contents") instance=ExtResource("15_container")]
-position = Vector2(895, 352)
+self_modulate = Color(0.8, 0.72, 0.6, 1)
+position = Vector2(920, 315)
 container_id = &"bread_bin"
 contents = NodePath("../ServantsKey")
 open_title = "You lift the bread bin lid..."
 open_message = "No bread inside - only a long iron key."
 style = 7
 tint = Color(0.86, 0.82, 0.7, 1)
-size = Vector2(78, 52)
+size = Vector2(332.055, 228.288)
+closed_texture = ExtResource("tex_kitchen_bread_bin_closed_v1")
+open_texture = ExtResource("tex_kitchen_bread_bin_open_v1")
+scale = Vector2(0.2409, 0.2409)
 
 [node name="ServantsKey" parent="HiddenObjects" instance=ExtResource("5_object")]
-position = Vector2(895, 348)
+modulate = Color(0.9, 0.82, 0.7, 1)
+position = Vector2(918, 296)
 rotation = -0.06
-scale = Vector2(0.6, 0.6)
 data = ExtResource("12_key")
+texture_scale = Vector2(0.1818, 0.1818)
 
 [node name="Oven" parent="HiddenObjects" node_paths=PackedStringArray("contents") instance=ExtResource("15_container")]
-position = Vector2(255, 442)
+position = Vector2(252, 412)
 container_id = &"oven"
 contents = NodePath("../BurntLetter")
 open_title = "The oven door creaks open..."
 open_message = "In the ashes lies a half-burnt letter."
 style = 3
 tint = Color(0.2, 0.19, 0.19, 1)
-size = Vector2(90, 70)
+size = Vector2(376.154, 322.418)
+closed_texture = ExtResource("tex_kitchen_oven_closed_v1")
+open_texture = ExtResource("tex_kitchen_oven_open_v1")
+scale = Vector2(0.2791, 0.2791)
 
 [node name="BurntLetter" parent="HiddenObjects" instance=ExtResource("5_object")]
-position = Vector2(255, 446)
+modulate = Color(0.8, 0.7, 0.58, 1)
+position = Vector2(256, 424)
 rotation = 0.1
-scale = Vector2(0.6, 0.6)
 data = ExtResource("13_letter")
+texture_scale = Vector2(0.1667, 0.1667)
 
 [node name="BiscuitTin" parent="HiddenObjects" node_paths=PackedStringArray("contents", "required_object") instance=ExtResource("15_container")]
-position = Vector2(560, 550)
+self_modulate = Color(0.95, 0.86, 0.72, 1)
+position = Vector2(690, 536)
 container_id = &"biscuit_tin"
 contents = NodePath("../SugarMouse")
 open_title = "The tin opener prises the lid off..."
@@ -116,12 +137,16 @@ locked_title = "The biscuit tin is stuck shut."
 locked_message = "The lid is rusted on. You need something to prise it open."
 style = 7
 tint = Color(0.38, 0.5, 0.62, 1)
-size = Vector2(52, 40)
+size = Vector2(319.529, 330.941)
+closed_texture = ExtResource("tex_kitchen_biscuit_tin_closed_v1")
+open_texture = ExtResource("tex_kitchen_biscuit_tin_open_v1")
+scale = Vector2(0.1753, 0.1753)
 
 [node name="SugarMouse" parent="HiddenObjects" instance=ExtResource("5_object")]
-position = Vector2(560, 546)
-scale = Vector2(0.6, 0.6)
+modulate = Color(0.95, 0.88, 0.76, 1)
+position = Vector2(700, 512)
 data = ExtResource("14_mouse")
+texture_scale = Vector2(0.1439, 0.1439)
 
 [node name="RoomForeground" type="Node2D" parent="."]
 visible = false

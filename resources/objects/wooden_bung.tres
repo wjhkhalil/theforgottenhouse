@@ -2,6 +2,8 @@
 
 [ext_resource type="Script" path="res://scripts/hidden_object_data.gd" id="1_data"]
 
+[ext_resource type="Texture2D" path="res://assets/objects/wooden_bung_v1.png" id="2_texture"]
+
 [resource]
 script = ExtResource("1_data")
 object_id = &"wooden_bung"
@@ -12,5 +14,7 @@ clue_text = "A spare plug, greased so it would pull out easily. One bung like th
 hint_text = "A small wooden crate sits on the floor under the boat, between the two trestles. Look inside it."
 riddle_text = ""
 placeholder_style = 94
+texture = ExtResource("2_texture")
+icon_texture = ExtResource("2_texture")
 is_required = true
 starts_visible = false

@@ -1,0 +1,142 @@
+{
+ "objects": [
+  {
+   "id": "police_seal",
+   "sheet": "jetty_objects_sheet_v1.png",
+   "box": [
+    10,
+    8,
+    340,
+    472
+   ],
+   "shadow": false
+  },
+  {
+   "id": "cigarette_case",
+   "sheet": "jetty_objects_sheet_v1.png",
+   "box": [
+    324,
+    100,
+    724,
+    436
+   ]
+  },
+  {
+   "id": "fishing_float",
+   "sheet": "jetty_objects_sheet_v1.png",
+   "box": [
+    720,
+    8,
+    936,
+    472
+   ],
+   "shadow": false
+  },
+  {
+   "id": "name_board",
+   "sheet": "jetty_objects_sheet_v1.png",
+   "box": [
+    920,
+    136,
+    1484,
+    392
+   ],
+   "shadow": false
+  },
+  {
+   "id": "message_bottle",
+   "sheet": "jetty_objects_sheet_v1.png",
+   "box": [
+    1464,
+    0,
+    1672,
+    488
+   ],
+   "shadow": false
+  },
+  {
+   "id": "brass_compass",
+   "sheet": "jetty_objects_sheet_v1.png",
+   "box": [
+    8,
+    448,
+    304,
+    904
+   ]
+  },
+  {
+   "id": "tackle_key",
+   "sheet": "jetty_objects_sheet_v1.png",
+   "box": [
+    288,
+    536,
+    620,
+    840
+   ]
+  },
+  {
+   "id": "log_page",
+   "sheet": "jetty_objects_sheet_v1.png",
+   "box": [
+    588,
+    456,
+    960,
+    900
+   ]
+  }
+ ],
+ "containers": [
+  {
+   "id": "jetty_fish_crate",
+   "closed": {
+    "sheet": "jetty_containers_sheet_v1.png",
+    "box": [
+     836,
+     84,
+     1328,
+     396
+    ]
+   },
+   "open": {
+    "sheet": "jetty_containers_sheet_v1.png",
+    "box": [
+     836,
+     416,
+     1324,
+     888
+    ]
+   },
+   "match": "width",
+   "align": "bottom"
+  },
+  {
+   "id": "jetty_dock_locker",
+   "closed": {
+    "sheet": "jetty_containers_sheet_v1.png",
+    "box": [
+     1372,
+     0,
+     1636,
+     444
+    ],
+    "shadow": false
+   },
+   "open": {
+    "sheet": "jetty_containers_sheet_v1.png",
+    "box": [
+     1320,
+     416,
+     1640,
+     920
+    ],
+    "shadow": false
+   },
+   "match": "height",
+   "align": "bottom",
+   "open_offset": [
+    -28,
+    0
+   ]
+  }
+ ]
+}

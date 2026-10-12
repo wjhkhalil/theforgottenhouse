@@ -30,6 +30,19 @@
 [ext_resource type="PackedScene" path="res://scenes/ui/letter_popup.tscn" id="28_letter"]
 [ext_resource type="PackedScene" path="res://scenes/ui/keypad_lock.tscn" id="29_keypad"]
 [ext_resource type="Texture2D" path="res://assets/backgrounds/lighthouse_steps_background_v1.png" id="bg_lighthouse_steps"]
+[ext_resource type="Texture2D" path="res://assets/objects/lighthouse_steps_oil_store_closed_v1.png" id="tex_lighthouse_steps_oil_store_closed_v1"]
+[ext_resource type="Texture2D" path="res://assets/objects/lighthouse_steps_oil_store_open_v1.png" id="tex_lighthouse_steps_oil_store_open_v1"]
+[ext_resource type="Texture2D" path="res://assets/objects/lighthouse_steps_knitting_basket_closed_v1.png" id="tex_lighthouse_steps_knitting_basket_closed_v1"]
+[ext_resource type="Texture2D" path="res://assets/objects/lighthouse_steps_knitting_basket_open_v1.png" id="tex_lighthouse_steps_knitting_basket_open_v1"]
+[ext_resource type="Texture2D" path="res://assets/objects/lighthouse_steps_twine_parcel_closed_v1.png" id="tex_lighthouse_steps_twine_parcel_closed_v1"]
+[ext_resource type="Texture2D" path="res://assets/objects/lighthouse_steps_twine_parcel_open_v1.png" id="tex_lighthouse_steps_twine_parcel_open_v1"]
+[ext_resource type="Texture2D" path="res://assets/objects/lighthouse_steps_medal_box_closed_v1.png" id="tex_lighthouse_steps_medal_box_closed_v1"]
+[ext_resource type="Texture2D" path="res://assets/objects/lighthouse_steps_medal_box_open_v1.png" id="tex_lighthouse_steps_medal_box_open_v1"]
+[ext_resource type="Texture2D" path="res://assets/objects/lighthouse_steps_key_box_closed_v1.png" id="tex_lighthouse_steps_key_box_closed_v1"]
+[ext_resource type="Texture2D" path="res://assets/objects/lighthouse_steps_key_box_open_v1.png" id="tex_lighthouse_steps_key_box_open_v1"]
+[ext_resource type="Texture2D" path="res://assets/objects/lighthouse_steps_first_aid_tin_closed_v1.png" id="tex_lighthouse_steps_first_aid_tin_closed_v1"]
+[ext_resource type="Texture2D" path="res://assets/objects/lighthouse_steps_first_aid_tin_open_v1.png" id="tex_lighthouse_steps_first_aid_tin_open_v1"]
+[ext_resource type="Script" path="res://scripts/clue_mark.gd" id="clue_mark"]
 
 [node name="LighthouseSteps" type="Node2D" node_paths=PackedStringArray("keypad_lock", "room_camera")]
 script = ExtResource("1_room")
@@ -46,28 +59,38 @@ script = ExtResource("4_art")
 replacement_texture = ExtResource("bg_lighthouse_steps")
 room_size = Vector2(1280, 1440)
 
+[node name="ChalkDate" type="Node2D" parent="."]
+position = Vector2(338, 452)
+rotation = -0.04
+script = ExtResource("clue_mark")
+lines = PackedStringArray("3.10.88")
+sizes = PackedInt32Array(19)
+ink = Color(0.93, 0.92, 0.86, 0.8)
+
 [node name="HiddenObjects" type="Node2D" parent="."]
 unique_name_in_owner = true
 
 [node name="Barometer" parent="HiddenObjects" instance=ExtResource("5_object")]
-position = Vector2(190, 300)
-scale = Vector2(0.75, 0.75)
+position = Vector2(215, 185)
 data = ExtResource("15_barometer")
+rotation = 0
+texture_scale = Vector2(0.3939, 0.3939)
 
 [node name="Telescope" parent="HiddenObjects" instance=ExtResource("5_object")]
-position = Vector2(340, 286)
-rotation = -0.06
-scale = Vector2(0.6, 0.6)
+position = Vector2(355, 262)
+rotation = 0
 data = ExtResource("7_telescope")
+texture_scale = Vector2(0.3636, 0.3636)
 
 [node name="GullFeather" parent="HiddenObjects" instance=ExtResource("5_object")]
-position = Vector2(884, 400)
-rotation = 0.18
-scale = Vector2(0.6, 0.6)
+position = Vector2(940, 327)
+rotation = 0.5
 data = ExtResource("11_gull_feather")
+texture_scale = Vector2(0.1515, 0.1515)
 
 [node name="OilStore" parent="HiddenObjects" node_paths=PackedStringArray("contents") instance=ExtResource("20_container")]
-position = Vector2(880, 1296)
+self_modulate = Color(0.82, 0.82, 0.88, 1)
+position = Vector2(822, 1222)
 container_id = &"oil_store"
 contents = NodePath("../ParaffinCan")
 open_title = "The four wheels click round..."
@@ -81,36 +104,42 @@ code_hint_first_after = 8
 code_hint_second_after = 11
 style = 3
 tint = Color(0.3, 0.36, 0.32, 1)
-size = Vector2(64, 92)
+size = Vector2(285.333, 399.467)
+closed_texture = ExtResource("tex_lighthouse_steps_oil_store_closed_v1")
+open_texture = ExtResource("tex_lighthouse_steps_oil_store_open_v1")
+scale = Vector2(0.3505, 0.3505)
 
 [node name="ParaffinCan" parent="HiddenObjects" instance=ExtResource("5_object")]
-position = Vector2(880, 1290)
-scale = Vector2(0.65, 0.65)
+position = Vector2(826, 1260)
 data = ExtResource("10_paraffin_can")
+texture_scale = Vector2(0.1894, 0.1894)
 
 [node name="KeeperLogbook" parent="HiddenObjects" instance=ExtResource("5_object")]
-position = Vector2(293, 632)
-rotation = 0.08
-scale = Vector2(0.6, 0.6)
+position = Vector2(258, 556)
+rotation = 0
 data = ExtResource("8_keeper_logbook")
+texture_scale = Vector2(0.197, 0.197)
 
 [node name="KnittingBasket" parent="HiddenObjects" node_paths=PackedStringArray("contents") instance=ExtResource("20_container")]
-position = Vector2(372, 684)
+position = Vector2(412, 650)
 container_id = &"knitting_basket"
 contents = NodePath("../KnittingNeedles")
 open_title = "You look in the knitting basket..."
 open_message = "Balls of wool, and a jumper half-knitted on two needles."
 style = 6
 tint = Color(0.5, 0.4, 0.26, 1)
-size = Vector2(48, 34)
+size = Vector2(302, 248.071)
+closed_texture = ExtResource("tex_lighthouse_steps_knitting_basket_closed_v1")
+open_texture = ExtResource("tex_lighthouse_steps_knitting_basket_open_v1")
+scale = Vector2(0.1854, 0.1854)
 
 [node name="KnittingNeedles" parent="HiddenObjects" instance=ExtResource("5_object")]
-position = Vector2(372, 678)
-scale = Vector2(0.6, 0.6)
+position = Vector2(412, 642)
 data = ExtResource("12_knitting_needles")
+texture_scale = Vector2(0.1439, 0.1439)
 
 [node name="TwineParcel" parent="HiddenObjects" node_paths=PackedStringArray("contents", "required_object") instance=ExtResource("20_container")]
-position = Vector2(150, 686)
+position = Vector2(116, 660)
 container_id = &"twine_parcel"
 contents = NodePath("../KeepersPhoto")
 open_title = "You cut through the twine..."
@@ -120,15 +149,18 @@ locked_title = "The parcel is tied tight."
 locked_message = "Tarred twine, knotted again and again. You can't undo it with your fingers. Something sharp would cut it."
 style = 7
 tint = Color(0.56, 0.45, 0.3, 1)
-size = Vector2(52, 32)
+size = Vector2(341.333, 193.422)
+closed_texture = ExtResource("tex_lighthouse_steps_twine_parcel_closed_v1")
+open_texture = ExtResource("tex_lighthouse_steps_twine_parcel_open_v1")
+scale = Vector2(0.1758, 0.1758)
 
 [node name="KeepersPhoto" parent="HiddenObjects" instance=ExtResource("5_object")]
-position = Vector2(150, 680)
-scale = Vector2(0.6, 0.6)
+position = Vector2(116, 652)
 data = ExtResource("18_keepers_photo")
+texture_scale = Vector2(0.1136, 0.1136)
 
 [node name="MedalBox" parent="HiddenObjects" node_paths=PackedStringArray("contents", "required_object") instance=ExtResource("20_container")]
-position = Vector2(382, 527)
+position = Vector2(300, 400)
 container_id = &"medal_box"
 contents = NodePath("../LifesavingMedal")
 open_title = "Click! The catch springs back..."
@@ -138,27 +170,31 @@ locked_title = "The little box won't open."
 locked_message = "Its catch has slipped down inside the lid. You'd need something long and thin to push it back."
 style = 1
 tint = Color(0.4, 0.2, 0.18, 1)
-size = Vector2(40, 24)
+size = Vector2(392.333, 190.222)
+closed_texture = ExtResource("tex_lighthouse_steps_medal_box_closed_v1")
+open_texture = ExtResource("tex_lighthouse_steps_medal_box_open_v1")
+scale = Vector2(0.1682, 0.1682)
 
 [node name="LifesavingMedal" parent="HiddenObjects" instance=ExtResource("5_object")]
-position = Vector2(382, 521)
-scale = Vector2(0.55, 0.55)
+position = Vector2(300, 404)
 data = ExtResource("17_lifesaving_medal")
+texture_scale = Vector2(0.0909, 0.0909)
 
 [node name="WickTrimmer" parent="HiddenObjects" instance=ExtResource("5_object")]
-position = Vector2(774, 851)
-rotation = -0.1
-scale = Vector2(0.55, 0.55)
+position = Vector2(752, 822)
+rotation = 0
 data = ExtResource("9_wick_trimmer")
+texture_scale = Vector2(0.1742, 0.1742)
 
 [node name="TideTable" parent="HiddenObjects" instance=ExtResource("5_object")]
-position = Vector2(400, 862)
-rotation = 0.08
-scale = Vector2(0.6, 0.6)
+position = Vector2(392, 800)
+rotation = 0.04
 data = ExtResource("14_tide_table")
+texture_scale = Vector2(0.2348, 0.2348)
 
 [node name="KeyBox" parent="HiddenObjects" node_paths=PackedStringArray("contents", "required_object") instance=ExtResource("20_container")]
-position = Vector2(846, 262)
+self_modulate = Color(1, 0.9, 0.76, 1)
+position = Vector2(838, 240)
 container_id = &"key_box"
 contents = NodePath("../LampRoomKey")
 open_title = "The oil frees the hinge..."
@@ -168,38 +204,46 @@ locked_title = "The key box is rusted shut."
 locked_message = "The sea air has rusted its hinge solid. A few drops of oil might free it."
 style = 3
 tint = Color(0.36, 0.24, 0.16, 1)
-size = Vector2(44, 56)
+size = Vector2(386.581, 414.193)
+closed_texture = ExtResource("tex_lighthouse_steps_key_box_closed_v1")
+open_texture = ExtResource("tex_lighthouse_steps_key_box_open_v1")
+scale = Vector2(0.1449, 0.1449)
 
 [node name="LampRoomKey" parent="HiddenObjects" instance=ExtResource("5_object")]
-position = Vector2(846, 256)
-scale = Vector2(0.6, 0.6)
+position = Vector2(838, 244)
 data = ExtResource("19_lamp_room_key")
+rotation = 1.57
+texture_scale = Vector2(0.1136, 0.1136)
 
 [node name="OilskinHat" parent="HiddenObjects" instance=ExtResource("5_object")]
-position = Vector2(318, 1166)
-rotation = 0.12
-scale = Vector2(0.65, 0.65)
+position = Vector2(318, 1098)
+rotation = 0
 data = ExtResource("6_oilskin_hat")
+texture_scale = Vector2(0.2727, 0.2727)
 
 [node name="ShipInBottle" parent="HiddenObjects" instance=ExtResource("5_object")]
-position = Vector2(505, 1204)
-scale = Vector2(0.6, 0.6)
+position = Vector2(542, 1130)
 data = ExtResource("16_ship_in_bottle")
+texture_scale = Vector2(0.3106, 0.3106)
 
 [node name="FirstAidTin" parent="HiddenObjects" node_paths=PackedStringArray("contents") instance=ExtResource("20_container")]
-position = Vector2(540, 1272)
+self_modulate = Color(0.9, 0.88, 0.84, 1)
+position = Vector2(520, 1208)
 container_id = &"first_aid_tin"
 contents = NodePath("../BandageRoll")
 open_title = "You open the first aid tin..."
 open_message = "Iodine, lint, a pair of scissors, and a roll of bandage, half used."
 style = 7
 tint = Color(0.78, 0.76, 0.72, 1)
-size = Vector2(46, 30)
+size = Vector2(394.211, 247.79)
+closed_texture = ExtResource("tex_lighthouse_steps_first_aid_tin_closed_v1")
+open_texture = ExtResource("tex_lighthouse_steps_first_aid_tin_open_v1")
+scale = Vector2(0.1776, 0.1776)
 
 [node name="BandageRoll" parent="HiddenObjects" instance=ExtResource("5_object")]
-position = Vector2(540, 1266)
-scale = Vector2(0.6, 0.6)
+position = Vector2(520, 1217)
 data = ExtResource("13_bandage_roll")
+texture_scale = Vector2(0.1061, 0.1061)
 
 [node name="RoomForeground" type="Node2D" parent="."]
 visible = false

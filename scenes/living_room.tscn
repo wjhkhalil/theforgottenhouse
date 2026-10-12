@@ -23,6 +23,12 @@
 [ext_resource type="PackedScene" path="res://scenes/ui/pause_menu.tscn" id="21_pause"]
 [ext_resource type="PackedScene" path="res://scenes/ui/letter_popup.tscn" id="22_letter"]
 [ext_resource type="Texture2D" path="res://assets/backgrounds/living_room_background_v1.png" id="bg_living_room"]
+[ext_resource type="Texture2D" path="res://assets/objects/living_room_piano_bench_closed_v1.png" id="tex_living_room_piano_bench_closed_v1"]
+[ext_resource type="Texture2D" path="res://assets/objects/living_room_piano_bench_open_v1.png" id="tex_living_room_piano_bench_open_v1"]
+[ext_resource type="Texture2D" path="res://assets/objects/living_room_cigar_box_closed_v1.png" id="tex_living_room_cigar_box_closed_v1"]
+[ext_resource type="Texture2D" path="res://assets/objects/living_room_cigar_box_open_v1.png" id="tex_living_room_cigar_box_open_v1"]
+[ext_resource type="Texture2D" path="res://assets/objects/living_room_desk_drawer_closed_v1.png" id="tex_living_room_desk_drawer_closed_v1"]
+[ext_resource type="Texture2D" path="res://assets/objects/living_room_desk_drawer_open_v1.png" id="tex_living_room_desk_drawer_open_v1"]
 
 [sub_resource type="Gradient" id="Gradient_dust"]
 offsets = PackedFloat32Array(0, 0.2, 0.8, 1)
@@ -44,83 +50,93 @@ replacement_texture = ExtResource("bg_living_room")
 unique_name_in_owner = true
 
 [node name="GramophoneRecord" parent="HiddenObjects" instance=ExtResource("5_object")]
-position = Vector2(690, 440)
-scale = Vector2(0.6, 0.6)
+position = Vector2(716, 387)
 data = ExtResource("6_record")
+rotation = 0
+texture_scale = Vector2(0.1667, 0.1667)
 
 [node name="TobaccoPipe" parent="HiddenObjects" instance=ExtResource("5_object")]
-position = Vector2(432, 481)
-rotation = -0.06
-scale = Vector2(0.6, 0.6)
+position = Vector2(328, 223.5)
+rotation = 0
 data = ExtResource("7_pipe")
+texture_scale = Vector2(0.1515, 0.1515)
 
 [node name="Matchbox" parent="HiddenObjects" instance=ExtResource("5_object")]
-position = Vector2(1212, 500)
-rotation = 0.1
-scale = Vector2(0.65, 0.65)
+position = Vector2(695, 497)
+rotation = 0
 data = ExtResource("8_matchbox")
+texture_scale = Vector2(0.1136, 0.1136)
 
 [node name="KnittedScarf" parent="HiddenObjects" instance=ExtResource("5_object")]
-position = Vector2(608, 440)
-rotation = 0.05
-scale = Vector2(0.6, 0.6)
+position = Vector2(522, 384)
+rotation = 0
 data = ExtResource("9_scarf")
+texture_scale = Vector2(0.2652, 0.2652)
 
 [node name="Crossword" parent="HiddenObjects" instance=ExtResource("5_object")]
-position = Vector2(462, 545)
-rotation = -0.12
-scale = Vector2(0.6, 0.6)
+position = Vector2(458, 466)
+rotation = 0
 data = ExtResource("10_crossword")
+texture_scale = Vector2(0.1894, 0.1042)
 
 [node name="PianoBench" parent="HiddenObjects" node_paths=PackedStringArray("contents") instance=ExtResource("14_container")]
-position = Vector2(880, 500)
+position = Vector2(915, 415)
 container_id = &"piano_bench"
 contents = NodePath("../InsurancePolicy")
 open_title = "You lift the piano bench seat..."
 open_message = "Under old sheet music lies an official-looking paper."
 style = 7
 tint = Color(0.2, 0.11, 0.07, 1)
-size = Vector2(96, 44)
+size = Vector2(324.905, 299.912)
+closed_texture = ExtResource("tex_living_room_piano_bench_closed_v1")
+open_texture = ExtResource("tex_living_room_piano_bench_open_v1")
+scale = Vector2(0.3201, 0.3201)
 
 [node name="InsurancePolicy" parent="HiddenObjects" instance=ExtResource("5_object")]
-position = Vector2(880, 492)
-rotation = 0.08
-scale = Vector2(0.55, 0.55)
+position = Vector2(915, 398)
+rotation = 0
 data = ExtResource("11_policy")
+texture_scale = Vector2(0.1515, 0.1515)
 
 [node name="CigarBox" parent="HiddenObjects" node_paths=PackedStringArray("contents") instance=ExtResource("14_container")]
-position = Vector2(646, 600)
+position = Vector2(612, 477.5)
 container_id = &"cigar_box"
 contents = NodePath("../DeskKey")
 open_title = "The cigar box creaks open..."
 open_message = "Among the cigars is a small brass key."
 style = 7
 tint = Color(0.55, 0.26, 0.16, 1)
-size = Vector2(52, 30)
+size = Vector2(358.968, 276.129)
+closed_texture = ExtResource("tex_living_room_cigar_box_closed_v1")
+open_texture = ExtResource("tex_living_room_cigar_box_open_v1")
+scale = Vector2(0.1449, 0.1449)
 
 [node name="DeskKey" parent="HiddenObjects" instance=ExtResource("5_object")]
-position = Vector2(646, 596)
-rotation = -0.1
-scale = Vector2(0.6, 0.6)
+position = Vector2(612, 480)
+rotation = 0.25
 data = ExtResource("12_desk_key")
+texture_scale = Vector2(0.1061, 0.1061)
 
 [node name="DeskDrawer" parent="HiddenObjects" node_paths=PackedStringArray("contents", "required_object") instance=ExtResource("14_container")]
-position = Vector2(1130, 560)
+position = Vector2(733.5, 337)
 container_id = &"desk_drawer"
 contents = NodePath("../SpareKeys")
-open_title = "The desk key turns..."
+open_title = "The little key turns..."
 open_message = "The drawer is full of keys."
 required_object = NodePath("../DeskKey")
-locked_title = "The writing desk is locked."
+locked_title = "The drawer is locked."
 locked_message = "It needs a small brass key."
 style = 4
 tint = Color(0.3, 0.17, 0.11, 1)
-size = Vector2(84, 30)
+size = Vector2(398.1, 172.4)
+closed_texture = ExtResource("tex_living_room_desk_drawer_closed_v1")
+open_texture = ExtResource("tex_living_room_desk_drawer_open_v1")
+scale = Vector2(0.1808, 0.1392)
 
 [node name="SpareKeys" parent="HiddenObjects" instance=ExtResource("5_object")]
-position = Vector2(1130, 553)
-scale = Vector2(0.55, 0.55)
+position = Vector2(733, 336)
 data = ExtResource("13_spare_keys")
+texture_scale = Vector2(0.0985, 0.0985)
 
 [node name="RoomForeground" type="Node2D" parent="."]
 visible = false

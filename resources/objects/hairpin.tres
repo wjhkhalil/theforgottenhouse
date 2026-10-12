@@ -2,6 +2,8 @@
 
 [ext_resource type="Script" path="res://scripts/hidden_object_data.gd" id="1_data"]
 
+[ext_resource type="Texture2D" path="res://assets/objects/hairpin_v1.png" id="2_texture"]
+
 [resource]
 script = ExtResource("1_data")
 object_id = &"hairpin"
@@ -12,5 +14,7 @@ clue_text = "The tip is worn bright. Mara used it to scratch marks into the wood
 hint_text = "Look at the tall wooden post in the middle of the loft, near the scratched marks."
 riddle_text = ""
 placeholder_style = 83
+texture = ExtResource("2_texture")
+icon_texture = ExtResource("2_texture")
 is_required = true
 starts_visible = true
