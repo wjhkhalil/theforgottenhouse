@@ -79,37 +79,37 @@ replacement_texture = ExtResource("bg_matrons_office")
 unique_name_in_owner = true
 
 [node name="PictureRailKey" parent="HiddenObjects" instance=ExtResource("5_object")]
-position = Vector2(120, 197)
+position = Vector2(120, 181)
 rotation = -0.5
 data = ExtResource("10_picture_rail_key")
 texture_scale = Vector2(0.0985, 0.0985)
 
 [node name="CaddyKey" parent="HiddenObjects" instance=ExtResource("5_object")]
-position = Vector2(74, 189)
+position = Vector2(68, 172)
 rotation = 1.3
 data = ExtResource("11_caddy_key")
 texture_scale = Vector2(0.0833, 0.0833)
 
 [node name="TravellingCloak" parent="HiddenObjects" instance=ExtResource("5_object")]
-position = Vector2(125, 311)
+position = Vector2(121, 307)
 data = ExtResource("12_travelling_cloak")
 rotation = 0
 texture_scale = Vector2(0.2197, 0.2197)
 
 [node name="RingedCalendar" parent="HiddenObjects" instance=ExtResource("5_object")]
-position = Vector2(102, 239)
+position = Vector2(100, 227)
 data = ExtResource("13_ringed_calendar")
 rotation = 0
 texture_scale = Vector2(0.1364, 0.1364)
 
 [node name="PackedValise" parent="HiddenObjects" instance=ExtResource("5_object")]
-position = Vector2(79, 285)
+position = Vector2(74, 278)
 data = ExtResource("14_packed_valise")
 rotation = 0
 texture_scale = Vector2(0.1515, 0.1515)
 
 [node name="MuddyGaloshes" parent="HiddenObjects" instance=ExtResource("5_object")]
-position = Vector2(112, 385)
+position = Vector2(111, 390)
 data = ExtResource("15_muddy_galoshes")
 rotation = 0
 texture_scale = Vector2(0.1515, 0.1515)
@@ -387,7 +387,8 @@ layer = 1
 
 [node name="WallMirror" type="Node2D" parent="."]
 script = ExtResource("40_effect")
-glass_rect = Rect2(56, 135, 92, 300)
+glass_rect = Rect2(48, 112, 104, 333)
+arch_height = 26.0
 mirror_objects = Array[NodePath]([NodePath("../HiddenObjects/PictureRailKey"), NodePath("../HiddenObjects/CaddyKey"), NodePath("../HiddenObjects/TravellingCloak"), NodePath("../HiddenObjects/RingedCalendar"), NodePath("../HiddenObjects/PackedValise"), NodePath("../HiddenObjects/MuddyGaloshes")])
 object_views = PackedInt32Array(0, 0, 1, 1, 2, 2)
 

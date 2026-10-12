@@ -25,6 +25,16 @@ signal reach_blocked
 @export var low_seconds: float = 6.0
 @export var rise_seconds: float = 5.0
 @export var water_color: Color = Color(0.07, 0.15, 0.15, 0.86)
+## The inside of the slip as it is painted (room coordinates). The water is only
+## drawn inside this shape, so it never covers the quay posts. Empty = all of `slip_rect`.
+@export var slip_outline: PackedVector2Array = PackedVector2Array()
+## The wall at the far end of the slip. The waterline runs level across it and
+## slopes down along the side walls towards the player. No size = a level waterline.
+@export var back_wall: Rect2 = Rect2()
+## How steeply the waterline slopes along the side walls: at the top of the back wall, and at its foot.
+@export var side_slopes: Vector2 = Vector2(0.16, 0.81)
+## Where the lantern's reflection lies on the water (room x). 0 = no reflection.
+@export var lantern_x: float = 0.0
 
 ## Seconds into the current cycle (exposed for the automated test).
 var cycle_time: float = 2.0
@@ -70,7 +80,27 @@ func get_level() -> float:
 
 
 func is_underwater(world_position: Vector2) -> bool:
-	return slip_rect.has_point(world_position) and world_position.y > _level
+	return slip_rect.has_point(world_position) and world_position.y > surface_y_at(world_position.x)
+
+
+## Height of the waterline at room position `x`: level across the back wall,
+## lower (nearer the player) along the side walls.
+func surface_y_at(x: float) -> float:
+	if not back_wall.has_area():
+		return _level
+	var left := back_wall.position.x
+	var right := back_wall.end.x
+	var slope := lerpf(side_slopes.x, side_slopes.y, clampf((_level - back_wall.position.y) / back_wall.size.y, 0.0, 1.0))
+	if _level > back_wall.end.y:
+		# Below the foot of the back wall: the water's edge lies on the floor of the slip.
+		var spread := (_level - back_wall.end.y) / side_slopes.y
+		left -= spread
+		right += spread
+	if x < left:
+		return _level + (left - x) * slope
+	if x > right:
+		return _level + (x - right) * slope
+	return _level
 
 
 ## Jumps straight to low water. With `hold`, the water stays low (used by the test).
@@ -119,7 +149,7 @@ func _set_level(level: float) -> void:
 	for node in get_tree().get_nodes_in_group("hidden_objects") + _containers():
 		var area := node as Area2D
 		if area != null and slip_rect.has_point(area.global_position) and area.has_method("set_reachable"):
-			area.call("set_reachable", area.global_position.y < _level)
+			area.call("set_reachable", area.global_position.y < surface_y_at(area.global_position.x))
 
 
 func _containers() -> Array[Node]:
@@ -155,20 +185,55 @@ func _on_water_clicked(_viewport: Node, event: InputEvent, _shape_index: int) ->
 func _draw() -> void:
 	if _level >= slip_rect.end.y:
 		return
-	var top := _level
-	var rect := Rect2(slip_rect.position.x, top, slip_rect.size.x, slip_rect.end.y - top)
-	draw_rect(rect, water_color)
-	# Darker towards the bottom
-	var deep := Color(0, 0.02, 0.03, 0.35)
-	draw_polygon(PackedVector2Array([rect.position, Vector2(rect.end.x, rect.position.y), rect.end, Vector2(rect.position.x, rect.end.y)]),
-		PackedColorArray([Color(deep, 0.0), Color(deep, 0.0), deep, deep]))
-	# A wavy, moonlit surface line with a little foam
-	var points := PackedVector2Array()
-	var x := rect.position.x
-	while x <= rect.end.x:
-		points.append(Vector2(x, top + sin(x * 0.045 + _wave_time * 2.2) * 2.5))
+	var outline := slip_outline
+	if outline.size() < 3:
+		outline = PackedVector2Array([slip_rect.position, Vector2(slip_rect.end.x, slip_rect.position.y), slip_rect.end,
+			Vector2(slip_rect.position.x, slip_rect.end.y)])
+	# The waterline, with a slow swell, and everything below it.
+	var surface := PackedVector2Array()
+	var x := slip_rect.position.x - 40.0
+	while x <= slip_rect.end.x + 40.0:
+		surface.append(Vector2(x, surface_y_at(x) + sin(x * 0.045 + _wave_time * 2.2) * 2.5))
 		x += 8.0
-	draw_polyline(points, Color(0.7, 0.82, 0.9, 0.55), 2.0, true)
+	# Thin and clear at the waterline, dark and murky further down: bands that follow the waterline.
+	var shallow := water_color.lightened(0.1)
+	shallow.a = water_color.a * 0.8
+	var deep := water_color.darkened(0.5)
+	deep.a = minf(water_color.a + 0.08, 1.0)
+	var offsets: Array[float] = [0.0, 8.0, 18.0, 32.0, 52.0, 80.0, 400.0]
+	for band in range(offsets.size() - 1):
+		var strip := PackedVector2Array()
+		for point in surface:
+			strip.append(point + Vector2(0, offsets[band]))
+		for i in range(surface.size() - 1, -1, -1):
+			strip.append(surface[i] + Vector2(0, offsets[band + 1]))
+		for water in Geometry2D.intersect_polygons(strip, outline):
+			# A sliver too thin to fill (where a band just touches the outline) is skipped.
+			if Geometry2D.triangulate_polygon(water).is_empty():
+				continue
+			draw_colored_polygon(water, shallow.lerp(deep, band / float(offsets.size() - 2)))
+	# Ripples catching the light just under the waterline, fainter further down.
+	for row in range(1, 6):
+		var ripple := PackedVector2Array()
+		for point in surface:
+			ripple.append(point + Vector2(0, row * row * 2.6 + sin(point.x * 0.07 + _wave_time * (1.4 + row * 0.3) + row) * 1.5))
+		for part in Geometry2D.intersect_polyline_with_polygon(ripple, outline):
+			draw_polyline(part, Color(0.6, 0.76, 0.84, 0.34 / row), 1.5, true)
+	# The lantern's reflection: broken amber dashes that shiver on the water.
+	if lantern_x > 0.0:
+		var top := surface_y_at(lantern_x)
+		for i in range(7):
+			var y := top + 6.0 + i * 9.0
+			if y > slip_rect.end.y:
+				break
+			var half := 24.0 - i * 2.2 + sin(_wave_time * 3.0 + i * 1.7) * 5.0
+			var middle := lantern_x + sin(_wave_time * 1.8 + i * 0.9) * 3.0
+			draw_line(Vector2(middle - half, y), Vector2(middle + half, y), Color(1.0, 0.72, 0.36, 0.5 - i * 0.06), 2.5, true)
+	# A wavy, moonlit surface line with a little foam
+	for part in Geometry2D.intersect_polyline_with_polygon(surface, outline):
+		draw_polyline(part, Color(0.7, 0.82, 0.9, 0.55), 2.0, true)
 	for i in range(6):
-		var foam_x := rect.position.x + fmod(i * 97.0 + _wave_time * 18.0, rect.size.x)
-		draw_line(Vector2(foam_x, top + 4), Vector2(foam_x + 22, top + 4), Color(0.85, 0.9, 0.95, 0.25), 1.5)
+		var foam_x := slip_rect.position.x + fmod(i * 97.0 + _wave_time * 18.0, slip_rect.size.x)
+		var foam := PackedVector2Array([Vector2(foam_x, surface_y_at(foam_x) + 4.0), Vector2(foam_x + 22.0, surface_y_at(foam_x + 22.0) + 4.0)])
+		for part in Geometry2D.intersect_polyline_with_polygon(foam, outline):
+			draw_polyline(part, Color(0.85, 0.9, 0.95, 0.25), 1.5)

@@ -37,6 +37,7 @@ room's scripts in the order listed, around `cut_sprites.py tools/sprite_cuts/<ro
 | `ice_house_stand_pick.py` | after cutting | Turns the ice pick upright. |
 | `lighthouse_steps_cut_touching.py` | after cutting | Cuts four objects and five containers (not in the cut list); cleans the bandage roll. |
 | `lamp_room_make_fix_sheets.py` | before cutting, if a sheet changes | Rebuilds the two `lamp_room_*_fix_sheet_v1.png` sheets (pictures moved apart, pink removed). |
+| `lamp_room_window_mask.py` | if the Lamp Room BACKGROUND changes | Rebuilds `assets/backgrounds/lamp_room_window_mask_v1.png`: where the painting is sky and sea, so the lightning only shows through the glass. |
 | `vane_cottage_finish.py` | instead of cutting by hand | Runs the cutter and `vane_cottage_cut_touching.py`, then finishes the sprites (pink, flat-lying objects, cupboard, fake spines, cellar door). |
 
 Kitchen, Washroom, Loft and Island Chapel need no extra step.

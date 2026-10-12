@@ -1006,10 +1006,13 @@ func _play_house_two_part_two(victory: VictoryScreen) -> VictoryScreen:
 	_check(lamp_wind.is_gusting() and lamp_wind.is_flying(lamp_paper), "A gust sends the loose papers flying")
 	await _click_world(room, lamp_paper.global_position)
 	_check(not lamp_paper.is_collected, "A paper can't be collected while it flies")
-	await _click_world(room, lamp_mantle_object.global_position)
-	_check(lamp_mantle_object.is_collected, "Objects that aren't papers can still be picked up during a gust")
 	await _click_world(room, lamp_other_paper.global_position)
 	_check(not lamp_other_paper.is_collected, "Another flying paper can't be caught either")
+	# A paper flying over the mantle takes the click for a moment (the top thing
+	# under the mouse gets it), so keep clicking while the gust lasts.
+	while lamp_wind.is_gusting() and not lamp_mantle_object.is_collected:
+		await _click_world(room, lamp_mantle_object.global_position)
+	_check(lamp_mantle_object.is_collected, "Objects that aren't papers can still be picked up during a gust")
 	await _wait_seconds(lamp_wind.flight_seconds + 0.6)
 	_check(not lamp_wind.is_gusting() and lamp_paper.global_position.distance_to(lamp_before) > 20.0, "The gust moved the paper to a new spot")
 	var lamp_spots_used: Array[int] = []

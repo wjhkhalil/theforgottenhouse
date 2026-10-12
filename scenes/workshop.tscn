@@ -240,6 +240,9 @@ texture_scale = Vector2(0.1515, 0.1515)
 script = ExtResource("20_pieces")
 hull_plan = NodePath("../HiddenObjects/HullPlan")
 piece_positions = PackedVector2Array(468, 694, 222, 482, 706, 600, 332, 236)
+piece_scale = 1.0
+tear_down = PackedVector2Array(125, 17, 127, 45, 132, 66, 133, 96, 129, 105, 128, 126, 133, 154, 139, 172, 139, 210)
+tear_across = PackedVector2Array(11, 107, 60, 108, 100, 106, 129, 105, 160, 103, 200, 104, 253, 106)
 
 [node name="RoomForeground" type="Node2D" parent="."]
 visible = false

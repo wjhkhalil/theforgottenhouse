@@ -10,7 +10,8 @@ extends Node2D
 ## only be seen and clicked while the mirror is tilted that way.
 ##
 ## HOW IT WORKS: the reflection is one tall painting of three panels, each as
-## big as the glass. It hangs inside a clipping box the size of the glass and
+## big as the glass. It hangs inside a clipping shape the size of the glass
+## (arched at the top if `arch_height` is set) and
 ## slides up or down when the mirror tilts. The mirror objects stay where they
 ## are in the scene (inside the glass rectangle): they are faded in for their
 ## own tilt and switched off (set_reachable) for the others.
@@ -20,6 +21,10 @@ extends Node2D
 
 ## The glass of the mirror (room coordinates).
 @export var glass_rect: Rect2 = Rect2(120, 150, 170, 290)
+## How far the top of the glass arches above its corners (0 = a square top).
+@export var arch_height: float = 0.0
+## The colour of the glass itself, laid thinly over the reflection so it sits in the painting.
+@export var glass_tint: Color = Color(0.1, 0.16, 0.17, 0.22)
 ## The objects that exist only in the reflection.
 @export var mirror_objects: Array[NodePath] = []
 ## Which tilt shows each object (same order): 0 = up, 1 = level, 2 = down.
@@ -33,8 +38,8 @@ const VIEW_COUNT := 3
 ## The size the reflection is drawn at. It is scaled to fit `glass_rect`.
 const DESIGN_SIZE := Vector2(170, 290)
 const VIEW_NAMES: Array[String] = ["up", "level", "down"]
-const WALL := Color(0.2, 0.13, 0.11)
-const WALL_LIGHT := Color(0.27, 0.18, 0.14)
+const WALL := Color(0.13, 0.19, 0.15)
+const WALL_LIGHT := Color(0.17, 0.24, 0.19)
 const WOOD := Color(0.24, 0.15, 0.09)
 const WOOD_DARK := Color(0.13, 0.08, 0.05)
 const WOOD_LIGHT := Color(0.36, 0.24, 0.14)
@@ -62,19 +67,23 @@ func _ready() -> void:
 			_objects.append(node)
 			# Drawn above the reflection, so they seem to be in it.
 			node.z_index = 1
-	# A clipping box the size of the glass, with the tall reflection inside it.
-	var clip := Control.new()
+	# A clipping shape the size of the glass, with the tall reflection inside it.
+	var clip := Polygon2D.new()
 	clip.name = "Glass"
 	clip.position = glass_rect.position
-	clip.size = glass_rect.size
-	clip.clip_contents = true
-	clip.mouse_filter = Control.MOUSE_FILTER_IGNORE
+	clip.polygon = _glass_outline()
+	clip.clip_children = CanvasItem.CLIP_CHILDREN_ONLY
 	add_child(clip)
 	_strip = Node2D.new()
 	_strip.name = "Reflection"
 	clip.add_child(_strip)
 	_strip.scale = glass_rect.size / DESIGN_SIZE
 	_strip.draw.connect(_draw_reflection)
+	# The glass over the reflection: a thin tint, darker towards the frame.
+	var sheen := Node2D.new()
+	sheen.name = "Sheen"
+	clip.add_child(sheen)
+	sheen.draw.connect(_draw_glass.bind(sheen))
 	# The two tilt arrows: index 0 tilts up, index 1 tilts down.
 	for direction: int in [-1, 1]:
 		var arrow := Area2D.new()
@@ -147,6 +156,39 @@ func _process(_delta: float) -> void:
 	queue_redraw()
 
 
+## The shape of the glass, measured from its top-left corner: a rectangle, arched at the top.
+func _glass_outline() -> PackedVector2Array:
+	var size := glass_rect.size
+	var points := PackedVector2Array()
+	if arch_height <= 0.0:
+		points.append(Vector2.ZERO)
+		points.append(Vector2(size.x, 0))
+	else:
+		for step in range(17):
+			var angle := PI - step * PI / 16.0
+			points.append(Vector2(size.x * 0.5 + cos(angle) * size.x * 0.5, arch_height - sin(angle) * arch_height))
+	points.append(size)
+	points.append(Vector2(0, size.y))
+	return points
+
+
+## The glass itself, over the reflection: tinted, and shadowed where it meets the frame.
+func _draw_glass(sheen: Node2D) -> void:
+	var size := glass_rect.size
+	sheen.draw_rect(Rect2(Vector2.ZERO, size), glass_tint)
+	var dark := Color(0, 0, 0, 0.45)
+	var clear := Color(0, 0, 0, 0)
+	var edge := minf(size.x * 0.16, 18.0)
+	sheen.draw_polygon(PackedVector2Array([Vector2.ZERO, Vector2(edge, 0), Vector2(edge, size.y), Vector2(0, size.y)]),
+		PackedColorArray([dark, clear, clear, dark]))
+	sheen.draw_polygon(PackedVector2Array([Vector2(size.x - edge, 0), Vector2(size.x, 0), size, Vector2(size.x - edge, size.y)]),
+		PackedColorArray([clear, dark, dark, clear]))
+	sheen.draw_polygon(PackedVector2Array([Vector2.ZERO, Vector2(size.x, 0), Vector2(size.x, arch_height + edge), Vector2(0, arch_height + edge)]),
+		PackedColorArray([dark, dark, clear, clear]))
+	sheen.draw_polygon(PackedVector2Array([Vector2(0, size.y - edge), Vector2(size.x, size.y - edge), size, Vector2(0, size.y)]),
+		PackedColorArray([clear, clear, dark, dark]))
+
+
 func _arrow_position(direction: int) -> Vector2:
 	var middle_x := glass_rect.get_center().x
 	if direction < 0:
@@ -195,7 +237,12 @@ func _draw() -> void:
 	var font := ThemeDB.fallback_font
 	var text := "tilted " + VIEW_NAMES[view] if view != 1 else "level"
 	var width := font.get_string_size(text, HORIZONTAL_ALIGNMENT_LEFT, -1, 11).x
-	draw_string(font, _arrow_position(1) + Vector2(-width / 2.0, 34), text, HORIZONTAL_ALIGNMENT_LEFT, -1, 11, Color(ARROW, 0.8))
+	# On a dark plate, so it can be read whatever is painted behind it.
+	var plate := StyleBoxFlat.new()
+	plate.bg_color = Color(0, 0, 0, 0.6)
+	plate.set_corner_radius_all(7)
+	draw_style_box(plate, Rect2(_arrow_position(1) + Vector2(-width / 2.0 - 7, 22), Vector2(width + 14, 16)))
+	draw_string(font, _arrow_position(1) + Vector2(-width / 2.0, 34), text, HORIZONTAL_ALIGNMENT_LEFT, -1, 11, Color(ARROW, 0.95))
 
 
 # ---------------------------------------------------------------------------

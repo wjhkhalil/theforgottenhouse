@@ -13,6 +13,18 @@ extends RoomArt
 ##
 ## The background is redrawn every frame so the lens can turn and the
 ## lightning can flash.
+##
+## WITH A PAINTED BACKGROUND (replacement_texture) the painting is still, so the
+## moving parts are drawn over it by two small layers made in _ready():
+##   * a light layer: glints sliding round the painted lens, the lamp flaring
+##     as each panel faces the player, and the beam sweeping over floor and windows;
+##   * a storm layer: the lightning. `window_mask` says where the painting is
+##     sky and sea, so the flash and the bolt only show through the glass.
+## The PAINTED_ numbers below say where the lens is in the painting.
+
+## Where the painting shows the storm outside: see-through everywhere except
+## the sky and sea. Made by tools/sprite_fixes/lamp_room_window_mask.py.
+@export var window_mask: Texture2D
 
 const SILL_Y := 352.0
 const FLOOR_Y := 505.0
@@ -37,17 +49,74 @@ const WALL := Color(0.78, 0.74, 0.64)
 const WALL_DARK := Color(0.58, 0.54, 0.46)
 const WOOD := Color(0.42, 0.28, 0.17)
 const WOOD_DARK := Color(0.24, 0.16, 0.1)
+## The painted lens (room pixels): its middle, the top and bottom of its glass,
+## where the dome widens into the drum, and half its width at the top and in the drum.
+const PAINTED_LENS_X := 645.0
+const PAINTED_LENS_TOP := 34.0
+const PAINTED_LENS_SHOULDER := 160.0
+const PAINTED_LENS_BOTTOM := 342.0
+const PAINTED_LENS_TOP_HALF := 56.0
+const PAINTED_LENS_HALF := 110.0
+## The lamp burning inside the painted lens.
+const PAINTED_LAMP := Vector2(645, 232)
+## How fast the lens turns (radians a second).
+const TURN_SPEED := 0.35
+const STORM_SHADER := "shader_type canvas_item;
+render_mode blend_add;
+uniform sampler2D mask;
+uniform vec2 room_size = vec2(1280.0, 720.0);
+varying vec2 room;
+void vertex() {
+	room = VERTEX;
+}
+void fragment() {
+	COLOR.a *= texture(mask, room / room_size).a;
+}"
 const SKY_TOP := Color(0.1, 0.12, 0.18)
 const SKY_LOW := Color(0.24, 0.28, 0.34)
 
 ## Seconds since the room appeared (drives the turning lens and the lightning).
 var _time: float = 0.0
+## The two layers drawn over a painted background (null without a painting).
+var _light_layer: Node2D
+var _storm_layer: Node2D
+
+
+func _ready() -> void:
+	if Engine.is_editor_hint() or layer != Layer.BACKGROUND or replacement_texture == null:
+		return
+	# Light is added to the painting, so it glows instead of covering it.
+	_light_layer = Node2D.new()
+	_light_layer.name = "LensLight"
+	var add := CanvasItemMaterial.new()
+	add.blend_mode = CanvasItemMaterial.BLEND_MODE_ADD
+	_light_layer.material = add
+	add_child(_light_layer)
+	_light_layer.draw.connect(_draw_painted_lens_light)
+	if window_mask != null:
+		_storm_layer = Node2D.new()
+		_storm_layer.name = "Storm"
+		var shader := Shader.new()
+		shader.code = STORM_SHADER
+		var storm := ShaderMaterial.new()
+		storm.shader = shader
+		storm.set_shader_parameter("mask", window_mask)
+		storm.set_shader_parameter("room_size", room_size)
+		_storm_layer.material = storm
+		add_child(_storm_layer)
+		_storm_layer.draw.connect(_draw_painted_storm)
 
 
 func _process(delta: float) -> void:
 	if layer != Layer.BACKGROUND:
 		return
 	_time += delta
+	if _light_layer != null:
+		# The painting itself never changes: only the layers over it are redrawn.
+		_light_layer.queue_redraw()
+		if _storm_layer != null:
+			_storm_layer.queue_redraw()
+		return
 	queue_redraw()
 
 
@@ -95,6 +164,109 @@ func _lightning_flash() -> float:
 		return 0.6
 	return 0.0
 
+
+# ---------------------------------------------------------------------------
+# Over a painted background
+# ---------------------------------------------------------------------------
+
+## Half the width of the painted lens at height y: a dome on top of a straight drum.
+func _painted_half_width(y: float) -> float:
+	if y >= PAINTED_LENS_SHOULDER:
+		return PAINTED_LENS_HALF
+	var t := clampf((y - PAINTED_LENS_TOP) / (PAINTED_LENS_SHOULDER - PAINTED_LENS_TOP), 0.0, 1.0)
+	return lerpf(PAINTED_LENS_TOP_HALF, PAINTED_LENS_HALF, sin(t * PI * 0.5))
+
+
+## The light layer: everything that shows the painted lens is turning.
+func _draw_painted_lens_light() -> void:
+	var c := _light_layer
+	var turn := _time * TURN_SPEED
+	# The beam: it lights the far windows as it swings behind the lens, then the floor in front.
+	for beam in range(2):
+		var angle := turn * 0.5 + beam * PI
+		var side := sin(angle)
+		var facing := cos(angle)
+		if facing < 0.0:
+			var x := PAINTED_LENS_X + side * 620.0
+			var glow := Color(AMBER, 0.2 * -facing)
+			var clear := Color(AMBER, 0.0)
+			c.draw_polygon(PackedVector2Array([Vector2(x - 110, 20), Vector2(x, 20), Vector2(x, 400), Vector2(x - 110, 400)]),
+				PackedColorArray([clear, glow, glow, clear]))
+			c.draw_polygon(PackedVector2Array([Vector2(x, 20), Vector2(x + 110, 20), Vector2(x + 110, 400), Vector2(x, 400)]),
+				PackedColorArray([glow, clear, clear, glow]))
+		else:
+			PlaceholderArt.draw_ellipse(c, Vector2(PAINTED_LENS_X + side * 430.0, 640), 190, 40, Color(AMBER, 0.14 * facing))
+			PlaceholderArt.draw_ellipse(c, Vector2(PAINTED_LENS_X + side * 430.0, 640), 100, 22, Color(AMBER, 0.14 * facing))
+	# The eight panels of the lens: a bright glint slides across the glass with each one.
+	for i in range(8):
+		var angle := turn + i * TAU / 8.0
+		var facing := cos(angle)
+		if facing <= 0.05:
+			continue
+		var glint := PackedVector2Array()
+		var y := PAINTED_LENS_TOP + 6.0
+		while y <= PAINTED_LENS_BOTTOM - 4.0:
+			glint.append(Vector2(PAINTED_LENS_X + sin(angle) * _painted_half_width(y) * 0.95, y))
+			y += 10.0
+		c.draw_polyline(glint, Color(1.0, 0.84, 0.5, 0.2 * facing), 4.0 + 16.0 * facing, true)
+		c.draw_polyline(glint, Color(1.0, 0.95, 0.8, 0.6 * facing * facing), 3.0, true)
+		# The lamp flares as the middle of a panel swings past the player.
+		var shine := pow(maxf(cos(angle + TAU / 16.0), 0.0), 14.0)
+		if shine > 0.01:
+			for ring in range(6):
+				c.draw_circle(PAINTED_LAMP, 18.0 + ring * 24.0, Color(1.0, 0.84, 0.5, 0.06 * shine))
+			# A thin star of light, bright at the lamp and fading to nothing at its tips.
+			var bright := Color(1.0, 0.95, 0.82, 0.6 * shine)
+			var tip := Color(1.0, 0.95, 0.82, 0.0)
+			for arm: Vector2 in [Vector2(170.0 * shine, 0), Vector2(0, 80.0 * shine)]:
+				var across := arm.orthogonal().normalized() * 2.5
+				c.draw_polygon(PackedVector2Array([PAINTED_LAMP - arm, PAINTED_LAMP - across, PAINTED_LAMP + arm, PAINTED_LAMP + across]),
+					PackedColorArray([tip, bright, tip, bright]))
+	# Little sparkles chasing round the prism rings
+	for i in range(7):
+		var angle := turn + i * 1.3
+		var sparkle_y := PAINTED_LENS_TOP + 22.0 + i * 44.0
+		if cos(angle) > 0.4:
+			var at := Vector2(PAINTED_LENS_X + sin(angle) * _painted_half_width(sparkle_y) * 0.95, sparkle_y)
+			var twinkle := 0.5 + 0.5 * sin(_time * 5.0 + i * 2.1)
+			c.draw_circle(at, 5.0, Color(1.0, 0.9, 0.7, 0.2 * twinkle))
+			c.draw_line(at - Vector2(5, 0), at + Vector2(5, 0), Color(1, 1, 1, 0.75 * twinkle), 1.0, true)
+			c.draw_line(at - Vector2(0, 5), at + Vector2(0, 5), Color(1, 1, 1, 0.75 * twinkle), 1.0, true)
+	# Lightning throws a cold light over the whole room for a split second.
+	var flash := _lightning_flash()
+	if flash > 0.0:
+		c.draw_rect(Rect2(Vector2.ZERO, room_size), Color(0.5, 0.56, 0.78, 0.1 * flash))
+
+
+## The storm layer: the sky lights up and a forked bolt comes down. The layer's
+## shader only lets it show where the painting is sky or sea.
+func _draw_painted_storm() -> void:
+	var flash := _lightning_flash()
+	if flash <= 0.0:
+		return
+	var c := _storm_layer
+	c.draw_rect(Rect2(Vector2.ZERO, room_size), Color(0.62, 0.68, 0.92, 0.8 * flash))
+	# A different bolt for every strike, well clear of the lens.
+	var rng := RandomNumberGenerator.new()
+	rng.seed = int((_time + 3.0) / 8.5) * 7919 + 13
+	var x := rng.randf_range(70.0, 470.0) if rng.randf() < 0.5 else rng.randf_range(820.0, 1230.0)
+	var bolt := PackedVector2Array([Vector2(x, -10)])
+	var y := -10.0
+	while y < 330.0:
+		y += rng.randf_range(20.0, 38.0)
+		x += rng.randf_range(-24.0, 24.0)
+		bolt.append(Vector2(x, y))
+	c.draw_polyline(bolt, Color(0.8, 0.86, 1.0, 0.5 * flash), 7.0, true)
+	c.draw_polyline(bolt, Color(1, 1, 1, flash), 2.5, true)
+	var fork := bolt[bolt.size() / 3]
+	var lean := -1.0 if rng.randf() < 0.5 else 1.0
+	c.draw_polyline(PackedVector2Array([fork, fork + Vector2(lean * 22, 30), fork + Vector2(lean * 30, 66), fork + Vector2(lean * 52, 96)]),
+		Color(1, 1, 1, 0.8 * flash), 1.5, true)
+
+
+# ---------------------------------------------------------------------------
+# The drawn placeholder
+# ---------------------------------------------------------------------------
 
 ## The night sky, the stormy sea, lightning and rain behind all the glass.
 func _draw_storm_outside() -> void:

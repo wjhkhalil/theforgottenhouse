@@ -55,19 +55,24 @@ A house whose story is not finished yet can be marked `"finished": false` in `Sa
 
 Difficulty keeps rising from House One: the test checks every chapter against the one before it (the jetty against the study, and so on).
 The flooding water is `scripts/tide_water.gd` (`TideWater`): set the slip area, the low-water level and how
-long each part of the cycle lasts in the Inspector.
+long each part of the cycle lasts in the Inspector. Over a painted background, `slip_outline` is the painted
+inside of the slip (the water stays inside it) and `back_wall` is the wall at its far end (the waterline is level
+across it and slopes down the side walls towards the player).
 The bats are `scripts/bat_colony.gd` (`BatColony`): set where they hang, how many careless clicks wake
 them and how long they fly in the Inspector. A drag (looking around on a phone) never counts as a careless click.
 Chapters Four to Ten each have their own effect script with Inspector settings: `torn_pieces.gd`, `air_supply.gd`,
 `frost_cover.gd`, `sweeping_beam.gd`, `wind_gusts.gd`, `candle_lights.gd` and `patrol_lantern.gd`. A container can
-need several clicks to open (`hits_to_open`, used by the blocks of ice). Any room effect can show a message by
+need several clicks to open (`hits_to_open`, used by the blocks of ice). The Workshop's scraps are quarters of the
+painted hull plan, cut along `tear_down` and `tear_across`. The Lamp Room's turning lens and lightning are drawn over
+its painting by `lamp_room_art.gd`; the lightning only shows through `window_mask`, which
+`tools/sprite_fixes/lamp_room_window_mask.py` makes from the painting. Any room effect can show a message by
 emitting a `notice(title, message, wrong_sound)` signal, without changing `room_level.gd`.
 House Three's effects work the same way: `bell_board.gd` (`BellBoard`: which objects lie in the pigeonholes, the
 ward numbers, how long a shutter stays up and how often a bell rings) and `xray_screen.gd` (`XRayScreen`: which
 objects are sealed inside things, the size of the glass and how fast the stand rolls), `drying_rail.gd`
 (`DryingRail`: how many sheets, how wide, how fast), `steam_valves.gd` (`SteamValves`: the three jet rectangles, the
 valve positions and how many may be shut at once), `look_alikes.gd` (`LookAlikes`: which object each look-alike copies,
-where it stands and how it is recoloured), `wall_mirror.gd` (`WallMirror`: the glass rectangle, the objects in the
+where it stands and how it is recoloured), `wall_mirror.gd` (`WallMirror`: the glass rectangle and how far its top arches, the objects in the
 reflection and which tilt shows each) and `keepsakes.gd` (`Keepsakes`: where each patient is, what they want back and
 what they hand over).
 **Keep everything the player must click left of x = 990**: the objective list covers the right edge of the screen.

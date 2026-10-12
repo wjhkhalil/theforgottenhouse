@@ -423,56 +423,136 @@ func _fade_progress() -> float:
 	return 1.0 - float(_material.get_shader_parameter("darkness")) / maxf(darkness, 0.01)
 
 
+## `color` dimmed for a candle that is out (it keeps its own transparency).
+static func _tone(color: Color, shade: float) -> Color:
+	return Color(color.r * shade, color.g * shade, color.b * shade, color.a)
+
+
+## A round bar seen from the side: dark at both edges, with a highlight left of
+## the middle (the light in the painting falls from the left).
+func _round_bar(rect: Rect2, dark: Color, light: Color) -> void:
+	var shine_x := rect.position.x + rect.size.x * 0.32
+	draw_polygon(PackedVector2Array([rect.position, Vector2(shine_x, rect.position.y), Vector2(shine_x, rect.end.y),
+		Vector2(rect.position.x, rect.end.y)]), PackedColorArray([dark, light, light, dark]))
+	draw_polygon(PackedVector2Array([Vector2(shine_x, rect.position.y), Vector2(rect.end.x, rect.position.y), rect.end,
+		Vector2(shine_x, rect.end.y)]), PackedColorArray([light, dark, dark, light]))
+
+
+## A turned (lathe-made) shape: `profile` lists (distance below `top`, half width) pairs, top to bottom.
+func _turned(top: Vector2, profile: PackedVector2Array, dark: Color, light: Color) -> void:
+	for i in range(profile.size() - 1):
+		var upper := profile[i]
+		var lower := profile[i + 1]
+		var shine := top.x - maxf(upper.y, lower.y) * 0.36
+		var left := PackedVector2Array([top + Vector2(-upper.y, upper.x), Vector2(shine, top.y + upper.x),
+			Vector2(shine, top.y + lower.x), top + Vector2(-lower.y, lower.x)])
+		var right := PackedVector2Array([Vector2(shine, top.y + upper.x), top + Vector2(upper.y, upper.x),
+			top + Vector2(lower.y, lower.x), Vector2(shine, top.y + lower.x)])
+		draw_polygon(left, PackedColorArray([dark, light, light, dark]))
+		draw_polygon(right, PackedColorArray([light, dark, dark, light]))
+
+
+## The wax candle: a round, slightly see-through stick with a melted top and runs of wax.
 func _draw_wax(wick: Vector2, shade: float) -> void:
-	var wax := Color(0.93, 0.9, 0.8) * shade
-	wax.a = 1.0
-	draw_rect(Rect2(wick.x - 5, wick.y, 10, 24), wax)
-	draw_rect(Rect2(wick.x - 5, wick.y, 3, 24), Color(1, 1, 0.95) * shade)
-	draw_rect(Rect2(wick.x + 2, wick.y, 2.5, 8), Color(0.84, 0.8, 0.7) * shade)  # a wax drip
-	draw_line(wick, wick + Vector2(0, -5), Color(0.1, 0.08, 0.06), 1.5)
+	var edge := _tone(Color(0.6, 0.53, 0.4), shade)
+	var body := _tone(Color(0.97, 0.93, 0.8), shade)
+	_round_bar(Rect2(wick.x - 5, wick.y + 1, 10, 23), edge, body)
+	# Runs of wax down the side, each ending in a bead.
+	for run: Vector3 in [Vector3(-3.5, 9, 1.4), Vector3(2.5, 13, 1.6), Vector3(0.2, 5, 1.1)]:
+		var top := wick + Vector2(run.x, 1)
+		draw_line(top, top + Vector2(0, run.y), _tone(Color(1.0, 0.97, 0.87), shade), run.z * 1.4)
+		draw_circle(top + Vector2(0, run.y), run.z, _tone(Color(1.0, 0.97, 0.87), shade))
+		draw_circle(top + Vector2(0.6, run.y + 0.5), run.z * 0.6, _tone(Color(0.72, 0.65, 0.5, 0.7), shade))
+	# The melted top: a rim round a little pool of wax.
+	PlaceholderArt.draw_ellipse(self, wick + Vector2(0, 1), 5, 2, _tone(Color(1.0, 0.98, 0.9), shade))
+	PlaceholderArt.draw_ellipse(self, wick + Vector2(0, 1.2), 3.2, 1.1, _tone(Color(0.82, 0.74, 0.56), shade))
+	# A burning candle glows through its own wax near the top.
+	var lit := clampf((shade - 0.42) / 0.58, 0.0, 1.0)
+	if lit > 0.0:
+		var warm := Color(1.0, 0.72, 0.3, 0.42 * lit)
+		draw_polygon(PackedVector2Array([wick + Vector2(-5, 1), wick + Vector2(5, 1), wick + Vector2(5, 13), wick + Vector2(-5, 13)]),
+			PackedColorArray([warm, warm, Color(warm, 0.0), Color(warm, 0.0)]))
+	draw_line(wick + Vector2(0, 1), wick + Vector2(0.6, -4), Color(0.1, 0.08, 0.06), 1.5, true)
 
 
 ## The candlestick, sconce, pulpit holder or floor stand below each candle.
 func _draw_holder(index: int, shade: float) -> void:
 	var wick := positions[index]
 	var base := wick + Vector2(0, 24)
-	var brass := Color(0.78, 0.6, 0.3) * shade
-	var brass_dark := Color(0.5, 0.37, 0.16) * shade
-	var iron := Color(0.22, 0.21, 0.21) * shade
-	brass.a = 1.0
-	brass_dark.a = 1.0
-	iron.a = 1.0
+	var brass := _tone(Color(1.0, 0.84, 0.5), shade)
+	var brass_dark := _tone(Color(0.34, 0.23, 0.09), shade)
+	var iron := _tone(Color(0.5, 0.48, 0.46), shade)
+	var iron_dark := _tone(Color(0.09, 0.085, 0.09), shade)
+	var shadow := Color(0, 0, 0, 0.38)
 	match (kinds[index] if index < kinds.size() else Kind.STAND):
 		Kind.ALTAR:
-			# A tall brass candlestick standing on the altar.
-			draw_rect(Rect2(base.x - 8, base.y, 16, 3), brass_dark)
-			draw_rect(Rect2(base.x - 3, base.y + 3, 6, 22), brass)
-			PlaceholderArt.draw_ellipse(self, base + Vector2(0, 12), 5, 2.5, brass_dark)
-			draw_rect(Rect2(base.x - 11, base.y + 25, 22, 6), brass)
-			draw_line(base + Vector2(-2, 4), base + Vector2(-2, 24), Color(1, 0.95, 0.8, 0.5 * shade), 1.0)
+			# A tall turned brass candlestick standing on the altar.
+			PlaceholderArt.draw_ellipse(self, base + Vector2(3, 31), 15, 3, shadow)
+			_turned(base, PackedVector2Array([Vector2(3, 3), Vector2(6, 2.2), Vector2(9, 2.2), Vector2(11, 4.6), Vector2(13, 4.6),
+				Vector2(15, 2.4), Vector2(20, 2.8), Vector2(23, 4.5), Vector2(27, 9.5), Vector2(30, 11), Vector2(31, 11)]), brass_dark, brass)
+			# The drip pan under the candle, and the rim of the foot.
+			PlaceholderArt.draw_ellipse(self, base + Vector2(0, 2), 8.5, 2.6, brass_dark)
+			PlaceholderArt.draw_ellipse(self, base + Vector2(-0.5, 1.2), 7.5, 1.9, brass)
+			PlaceholderArt.draw_ellipse(self, base + Vector2(0, 1.4), 5, 1.2, brass_dark)
+			draw_line(base + Vector2(-10.5, 31), base + Vector2(10.5, 31), brass_dark, 1.0, true)
 		Kind.PULPIT:
-			# A small brass dish with a ring handle.
-			PlaceholderArt.draw_ellipse(self, base + Vector2(0, 2), 11, 3.5, brass_dark)
-			PlaceholderArt.draw_ellipse(self, base + Vector2(0, 1), 9, 2.5, brass)
-			draw_arc(base + Vector2(12, 0), 3.5, -PI / 2, PI / 2, 6, brass_dark, 2.0)
+			# A brass chamberstick: a saucer with a short socket and a ring to carry it by.
+			PlaceholderArt.draw_ellipse(self, base + Vector2(3, 5), 14, 3, shadow)
+			PlaceholderArt.draw_ellipse(self, base + Vector2(0, 3), 12, 4, brass_dark)
+			PlaceholderArt.draw_ellipse(self, base + Vector2(-0.6, 2), 11, 3.2, brass)
+			PlaceholderArt.draw_ellipse(self, base + Vector2(0.4, 2.3), 8, 2.1, _tone(Color(0.62, 0.45, 0.2), shade))
+			_turned(base + Vector2(0, -4), PackedVector2Array([Vector2(0, 6.5), Vector2(2, 6), Vector2(6, 6.3)]), brass_dark, brass)
+			draw_arc(base + Vector2(13.5, 1), 4.0, -PI * 0.7, PI * 0.7, 10, brass_dark, 2.4, true)
+			draw_arc(base + Vector2(13.5, 1), 4.0, -PI * 0.6, 0.0, 6, brass, 1.0, true)
 		Kind.SCONCE:
-			# An iron cup on a curly bracket fixed to the wall.
-			draw_rect(Rect2(base.x - 8, base.y, 16, 5), iron)
-			draw_polyline(PackedVector2Array([base + Vector2(0, 5), base + Vector2(0, 16), base + Vector2(8, 22),
-				base + Vector2(14, 16)]), iron, 3.0)
-			draw_rect(Rect2(base.x - 4, base.y + 20, 8, 14), iron)  # wall plate
-			draw_circle(base + Vector2(0, 24), 1.5, Color(0.45, 0.45, 0.45) * shade)
+			# A wrought-iron cup on a scrolled bracket, fixed to the stone by a riveted plate.
+			var arm := PackedVector2Array([base + Vector2(0, 6), base + Vector2(0.5, 13), base + Vector2(3, 18),
+				base + Vector2(7, 20), base + Vector2(10, 17), base + Vector2(9, 13), base + Vector2(6.5, 13.5)])
+			var plate := Rect2(base.x - 4.5, base.y + 15, 9, 21)
+			# Its shadow on the wall, thrown down and to the right by the flame above.
+			draw_rect(Rect2(plate.position + Vector2(3, 3), plate.size), Color(0, 0, 0, 0.3))
+			draw_rect(Rect2(base.x - 6, base.y + 3, 16, 5), Color(0, 0, 0, 0.25))
+			_round_bar(plate, iron_dark, _tone(Color(0.3, 0.29, 0.28), shade))
+			draw_rect(plate, iron_dark, false, 1.0)
+			draw_circle(plate.position + Vector2(4.5, 4), 1.4, iron)
+			draw_circle(plate.end - Vector2(4.5, 4), 1.4, iron)
+			draw_polyline(arm, iron_dark, 3.4, true)
+			draw_polyline(arm.slice(0, 4), _tone(Color(0.34, 0.33, 0.32), shade), 1.0, true)
+			_turned(base, PackedVector2Array([Vector2(0, 8.5), Vector2(1.5, 8.5), Vector2(4, 6), Vector2(6.5, 2.5)]), iron_dark, iron)
+			PlaceholderArt.draw_ellipse(self, base + Vector2(0, 0.6), 8.5, 2.2, iron_dark)
+			PlaceholderArt.draw_ellipse(self, base + Vector2(-0.6, 0.2), 7.2, 1.5, _tone(Color(0.33, 0.32, 0.31), shade))
 		_:
-			# A tall iron pricket stand on three feet, standing on the floor.
-			draw_rect(Rect2(base.x - 11, base.y, 22, 4), iron)
-			draw_line(base + Vector2(-11, 0), base + Vector2(-13, -4), iron, 2.0)
-			draw_line(base + Vector2(11, 0), base + Vector2(13, -4), iron, 2.0)
-			draw_rect(Rect2(base.x - 2, base.y + 4, 4, 92), iron)
-			PlaceholderArt.draw_ellipse(self, base + Vector2(0, 40), 5, 2.5, iron)
+			# A tall wrought-iron pricket stand on three feet, standing on the floor.
 			var foot := base + Vector2(0, 96)
-			for side: float in [-1.0, 0.0, 1.0]:
-				draw_line(foot, foot + Vector2(side * 16, 10 - absf(side) * 2), iron, 3.0)
-			PlaceholderArt.draw_ellipse(self, foot + Vector2(0, 11), 20, 3, Color(0, 0, 0, 0.3))
+			PlaceholderArt.draw_ellipse(self, foot + Vector2(4, 10), 24, 4, shadow)
+			for side: float in [-1.0, 1.0, 0.0]:
+				var leg := PackedVector2Array([foot + Vector2(0, -8), foot + Vector2(side * 6, -1), foot + Vector2(side * 13, 6 - absf(side) * 1.5),
+					foot + Vector2(side * 17, 9 - absf(side) * 2)])
+				if side == 0.0:
+					leg = PackedVector2Array([foot + Vector2(0, -8), foot + Vector2(1, 2), foot + Vector2(2.5, 11)])
+				draw_polyline(leg, iron_dark, 3.2, true)
+				draw_polyline(leg, _tone(Color(0.32, 0.31, 0.3), shade), 0.9, true)
+				draw_circle(leg[leg.size() - 1], 2.0, iron_dark)
+			_turned(base, PackedVector2Array([Vector2(3, 2), Vector2(28, 1.8), Vector2(30, 4.2), Vector2(33, 4.2), Vector2(35, 1.8),
+				Vector2(60, 2), Vector2(62, 4.6), Vector2(65, 4.6), Vector2(67, 2.2), Vector2(88, 2.6), Vector2(92, 4.5)]), iron_dark, iron)
+			# The wide drip pan, with a turned-up rim.
+			PlaceholderArt.draw_ellipse(self, base + Vector2(0, 2.5), 13, 3.6, iron_dark)
+			PlaceholderArt.draw_ellipse(self, base + Vector2(-0.8, 1.6), 11.8, 2.6, _tone(Color(0.33, 0.32, 0.31), shade))
+			PlaceholderArt.draw_ellipse(self, base + Vector2(0, 2), 8.5, 1.7, iron_dark)
+
+
+## One side-to-side outline of a flame: round at the wick, drawn out to a point at the tip.
+static func _flame_shape(wick: Vector2, height: float, half_width: float, lean: float) -> PackedVector2Array:
+	var left := PackedVector2Array()
+	var right := PackedVector2Array()
+	for step in range(11):
+		var u := step / 10.0
+		var half := half_width * sin(minf(u / 0.3, 1.0) * PI * 0.5) * pow(1.0 - u, 0.75)
+		var middle := wick + Vector2(lean * u * u, -height * u + 1.5)
+		left.append(middle + Vector2(-half, 0))
+		right.append(middle + Vector2(half, 0))
+	right.reverse()
+	return left + right.slice(1)
 
 
 ## An animated flame: it flickers, and leans away from the door when a draught blows.
@@ -481,19 +561,21 @@ func _draw_flame(index: int) -> void:
 	var flicker := sin(_time * 11.0 + index * 2.3) * 0.12 + sin(_time * 23.0 + index) * 0.08
 	var gust := clampf(1.0 - (_time - _gust_time) / 1.2, 0.0, 1.0)
 	var lean := sin(_time * 3.0 + index) * 1.2 - gust * 6.0 * (0.6 + 0.4 * sin(_time * 20.0))
-	var height := 15.0 * (1.0 + flicker) * (1.0 - gust * 0.3)
-	var tip := wick + Vector2(lean, -height)
-	# Soft halo, outer flame, inner flame, blue base.
-	draw_circle(wick + Vector2(lean * 0.4, -height * 0.45), 9.0, Color(1.0, 0.75, 0.3, 0.16))
-	var outer := Color(1.0, 0.62, 0.18)
-	draw_primitive(PackedVector2Array([wick + Vector2(-4.5, 0), tip, wick + Vector2(4.5, 0)]),
-		PackedColorArray([outer, Color(1.0, 0.85, 0.4, 0.9), outer]), PackedVector2Array())
-	draw_circle(wick + Vector2(0, -1), 4.5, outer)
-	var inner := Color(1.0, 0.95, 0.75)
-	draw_primitive(PackedVector2Array([wick + Vector2(-2.5, -1), wick + Vector2(lean * 0.6, -height * 0.6), wick + Vector2(2.5, -1)]),
-		PackedColorArray([inner, inner, inner]), PackedVector2Array())
-	draw_circle(wick + Vector2(0, -1.5), 2.5, inner)
-	draw_circle(wick + Vector2(0, 0.5), 1.5, Color(0.4, 0.5, 0.9, 0.7))
+	var height := 17.0 * (1.0 + flicker) * (1.0 - gust * 0.3)
+	# A soft halo round the flame.
+	var heart := wick + Vector2(lean * 0.3, -height * 0.42)
+	for ring in range(10):
+		draw_circle(heart, 4.0 + ring * 1.8, Color(1.0, 0.72, 0.3, 0.035))
+	# The flame: deep orange at the wick, yellow and thin at the tip.
+	var outer := _flame_shape(wick, height, 4.6, lean)
+	var colors := PackedColorArray()
+	for point in outer:
+		var u := clampf((wick.y + 1.5 - point.y) / height, 0.0, 1.0)
+		colors.append(Color(1.0, 0.5, 0.12, 0.95).lerp(Color(1.0, 0.86, 0.4, 0.55), u))
+	draw_polygon(outer, colors)
+	draw_colored_polygon(_flame_shape(wick + Vector2(0, -1.5), height * 0.62, 2.7, lean * 0.6), Color(1.0, 0.96, 0.78, 0.95))
+	# The dark heart round the wick, with a breath of blue.
+	draw_circle(wick + Vector2(0, 0.5), 1.7, Color(0.35, 0.45, 0.95, 0.75))
 
 
 ## A candle that has gone out: a glowing ember on the wick, a curl of smoke,

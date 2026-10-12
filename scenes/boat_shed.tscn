@@ -210,7 +210,10 @@ modulate = Color(0.86, 0.72, 0.56, 1)
 
 [node name="TideWater" type="Node2D" parent="."]
 script = ExtResource("18_water")
-slip_rect = Rect2(283, 470, 682, 250)
+slip_rect = Rect2(270, 470, 730, 250)
+slip_outline = PackedVector2Array(320, 400, 925, 400, 925, 652, 1000, 720, 270, 720, 320, 690)
+back_wall = Rect2(505, 410, 295, 140)
+lantern_x = 620.0
 
 [node name="RoomForeground" type="Node2D" parent="."]
 visible = false
