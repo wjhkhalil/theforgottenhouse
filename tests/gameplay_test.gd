@@ -378,11 +378,10 @@ func _run() -> void:
 	var telegram := _find(objects, &"telegram")
 	_check(objects.size() == 7 and _progress_text(room) == "Objects Found: 0 / 7", "Attic has seven objects (0 / 7)")
 	_check(hud.hint_cooldown_seconds == 20.0, "Attic hint cooldown is 20 seconds")
-	var attic_lantern: LanternDarkness = room.get_node("LanternDarkness")
-	_check(attic_lantern.visible and attic_lantern.flicker_strength > 0.0, "The attic is dark and the lantern flickers")
+	_check_not_dark(room, "Attic")
 	_check(not locket.visible and not telegram.visible, "Locket and telegram start hidden in containers")
 	await _wait_seconds(0.5)
-	await _screenshot("19_attic_dark")
+	await _screenshot("19_attic")
 
 	# The jewellery box stays shut until the brass key is found.
 	await _click(jewellery_box.global_position + Vector2(0, 8))

@@ -6,7 +6,7 @@
 script = ExtResource("1_level")
 chapter_id = &"attic"
 room_name = "The Attic"
-intro_message = "You slipped out through the coal chute while the footsteps searched the basement. Your lantern is almost out of oil and its flame flickers. Find the 7 hidden objects. Some things here are locked away."
+intro_message = "You slipped out through the coal chute while the footsteps searched the basement. Grey light falls through the round window. Find the 7 hidden objects. Some things here are locked away."
 hint_cooldown_seconds = 20.0
 hint_area_radius = 150.0
 hint_area_offset = 65.0

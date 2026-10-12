@@ -11,7 +11,7 @@ The lakeside home of the vanished Ashworth sisters.
 |---|---|---|---|
 | 1 | The Old Bedroom | lit | the basics: find 5 objects |
 | 2 | The Basement | dark, lantern | door keypad, a trunk to open |
-| 3 | The Attic | dark, flickering lantern | a box that needs a key found in the room |
+| 3 | The Attic | lit | a box that needs a key found in the room |
 | 4 | The Grand Staircase | moonlit | the room is **two screens tall**: scroll up and down |
 | 5 | The Washroom | bright | **steam** hides everything; wipe it with the mouse, it drifts back |
 | 6 | The Living Room | lit, with **random power cuts** | a chain of locks: box, then key, then desk |
@@ -185,7 +185,7 @@ res://
 │   ├── main_menu.tscn         Continue / New Game / Chapters / About / Quit
 │   ├── bedroom.tscn           Chapter One room
 │   ├── basement.tscn          Chapter Two room (keypad, lantern, trunk)
-│   ├── attic.tscn             Chapter Three room (keypad, flickering lantern, locked box)
+│   ├── attic.tscn             Chapter Three room (keypad, locked box)
 │   ├── staircase.tscn         Chapter Four (tall room with a scrolling camera)
 │   ├── washroom.tscn          Chapter Five (keypad, steam)
 │   ├── living_room.tscn       Chapter Six (random power cuts, chained locks)
