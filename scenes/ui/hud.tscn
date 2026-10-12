@@ -98,12 +98,14 @@ grow_horizontal = 0
 layout_mode = 2
 theme_override_constants/separation = 8
 
-[node name="Title" type="Label" parent="Root/ObjectivePanel/VBox"]
+[node name="ObjectiveTitle" type="Button" parent="Root/ObjectivePanel/VBox"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(0, 44)
 layout_mode = 2
+tooltip_text = "Tap to close or open the list"
 theme_override_colors/font_color = Color(0.95, 0.76, 0.48, 1)
 theme_override_font_sizes/font_size = 20
 text = "Objects to Find"
-horizontal_alignment = 1
 
 [node name="Separator" type="HSeparator" parent="Root/ObjectivePanel/VBox"]
 layout_mode = 2

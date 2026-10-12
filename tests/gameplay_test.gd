@@ -97,6 +97,21 @@ func _run() -> void:
 	await _click(Vector2(1100, 200))  # objective panel
 	_check(manager.get_found_count() == 0, "Clicking the objective panel collects nothing")
 
+	# --- Tapping the list title closes the list, tapping again opens it ------
+	var list_title: Button = hud.get_node("%ObjectiveTitle")
+	var list_scroll: Control = hud.get_node("%ObjectiveScroll")
+	var list_panel: Control = hud.get_node("Root/ObjectivePanel")
+	_check(list_scroll.visible and list_panel.get_global_rect().has_point(Vector2(1100, 200)), "The objective list starts open")
+	await _click(list_title.get_global_rect().get_center())
+	await _wait_frames(3)
+	_check(not list_scroll.visible, "Tapping the list title closes the list")
+	_check(not list_panel.get_global_rect().has_point(Vector2(1100, 200)), "A closed list no longer covers the room")
+	_check(manager.get_found_count() == 0, "Closing the list collects nothing")
+	await _screenshot("03b_list_closed")
+	await _click(list_title.get_global_rect().get_center())
+	await _wait_frames(3)
+	_check(list_scroll.visible and list_panel.get_global_rect().has_point(Vector2(1100, 200)), "Tapping the title again opens the list")
+
 	# --- Hint ---------------------------------------------------------------
 	var notification_popup: NotificationPopup = room.get_node("%Notification")
 	room.get_node("%HUD").get_node("%HintButton").pressed.emit()

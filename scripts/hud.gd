@@ -5,6 +5,9 @@ extends CanvasLayer
 ## The HUD never changes the game state by itself. Its buttons only emit
 ## signals (hint_requested, pause_requested), and the room script calls
 ## update_progress() / mark_collected() to change what is shown.
+##
+## The objective list covers part of the room. Tapping its title ("Objects to
+## Find") closes it down to just the title; tapping the title again opens it.
 
 signal hint_requested
 signal pause_requested
@@ -22,6 +25,12 @@ const COMPACT_AFTER := 7
 @onready var _objective_list: VBoxContainer = %ObjectiveList
 @onready var _objective_scroll: ScrollContainer = %ObjectiveScroll
 @onready var _objective_panel: Control = $Root/ObjectivePanel
+@onready var _objective_title: Button = %ObjectiveTitle
+@onready var _objective_separator: Control = $Root/ObjectivePanel/VBox/Separator
+
+## True while the player has the list closed. Shared by all rooms, so a closed
+## list stays closed in the next room.
+static var _list_closed: bool = false
 
 # object_id -> { "icon": ObjectIcon, "name_label": Label, "status_label": Label or null, "data": HiddenObjectData }
 var _entries: Dictionary = {}
@@ -39,6 +48,9 @@ func _ready() -> void:
 	_pause_button.pressed.connect(_on_pause_button_pressed)
 	_sound_button.pressed.connect(_on_sound_button_pressed)
 	_update_sound_button()
+	_objective_title.pressed.connect(_on_objective_title_pressed)
+	_objective_title.draw.connect(_draw_title_arrow)
+	_apply_list_closed()
 	get_viewport().size_changed.connect(_fit_objective_list)
 
 
@@ -160,6 +172,34 @@ func _add_entry(object_data: HiddenObjectData) -> void:
 		"status_label": status_label,
 		"data": object_data,
 	}
+
+
+func _on_objective_title_pressed() -> void:
+	AudioManager.play_sfx("click")
+	_list_closed = not _list_closed
+	_apply_list_closed()
+
+
+## Shows or hides everything under the title.
+func _apply_list_closed() -> void:
+	_objective_scroll.visible = not _list_closed
+	_objective_separator.visible = not _list_closed
+	_objective_title.queue_redraw()
+	# A panel grows by itself when its contents grow, but does not shrink again.
+	_shrink_objective_panel.call_deferred()
+
+
+func _shrink_objective_panel() -> void:
+	_objective_panel.size.y = 0.0
+
+
+## A small arrow on the title: up = "tap to close", down = "tap to open".
+func _draw_title_arrow() -> void:
+	var center := Vector2(_objective_title.size.x - 20.0, _objective_title.size.y / 2.0)
+	var tip := 5.0 if _list_closed else -5.0
+	_objective_title.draw_colored_polygon(PackedVector2Array([
+		center + Vector2(-7, -tip), center + Vector2(7, -tip), center + Vector2(0, tip),
+	]), Color(0.95, 0.76, 0.48))
 
 
 func _on_hint_button_pressed() -> void:
