@@ -650,8 +650,8 @@ func _play_house_two(victory: VictoryScreen) -> VictoryScreen:
 	var camera: RoomCamera = room.room_camera
 	camera.edge_size = 0.0
 	_check_not_dark(room, "Jetty")
-	_check(camera.position == Vector2.ZERO and camera.get_max_scroll_x() > 1000.0 and camera.get_max_scroll() == 0.0,
-			"The jetty is two screens wide and starts at the left end")
+	_check(camera.position == Vector2.ZERO and camera.get_max_scroll_x() > 600.0 and camera.get_max_scroll() == 0.0,
+			"The jetty is one and a half screens wide and starts at the left end")
 	var rightmost := 0.0
 	for hidden_object in _get_objects(room):
 		rightmost = maxf(rightmost, hidden_object.global_position.x)
@@ -1145,9 +1145,360 @@ func _play_house_two_part_two(victory: VictoryScreen) -> VictoryScreen:
 	await _check_locked_containers(room)
 	await _solve_room(room, 16)
 	_check(not patrol.is_hiding(), "Solving the cottage never left the player hiding")
-	victory = await _finish_chapter(room, "Ashworth Manor", false, "vane_cottage")
-	_check((victory.get_node("Root/Center/Panel/VBox/ToBeContinued") as Label).text == "THE END", "The last chapter ends with THE END")
+	victory = await _finish_chapter(room, "Ashworth Manor", true, "vane_cottage")
+	_check((victory.get_node("%ContinueButton") as Button).text == "Continue: House Three", "House Two's last chapter offers Continue: House Three")
 	await _screenshot("51_vane_cottage_complete")
+	return await _play_house_three(victory)
+
+
+# ---------------------------------------------------------------------------
+# House Three: Hollowmere Sanatorium
+# ---------------------------------------------------------------------------
+
+func _play_house_three(victory: VictoryScreen) -> VictoryScreen:
+	# --- Chapter One: the gate lodge and its bell board ------------------------
+	var room := await _continue_to(victory, "res://scenes/gate_lodge.tscn", "House Three, Chapter One (the gate lodge)")
+	_check_not_dark(room, "The gate lodge")
+	_check(SaveManager.get_house("gate_lodge").get("title", "") == "House Three: Hollowmere Sanatorium", "The gate lodge belongs to House Three")
+	var keypad: KeypadLock = room.get_node("KeypadLock")
+	_check(not keypad.is_open(), "The gate lodge has no entry code")
+	var board: BellBoard = room.get_node("BellBoard")
+	board.calm(true)  # No bell rings by itself while we test.
+	board.shut_all()
+	var bell_objects := board.get_bell_objects()
+	var all_shut := board.shutter_count() == 5
+	for i in range(board.shutter_count()):
+		all_shut = all_shut and not board.is_open(i)
+	_check(all_shut, "The bell board has 5 pigeonholes, all shut until a bell rings")
+	var ward_tag := bell_objects[2] as HiddenObject
+	var snuff_box := bell_objects[3] as HiddenObject
+	await _click_world(room, ward_tag.global_position)
+	_check(not ward_tag.is_collected and notification_popup_title(room) == "The shutter is down",
+			"An object behind a shut shutter can't be taken, and the player is told to wait for the bell")
+	board.ring(2)
+	await _wait_frames(2)
+	_check(board.is_open(2) and not board.is_open(3) and notification_popup_title(room) == "Bell 7 is ringing!",
+			"Ringing a bell springs up its own shutter only, and the player is told")
+	await _screenshot("52_gate_lodge_bell")
+	await _click_world(room, snuff_box.global_position)
+	_check(not snuff_box.is_collected, "A ringing bell does not open its neighbour's shutter")
+	await _click_world(room, ward_tag.global_position)
+	_check(ward_tag.is_collected, "While its shutter is up, the object can be taken")
+	_check(board.is_open(2), "An emptied pigeonhole stays open")
+	board.ring(3)
+	await _wait_seconds(board.open_seconds + 0.4)
+	_check(not board.is_open(3), "The shutter drops again by itself after a few seconds")
+	await _click_world(room, snuff_box.global_position)
+	_check(not snuff_box.is_collected, "Once the shutter has dropped, the object can't be taken any more")
+	# A bell rings by itself, and only for a pigeonhole that is still full.
+	board.calm(false)
+	var rung_by_itself := false
+	for tick in range(int((board.max_wait + 1.0) / 0.2)):
+		await _wait_seconds(0.2)
+		for i in range(board.shutter_count()):
+			rung_by_itself = rung_by_itself or (i != 2 and board.is_open(i))
+		if rung_by_itself:
+			break
+	_check(rung_by_itself, "Left alone, a bell rings by itself")
+	board.calm(true)
+	board.shut_all()
+	# The key cabinet: the date chalked on the blackboard.
+	var key_cabinet: OpenableContainer = room.get_node("%HiddenObjects/KeyCabinet")
+	await _click_world(room, key_cabinet.global_position)
+	_check(keypad.is_open() and not key_cabinet.is_open, "Clicking the key cabinet asks for its code")
+	await _type_code("1985")
+	_check(keypad.is_open() and not key_cabinet.is_open, "A wrong key cabinet code keeps it shut")
+	await _type_code("1403")
+	await _wait_seconds(0.6)
+	_check(not keypad.is_open() and key_cabinet.is_open and key_cabinet.contents.visible, "Typing 1403 opens the key cabinet")
+	# The strongbox: the year on the admission card.
+	var strongbox: OpenableContainer = room.get_node("%HiddenObjects/Strongbox")
+	await _click_world(room, strongbox.global_position)
+	_check(keypad.is_open() and not strongbox.is_open, "Clicking the strongbox asks for its code")
+	await _type_code("1403")
+	_check(keypad.is_open() and not strongbox.is_open, "A wrong strongbox code keeps it shut")
+	await _type_code("1985")
+	await _wait_seconds(0.6)
+	_check(not keypad.is_open() and strongbox.is_open and strongbox.contents.visible, "Typing 1985 opens the strongbox")
+	await _check_locked_containers(room)
+	board.open_all(true)  # The safe state: every shutter up, no bells.
+	await _wait_frames(2)
+	await _solve_room(room, 17)
+	victory = await _finish_chapter(room, "forty-first letter", true, "gate_lodge")
+	await _screenshot("53_gate_lodge_complete")
+
+	# --- Chapter Two: the X-ray room and its rolling screen --------------------
+	room = await _continue_to(victory, "res://scenes/xray_room.tscn", "House Three, Chapter Two (the X-ray room)")
+	_check_not_dark(room, "The X-ray room")
+	keypad = room.get_node("KeypadLock")
+	_check(not keypad.is_open(), "The X-ray room has no entry code")
+	var screen: XRayScreen = room.get_node("XRayScreen")
+	var sealed := screen.get_xray_objects()
+	_check(sealed.size() == 6, "Six objects are sealed inside things in the X-ray room")
+	var pencil_stub := _find(_get_objects(room), &"pencil_stub")
+	var ward_map := _find(_get_objects(room), &"ward_map")
+	# The screen rolls after the pointer, and takes time to get there.
+	screen.move_to(Vector2(900, 200))
+	var roll_target := Vector2(300, 600)
+	await _move_mouse_to(room.get_viewport().get_canvas_transform() * roll_target)
+	await _wait_seconds(0.4)
+	var part_way := screen.get_screen_position().distance_to(roll_target)
+	_check(part_way > 100.0 and part_way < 700.0, "The X-ray screen rolls towards the pointer but does not jump there")
+	await _wait_seconds(700.0 / screen.roll_speed + 0.5)
+	_check(screen.get_screen_position().distance_to(roll_target) < 2.0, "The X-ray screen arrives at the pointer")
+	# Hold it still for the rest of the checks.
+	screen.hold(true)
+	screen.move_to(Vector2(900, 200))
+	await _wait_frames(2)
+	_check(not screen.is_revealed(pencil_stub.global_position) and pencil_stub.modulate.a < 0.05,
+			"A sealed object is invisible while the screen is somewhere else")
+	await _click_world(room, pencil_stub.global_position)
+	_check(not pencil_stub.is_collected and notification_popup_title(room) == "You can't see inside it",
+			"A sealed object can't be taken unseen, and the player is told to bring the screen")
+	screen.move_to(pencil_stub.global_position)
+	await _wait_frames(2)
+	_check(screen.is_revealed(pencil_stub.global_position) and pencil_stub.modulate.a > 0.95 and not screen.is_revealed(ward_map.global_position),
+			"The screen shows what is under it, and nothing further away")
+	await _screenshot("54_xray_room_screen")
+	await _click_world(room, ward_map.global_position)
+	_check(not ward_map.is_collected, "A sealed object outside the screen still can't be taken")
+	await _click_world(room, pencil_stub.global_position)
+	_check(pencil_stub.is_collected, "Through the screen, the sealed object can be taken")
+	# The instrument case needs the tiny key that only the screen can find.
+	var instrument_case: OpenableContainer = room.get_node("%HiddenObjects/InstrumentCase")
+	_check(instrument_case.is_locked() and sealed.has(instrument_case.required_object), "The instrument case needs a key that is sealed in the boot heel")
+	# The control cabinet: the plate number scratched on the chest X-ray.
+	var control_cabinet: OpenableContainer = room.get_node("%HiddenObjects/ControlCabinet")
+	await _click_world(room, control_cabinet.global_position)
+	_check(keypad.is_open() and not control_cabinet.is_open, "Clicking the control cabinet asks for its code")
+	await _type_code("1285")
+	_check(keypad.is_open() and not control_cabinet.is_open, "A wrong control cabinet code keeps it shut")
+	await _type_code("0791")
+	await _wait_seconds(0.6)
+	_check(not keypad.is_open() and control_cabinet.is_open and control_cabinet.contents.visible, "Typing 0791 opens the control cabinet")
+	# The drug safe: the CHEST row of the exposure chart.
+	var drug_safe: OpenableContainer = room.get_node("%HiddenObjects/DrugSafe")
+	await _click_world(room, drug_safe.global_position)
+	_check(keypad.is_open() and not drug_safe.is_open, "Clicking the drug safe asks for its code")
+	await _type_code("0791")
+	_check(keypad.is_open() and not drug_safe.is_open, "A wrong drug safe code keeps it shut")
+	await _type_code("1285")
+	await _wait_seconds(0.6)
+	_check(not keypad.is_open() and drug_safe.is_open and drug_safe.contents.visible, "Typing 1285 opens the drug safe")
+	await _check_locked_containers(room)
+	screen.reveal_everything(true)  # The safe state: every sealed object shows.
+	await _wait_frames(2)
+	await _solve_room(room, 18)
+	victory = await _finish_chapter(room, "laundry chute", true, "xray_room")
+	await _screenshot("55_xray_room_complete")
+	return await _play_house_three_part_two(victory)
+
+
+## Opens a code-locked container: a wrong code keeps it shut, the right one opens it.
+func _check_code_lock(room: Node, container_name: String, wrong_code: String, right_code: String) -> void:
+	var keypad: KeypadLock = room.get_node("KeypadLock")
+	var container: OpenableContainer = room.get_node("%HiddenObjects/" + container_name)
+	await _click_world(room, container.global_position)
+	_check(keypad.is_open() and not container.is_open, "Clicking %s asks for its code" % container_name)
+	await _type_code(wrong_code)
+	_check(keypad.is_open() and not container.is_open, "A wrong code keeps %s shut" % container_name)
+	await _type_code(right_code)
+	await _wait_seconds(0.6)
+	_check(not keypad.is_open() and container.is_open and container.contents.visible, "Typing %s opens %s" % [right_code, container_name])
+
+
+func _play_house_three_part_two(victory: VictoryScreen) -> VictoryScreen:
+	# --- Chapter Three: the laundry and its travelling sheets ------------------
+	var room := await _continue_to(victory, "res://scenes/laundry.tscn", "House Three, Chapter Three (the laundry)")
+	_check_not_dark(room, "The laundry")
+	_check(not (room.get_node("KeypadLock") as KeypadLock).is_open(), "The laundry has no entry code")
+	var rail: DryingRail = room.get_node("DryingRail")
+	var smock := _find(_get_objects(room), &"smock_seven")
+	var flat_iron := _find(_get_objects(room), &"flat_iron")
+	var travel_before := rail.travel
+	await _wait_seconds(0.5)
+	_check(rail.travel != travel_before, "The sheets travel along the rail by themselves")
+	rail.hold(true)
+	# Hang a sheet right in front of the numbered smock.
+	rail.set_first_sheet_left(smock.global_position.x - rail.sheet_width / 2.0)
+	await _wait_frames(2)
+	_check(rail.is_covered(smock.global_position) and not rail.is_covered(flat_iron.global_position),
+			"A sheet hangs in front of the smock, but nothing covers the ironing table")
+	await _screenshot("56_laundry_sheets")
+	await _click_world(room, smock.global_position)
+	_check(not smock.is_collected and notification_popup_title(room) == "A sheet is in the way",
+			"An object behind a sheet can't be taken, and the player is told to wait")
+	await _click_world(room, flat_iron.global_position)
+	_check(flat_iron.is_collected, "Things below the hem of the sheets can always be taken")
+	# Slide the sheet on: the smock is in a gap now.
+	rail.set_first_sheet_left(smock.global_position.x + 40.0)
+	await _wait_frames(2)
+	_check(not rail.is_covered(smock.global_position), "Once the sheet has slid past, the smock is in a gap")
+	await _click_world(room, smock.global_position)
+	_check(smock.is_collected, "In a gap between the sheets, the object can be taken")
+	rail.clear_line(true)  # The safe state: every sheet pushed aside.
+	await _wait_frames(2)
+	await _check_code_lock(room, "CashTin", "0540", "2616")
+	await _check_code_lock(room, "DryingCabinet", "2616", "0540")
+	await _check_locked_containers(room)
+	await _solve_room(room, 19)
+	victory = await _finish_chapter(room, "seven grey smocks", true, "laundry")
+	await _screenshot("57_laundry_complete")
+
+	# --- Chapter Four: the boiler room and its three jets of steam -------------
+	room = await _continue_to(victory, "res://scenes/boiler_room.tscn", "House Three, Chapter Four (the boiler room)")
+	_check_not_dark(room, "The boiler room")
+	var valves: SteamValves = room.get_node("SteamValves")
+	_check(valves.jet_count() == 3 and not valves.is_shut(0) and not valves.is_shut(1) and not valves.is_shut(2),
+			"The boiler room has three jets of steam, all blowing at the start")
+	var stokers_cap := _find(_get_objects(room), &"stokers_cap")
+	var coal_shovel := _find(_get_objects(room), &"coal_shovel")
+	_check(valves.is_in_steam(stokers_cap.global_position) and not valves.is_in_steam(coal_shovel.global_position),
+			"The stoker's cap is inside a jet; the shovel on the floor is not")
+	await _click_world(room, stokers_cap.global_position)
+	_check(not stokers_cap.is_collected and notification_popup_title(room) == "Scalding steam!",
+			"An object inside a jet can't be taken, and the player is told to shut the valve")
+	await _screenshot("58_boiler_room_steam")
+	await _click_world(room, coal_shovel.global_position)
+	_check(coal_shovel.is_collected, "Things on the floor are outside the steam")
+	await _click_world(room, valves.get_valve_position(0))
+	_check(valves.is_shut(0) and not valves.is_in_steam(stokers_cap.global_position), "Clicking a valve wheel shuts its jet")
+	await _click_world(room, stokers_cap.global_position)
+	_check(stokers_cap.is_collected, "With its jet shut, the object can be taken")
+	await _click_world(room, valves.get_valve_position(1))
+	_check(valves.is_shut(0) and valves.is_shut(1), "A second jet can be shut as well")
+	await _click_world(room, valves.get_valve_position(2))
+	await _wait_frames(2)
+	_check(valves.is_shut(2) and valves.is_shut(1) and not valves.is_shut(0) and notification_popup_title(room) == "The boiler groans!",
+			"Shutting a third jet blows the first one open again, and the player is told")
+	await _click_world(room, valves.get_valve_position(2))
+	_check(not valves.is_shut(2) and valves.is_shut(1), "Clicking a shut valve opens it again")
+	valves.shut_everything(true)  # The safe state: no steam anywhere.
+	await _wait_frames(2)
+	await _check_code_lock(room, "GaugeCase", "2311", "1911")
+	await _check_code_lock(room, "MeterBox", "1911", "2311")
+	await _check_locked_containers(room)
+	await _solve_room(room, 20)
+	victory = await _finish_chapter(room, "Hobbs", true, "boiler_room")
+	await _screenshot("59_boiler_room_complete")
+
+	# --- Chapter Five: the dispensary and its look-alikes ----------------------
+	room = await _continue_to(victory, "res://scenes/dispensary.tscn", "House Three, Chapter Five (the dispensary)")
+	_check_not_dark(room, "The dispensary")
+	var alikes: LookAlikes = room.get_node("LookAlikes")
+	await _wait_frames(3)
+	_check(alikes.decoy_count() == 12, "Six objects in the dispensary have two look-alikes each")
+	var real_bottle := alikes.get_decoy_target(0)
+	var pestle := _find(_get_objects(room), &"pestle")
+	_check(real_bottle.data.object_id == &"blue_bottle" and alikes.get_decoy_position(0).distance_to(real_bottle.global_position) > 30.0,
+			"A look-alike stands beside the real object, not on top of it")
+	await _screenshot("60_dispensary_look_alikes")
+	await _click_world(room, alikes.get_decoy_position(0))
+	_check(alikes.is_frozen() and not real_bottle.is_collected and notification_popup_title(room) == "Not that one!",
+			"Clicking a look-alike collects nothing: the player's hand shakes")
+	await _click_world(room, pestle.global_position)
+	_check(not pestle.is_collected, "Nothing can be picked up while the hand shakes")
+	await _wait_seconds(alikes.freeze_seconds + 0.3)
+	_check(not alikes.is_frozen(), "The hand steadies again by itself")
+	await _click_world(room, pestle.global_position)
+	_check(pestle.is_collected, "Once the hand is steady, objects can be picked up again")
+	await _click_world(room, real_bottle.global_position)
+	_check(real_bottle.is_collected and not alikes.is_frozen(), "The real object can be taken without any penalty")
+	await _click_world(room, alikes.get_decoy_position(0))
+	_check(not alikes.is_frozen(), "The look-alikes of a found object are harmless")
+	alikes.steady(true)  # The safe state: no look-alike can be clicked.
+	await _check_code_lock(room, "PoisonCupboard", "1962", "2130")
+	await _check_code_lock(room, "DrugSafe", "2130", "1962")
+	await _check_locked_containers(room)
+	await _solve_room(room, 21)
+	_check(not alikes.is_frozen(), "Solving the dispensary never made the hand shake")
+	victory = await _finish_chapter(room, "half past nine", true, "dispensary")
+	await _screenshot("61_dispensary_complete")
+
+	# --- Chapter Six: the matron's office and its swing mirror -----------------
+	room = await _continue_to(victory, "res://scenes/matrons_office.tscn", "House Three, Chapter Six (the matron's office)")
+	_check_not_dark(room, "The matron's office")
+	var mirror: WallMirror = room.get_node("WallMirror")
+	_check(mirror.get_mirror_objects().size() == 6 and mirror.view == 1, "Six objects are only in the mirror, which starts level")
+	var rail_key := _find(_get_objects(room), &"picture_rail_key")
+	var cloak := _find(_get_objects(room), &"travelling_cloak")
+	var valise := _find(_get_objects(room), &"packed_valise")
+	var right_drawer: OpenableContainer = room.get_node("%HiddenObjects/DeskDrawerRight")
+	_check(mirror.view_of(rail_key) == 0 and mirror.view_of(cloak) == 1 and mirror.view_of(valise) == 2,
+			"The key is in the upward view, the cloak in the level view, the valise in the downward view")
+	_check(rail_key.modulate.a < 0.05 and cloak.modulate.a > 0.95, "With the mirror level, only the level view's objects show")
+	await _click_world(room, rail_key.global_position)
+	_check(not rail_key.is_collected, "An object of another tilt can't be taken")
+	await _click_world(room, mirror.get_arrow_position(true))
+	await _wait_seconds(mirror.tilt_seconds + 0.3)
+	_check(mirror.view == 0 and rail_key.modulate.a > 0.95 and cloak.modulate.a < 0.05, "The arrow above the glass tilts the mirror up")
+	await _screenshot("62_matrons_office_mirror_up")
+	await _click_world(room, cloak.global_position)
+	_check(not cloak.is_collected, "The cloak can't be taken while the mirror is tilted up")
+	_check(right_drawer.is_locked(), "The right-hand drawer is locked until the key in the mirror is found")
+	await _click_world(room, rail_key.global_position)
+	_check(rail_key.is_collected and not right_drawer.is_locked(), "Taking the key from the reflection unlocks the drawer")
+	await _click_world(room, mirror.get_arrow_position(true))
+	_check(mirror.view == 0, "The mirror can't tilt further up than up")
+	await _click_world(room, mirror.get_arrow_position(false))
+	await _click_world(room, mirror.get_arrow_position(false))
+	await _wait_seconds(mirror.tilt_seconds + 0.3)
+	_check(mirror.view == 2 and valise.modulate.a > 0.95, "The arrow below the glass tilts it level and then down")
+	await _click_world(room, valise.global_position)
+	_check(valise.is_collected, "Tilted down, the valise can be taken from the reflection")
+	mirror.show_all(true)  # The safe state: every mirror object shows at once.
+	await _wait_frames(2)
+	await _check_code_lock(room, "FilingCabinet", "0125", "1979")
+	await _check_code_lock(room, "WallSafe", "1979", "0125")
+	await _check_locked_containers(room)
+	await _solve_room(room, 22)
+	victory = await _finish_chapter(room, "you are my brother", true, "matrons_office")
+	await _screenshot("63_matrons_office_complete")
+
+	# --- Chapter Seven: Ward Seven, where every patient wants something back ---
+	room = await _continue_to(victory, "res://scenes/ward_seven.tscn", "House Three, Chapter Seven (Ward Seven)")
+	_check_not_dark(room, "Ward Seven")
+	var ward_camera: RoomCamera = room.room_camera
+	ward_camera.edge_size = 0.0
+	var ward_rightmost := 0.0
+	for hidden_object in _get_objects(room):
+		ward_rightmost = maxf(ward_rightmost, hidden_object.global_position.x)
+	_check(ward_camera.get_max_scroll_x() > 700.0 and ward_rightmost > 1280.0, "Ward Seven is wider than the screen, with objects beyond the first screen")
+	var keeps: Keepsakes = room.get_node("Keepsakes")
+	var nobody_gave := keeps.patient_count() == 7
+	for i in range(keeps.patient_count()):
+		nobody_gave = nobody_gave and not keeps.has_given(i) and not keeps.get_gift(i).visible
+	_check(nobody_gave, "Seven patients, and none of them has handed anything over yet")
+	await _click_world(room, keeps.get_patient_position(0))
+	_check(notification_popup_title(room) == "Toby is waiting", "Clicking a patient says what they are missing")
+	await _screenshot("64_ward_seven_patients")
+	var trolley: OpenableContainer = room.get_node("%HiddenObjects/MedicineTrolley")
+	_check(trolley.is_locked(), "The medicine trolley needs the key that Toby still holds")
+	# Toby's yo-yo was shut in the locker by Ruth's bed.
+	var ruths_locker: OpenableContainer = room.get_node("%HiddenObjects/RuthsLocker")
+	await _click_world(room, ruths_locker.global_position)
+	await _wait_seconds(0.6)
+	var yoyo := keeps.get_wanted(0)
+	_check(ruths_locker.is_open and yoyo.visible and yoyo.data.object_id == &"wooden_yoyo", "Toby's yo-yo is in the wrong locker")
+	await _click_world(room, yoyo.global_position)
+	var spoon_key := keeps.get_gift(0)
+	_check(yoyo.is_collected and keeps.has_given(0) and spoon_key.visible, "Finding his yo-yo makes Toby hand over his key")
+	_check(not keeps.has_given(1), "The other patients are still waiting")
+	await _wait_seconds(keeps.thanks_delay + 0.4)
+	_check(notification_popup_title(room) == "Toby gives you something", "A moment later the player is told what Toby did")
+	await _click_world(room, spoon_key.global_position)
+	_check(spoon_key.is_collected and not trolley.is_locked(), "Toby's key unlocks the medicine trolley")
+	await _check_code_lock(room, "RestraintCupboard", "0510", "1923")
+	await _check_code_lock(room, "ConfiscationBox", "1923", "0510")
+	await _check_locked_containers(room)
+	await _solve_room(room, 23)
+	var everyone_gave := true
+	for i in range(keeps.patient_count()):
+		everyone_gave = everyone_gave and keeps.has_given(i)
+	_check(everyone_gave, "By the end every patient has their belonging back")
+	victory = await _finish_chapter(room, "Tobias Hale", false, "ward_seven")
+	_check((victory.get_node("Root/Center/Panel/VBox/ToBeContinued") as Label).text == "THE END", "The last chapter ends with THE END")
+	await _screenshot("65_ward_seven_complete")
 	return victory
 
 

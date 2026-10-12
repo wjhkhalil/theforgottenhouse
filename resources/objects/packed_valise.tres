@@ -1,0 +1,20 @@
+[gd_resource type="Resource" script_class="HiddenObjectData" format=3]
+
+[ext_resource type="Script" path="res://scripts/hidden_object_data.gd" id="1_data"]
+
+[ext_resource type="Texture2D" path="res://assets/objects/packed_valise_v1.png" id="2_texture"]
+
+[resource]
+script = ExtResource("1_data")
+object_id = &"packed_valise"
+display_name = "Packed Valise"
+description = "A leather valise, strapped and labelled."
+collection_message = "You found the packed valise!"
+clue_text = "The label reads 'E. VANE'. Not Crane: Vane. The matron is travelling under her own maiden name."
+hint_text = "It is on the floor behind you. Tilt the mirror DOWN and take it from the reflection."
+riddle_text = ""
+placeholder_style = 292
+texture = ExtResource("2_texture")
+icon_texture = ExtResource("2_texture")
+is_required = true
+starts_visible = true

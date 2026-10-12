@@ -1,0 +1,20 @@
+[gd_resource type="Resource" script_class="HiddenObjectData" format=3]
+
+[ext_resource type="Script" path="res://scripts/hidden_object_data.gd" id="1_data"]
+
+[ext_resource type="Texture2D" path="res://assets/objects/bank_book_v1.png" id="2_texture"]
+
+[resource]
+script = ExtResource("1_data")
+object_id = &"bank_book"
+display_name = "Bank Book"
+description = "A savings bank book in a cloth cover."
+collection_message = "You found the bank book!"
+clue_text = "The account was emptied this morning. Every pound of six years' payments, drawn out in cash."
+hint_text = "It is in the carpet bag by the hat stand."
+riddle_text = ""
+placeholder_style = 302
+texture = ExtResource("2_texture")
+icon_texture = ExtResource("2_texture")
+is_required = true
+starts_visible = false

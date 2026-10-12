@@ -21,6 +21,7 @@ extends Node
 const HOUSES: Array[Dictionary] = [
 	{"id": "ashworth_manor", "title": "House One: Ashworth Manor", "finished": true},
 	{"id": "blackwater_boathouse", "title": "House Two: The Blackwater Boathouse", "finished": true},
+	{"id": "hollowmere_sanatorium", "title": "House Three: Hollowmere Sanatorium", "finished": true},
 ]
 
 const CHAPTERS: Array[Dictionary] = [
@@ -42,6 +43,13 @@ const CHAPTERS: Array[Dictionary] = [
 	{"id": "lamp_room", "house": "blackwater_boathouse", "title": "Chapter Eight: The Lamp Room", "scene": "res://scenes/lamp_room.tscn"},
 	{"id": "island_chapel", "house": "blackwater_boathouse", "title": "Chapter Nine: The Island Chapel", "scene": "res://scenes/island_chapel.tscn"},
 	{"id": "vane_cottage", "house": "blackwater_boathouse", "title": "Chapter Ten: Dr Vane's Cottage", "scene": "res://scenes/vane_cottage.tscn"},
+	{"id": "gate_lodge", "house": "hollowmere_sanatorium", "title": "Chapter One: The Gate Lodge", "scene": "res://scenes/gate_lodge.tscn"},
+	{"id": "xray_room", "house": "hollowmere_sanatorium", "title": "Chapter Two: The X-Ray Room", "scene": "res://scenes/xray_room.tscn"},
+	{"id": "laundry", "house": "hollowmere_sanatorium", "title": "Chapter Three: The Laundry", "scene": "res://scenes/laundry.tscn"},
+	{"id": "boiler_room", "house": "hollowmere_sanatorium", "title": "Chapter Four: The Boiler Room", "scene": "res://scenes/boiler_room.tscn"},
+	{"id": "dispensary", "house": "hollowmere_sanatorium", "title": "Chapter Five: The Dispensary", "scene": "res://scenes/dispensary.tscn"},
+	{"id": "matrons_office", "house": "hollowmere_sanatorium", "title": "Chapter Six: The Matron's Office", "scene": "res://scenes/matrons_office.tscn"},
+	{"id": "ward_seven", "house": "hollowmere_sanatorium", "title": "Chapter Seven: Ward Seven", "scene": "res://scenes/ward_seven.tscn"},
 ]
 
 ## The house a chapter belongs to (an entry of HOUSES), or {} if unknown.

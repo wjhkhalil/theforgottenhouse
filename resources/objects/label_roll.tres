@@ -1,0 +1,20 @@
+[gd_resource type="Resource" script_class="HiddenObjectData" format=3]
+
+[ext_resource type="Script" path="res://scripts/hidden_object_data.gd" id="1_data"]
+
+[ext_resource type="Texture2D" path="res://assets/objects/label_roll_v1.png" id="2_texture"]
+
+[resource]
+script = ExtResource("1_data")
+object_id = &"label_roll"
+display_name = "Roll of Labels"
+description = "A roll of gummed labels, printed with numbers only."
+collection_message = "You found the roll of labels!"
+clue_text = "Labels numbered 1 to 7, hundreds of each. Where the name should be printed there is nothing at all."
+hint_text = "It lies on the shelf under the window."
+riddle_text = ""
+placeholder_style = 275
+texture = ExtResource("2_texture")
+icon_texture = ExtResource("2_texture")
+is_required = true
+starts_visible = true

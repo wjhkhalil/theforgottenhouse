@@ -1,0 +1,20 @@
+[gd_resource type="Resource" script_class="HiddenObjectData" format=3]
+
+[ext_resource type="Script" path="res://scripts/hidden_object_data.gd" id="1_data"]
+
+[ext_resource type="Texture2D" path="res://assets/objects/night_round_card_v1.png" id="2_texture"]
+
+[resource]
+script = ExtResource("1_data")
+object_id = &"night_round_card"
+display_name = "Night Round Card"
+description = "A printed card of the porter's nightly round."
+collection_message = "You found the night round card!"
+clue_text = "Every ward is ticked off at each hour, except one. Against Ward 7 Pike has written, every single night: 'Do not answer.'"
+hint_text = "It is behind the last shutter of the bell board, on the right."
+riddle_text = ""
+placeholder_style = 200
+texture = ExtResource("2_texture")
+icon_texture = ExtResource("2_texture")
+is_required = true
+starts_visible = true

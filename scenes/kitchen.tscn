@@ -21,6 +21,7 @@
 [ext_resource type="PackedScene" path="res://scenes/victory_screen.tscn" id="19_victory"]
 [ext_resource type="PackedScene" path="res://scenes/ui/pause_menu.tscn" id="20_pause"]
 [ext_resource type="PackedScene" path="res://scenes/ui/letter_popup.tscn" id="21_letter"]
+[ext_resource type="Texture2D" path="res://assets/backgrounds/kitchen_background_v1.png" id="bg_kitchen"]
 
 [sub_resource type="Gradient" id="Gradient_embers"]
 offsets = PackedFloat32Array(0, 0.2, 0.8, 1)
@@ -36,6 +37,7 @@ script = ExtResource("3_manager")
 
 [node name="RoomBackground" type="Node2D" parent="."]
 script = ExtResource("4_art")
+replacement_texture = ExtResource("bg_kitchen")
 
 [node name="HiddenObjects" type="Node2D" parent="."]
 unique_name_in_owner = true
@@ -122,6 +124,7 @@ scale = Vector2(0.6, 0.6)
 data = ExtResource("14_mouse")
 
 [node name="RoomForeground" type="Node2D" parent="."]
+visible = false
 script = ExtResource("4_art")
 layer = 1
 

@@ -1,0 +1,20 @@
+[gd_resource type="Resource" script_class="HiddenObjectData" format=3]
+
+[ext_resource type="Script" path="res://scripts/hidden_object_data.gd" id="1_data"]
+
+[ext_resource type="Texture2D" path="res://assets/objects/ruths_sampler_v1.png" id="2_texture"]
+
+[resource]
+script = ExtResource("1_data")
+object_id = &"ruths_sampler"
+display_name = "Ruth's Sampler"
+description = "A square of sheet stitched with seven names in red thread."
+collection_message = "You found Ruth's sampler!"
+clue_text = "Ruth unpicked the thread from her own pillowcase to sew it. Seven real names, so that none of them would forget."
+hint_text = "Ruth has it. She wants her thimble case back first."
+riddle_text = ""
+placeholder_style = 311
+texture = ExtResource("2_texture")
+icon_texture = ExtResource("2_texture")
+is_required = true
+starts_visible = false

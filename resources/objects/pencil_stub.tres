@@ -1,0 +1,20 @@
+[gd_resource type="Resource" script_class="HiddenObjectData" format=3]
+
+[ext_resource type="Script" path="res://scripts/hidden_object_data.gd" id="1_data"]
+
+[ext_resource type="Texture2D" path="res://assets/objects/pencil_stub_v1.png" id="2_texture"]
+
+[resource]
+script = ExtResource("1_data")
+object_id = &"pencil_stub"
+display_name = "Pencil Stub"
+description = "A chewed stub of pencil, hidden in plaster."
+collection_message = "You found a pencil stub!"
+clue_text = "Patients on Ward 7 are allowed no pencils and no paper. Someone had this set into their own plaster cast to keep it."
+hint_text = "It is sealed inside the plaster cast on the X-ray table. Roll the X-ray screen over the cast to see it."
+riddle_text = ""
+placeholder_style = 210
+texture = ExtResource("2_texture")
+icon_texture = ExtResource("2_texture")
+is_required = true
+starts_visible = true

@@ -1,0 +1,20 @@
+[gd_resource type="Resource" script_class="HiddenObjectData" format=3]
+
+[ext_resource type="Script" path="res://scripts/hidden_object_data.gd" id="1_data"]
+
+[ext_resource type="Texture2D" path="res://assets/objects/sugar_pills_v1.png" id="2_texture"]
+
+[resource]
+script = ExtResource("1_data")
+object_id = &"sugar_pills"
+display_name = "Sugar Pills"
+description = "A tray of plain white pills, freshly rolled."
+collection_message = "You found the sugar pills!"
+clue_text = "Sugar and nothing else. The dispenser has been swapping them for the real ones. For how long?"
+hint_text = "They are in the case of the pill machine at the right end of the counter."
+riddle_text = ""
+placeholder_style = 283
+texture = ExtResource("2_texture")
+icon_texture = ExtResource("2_texture")
+is_required = true
+starts_visible = false

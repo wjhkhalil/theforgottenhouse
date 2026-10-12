@@ -1,6 +1,7 @@
 [gd_resource type="Resource" script_class="HiddenObjectData" format=3]
 
 [ext_resource type="Script" path="res://scripts/hidden_object_data.gd" id="1_data"]
+[ext_resource type="Texture2D" path="res://assets/objects/film_negatives_v1.png" id="2_texture"]
 
 [resource]
 script = ExtResource("1_data")
@@ -11,5 +12,7 @@ collection_message = "You found a strip of film negatives."
 clue_text = "Held up to the light, the negatives show the two people from the photograph. Their faces are exactly the same."
 hint_text = "Photographs were developed down here. Look closely at what is drying on the line."
 placeholder_style = 7
+texture = ExtResource("2_texture")
+icon_texture = ExtResource("2_texture")
 is_required = true
 starts_visible = true

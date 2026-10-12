@@ -1,0 +1,20 @@
+[gd_resource type="Resource" script_class="HiddenObjectData" format=3]
+
+[ext_resource type="Script" path="res://scripts/hidden_object_data.gd" id="1_data"]
+
+[ext_resource type="Texture2D" path="res://assets/objects/apothecary_scales_v1.png" id="2_texture"]
+
+[resource]
+script = ExtResource("1_data")
+object_id = &"apothecary_scales"
+display_name = "Apothecary Scales"
+description = "A brass hand balance with two small pans."
+collection_message = "You found the apothecary scales!"
+clue_text = "One pan is worn brighter than the other from the same dose weighed out every night."
+hint_text = "It hangs on its stand in the middle of the counter."
+riddle_text = ""
+placeholder_style = 273
+texture = ExtResource("2_texture")
+icon_texture = ExtResource("2_texture")
+is_required = true
+starts_visible = true

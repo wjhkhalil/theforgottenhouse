@@ -1,0 +1,20 @@
+[gd_resource type="Resource" script_class="HiddenObjectData" format=3]
+
+[ext_resource type="Script" path="res://scripts/hidden_object_data.gd" id="1_data"]
+
+[ext_resource type="Texture2D" path="res://assets/objects/sewn_photograph_v1.png" id="2_texture"]
+
+[resource]
+script = ExtResource("1_data")
+object_id = &"sewn_photograph"
+display_name = "Sewn-in Photograph"
+description = "A photograph stitched into a suitcase lining."
+collection_message = "You found a photograph sewn into the lining!"
+clue_text = "Seven patients in a row on a bench, in grey smocks. On the back: 'All of us, 1990'. Every one of them has a death certificate signed by Vane."
+hint_text = "It is sewn into the lining of the old suitcase on the floor. Look at the suitcase through the X-ray screen."
+riddle_text = ""
+placeholder_style = 212
+texture = ExtResource("2_texture")
+icon_texture = ExtResource("2_texture")
+is_required = true
+starts_visible = true

@@ -1,0 +1,20 @@
+[gd_resource type="Resource" script_class="HiddenObjectData" format=3]
+
+[ext_resource type="Script" path="res://scripts/hidden_object_data.gd" id="1_data"]
+
+[ext_resource type="Texture2D" path="res://assets/objects/chest_xray_v1.png" id="2_texture"]
+
+[resource]
+script = ExtResource("1_data")
+object_id = &"chest_xray"
+display_name = "Chest X-ray"
+description = "An X-ray plate of a child's ribs in a paper sleeve."
+collection_message = "You found a chest X-ray!"
+clue_text = "The sleeve reads 'Patient 7' but the plate itself is scratched: 'T. HALE, plate no. 0791'. July 1991. Six years after Vane wrote that he was dead."
+hint_text = "It is filed in the film cabinet under the X-ray table. Open the cabinet."
+riddle_text = ""
+placeholder_style = 216
+texture = ExtResource("2_texture")
+icon_texture = ExtResource("2_texture")
+is_required = true
+starts_visible = false

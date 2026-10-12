@@ -1,0 +1,20 @@
+[gd_resource type="Resource" script_class="HiddenObjectData" format=3]
+
+[ext_resource type="Script" path="res://scripts/hidden_object_data.gd" id="1_data"]
+
+[ext_resource type="Texture2D" path="res://assets/objects/mangle_note_v1.png" id="2_texture"]
+
+[resource]
+script = ExtResource("1_data")
+object_id = &"mangle_note"
+display_name = "Note from the Mangle"
+description = "A slip of paper pressed as thin as a leaf."
+collection_message = "You found the note from the mangle!"
+clue_text = "'Are you real? There are 7 of us. Please tell someone. T.H.' It came down between two sheets."
+hint_text = "It is in the little drawer under the mangle."
+riddle_text = ""
+placeholder_style = 240
+texture = ExtResource("2_texture")
+icon_texture = ExtResource("2_texture")
+is_required = true
+starts_visible = false

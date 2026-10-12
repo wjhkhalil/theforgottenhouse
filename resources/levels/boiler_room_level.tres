@@ -1,0 +1,23 @@
+[gd_resource type="Resource" script_class="LevelData" format=3]
+
+[ext_resource type="Script" path="res://scripts/level_data.gd" id="1_level"]
+
+[resource]
+script = ExtResource("1_level")
+chapter_id = &"boiler_room"
+room_name = "The Boiler Room"
+intro_message = "Three jets of scalding steam hiss down from the pipes, and nothing inside a jet can be touched. Each jet has a red valve wheel: click a wheel to shut its jet. The old boiler will only stand two shut at once. Find the 20 hidden objects."
+hint_cooldown_seconds = 115.0
+hint_area_radius = 340.0
+hint_area_offset = 185.0
+chapter_title = "House Three - Chapter Four Complete"
+chapter_hook = "The service lift creaks upward on its rope. It stops at a hatch marked DISPENSARY, where every night somebody measures out sleep for seven."
+final_letter_title = "An Order, Half Burnt"
+final_letter_text = "Hobbs,
+
+You will burn the following tonight, and you will rake the ash: the Ward 7 admission books, the X-ray sleeves marked with numbers, and every laundry chit signed by me.
+
+Dr Vane has been taken by the police. They will come here within the week. When they do, there will be no Ward 7, no patients, and no paper.
+
+You have been paid for six years to keep a fire in. Keep it in tonight."
+final_letter_signature = "- E. Crane, Matron"

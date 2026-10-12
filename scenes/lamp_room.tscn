@@ -29,6 +29,7 @@
 [ext_resource type="PackedScene" path="res://scenes/ui/pause_menu.tscn" id="27_pause"]
 [ext_resource type="PackedScene" path="res://scenes/ui/letter_popup.tscn" id="28_letter"]
 [ext_resource type="PackedScene" path="res://scenes/ui/keypad_lock.tscn" id="29_keypad"]
+[ext_resource type="Texture2D" path="res://assets/backgrounds/lamp_room_background_v2.png" id="bg_lamp_room"]
 
 [node name="LampRoom" type="Node2D" node_paths=PackedStringArray("keypad_lock")]
 script = ExtResource("1_room")
@@ -41,6 +42,7 @@ script = ExtResource("3_manager")
 
 [node name="RoomBackground" type="Node2D" parent="."]
 script = ExtResource("4_art")
+replacement_texture = ExtResource("bg_lamp_room")
 
 [node name="HiddenObjects" type="Node2D" parent="."]
 unique_name_in_owner = true
@@ -218,6 +220,7 @@ landing_spots = PackedVector2Array(262, 450, 170, 600, 780, 300, 450, 640, 960, 
 broken_pane = Rect2(14, 62, 150, 134)
 
 [node name="RoomForeground" type="Node2D" parent="."]
+visible = false
 script = ExtResource("4_art")
 layer = 1
 

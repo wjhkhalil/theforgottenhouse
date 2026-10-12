@@ -1,0 +1,20 @@
+[gd_resource type="Resource" script_class="HiddenObjectData" format=3]
+
+[ext_resource type="Script" path="res://scripts/hidden_object_data.gd" id="1_data"]
+
+[ext_resource type="Texture2D" path="res://assets/objects/visitors_book_v1.png" id="2_texture"]
+
+[resource]
+script = ExtResource("1_data")
+object_id = &"visitors_book"
+display_name = "Visitors' Book"
+description = "A heavy bound book of signatures."
+collection_message = "You found the visitors' book!"
+clue_text = "Whole pages have been cut out with a razor. On the stubs you can still read one name, again and again, month after month: R. Vane."
+hint_text = "It is locked in the lost property trunk on the floor, in front of the desk. You need the trunk key."
+riddle_text = ""
+placeholder_style = 206
+texture = ExtResource("2_texture")
+icon_texture = ExtResource("2_texture")
+is_required = true
+starts_visible = false

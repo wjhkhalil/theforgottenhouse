@@ -1,0 +1,20 @@
+[gd_resource type="Resource" script_class="HiddenObjectData" format=3]
+
+[ext_resource type="Script" path="res://scripts/hidden_object_data.gd" id="1_data"]
+
+[ext_resource type="Texture2D" path="res://assets/objects/reading_glasses_v1.png" id="2_texture"]
+
+[resource]
+script = ExtResource("1_data")
+object_id = &"reading_glasses"
+display_name = "Reading Glasses"
+description = "Wire-framed reading glasses in a worn case."
+collection_message = "You found the reading glasses!"
+clue_text = "Old Mr Finch has not been able to read a word for three years. Take them back to Albert."
+hint_text = "They are in the bedside locker by Toby's bed."
+riddle_text = ""
+placeholder_style = 319
+texture = ExtResource("2_texture")
+icon_texture = ExtResource("2_texture")
+is_required = true
+starts_visible = false

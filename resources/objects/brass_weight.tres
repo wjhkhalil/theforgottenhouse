@@ -1,0 +1,20 @@
+[gd_resource type="Resource" script_class="HiddenObjectData" format=3]
+
+[ext_resource type="Script" path="res://scripts/hidden_object_data.gd" id="1_data"]
+
+[ext_resource type="Texture2D" path="res://assets/objects/brass_weight_v1.png" id="2_texture"]
+
+[resource]
+script = ExtResource("1_data")
+object_id = &"brass_weight"
+display_name = "Brass Weight"
+description = "A small brass scale weight with a knob on top."
+collection_message = "You found the brass weight!"
+clue_text = "Stamped '7 grains'. The right weight for a dose that keeps a grown man asleep till morning."
+hint_text = "It is among the weights on the counter. Take the BRASS one, not the dull grey ones."
+riddle_text = ""
+placeholder_style = 268
+texture = ExtResource("2_texture")
+icon_texture = ExtResource("2_texture")
+is_required = true
+starts_visible = true

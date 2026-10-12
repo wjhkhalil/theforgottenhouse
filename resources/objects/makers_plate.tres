@@ -1,0 +1,20 @@
+[gd_resource type="Resource" script_class="HiddenObjectData" format=3]
+
+[ext_resource type="Script" path="res://scripts/hidden_object_data.gd" id="1_data"]
+
+[ext_resource type="Texture2D" path="res://assets/objects/makers_plate_v1.png" id="2_texture"]
+
+[resource]
+script = ExtResource("1_data")
+object_id = &"makers_plate"
+display_name = "Maker's Plate"
+description = "A brass plate riveted to the boiler."
+collection_message = "You found the maker's plate!"
+clue_text = "'Boiler No. 1911'. Hobbs has polished those four numbers bright with his thumb."
+hint_text = "It is riveted to the boiler, inside the middle jet of steam."
+riddle_text = ""
+placeholder_style = 255
+texture = ExtResource("2_texture")
+icon_texture = ExtResource("2_texture")
+is_required = true
+starts_visible = true

@@ -1,0 +1,20 @@
+[gd_resource type="Resource" script_class="HiddenObjectData" format=3]
+
+[ext_resource type="Script" path="res://scripts/hidden_object_data.gd" id="1_data"]
+
+[ext_resource type="Texture2D" path="res://assets/objects/xray_tube_v1.png" id="2_texture"]
+
+[resource]
+script = ExtResource("1_data")
+object_id = &"xray_tube"
+display_name = "X-ray Tube"
+description = "A spare glass X-ray tube in a padded cradle."
+collection_message = "You found a spare X-ray tube!"
+clue_text = "A paper tag is tied to it: 'For Ward 7 work only. Dr V. pays.' Vane has been paying for far more than silence."
+hint_text = "It is locked in the control cabinet on the metal step, under the exposure chart. The cabinet has a four-number lock."
+riddle_text = ""
+placeholder_style = 223
+texture = ExtResource("2_texture")
+icon_texture = ExtResource("2_texture")
+is_required = true
+starts_visible = false

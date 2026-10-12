@@ -1,0 +1,20 @@
+[gd_resource type="Resource" script_class="HiddenObjectData" format=3]
+
+[ext_resource type="Script" path="res://scripts/hidden_object_data.gd" id="1_data"]
+
+[ext_resource type="Texture2D" path="res://assets/objects/carbolic_soap_v1.png" id="2_texture"]
+
+[resource]
+script = ExtResource("1_data")
+object_id = &"carbolic_soap"
+display_name = "Carbolic Soap"
+description = "A red bar of carbolic soap, worn to a sliver."
+collection_message = "You found the carbolic soap!"
+clue_text = "Scratched into the soap with a fingernail: seven strokes in a row."
+hint_text = "It lies on the edge of the big stone sink."
+riddle_text = ""
+placeholder_style = 230
+texture = ExtResource("2_texture")
+icon_texture = ExtResource("2_texture")
+is_required = true
+starts_visible = true

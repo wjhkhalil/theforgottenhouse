@@ -20,6 +20,9 @@
 [ext_resource type="PackedScene" path="res://scenes/ui/pause_menu.tscn" id="18_pause"]
 [ext_resource type="PackedScene" path="res://scenes/ui/letter_popup.tscn" id="19_letter"]
 [ext_resource type="PackedScene" path="res://scenes/ui/keypad_lock.tscn" id="20_keypad"]
+[ext_resource type="Texture2D" path="res://assets/backgrounds/basement_background_v2.png" id="bg_basement"]
+[ext_resource type="Texture2D" path="res://assets/objects/old_trunk_closed_v1.png" id="trunk_closed"]
+[ext_resource type="Texture2D" path="res://assets/objects/old_trunk_open_v1.png" id="trunk_open"]
 
 [sub_resource type="Gradient" id="Gradient_dust"]
 offsets = PackedFloat32Array(0, 0.2, 0.8, 1)
@@ -36,51 +39,58 @@ script = ExtResource("3_manager")
 
 [node name="RoomBackground" type="Node2D" parent="."]
 script = ExtResource("4_art")
+replacement_texture = ExtResource("bg_basement")
 
 [node name="HiddenObjects" type="Node2D" parent="."]
 unique_name_in_owner = true
 
 [node name="HospitalWristband" parent="HiddenObjects" instance=ExtResource("5_object")]
-position = Vector2(410, 222)
-scale = Vector2(0.8, 0.8)
+position = Vector2(316, 231)
+texture_scale = Vector2(0.1419, 0.1419)
 data = ExtResource("6_wristband")
 
 [node name="FilmNegatives" parent="HiddenObjects" instance=ExtResource("5_object")]
-position = Vector2(562, 336)
-rotation = 0.04
-scale = Vector2(0.8, 0.8)
+position = Vector2(575, 251)
+texture_scale = Vector2(0.1385, 0.1385)
 data = ExtResource("7_negatives")
 
 [node name="MusicBox" parent="HiddenObjects" instance=ExtResource("5_object")]
-position = Vector2(803, 326)
-scale = Vector2(0.75, 0.75)
+modulate = Color(0.62, 0.66, 0.78, 1)
+position = Vector2(662, 451)
+texture_scale = Vector2(0.1295, 0.1295)
+click_size = Vector2(50, 42)
 data = ExtResource("8_music_box")
 
 [node name="MuddyBoots" parent="HiddenObjects" instance=ExtResource("5_object")]
-position = Vector2(180, 540)
-scale = Vector2(0.8, 0.8)
+position = Vector2(130, 507)
+texture_scale = Vector2(0.1662, 0.1662)
 data = ExtResource("9_boots")
 
 [node name="PocketWatch" parent="HiddenObjects" instance=ExtResource("5_object")]
-position = Vector2(918, 598)
-rotation = 0.4
-scale = Vector2(0.7, 0.7)
+position = Vector2(1000, 552)
+texture_scale = Vector2(0.096, 0.096)
 data = ExtResource("10_watch")
 
 [node name="OldTrunk" parent="HiddenObjects" node_paths=PackedStringArray("contents") instance=ExtResource("12_container")]
-position = Vector2(570, 615)
+position = Vector2(1150, 598)
+scale = Vector2(0.41, 0.41)
 container_id = &"old_trunk"
 contents = NodePath("../NewspaperClipping")
 open_title = "The old trunk creaks open..."
 open_message = "Inside, under moth-eaten blankets, lies a yellowed scrap of paper."
+size = Vector2(410, 301)
+closed_texture = ExtResource("trunk_closed")
+open_texture = ExtResource("trunk_open")
 
 [node name="NewspaperClipping" parent="HiddenObjects" instance=ExtResource("5_object")]
-position = Vector2(570, 598)
+modulate = Color(0.8, 0.82, 0.9, 1)
+position = Vector2(1146, 586)
 rotation = -0.12
-scale = Vector2(0.7, 0.7)
+texture_scale = Vector2(0.1412, 0.1412)
 data = ExtResource("11_clipping")
 
 [node name="RoomForeground" type="Node2D" parent="."]
+visible = false
 script = ExtResource("4_art")
 layer = 1
 

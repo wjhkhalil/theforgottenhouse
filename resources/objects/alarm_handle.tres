@@ -1,0 +1,20 @@
+[gd_resource type="Resource" script_class="HiddenObjectData" format=3]
+
+[ext_resource type="Script" path="res://scripts/hidden_object_data.gd" id="1_data"]
+
+[ext_resource type="Texture2D" path="res://assets/objects/alarm_handle_v1.png" id="2_texture"]
+
+[resource]
+script = ExtResource("1_data")
+object_id = &"alarm_handle"
+display_name = "Fire Bell Handle"
+description = "The brass pull of the sanatorium fire bell."
+collection_message = "You found the fire bell handle!"
+clue_text = "You pull. Above the roof the great bell begins to swing, and down in the village lights come on, one after another."
+hint_text = "It is in the fire bell box at the far right end of the ward. You need the red key that Winnie has kept."
+riddle_text = ""
+placeholder_style = 332
+texture = ExtResource("2_texture")
+icon_texture = ExtResource("2_texture")
+is_required = true
+starts_visible = false

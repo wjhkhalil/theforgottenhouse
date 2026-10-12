@@ -78,7 +78,7 @@ static func get_style_size(style: int) -> Vector2:
 	return Vector2(40, 40)
 
 
-## House Two, Chapters Four to Ten keep their drawings in these files. They are
+## House Two, Chapters Four to Ten, and House Three keep their drawings in these files. They are
 ## looked up by path, so a chapter whose file doesn't exist yet is simply skipped.
 const LATER_CHAPTER_ART: Array[String] = [
 	"res://scripts/object_art/workshop_objects.gd",
@@ -88,6 +88,13 @@ const LATER_CHAPTER_ART: Array[String] = [
 	"res://scripts/object_art/lamp_room_objects.gd",
 	"res://scripts/object_art/chapel_objects.gd",
 	"res://scripts/object_art/vane_cottage_objects.gd",
+	"res://scripts/object_art/gate_lodge_objects.gd",
+	"res://scripts/object_art/xray_room_objects.gd",
+	"res://scripts/object_art/laundry_objects.gd",
+	"res://scripts/object_art/boiler_room_objects.gd",
+	"res://scripts/object_art/dispensary_objects.gd",
+	"res://scripts/object_art/matrons_office_objects.gd",
+	"res://scripts/object_art/ward_seven_objects.gd",
 ]
 
 static var _later_art_cache: Array[Script] = []

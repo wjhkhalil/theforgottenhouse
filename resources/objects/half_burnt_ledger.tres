@@ -1,0 +1,20 @@
+[gd_resource type="Resource" script_class="HiddenObjectData" format=3]
+
+[ext_resource type="Script" path="res://scripts/hidden_object_data.gd" id="1_data"]
+
+[ext_resource type="Texture2D" path="res://assets/objects/half_burnt_ledger_v1.png" id="2_texture"]
+
+[resource]
+script = ExtResource("1_data")
+object_id = &"half_burnt_ledger"
+display_name = "Half-burnt Ledger"
+description = "A ledger pulled from the ash, half its pages gone."
+collection_message = "You found the half-burnt ledger!"
+clue_text = "What is left is a column of payments, month after month: 'Per head, seven heads. R.V.'"
+hint_text = "It lies on the floor in front of the workbench."
+riddle_text = ""
+placeholder_style = 254
+texture = ExtResource("2_texture")
+icon_texture = ExtResource("2_texture")
+is_required = true
+starts_visible = true

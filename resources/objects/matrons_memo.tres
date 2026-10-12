@@ -1,0 +1,20 @@
+[gd_resource type="Resource" script_class="HiddenObjectData" format=3]
+
+[ext_resource type="Script" path="res://scripts/hidden_object_data.gd" id="1_data"]
+
+[ext_resource type="Texture2D" path="res://assets/objects/matrons_memo_v1.png" id="2_texture"]
+
+[resource]
+script = ExtResource("1_data")
+object_id = &"matrons_memo"
+display_name = "Matron's Memo"
+description = "A typed memo initialled E.C."
+collection_message = "You found the matron's memo!"
+clue_text = "'Ward 7 patients are to be X-rayed under numbers only. No names. No copies. By order of Dr Vane. - E. Crane, Matron.'"
+hint_text = "It is in the locked instrument case on the floor. You need the tiny key from the boot heel."
+riddle_text = ""
+placeholder_style = 222
+texture = ExtResource("2_texture")
+icon_texture = ExtResource("2_texture")
+is_required = true
+starts_visible = false

@@ -1,0 +1,20 @@
+[gd_resource type="Resource" script_class="HiddenObjectData" format=3]
+
+[ext_resource type="Script" path="res://scripts/hidden_object_data.gd" id="1_data"]
+
+[ext_resource type="Texture2D" path="res://assets/objects/enamel_mug_v1.png" id="2_texture"]
+
+[resource]
+script = ExtResource("1_data")
+object_id = &"enamel_mug"
+display_name = "Enamel Mug"
+description = "A chipped white mug of cold, stewed tea."
+collection_message = "You found the enamel mug!"
+clue_text = "Two mugs were used tonight, not one. Someone sat here with Pike and waited."
+hint_text = "It sits on top of the iron stove, left of the desk."
+riddle_text = ""
+placeholder_style = 195
+texture = ExtResource("2_texture")
+icon_texture = ExtResource("2_texture")
+is_required = true
+starts_visible = true

@@ -1,0 +1,20 @@
+[gd_resource type="Resource" script_class="HiddenObjectData" format=3]
+
+[ext_resource type="Script" path="res://scripts/hidden_object_data.gd" id="1_data"]
+
+[ext_resource type="Texture2D" path="res://assets/objects/travelling_cloak_v1.png" id="2_texture"]
+
+[resource]
+script = ExtResource("1_data")
+object_id = &"travelling_cloak"
+display_name = "Travelling Cloak"
+description = "A grey nurse's cloak with a red lining, on the door peg."
+collection_message = "You found the travelling cloak!"
+clue_text = "Brushed and ready, with gloves in the pocket. She means to leave tonight."
+hint_text = "It hangs on the door behind you. Set the mirror LEVEL and take it from the reflection."
+riddle_text = ""
+placeholder_style = 290
+texture = ExtResource("2_texture")
+icon_texture = ExtResource("2_texture")
+is_required = true
+starts_visible = true

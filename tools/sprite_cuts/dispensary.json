@@ -1,0 +1,550 @@
+{
+ "objects": [
+  {
+   "id": "blue_bottle",
+   "sheet": "dispensary_objects_a_sheet_v1.png",
+   "grid": [
+    5,
+    2
+   ],
+   "cell": [
+    0,
+    0
+   ]
+  },
+  {
+   "id": "brass_weight",
+   "sheet": "dispensary_objects_a_sheet_v1.png",
+   "grid": [
+    5,
+    2
+   ],
+   "cell": [
+    1,
+    0
+   ]
+  },
+  {
+   "id": "pill_box",
+   "sheet": "dispensary_objects_a_sheet_v1.png",
+   "grid": [
+    5,
+    2
+   ],
+   "cell": [
+    2,
+    0
+   ]
+  },
+  {
+   "id": "measuring_glass",
+   "sheet": "dispensary_objects_a_sheet_v1.png",
+   "grid": [
+    5,
+    2
+   ],
+   "cell": [
+    3,
+    0
+   ]
+  },
+  {
+   "id": "ointment_jar",
+   "sheet": "dispensary_objects_a_sheet_v1.png",
+   "grid": [
+    5,
+    2
+   ],
+   "cell": [
+    4,
+    0
+   ]
+  },
+  {
+   "id": "medicine_spoon",
+   "sheet": "dispensary_objects_a_sheet_v1.png",
+   "grid": [
+    5,
+    2
+   ],
+   "cell": [
+    0,
+    1
+   ]
+  },
+  {
+   "id": "apothecary_scales",
+   "sheet": "dispensary_objects_a_sheet_v1.png",
+   "grid": [
+    5,
+    2
+   ],
+   "cell": [
+    1,
+    1
+   ]
+  },
+  {
+   "id": "prescription_spike",
+   "sheet": "dispensary_objects_a_sheet_v1.png",
+   "grid": [
+    5,
+    2
+   ],
+   "cell": [
+    2,
+    1
+   ]
+  },
+  {
+   "id": "label_roll",
+   "sheet": "dispensary_objects_a_sheet_v1.png",
+   "grid": [
+    5,
+    2
+   ],
+   "cell": [
+    3,
+    1
+   ]
+  },
+  {
+   "id": "pestle",
+   "sheet": "dispensary_objects_a_sheet_v1.png",
+   "grid": [
+    5,
+    2
+   ],
+   "cell": [
+    4,
+    1
+   ]
+  },
+  {
+   "id": "chloral_bottle",
+   "sheet": "dispensary_objects_b_sheet_v1.png",
+   "grid": [
+    4,
+    3
+   ],
+   "cell": [
+    0,
+    0
+   ]
+  },
+  {
+   "id": "dose_book",
+   "sheet": "dispensary_objects_b_sheet_v1.png",
+   "grid": [
+    4,
+    3
+   ],
+   "cell": [
+    1,
+    0
+   ]
+  },
+  {
+   "id": "blank_death_forms",
+   "sheet": "dispensary_objects_b_sheet_v1.png",
+   "grid": [
+    4,
+    3
+   ],
+   "cell": [
+    2,
+    0
+   ]
+  },
+  {
+   "id": "sealed_ampoules",
+   "sheet": "dispensary_objects_b_sheet_v1.png",
+   "grid": [
+    4,
+    3
+   ],
+   "cell": [
+    3,
+    0
+   ]
+  },
+  {
+   "id": "standing_orders",
+   "sheet": "dispensary_objects_b_sheet_v1.png",
+   "grid": [
+    4,
+    3
+   ],
+   "cell": [
+    0,
+    1
+   ]
+  },
+  {
+   "id": "bureau_key",
+   "sheet": "dispensary_objects_b_sheet_v1.png",
+   "grid": [
+    4,
+    3
+   ],
+   "cell": [
+    1,
+    1
+   ]
+  },
+  {
+   "id": "sugar_pills",
+   "sheet": "dispensary_objects_b_sheet_v1.png",
+   "grid": [
+    4,
+    3
+   ],
+   "cell": [
+    2,
+    1
+   ]
+  },
+  {
+   "id": "resignation_draft",
+   "sheet": "dispensary_objects_b_sheet_v1.png",
+   "grid": [
+    4,
+    3
+   ],
+   "cell": [
+    3,
+    1
+   ]
+  },
+  {
+   "id": "ward_chart",
+   "sheet": "dispensary_objects_b_sheet_v1.png",
+   "grid": [
+    4,
+    3
+   ],
+   "cell": [
+    0,
+    2
+   ]
+  },
+  {
+   "id": "matrons_office_key",
+   "sheet": "dispensary_objects_b_sheet_v1.png",
+   "grid": [
+    4,
+    3
+   ],
+   "cell": [
+    1,
+    2
+   ]
+  },
+  {
+   "id": "crane_telegram",
+   "sheet": "dispensary_objects_b_sheet_v1.png",
+   "grid": [
+    4,
+    3
+   ],
+   "cell": [
+    2,
+    2
+   ]
+  }
+ ],
+ "containers": [
+  {
+   "id": "dispensary_poison_cupboard",
+   "closed": {
+    "sheet": "dispensary_containers_closed_sheet_v1.png",
+    "grid": [
+     4,
+     3
+    ],
+    "cell": [
+     0,
+     0
+    ]
+   },
+   "open": {
+    "sheet": "dispensary_containers_open_sheet_v2.png",
+    "grid": [
+     4,
+     3
+    ],
+    "cell": [
+     0,
+     0
+    ]
+   },
+   "match": "height",
+   "open_scale": 1.1
+  },
+  {
+   "id": "dispensary_powder_drawer",
+   "closed": {
+    "sheet": "dispensary_containers_closed_sheet_v1.png",
+    "grid": [
+     4,
+     3
+    ],
+    "cell": [
+     1,
+     0
+    ]
+   },
+   "open": {
+    "sheet": "dispensary_containers_open_sheet_v2.png",
+    "grid": [
+     4,
+     3
+    ],
+    "cell": [
+     1,
+     0
+    ]
+   },
+   "match": "width",
+   "align": "top"
+  },
+  {
+   "id": "dispensary_label_drawer",
+   "closed": {
+    "sheet": "dispensary_containers_closed_sheet_v1.png",
+    "grid": [
+     4,
+     3
+    ],
+    "cell": [
+     2,
+     0
+    ]
+   },
+   "open": {
+    "sheet": "dispensary_containers_open_sheet_v2.png",
+    "grid": [
+     4,
+     3
+    ],
+    "cell": [
+     2,
+     0
+    ]
+   },
+   "match": "width",
+   "align": "top"
+  },
+  {
+   "id": "dispensary_ice_chest",
+   "closed": {
+    "sheet": "dispensary_containers_closed_fix_sheet_v1.png",
+    "box": [
+     1090,
+     60,
+     1448,
+     328
+    ]
+   },
+   "open": {
+    "sheet": "dispensary_containers_open_sheet_v2.png",
+    "grid": [
+     4,
+     3
+    ],
+    "cell": [
+     3,
+     0
+    ]
+   },
+   "match": "width"
+  },
+  {
+   "id": "dispensary_bureau",
+   "closed": {
+    "sheet": "dispensary_containers_closed_sheet_v1.png",
+    "grid": [
+     4,
+     3
+    ],
+    "cell": [
+     0,
+     1
+    ]
+   },
+   "open": {
+    "sheet": "dispensary_containers_open_sheet_v2.png",
+    "grid": [
+     4,
+     3
+    ],
+    "cell": [
+     0,
+     1
+    ]
+   },
+   "match": "width",
+   "align": "top"
+  },
+  {
+   "id": "dispensary_leech_jar",
+   "closed": {
+    "sheet": "dispensary_containers_closed_sheet_v1.png",
+    "grid": [
+     4,
+     3
+    ],
+    "cell": [
+     1,
+     1
+    ]
+   },
+   "open": {
+    "sheet": "dispensary_containers_open_sheet_v2.png",
+    "grid": [
+     4,
+     3
+    ],
+    "cell": [
+     1,
+     1
+    ]
+   },
+   "match": "height"
+  },
+  {
+   "id": "dispensary_pill_machine",
+   "closed": {
+    "sheet": "dispensary_containers_closed_sheet_v1.png",
+    "grid": [
+     4,
+     3
+    ],
+    "cell": [
+     2,
+     1
+    ]
+   },
+   "open": {
+    "sheet": "dispensary_containers_open_sheet_v2.png",
+    "box": [
+     712,
+     386,
+     1104,
+     694
+    ]
+   },
+   "match": "width"
+  },
+  {
+   "id": "dispensary_white_coat",
+   "closed": {
+    "sheet": "dispensary_containers_closed_sheet_v1.png",
+    "box": [
+     1150,
+     316,
+     1400,
+     800
+    ]
+   },
+   "open": {
+    "sheet": "dispensary_containers_open_sheet_v2.png",
+    "grid": [
+     4,
+     3
+    ],
+    "cell": [
+     3,
+     1
+    ]
+   },
+   "match": "height",
+   "open_scale": 0.72,
+   "align": "top"
+  },
+  {
+   "id": "dispensary_scales_case",
+   "closed": {
+    "sheet": "dispensary_containers_closed_sheet_v1.png",
+    "grid": [
+     4,
+     3
+    ],
+    "cell": [
+     0,
+     2
+    ]
+   },
+   "open": {
+    "sheet": "dispensary_containers_open_sheet_v2.png",
+    "grid": [
+     4,
+     3
+    ],
+    "cell": [
+     0,
+     2
+    ]
+   },
+   "match": "width"
+  },
+  {
+   "id": "dispensary_controlled_safe",
+   "closed": {
+    "sheet": "dispensary_containers_closed_fix_sheet_v1.png",
+    "box": [
+     462,
+     690,
+     768,
+     1020
+    ]
+   },
+   "open": {
+    "sheet": "dispensary_containers_open_sheet_v2.png",
+    "grid": [
+     4,
+     3
+    ],
+    "cell": [
+     1,
+     2
+    ]
+   },
+   "match": "height",
+   "open_scale": 1.16,
+   "open_offset": [
+    62,
+    0
+   ]
+  },
+  {
+   "id": "dispensary_office_door",
+   "closed": {
+    "sheet": "dispensary_containers_closed_sheet_v1.png",
+    "grid": [
+     4,
+     3
+    ],
+    "cell": [
+     2,
+     2
+    ]
+   },
+   "open": {
+    "sheet": "dispensary_containers_open_sheet_v2.png",
+    "box": [
+     780,
+     682,
+     1066,
+     1087
+    ]
+   },
+   "match": "height",
+   "open_scale": 1.04,
+   "open_offset": [
+    28,
+    0
+   ]
+  }
+ ]
+}

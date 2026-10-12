@@ -1,0 +1,25 @@
+[gd_resource type="Resource" script_class="LevelData" format=3]
+
+[ext_resource type="Script" path="res://scripts/level_data.gd" id="1_level"]
+
+[resource]
+script = ExtResource("1_level")
+chapter_id = &"matrons_office"
+room_name = "The Matron's Office"
+intro_message = "The matron has gone up to the ward. A tall swing mirror stands by her desk and shows the half of the room behind you. Tilt it with the arrows above and below the glass: up, level or down. Six things can only be found in the reflection. Find the 22 hidden objects."
+hint_cooldown_seconds = 125.0
+hint_area_radius = 360.0
+hint_area_offset = 195.0
+chapter_title = "House Three - Chapter Six Complete"
+chapter_hook = "The master key is cold in your hand. Up the last stair, seven people are being woken and told to dress for a journey."
+final_letter_title = "Inside the Bible Box"
+final_letter_text = "Robert,
+
+Mother always said you had the brains and I had the nerve. For six years I have had the nerve for both of us.
+
+You sent me seven people the world thinks are buried. I have fed them, dosed them and counted them every midnight. I did it because you asked, and because you are my brother.
+
+Now they have you. They will not have me. I leave tonight by the 01.25 with all seven, and by morning there will have been no Ward 7 at all.
+
+I wish I had been born a Crane."
+final_letter_signature = "- Edith"

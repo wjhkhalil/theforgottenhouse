@@ -1,0 +1,20 @@
+[gd_resource type="Resource" script_class="HiddenObjectData" format=3]
+
+[ext_resource type="Script" path="res://scripts/hidden_object_data.gd" id="1_data"]
+
+[ext_resource type="Texture2D" path="res://assets/objects/fire_bucket_v1.png" id="2_texture"]
+
+[resource]
+script = ExtResource("1_data")
+object_id = &"fire_bucket"
+display_name = "Fire Bucket"
+description = "A red bucket of sand on a hook."
+collection_message = "You found the fire bucket!"
+clue_text = "Under the sand is a wad of paper: the patients' own notes, hidden where no nurse would dig."
+hint_text = "It hangs on the wall near the far end of the ward. Look to the right."
+riddle_text = ""
+placeholder_style = 327
+texture = ExtResource("2_texture")
+icon_texture = ExtResource("2_texture")
+is_required = true
+starts_visible = true

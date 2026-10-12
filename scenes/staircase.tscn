@@ -20,6 +20,7 @@
 [ext_resource type="PackedScene" path="res://scenes/victory_screen.tscn" id="18_victory"]
 [ext_resource type="PackedScene" path="res://scenes/ui/pause_menu.tscn" id="19_pause"]
 [ext_resource type="PackedScene" path="res://scenes/ui/letter_popup.tscn" id="20_letter"]
+[ext_resource type="Texture2D" path="res://assets/backgrounds/staircase_background_v2.png" id="bg_staircase"]
 
 [sub_resource type="Gradient" id="Gradient_dust"]
 offsets = PackedFloat32Array(0, 0.2, 0.8, 1)
@@ -36,6 +37,7 @@ script = ExtResource("3_manager")
 
 [node name="RoomBackground" type="Node2D" parent="."]
 script = ExtResource("4_art")
+replacement_texture = ExtResource("bg_staircase")
 room_size = Vector2(1280, 1440)
 
 [node name="HiddenObjects" type="Node2D" parent="."]
@@ -105,6 +107,7 @@ scale = Vector2(0.6, 0.6)
 data = ExtResource("12_map")
 
 [node name="RoomForeground" type="Node2D" parent="."]
+visible = false
 script = ExtResource("4_art")
 layer = 1
 room_size = Vector2(1280, 1440)

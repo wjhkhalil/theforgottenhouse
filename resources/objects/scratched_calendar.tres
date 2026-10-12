@@ -1,0 +1,20 @@
+[gd_resource type="Resource" script_class="HiddenObjectData" format=3]
+
+[ext_resource type="Script" path="res://scripts/hidden_object_data.gd" id="1_data"]
+
+[ext_resource type="Texture2D" path="res://assets/objects/scratched_calendar_v1.png" id="2_texture"]
+
+[resource]
+script = ExtResource("1_data")
+object_id = &"scratched_calendar"
+display_name = "Scratched Calendar"
+description = "A piece of slate scratched with rows of marks."
+collection_message = "You found the scratched calendar!"
+clue_text = "Dora counted every day and marked every visit. The doctor's last visit is ringed: the 5th of October. '05-10'."
+hint_text = "Dora has it. She wants her prayer book back first."
+riddle_text = ""
+placeholder_style = 315
+texture = ExtResource("2_texture")
+icon_texture = ExtResource("2_texture")
+is_required = true
+starts_visible = false

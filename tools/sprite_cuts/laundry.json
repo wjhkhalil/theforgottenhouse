@@ -1,0 +1,446 @@
+{
+ "objects": [
+  {
+   "id": "flat_iron",
+   "sheet": "laundry_objects_a_sheet_v2.png",
+   "grid": [
+    3,
+    3
+   ],
+   "cell": [
+    0,
+    0
+   ]
+  },
+  {
+   "id": "dolly_peg",
+   "sheet": "laundry_objects_a_sheet_v2.png",
+   "grid": [
+    3,
+    3
+   ],
+   "cell": [
+    1,
+    0
+   ]
+  },
+  {
+   "id": "carbolic_soap",
+   "sheet": "laundry_objects_a_sheet_v2.png",
+   "grid": [
+    3,
+    3
+   ],
+   "cell": [
+    2,
+    0
+   ]
+  },
+  {
+   "id": "washboard",
+   "sheet": "laundry_objects_a_sheet_v2.png",
+   "grid": [
+    3,
+    3
+   ],
+   "cell": [
+    0,
+    1
+   ]
+  },
+  {
+   "id": "smock_seven",
+   "sheet": "laundry_objects_a_sheet_v2.png",
+   "grid": [
+    3,
+    3
+   ],
+   "cell": [
+    1,
+    1
+   ]
+  },
+  {
+   "id": "laundry_ticket",
+   "sheet": "laundry_objects_a_sheet_v2.png",
+   "box": [
+    940,
+    395,
+    1254,
+    772
+   ]
+  },
+  {
+   "id": "darning_egg",
+   "sheet": "laundry_objects_a_sheet_v2.png",
+   "grid": [
+    3,
+    3
+   ],
+   "cell": [
+    0,
+    2
+   ]
+  },
+  {
+   "id": "blue_bag",
+   "sheet": "laundry_objects_a_sheet_v2.png",
+   "grid": [
+    3,
+    3
+   ],
+   "cell": [
+    1,
+    2
+   ]
+  },
+  {
+   "id": "laundry_scissors",
+   "sheet": "laundry_objects_a_sheet_v2.png",
+   "box": [
+    890,
+    760,
+    1254,
+    1254
+   ]
+  },
+  {
+   "id": "linen_tally",
+   "sheet": "laundry_objects_b_sheet_v2.png",
+   "box": [
+    66,
+    18,
+    374,
+    402
+   ]
+  },
+  {
+   "id": "locker_key",
+   "sheet": "laundry_objects_b_sheet_v2.png",
+   "box": [
+    436,
+    46,
+    716,
+    350
+   ]
+  },
+  {
+   "id": "initialled_pillowcase",
+   "sheet": "laundry_objects_b_sheet_v2.png",
+   "box": [
+    782,
+    22,
+    1230,
+    396
+   ]
+  },
+  {
+   "id": "mangle_note",
+   "sheet": "laundry_objects_b_sheet_v2.png",
+   "box": [
+    1238,
+    102,
+    1580,
+    306
+   ]
+  },
+  {
+   "id": "pressed_letter",
+   "sheet": "laundry_objects_b_sheet_v2.png",
+   "box": [
+    1626,
+    8,
+    1970,
+    384
+   ]
+  },
+  {
+   "id": "childs_spectacles",
+   "sheet": "laundry_objects_b_sheet_v2.png",
+   "box": [
+    28,
+    472,
+    488,
+    698
+   ]
+  },
+  {
+   "id": "nells_diary",
+   "sheet": "laundry_objects_b_sheet_v2.png",
+   "box": [
+    490,
+    380,
+    792,
+    764
+   ]
+  },
+  {
+   "id": "ward_seven_chit",
+   "sheet": "laundry_objects_b_sheet_v1.png",
+   "box": [
+    832,
+    448,
+    1222,
+    690
+   ]
+  },
+  {
+   "id": "boiler_room_key",
+   "sheet": "laundry_objects_b_sheet_v2.png",
+   "box": [
+    1320,
+    370,
+    1496,
+    764
+   ]
+  },
+  {
+   "id": "scorched_page",
+   "sheet": "laundry_objects_b_sheet_v2.png",
+   "box": [
+    1586,
+    386,
+    1964,
+    772
+   ]
+  }
+ ],
+ "containers": [
+  {
+   "id": "laundry_linen_press",
+   "closed": {
+    "sheet": "laundry_containers_closed_sheet_v2.png",
+    "box": [
+     54,
+     2,
+     368,
+     386
+    ]
+   },
+   "open": {
+    "sheet": "laundry_containers_fix_sheet_v1.png",
+    "box": [
+     12,
+     2,
+     402,
+     386
+    ]
+   },
+   "match": "height"
+  },
+  {
+   "id": "laundry_wash_copper",
+   "closed": {
+    "sheet": "laundry_containers_closed_sheet_v2.png",
+    "box": [
+     408,
+     122,
+     790,
+     372
+    ]
+   },
+   "open": {
+    "sheet": "laundry_containers_open_sheet_v1.png",
+    "box": [
+     424,
+     48,
+     826,
+     360
+    ]
+   },
+   "match": "width",
+   "open_scale": 0.88
+  },
+  {
+   "id": "laundry_sorting_basket",
+   "closed": {
+    "sheet": "laundry_containers_closed_sheet_v2.png",
+    "box": [
+     790,
+     112,
+     1196,
+     372
+    ]
+   },
+   "open": {
+    "sheet": "laundry_containers_open_sheet_v1.png",
+    "box": [
+     818,
+     30,
+     1224,
+     360
+    ]
+   },
+   "match": "width"
+  },
+  {
+   "id": "laundry_mangle_drawer",
+   "closed": {
+    "sheet": "laundry_containers_closed_sheet_v2.png",
+    "box": [
+     1196,
+     152,
+     1578,
+     290
+    ]
+   },
+   "open": {
+    "sheet": "laundry_containers_open_sheet_v1.png",
+    "box": [
+     1212,
+     80,
+     1580,
+     336
+    ]
+   },
+   "match": "width",
+   "align": "top"
+  },
+  {
+   "id": "laundry_ironing_drawer",
+   "closed": {
+    "sheet": "laundry_containers_closed_sheet_v2.png",
+    "box": [
+     1586,
+     152,
+     1966,
+     290
+    ]
+   },
+   "open": {
+    "sheet": "laundry_containers_open_sheet_v1.png",
+    "box": [
+     1590,
+     64,
+     1980,
+     340
+    ]
+   },
+   "match": "width",
+   "align": "top"
+  },
+  {
+   "id": "laundry_soap_crate",
+   "closed": {
+    "sheet": "laundry_containers_closed_sheet_v2.png",
+    "box": [
+     14,
+     458,
+     422,
+     724
+    ]
+   },
+   "open": {
+    "sheet": "laundry_containers_open_sheet_v1.png",
+    "box": [
+     10,
+     414,
+     416,
+     728
+    ]
+   },
+   "match": "width"
+  },
+  {
+   "id": "laundry_nells_locker",
+   "closed": {
+    "sheet": "laundry_containers_closed_sheet_v2.png",
+    "box": [
+     520,
+     362,
+     688,
+     756
+    ]
+   },
+   "open": {
+    "sheet": "laundry_containers_fix_sheet_v1.png",
+    "box": [
+     520,
+     362,
+     736,
+     756
+    ]
+   },
+   "match": "height",
+   "open_offset": [
+    27,
+    0
+   ]
+  },
+  {
+   "id": "laundry_cash_tin",
+   "closed": {
+    "sheet": "laundry_containers_closed_sheet_v2.png",
+    "box": [
+     802,
+     464,
+     1190,
+     710
+    ]
+   },
+   "open": {
+    "sheet": "laundry_containers_open_sheet_v1.png",
+    "box": [
+     840,
+     406,
+     1170,
+     726
+    ]
+   },
+   "match": "width"
+  },
+  {
+   "id": "laundry_drying_cabinet",
+   "closed": {
+    "sheet": "laundry_containers_closed_sheet_v2.png",
+    "box": [
+     1282,
+     340,
+     1508,
+     758
+    ]
+   },
+   "open": {
+    "sheet": "laundry_containers_open_sheet_v1.png",
+    "box": [
+     1234,
+     354,
+     1578,
+     748
+    ]
+   },
+   "match": "height",
+   "open_offset": [
+    59,
+    0
+   ],
+   "open_scale": 0.93
+  },
+  {
+   "id": "laundry_boiler_room_door",
+   "closed": {
+    "sheet": "laundry_containers_closed_sheet_v2.png",
+    "box": [
+     1644,
+     342,
+     1898,
+     758
+    ]
+   },
+   "open": {
+    "sheet": "laundry_containers_fix_sheet_v1.png",
+    "box": [
+     1604,
+     344,
+     1944,
+     770
+    ]
+   },
+   "match": "height",
+   "open_offset": [
+    40,
+    0
+   ]
+  }
+ ]
+}

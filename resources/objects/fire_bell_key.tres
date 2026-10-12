@@ -1,0 +1,20 @@
+[gd_resource type="Resource" script_class="HiddenObjectData" format=3]
+
+[ext_resource type="Script" path="res://scripts/hidden_object_data.gd" id="1_data"]
+
+[ext_resource type="Texture2D" path="res://assets/objects/fire_bell_key_v1.png" id="2_texture"]
+
+[resource]
+script = ExtResource("1_data")
+object_id = &"fire_bell_key"
+display_name = "Fire Bell Key"
+description = "A red-painted key on a loop of string."
+collection_message = "You found the fire bell key!"
+clue_text = "Winnie saw where the night nurse dropped it and has had it under her pillow ever since. It opens the fire bell box."
+hint_text = "Winnie has it. She wants her cloth rabbit back first."
+riddle_text = ""
+placeholder_style = 316
+texture = ExtResource("2_texture")
+icon_texture = ExtResource("2_texture")
+is_required = true
+starts_visible = false

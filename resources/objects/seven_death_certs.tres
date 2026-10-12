@@ -1,0 +1,20 @@
+[gd_resource type="Resource" script_class="HiddenObjectData" format=3]
+
+[ext_resource type="Script" path="res://scripts/hidden_object_data.gd" id="1_data"]
+
+[ext_resource type="Texture2D" path="res://assets/objects/seven_death_certs_v1.png" id="2_texture"]
+
+[resource]
+script = ExtResource("1_data")
+object_id = &"seven_death_certs"
+display_name = "Seven Certificates"
+description = "Seven death certificates held with a pin."
+collection_message = "You found the seven certificates!"
+clue_text = "Seven names, seven dates, one signature. Every one of these people is alive above your head."
+hint_text = "It is in the right-hand drawer of the desk. The drawer is locked: its key is on the picture rail, in the mirror."
+riddle_text = ""
+placeholder_style = 299
+texture = ExtResource("2_texture")
+icon_texture = ExtResource("2_texture")
+is_required = true
+starts_visible = false

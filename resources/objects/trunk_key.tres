@@ -1,0 +1,20 @@
+[gd_resource type="Resource" script_class="HiddenObjectData" format=3]
+
+[ext_resource type="Script" path="res://scripts/hidden_object_data.gd" id="1_data"]
+
+[ext_resource type="Texture2D" path="res://assets/objects/trunk_key_v1.png" id="2_texture"]
+
+[resource]
+script = ExtResource("1_data")
+object_id = &"trunk_key"
+display_name = "Trunk Key"
+description = "A small flat key on a loop of red tape."
+collection_message = "You found the trunk key!"
+clue_text = "The label reads 'LOST PROPERTY'. The old trunk by the wall has a lock that would take a key like this."
+hint_text = "It hangs inside the key cabinet on the right wall. The cabinet has a four-number lock."
+riddle_text = ""
+placeholder_style = 205
+texture = ExtResource("2_texture")
+icon_texture = ExtResource("2_texture")
+is_required = true
+starts_visible = false

@@ -1,0 +1,20 @@
+[gd_resource type="Resource" script_class="HiddenObjectData" format=3]
+
+[ext_resource type="Script" path="res://scripts/hidden_object_data.gd" id="1_data"]
+
+[ext_resource type="Texture2D" path="res://assets/objects/lead_gloves_v1.png" id="2_texture"]
+
+[resource]
+script = ExtResource("1_data")
+object_id = &"lead_gloves"
+display_name = "Lead Gloves"
+description = "A pair of heavy lead-lined gloves."
+collection_message = "You found a pair of lead gloves!"
+clue_text = "Tucked in one finger is a list in the matron's hand: seven first names, each crossed out and given a number."
+hint_text = "They are at the bottom of the laundry hamper on the left."
+riddle_text = ""
+placeholder_style = 218
+texture = ExtResource("2_texture")
+icon_texture = ExtResource("2_texture")
+is_required = true
+starts_visible = false

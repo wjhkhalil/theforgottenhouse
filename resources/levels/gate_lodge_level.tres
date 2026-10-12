@@ -1,0 +1,25 @@
+[gd_resource type="Resource" script_class="LevelData" format=3]
+
+[ext_resource type="Script" path="res://scripts/level_data.gd" id="1_level"]
+
+[resource]
+script = ExtResource("1_level")
+chapter_id = &"gate_lodge"
+room_name = "The Gate Lodge"
+intro_message = "Vane's file named seven more 'dead' patients, all sent to Hollowmere Sanatorium on the moor. The night porter is out on his rounds. Behind his desk hangs a bell board: when a bell rings, its shutter springs up for a few seconds. Take what is inside before it drops. Find the 17 hidden objects."
+hint_cooldown_seconds = 100.0
+hint_area_radius = 310.0
+hint_area_offset = 170.0
+chapter_title = "House Three - Chapter One Complete"
+chapter_hook = "The inner door stands open on a long dark corridor. Somewhere inside, the bell for Ward 7 is still ringing, and nobody is going to answer it but you."
+final_letter_title = "A Letter Never Posted"
+final_letter_text = "Dear Mum,
+
+This is my forty-first letter. Mr Pike takes them at the gate and says they go in the post, but you never write back, so I do not think they do.
+
+They do not use my name here. I am Seven now. There are seven of us on the ward and we all had a doctor called Vane.
+
+I ring the bell every night in case someone new is in the lodge. If you are reading this, I am still here.
+
+Please come."
+final_letter_signature = "- Toby Hale, Ward 7"

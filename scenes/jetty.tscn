@@ -25,6 +25,7 @@
 [ext_resource type="PackedScene" path="res://scenes/ui/pause_menu.tscn" id="23_pause"]
 [ext_resource type="PackedScene" path="res://scenes/ui/letter_popup.tscn" id="24_letter"]
 [ext_resource type="PackedScene" path="res://scenes/ui/keypad_lock.tscn" id="25_keypad"]
+[ext_resource type="Texture2D" path="res://assets/backgrounds/jetty_background_v1.png" id="26_jetty_bg"]
 
 [node name="Jetty" type="Node2D" node_paths=PackedStringArray("keypad_lock", "room_camera")]
 script = ExtResource("1_room")
@@ -38,30 +39,31 @@ script = ExtResource("3_manager")
 
 [node name="RoomBackground" type="Node2D" parent="."]
 script = ExtResource("4_art")
-room_size = Vector2(2560, 720)
+replacement_texture = ExtResource("26_jetty_bg")
+room_size = Vector2(1920, 720)
 
 [node name="HiddenObjects" type="Node2D" parent="."]
 unique_name_in_owner = true
 
 [node name="PoliceSeal" parent="HiddenObjects" instance=ExtResource("5_object")]
-position = Vector2(2046, 300)
+position = Vector2(1541, 300)
 rotation = 0.08
 scale = Vector2(0.75, 0.75)
 data = ExtResource("6_seal")
 
 [node name="CigaretteCase" parent="HiddenObjects" instance=ExtResource("5_object")]
-position = Vector2(822, 448)
+position = Vector2(620, 408)
 rotation = -0.15
 scale = Vector2(0.6, 0.6)
 data = ExtResource("7_case")
 
 [node name="BrassCompass" parent="HiddenObjects" instance=ExtResource("5_object")]
-position = Vector2(1418, 446)
+position = Vector2(1175, 408)
 scale = Vector2(0.62, 0.62)
 data = ExtResource("11_compass")
 
 [node name="FishingFloat" parent="HiddenObjects" instance=ExtResource("5_object")]
-position = Vector2(560, 640)
+position = Vector2(600, 640)
 scale = Vector2(0.75, 0.75)
 data = ExtResource("8_float")
 
@@ -71,7 +73,7 @@ drift_distance = 140.0
 drift_period = 13.0
 
 [node name="NameBoard" parent="HiddenObjects" instance=ExtResource("5_object")]
-position = Vector2(1260, 655)
+position = Vector2(1050, 655)
 scale = Vector2(0.8, 0.8)
 data = ExtResource("9_board")
 
@@ -83,7 +85,7 @@ bob_height = 2.0
 start_phase = 0.4
 
 [node name="MessageBottle" parent="HiddenObjects" instance=ExtResource("5_object")]
-position = Vector2(1150, 362)
+position = Vector2(580, 340)
 scale = Vector2(0.65, 0.65)
 data = ExtResource("10_bottle")
 
@@ -95,7 +97,7 @@ bob_height = 2.5
 start_phase = 0.7
 
 [node name="BaitBucket" parent="HiddenObjects" node_paths=PackedStringArray("contents") instance=ExtResource("16_container")]
-position = Vector2(210, 426)
+position = Vector2(130, 388)
 container_id = &"bait_bucket"
 contents = NodePath("../LogPage")
 open_title = "You tip over the bait bucket..."
@@ -105,13 +107,13 @@ tint = Color(0.42, 0.44, 0.46, 1)
 size = Vector2(56, 48)
 
 [node name="LogPage" parent="HiddenObjects" instance=ExtResource("5_object")]
-position = Vector2(210, 420)
+position = Vector2(130, 382)
 rotation = 0.1
 scale = Vector2(0.6, 0.6)
 data = ExtResource("13_log")
 
 [node name="TackleBox" parent="HiddenObjects" node_paths=PackedStringArray("contents") instance=ExtResource("16_container")]
-position = Vector2(1090, 438)
+position = Vector2(798, 399)
 container_id = &"tackle_box"
 contents = NodePath("../TackleKey")
 open_title = "You open the tackle box..."
@@ -121,12 +123,12 @@ tint = Color(0.2, 0.36, 0.25, 1)
 size = Vector2(64, 32)
 
 [node name="TackleKey" parent="HiddenObjects" instance=ExtResource("5_object")]
-position = Vector2(1090, 432)
+position = Vector2(798, 393)
 scale = Vector2(0.65, 0.65)
 data = ExtResource("12_key")
 
 [node name="FishCrate" parent="HiddenObjects" node_paths=PackedStringArray("contents", "required_object") instance=ExtResource("16_container")]
-position = Vector2(1660, 422)
+position = Vector2(1250, 386)
 container_id = &"fish_crate"
 contents = NodePath("../Registration")
 open_title = "The little key turns in the padlock..."
@@ -139,13 +141,13 @@ tint = Color(0.38, 0.3, 0.2, 1)
 size = Vector2(92, 56)
 
 [node name="Registration" parent="HiddenObjects" instance=ExtResource("5_object")]
-position = Vector2(1660, 414)
+position = Vector2(1250, 378)
 rotation = -0.05
 scale = Vector2(0.65, 0.65)
 data = ExtResource("14_registration")
 
 [node name="DockLocker" parent="HiddenObjects" node_paths=PackedStringArray("contents") instance=ExtResource("16_container")]
-position = Vector2(2192, 362)
+position = Vector2(1624, 302)
 container_id = &"dock_locker"
 contents = NodePath("../Prescription")
 open_title = "The locker door clanks open..."
@@ -159,22 +161,22 @@ code_hint_first_after = 4
 code_hint_second_after = 7
 style = 3
 tint = Color(0.24, 0.3, 0.28, 1)
-size = Vector2(72, 92)
+size = Vector2(60, 80)
 
 [node name="Prescription" parent="HiddenObjects" instance=ExtResource("5_object")]
-position = Vector2(2192, 356)
+position = Vector2(1624, 296)
 scale = Vector2(0.65, 0.65)
 data = ExtResource("15_prescription")
 
 [node name="RoomForeground" type="Node2D" parent="."]
+visible = false
 script = ExtResource("4_art")
 layer = 1
-room_size = Vector2(2560, 720)
-
+room_size = Vector2(1920, 720)
 
 [node name="RoomCamera" type="Camera2D" parent="."]
 script = ExtResource("18_camera")
-room_size = Vector2(2560, 720)
+room_size = Vector2(1920, 720)
 
 [node name="HintHighlight" type="Node2D" parent="."]
 unique_name_in_owner = true

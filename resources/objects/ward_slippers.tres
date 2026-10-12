@@ -1,0 +1,20 @@
+[gd_resource type="Resource" script_class="HiddenObjectData" format=3]
+
+[ext_resource type="Script" path="res://scripts/hidden_object_data.gd" id="1_data"]
+
+[ext_resource type="Texture2D" path="res://assets/objects/ward_slippers_v1.png" id="2_texture"]
+
+[resource]
+script = ExtResource("1_data")
+object_id = &"ward_slippers"
+display_name = "Ward Slippers"
+description = "A pair of felt slippers, worn through."
+collection_message = "You found the ward slippers!"
+clue_text = "Seven pairs for seven patients, and not one pair of outdoor shoes in the whole ward."
+hint_text = "They are on the floor under one of the middle beds."
+riddle_text = ""
+placeholder_style = 326
+texture = ExtResource("2_texture")
+icon_texture = ExtResource("2_texture")
+is_required = true
+starts_visible = true

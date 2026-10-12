@@ -1,0 +1,20 @@
+[gd_resource type="Resource" script_class="HiddenObjectData" format=3]
+
+[ext_resource type="Script" path="res://scripts/hidden_object_data.gd" id="1_data"]
+
+[ext_resource type="Texture2D" path="res://assets/objects/true_register_v1.png" id="2_texture"]
+
+[resource]
+script = ExtResource("1_data")
+object_id = &"true_register"
+display_name = "True Register"
+description = "A black register with a lock strap."
+collection_message = "You found the true register!"
+clue_text = "The real admission book of Ward 7: seven living patients, with their true names, ages and homes."
+hint_text = "It is in the filing cabinet. The cabinet has a four-number lock."
+riddle_text = ""
+placeholder_style = 300
+texture = ExtResource("2_texture")
+icon_texture = ExtResource("2_texture")
+is_required = true
+starts_visible = false

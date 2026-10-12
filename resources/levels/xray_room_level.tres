@@ -1,0 +1,25 @@
+[gd_resource type="Resource" script_class="LevelData" format=3]
+
+[ext_resource type="Script" path="res://scripts/level_data.gd" id="1_level"]
+
+[resource]
+script = ExtResource("1_level")
+chapter_id = &"xray_room"
+room_name = "The X-Ray Room"
+intro_message = "The corridor ends at the X-ray room, and beyond it a steel door marked 7. The patients have hidden things where no search would find them: inside plaster, lining and brick. The X-ray screen rolls slowly to wherever you point or tap, and shows what is sealed inside. Find the 18 hidden objects."
+hint_cooldown_seconds = 105.0
+hint_area_radius = 320.0
+hint_area_offset = 175.0
+chapter_title = "House Three - Chapter Two Complete"
+chapter_hook = "The steel door swings open on Ward 7. Seven faces turn towards the light, and down the corridor behind you a lamp is coming: the matron is back."
+final_letter_title = "Written on an X-ray Sleeve"
+final_letter_text = "Mara,
+
+I knew your tapping. Three short, one long, the way we did it through the boathouse wall the winter they kept us both there. Then they moved me here, and I thought the lake had you.
+
+We are all alive. Seven of us. Matron has our names in her safe and Dr Vane has our graves.
+
+Do not come in by the steel door. She has the only other key and she counts us at midnight.
+
+There is a laundry chute. Find it."
+final_letter_signature = "- Toby"

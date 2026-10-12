@@ -1,0 +1,20 @@
+[gd_resource type="Resource" script_class="HiddenObjectData" format=3]
+
+[ext_resource type="Script" path="res://scripts/hidden_object_data.gd" id="1_data"]
+
+[ext_resource type="Texture2D" path="res://assets/objects/oil_rag_v1.png" id="2_texture"]
+
+[resource]
+script = ExtResource("1_data")
+object_id = &"oil_rag"
+display_name = "Oily Rag"
+description = "A rag stiff with oil and soot."
+collection_message = "You found the oily rag!"
+clue_text = "Wrapped inside it: the brass corner of a ledger, snapped off before the rest was burnt."
+hint_text = "It lies on the floor, below the pipes."
+riddle_text = ""
+placeholder_style = 250
+texture = ExtResource("2_texture")
+icon_texture = ExtResource("2_texture")
+is_required = true
+starts_visible = true

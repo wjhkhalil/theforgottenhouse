@@ -1,0 +1,25 @@
+[gd_resource type="Resource" script_class="LevelData" format=3]
+
+[ext_resource type="Script" path="res://scripts/level_data.gd" id="1_level"]
+
+[resource]
+script = ExtResource("1_level")
+chapter_id = &"dispensary"
+room_name = "The Dispensary"
+intro_message = "Shelf after shelf of bottles, and most of them look alike. Six things on your list have look-alikes beside them: only the one that matches the picture in your list is right. Pick a wrong one and your hand shakes for a few seconds. Find the 21 hidden objects."
+hint_cooldown_seconds = 120.0
+hint_area_radius = 350.0
+hint_area_offset = 190.0
+chapter_title = "House Three - Chapter Five Complete"
+chapter_hook = "The stairs lead up to a door with a brass plate: MATRON. A line of light shows under it, and inside a telephone is ringing and ringing."
+final_letter_title = "Standing Orders"
+final_letter_text = "Edith,
+
+The seven are to have the draught every night at half past nine without fail. A patient who sleeps does not write, does not tap on pipes and does not remember his own name for long.
+
+Should any of them be asked for by a relative, you have the certificates. I signed a pad of them blank so that you need never trouble me.
+
+No one is looking for the dead. That is the whole beauty of it.
+
+Burn this."
+final_letter_signature = "- R.V."

@@ -1,0 +1,386 @@
+[gd_scene format=3]
+
+[ext_resource type="Script" path="res://scripts/room_level.gd" id="1_room"]
+[ext_resource type="Resource" path="res://resources/levels/dispensary_level.tres" id="2_level"]
+[ext_resource type="Script" path="res://scripts/game_manager.gd" id="3_manager"]
+[ext_resource type="Script" path="res://scripts/dispensary_art.gd" id="4_art"]
+[ext_resource type="PackedScene" path="res://scenes/objects/hidden_object.tscn" id="5_object"]
+[ext_resource type="PackedScene" path="res://scenes/objects/openable_container.tscn" id="6_container"]
+[ext_resource type="Resource" path="res://resources/objects/blue_bottle.tres" id="10_blue_bottle"]
+[ext_resource type="Resource" path="res://resources/objects/brass_weight.tres" id="11_brass_weight"]
+[ext_resource type="Resource" path="res://resources/objects/pill_box.tres" id="12_pill_box"]
+[ext_resource type="Resource" path="res://resources/objects/measuring_glass.tres" id="13_measuring_glass"]
+[ext_resource type="Resource" path="res://resources/objects/ointment_jar.tres" id="14_ointment_jar"]
+[ext_resource type="Resource" path="res://resources/objects/medicine_spoon.tres" id="15_medicine_spoon"]
+[ext_resource type="Resource" path="res://resources/objects/apothecary_scales.tres" id="16_apothecary_scales"]
+[ext_resource type="Resource" path="res://resources/objects/prescription_spike.tres" id="17_prescription_spike"]
+[ext_resource type="Resource" path="res://resources/objects/label_roll.tres" id="18_label_roll"]
+[ext_resource type="Resource" path="res://resources/objects/pestle.tres" id="19_pestle"]
+[ext_resource type="Resource" path="res://resources/objects/chloral_bottle.tres" id="20_chloral_bottle"]
+[ext_resource type="Resource" path="res://resources/objects/dose_book.tres" id="21_dose_book"]
+[ext_resource type="Resource" path="res://resources/objects/blank_death_forms.tres" id="22_blank_death_forms"]
+[ext_resource type="Resource" path="res://resources/objects/sealed_ampoules.tres" id="23_sealed_ampoules"]
+[ext_resource type="Resource" path="res://resources/objects/standing_orders.tres" id="24_standing_orders"]
+[ext_resource type="Resource" path="res://resources/objects/bureau_key.tres" id="25_bureau_key"]
+[ext_resource type="Resource" path="res://resources/objects/sugar_pills.tres" id="26_sugar_pills"]
+[ext_resource type="Resource" path="res://resources/objects/resignation_draft.tres" id="27_resignation_draft"]
+[ext_resource type="Resource" path="res://resources/objects/ward_chart.tres" id="28_ward_chart"]
+[ext_resource type="Resource" path="res://resources/objects/matrons_office_key.tres" id="29_matrons_office_key"]
+[ext_resource type="Resource" path="res://resources/objects/crane_telegram.tres" id="30_crane_telegram"]
+[ext_resource type="Script" path="res://scripts/look_alikes.gd" id="40_effect"]
+[ext_resource type="Script" path="res://scripts/hint_highlight.gd" id="41_hint"]
+[ext_resource type="PackedScene" path="res://scenes/ui/hud.tscn" id="42_hud"]
+[ext_resource type="PackedScene" path="res://scenes/ui/notification.tscn" id="43_note"]
+[ext_resource type="PackedScene" path="res://scenes/victory_screen.tscn" id="44_victory"]
+[ext_resource type="PackedScene" path="res://scenes/ui/pause_menu.tscn" id="45_pause"]
+[ext_resource type="PackedScene" path="res://scenes/ui/letter_popup.tscn" id="46_letter"]
+[ext_resource type="PackedScene" path="res://scenes/ui/keypad_lock.tscn" id="47_keypad"]
+[ext_resource type="Texture2D" path="res://assets/backgrounds/dispensary_background_v1.png" id="bg_dispensary"]
+[ext_resource type="Texture2D" path="res://assets/objects/dispensary_poison_cupboard_closed_v1.png" id="tex_dispensary_poison_cupboard_closed_v1"]
+[ext_resource type="Texture2D" path="res://assets/objects/dispensary_poison_cupboard_open_v1.png" id="tex_dispensary_poison_cupboard_open_v1"]
+[ext_resource type="Texture2D" path="res://assets/objects/dispensary_powder_drawer_closed_v1.png" id="tex_dispensary_powder_drawer_closed_v1"]
+[ext_resource type="Texture2D" path="res://assets/objects/dispensary_powder_drawer_open_v1.png" id="tex_dispensary_powder_drawer_open_v1"]
+[ext_resource type="Texture2D" path="res://assets/objects/dispensary_label_drawer_closed_v1.png" id="tex_dispensary_label_drawer_closed_v1"]
+[ext_resource type="Texture2D" path="res://assets/objects/dispensary_label_drawer_open_v1.png" id="tex_dispensary_label_drawer_open_v1"]
+[ext_resource type="Texture2D" path="res://assets/objects/dispensary_ice_chest_closed_v1.png" id="tex_dispensary_ice_chest_closed_v1"]
+[ext_resource type="Texture2D" path="res://assets/objects/dispensary_ice_chest_open_v1.png" id="tex_dispensary_ice_chest_open_v1"]
+[ext_resource type="Texture2D" path="res://assets/objects/dispensary_bureau_closed_v1.png" id="tex_dispensary_bureau_closed_v1"]
+[ext_resource type="Texture2D" path="res://assets/objects/dispensary_bureau_open_v1.png" id="tex_dispensary_bureau_open_v1"]
+[ext_resource type="Texture2D" path="res://assets/objects/dispensary_leech_jar_closed_v1.png" id="tex_dispensary_leech_jar_closed_v1"]
+[ext_resource type="Texture2D" path="res://assets/objects/dispensary_leech_jar_open_v1.png" id="tex_dispensary_leech_jar_open_v1"]
+[ext_resource type="Texture2D" path="res://assets/objects/dispensary_pill_machine_closed_v1.png" id="tex_dispensary_pill_machine_closed_v1"]
+[ext_resource type="Texture2D" path="res://assets/objects/dispensary_pill_machine_open_v1.png" id="tex_dispensary_pill_machine_open_v1"]
+[ext_resource type="Texture2D" path="res://assets/objects/dispensary_white_coat_closed_v1.png" id="tex_dispensary_white_coat_closed_v1"]
+[ext_resource type="Texture2D" path="res://assets/objects/dispensary_white_coat_open_v1.png" id="tex_dispensary_white_coat_open_v1"]
+[ext_resource type="Texture2D" path="res://assets/objects/dispensary_scales_case_closed_v1.png" id="tex_dispensary_scales_case_closed_v1"]
+[ext_resource type="Texture2D" path="res://assets/objects/dispensary_scales_case_open_v1.png" id="tex_dispensary_scales_case_open_v1"]
+[ext_resource type="Texture2D" path="res://assets/objects/dispensary_controlled_safe_closed_v1.png" id="tex_dispensary_controlled_safe_closed_v1"]
+[ext_resource type="Texture2D" path="res://assets/objects/dispensary_controlled_safe_open_v1.png" id="tex_dispensary_controlled_safe_open_v1"]
+[ext_resource type="Texture2D" path="res://assets/objects/dispensary_office_door_closed_v1.png" id="tex_dispensary_office_door_closed_v1"]
+[ext_resource type="Texture2D" path="res://assets/objects/dispensary_office_door_open_v1.png" id="tex_dispensary_office_door_open_v1"]
+
+[node name="Dispensary" type="Node2D" node_paths=PackedStringArray("keypad_lock")]
+script = ExtResource("1_room")
+level_data = ExtResource("2_level")
+keypad_lock = NodePath("KeypadLock")
+
+[node name="GameManager" type="Node" parent="."]
+unique_name_in_owner = true
+script = ExtResource("3_manager")
+
+[node name="RoomBackground" type="Node2D" parent="."]
+script = ExtResource("4_art")
+replacement_texture = ExtResource("bg_dispensary")
+
+[node name="HiddenObjects" type="Node2D" parent="."]
+unique_name_in_owner = true
+
+[node name="BlueBottle" parent="HiddenObjects" instance=ExtResource("5_object")]
+position = Vector2(662, 237)
+data = ExtResource("10_blue_bottle")
+texture_scale = Vector2(0.1667, 0.1667)
+
+[node name="BrassWeight" parent="HiddenObjects" instance=ExtResource("5_object")]
+position = Vector2(394, 380)
+data = ExtResource("11_brass_weight")
+texture_scale = Vector2(0.0909, 0.0909)
+
+[node name="PillBox" parent="HiddenObjects" instance=ExtResource("5_object")]
+position = Vector2(774, 381)
+data = ExtResource("12_pill_box")
+texture_scale = Vector2(0.1061, 0.1061)
+
+[node name="MeasuringGlass" parent="HiddenObjects" instance=ExtResource("5_object")]
+position = Vector2(375, 196)
+data = ExtResource("13_measuring_glass")
+texture_scale = Vector2(0.1136, 0.1136)
+
+[node name="OintmentJar" parent="HiddenObjects" instance=ExtResource("5_object")]
+position = Vector2(865, 318)
+data = ExtResource("14_ointment_jar")
+texture_scale = Vector2(0.0909, 0.0909)
+
+[node name="MedicineSpoon" parent="HiddenObjects" instance=ExtResource("5_object")]
+position = Vector2(501, 361)
+data = ExtResource("15_medicine_spoon")
+texture_scale = Vector2(0.1364, 0.1364)
+rotation = 1.05
+
+[node name="ApothecaryScales" parent="HiddenObjects" instance=ExtResource("5_object")]
+position = Vector2(694, 362)
+data = ExtResource("16_apothecary_scales")
+texture_scale = Vector2(0.2424, 0.2424)
+
+[node name="PrescriptionSpike" parent="HiddenObjects" instance=ExtResource("5_object")]
+position = Vector2(302, 373)
+data = ExtResource("17_prescription_spike")
+texture_scale = Vector2(0.1515, 0.1515)
+
+[node name="LabelRoll" parent="HiddenObjects" instance=ExtResource("5_object")]
+position = Vector2(928, 320)
+data = ExtResource("18_label_roll")
+texture_scale = Vector2(0.0985, 0.0985)
+
+[node name="Pestle" parent="HiddenObjects" instance=ExtResource("5_object")]
+position = Vector2(643, 384)
+data = ExtResource("19_pestle")
+texture_scale = Vector2(0.1364, 0.1364)
+
+[node name="PoisonCupboard" parent="HiddenObjects" node_paths=PackedStringArray("contents") instance=ExtResource("6_container")]
+position = Vector2(255, 138)
+container_id = &"poison_cupboard"
+contents = NodePath("../ChloralBottle")
+open_title = "The lock clicks round to 2130..."
+open_message = "Rows of ribbed bottles, and at the front a brown one marked with a skull."
+required_code = "2130"
+code_title = "The Poison Cupboard"
+code_prompt = "The poison cupboard has a four-number lock. A card says: 'Set to the hour of the night round.'"
+code_hint_first = "Wrong. The hour of the night round is written in the dose book, in the powder drawer."
+code_hint_second = "The dose book has a tick for every night at 21.30. The code is 2130."
+code_hint_first_after = 12
+code_hint_second_after = 15
+style = 3
+tint = Color(0.3, 0.12, 0.1, 1)
+size = Vector2(366.105, 405.684)
+closed_texture = ExtResource("tex_dispensary_poison_cupboard_closed_v1")
+open_texture = ExtResource("tex_dispensary_poison_cupboard_open_v1")
+scale = Vector2(0.2021, 0.2021)
+
+[node name="ChloralBottle" parent="HiddenObjects" instance=ExtResource("5_object")]
+position = Vector2(255, 140)
+data = ExtResource("20_chloral_bottle")
+texture_scale = Vector2(0.0985, 0.0985)
+
+[node name="PowderDrawer" parent="HiddenObjects" node_paths=PackedStringArray("contents") instance=ExtResource("6_container")]
+position = Vector2(387, 446)
+container_id = &"powder_drawer"
+contents = NodePath("../DoseBook")
+open_title = "You pull open the powder drawer..."
+open_message = "Folded papers of powder, and a narrow ruled book."
+style = 4
+tint = Color(0.36, 0.23, 0.14, 1)
+size = Vector2(408.093, 298.605)
+closed_texture = ExtResource("tex_dispensary_powder_drawer_closed_v1")
+open_texture = ExtResource("tex_dispensary_powder_drawer_open_v1")
+scale = Vector2(0.2009, 0.2009)
+
+[node name="DoseBook" parent="HiddenObjects" instance=ExtResource("5_object")]
+position = Vector2(387, 452)
+data = ExtResource("21_dose_book")
+texture_scale = Vector2(0.1136, 0.1136)
+
+[node name="LabelDrawer" parent="HiddenObjects" node_paths=PackedStringArray("contents") instance=ExtResource("6_container")]
+position = Vector2(498, 446)
+container_id = &"label_drawer"
+contents = NodePath("../BlankDeathForms")
+open_title = "You pull open the label drawer..."
+open_message = "Gum, a rubber stamp, and a pad of printed forms."
+style = 4
+tint = Color(0.36, 0.23, 0.14, 1)
+size = Vector2(408.093, 298.605)
+closed_texture = ExtResource("tex_dispensary_label_drawer_closed_v1")
+open_texture = ExtResource("tex_dispensary_label_drawer_open_v1")
+scale = Vector2(0.2009, 0.2009)
+
+[node name="BlankDeathForms" parent="HiddenObjects" instance=ExtResource("5_object")]
+position = Vector2(498, 452)
+data = ExtResource("22_blank_death_forms")
+texture_scale = Vector2(0.1136, 0.1136)
+
+[node name="IceChest" parent="HiddenObjects" node_paths=PackedStringArray("contents") instance=ExtResource("6_container")]
+position = Vector2(905, 590)
+container_id = &"ice_chest"
+contents = NodePath("../SealedAmpoules")
+open_title = "You lift the lid of the ice chest..."
+open_message = "Sawdust and half-melted ice, and a card of glass ampoules."
+style = 7
+tint = Color(0.62, 0.66, 0.66, 1)
+size = Vector2(396.873, 404.654)
+closed_texture = ExtResource("tex_dispensary_ice_chest_closed_v1")
+open_texture = ExtResource("tex_dispensary_ice_chest_open_v1")
+scale = Vector2(0.257, 0.257)
+
+[node name="SealedAmpoules" parent="HiddenObjects" instance=ExtResource("5_object")]
+position = Vector2(905, 600)
+data = ExtResource("23_sealed_ampoules")
+texture_scale = Vector2(0.1667, 0.1667)
+
+[node name="Bureau" parent="HiddenObjects" node_paths=PackedStringArray("contents", "required_object") instance=ExtResource("6_container")]
+position = Vector2(612, 475)
+container_id = &"bureau"
+contents = NodePath("../StandingOrders")
+open_title = "The slimy little key turns..."
+open_message = "The bureau flap drops. Bills, receipts, and two pages in a hand you know."
+required_object = NodePath("../BureauKey")
+locked_title = "The bureau is locked."
+locked_message = "The dispenser's writing bureau, with a small brass lock. You need its key."
+style = 4
+tint = Color(0.3, 0.18, 0.1, 1)
+size = Vector2(399.467, 370.933)
+closed_texture = ExtResource("tex_dispensary_bureau_closed_v1")
+open_texture = ExtResource("tex_dispensary_bureau_open_v1")
+scale = Vector2(0.2103, 0.2103)
+
+[node name="StandingOrders" parent="HiddenObjects" instance=ExtResource("5_object")]
+position = Vector2(612, 496)
+data = ExtResource("24_standing_orders")
+texture_scale = Vector2(0.1136, 0.1136)
+
+[node name="LeechJar" parent="HiddenObjects" node_paths=PackedStringArray("contents", "required_object") instance=ExtResource("6_container")]
+position = Vector2(850, 367)
+container_id = &"leech_jar"
+contents = NodePath("../BureauKey")
+open_title = "You cut the wax and lift the lid..."
+open_message = "No leeches now, only cloudy water, and a small brass key at the bottom."
+required_object = NodePath("../PrescriptionSpike")
+locked_title = "The lid is waxed shut."
+locked_message = "A tall china jar lettered 'LEECHES'. Its lid is sealed with a ring of hard wax. You need something sharp."
+style = 6
+tint = Color(0.8, 0.82, 0.78, 1)
+size = Vector2(308.16, 393.76)
+closed_texture = ExtResource("tex_dispensary_leech_jar_closed_v1")
+open_texture = ExtResource("tex_dispensary_leech_jar_open_v1")
+scale = Vector2(0.1168, 0.1168)
+
+[node name="BureauKey" parent="HiddenObjects" instance=ExtResource("5_object")]
+position = Vector2(846, 372)
+data = ExtResource("25_bureau_key")
+texture_scale = Vector2(0.0682, 0.0682)
+
+[node name="PillMachine" parent="HiddenObjects" node_paths=PackedStringArray("contents") instance=ExtResource("6_container")]
+position = Vector2(960, 369)
+container_id = &"pill_machine"
+contents = NodePath("../SugarPills")
+open_title = "You open the pill machine's case..."
+open_message = "A grooved brass roller, and a tray of plain white pills."
+style = 7
+tint = Color(0.3, 0.2, 0.12, 1)
+size = Vector2(398.483, 324.69)
+closed_texture = ExtResource("tex_dispensary_pill_machine_closed_v1")
+open_texture = ExtResource("tex_dispensary_pill_machine_open_v1")
+scale = Vector2(0.1355, 0.1355)
+
+[node name="SugarPills" parent="HiddenObjects" instance=ExtResource("5_object")]
+position = Vector2(960, 378)
+data = ExtResource("26_sugar_pills")
+texture_scale = Vector2(0.0985, 0.0985)
+
+[node name="WhiteCoat" parent="HiddenObjects" node_paths=PackedStringArray("contents") instance=ExtResource("6_container")]
+position = Vector2(207, 264)
+container_id = &"white_coat"
+contents = NodePath("../ResignationDraft")
+open_title = "You go through the pockets of the white coat..."
+open_message = "A pencil, a peppermint, and a much-folded sheet of paper."
+style = 3
+tint = Color(0.82, 0.82, 0.78, 1)
+size = Vector2(183.007, 389.628)
+closed_texture = ExtResource("tex_dispensary_white_coat_closed_v1")
+open_texture = ExtResource("tex_dispensary_white_coat_open_v1")
+scale = Vector2(0.3388, 0.3388)
+
+[node name="ResignationDraft" parent="HiddenObjects" instance=ExtResource("5_object")]
+position = Vector2(220, 258)
+data = ExtResource("27_resignation_draft")
+texture_scale = Vector2(0.0758, 0.0758)
+
+[node name="ScalesCase" parent="HiddenObjects" node_paths=PackedStringArray("contents", "required_object") instance=ExtResource("6_container")]
+position = Vector2(901, 360)
+container_id = &"scales_case"
+contents = NodePath("../WardChart")
+open_title = "You set the brass weight on the catch..."
+open_message = "The lid springs up. Under the velvet tray is a folded chart."
+required_object = NodePath("../BrassWeight")
+locked_title = "The scales case will not open."
+locked_message = "A flat mahogany case with a spring catch shaped like a tiny scale pan. It needs the right weight set on it."
+style = 7
+tint = Color(0.2, 0.1, 0.08, 1)
+size = Vector2(400.387, 386.581)
+closed_texture = ExtResource("tex_dispensary_scales_case_closed_v1")
+open_texture = ExtResource("tex_dispensary_scales_case_open_v1")
+scale = Vector2(0.1449, 0.1449)
+
+[node name="WardChart" parent="HiddenObjects" instance=ExtResource("5_object")]
+position = Vector2(901, 374)
+data = ExtResource("28_ward_chart")
+texture_scale = Vector2(0.1136, 0.1136)
+
+[node name="DrugSafe" parent="HiddenObjects" node_paths=PackedStringArray("contents") instance=ExtResource("6_container")]
+position = Vector2(752, 503)
+container_id = &"controlled_safe"
+contents = NodePath("../MatronsOfficeKey")
+open_title = "The dial clicks round to 1962..."
+open_message = "The safe opens. Morphia, a cash box, and a long key on a black ribbon."
+required_code = "1962"
+code_title = "The Controlled Drugs Safe"
+code_prompt = "A steel safe with a four-number dial. The dispenser set it to the proudest year of his life, and hung the proof on the wall."
+code_hint_first = "Wrong. Look at the framed certificate on the wall. Read the year on it."
+code_hint_second = "The certificate says 'LICENSED 1962'. The code is 1962."
+code_hint_first_after = 12
+code_hint_second_after = 15
+style = 5
+tint = Color(0.2, 0.26, 0.3, 1)
+size = Vector2(345.566, 392.264)
+closed_texture = ExtResource("tex_dispensary_controlled_safe_closed_v1")
+open_texture = ExtResource("tex_dispensary_controlled_safe_open_v1")
+scale = Vector2(0.2141, 0.2141)
+
+[node name="MatronsOfficeKey" parent="HiddenObjects" instance=ExtResource("5_object")]
+position = Vector2(747, 499)
+data = ExtResource("29_matrons_office_key")
+texture_scale = Vector2(0.0909, 0.0909)
+
+[node name="OfficeDoor" parent="HiddenObjects" node_paths=PackedStringArray("contents", "required_object") instance=ExtResource("6_container")]
+position = Vector2(90, 315.3)
+container_id = &"office_door"
+contents = NodePath("../CraneTelegram")
+open_title = "The long key turns..."
+open_message = "The door opens on a flight of carpeted stairs. A telegram form lies on the third step."
+required_object = NodePath("../MatronsOfficeKey")
+locked_title = "The door to the stairs is locked."
+locked_message = "A panelled door with a brass plate: 'MATRON - PRIVATE'. Somewhere above, a telephone is ringing. You need the matron's office key."
+style = 3
+tint = Color(0.26, 0.16, 0.1, 1)
+size = Vector2(205, 392)
+closed_texture = ExtResource("tex_dispensary_office_door_closed_v1")
+open_texture = ExtResource("tex_dispensary_office_door_open_v1")
+scale = Vector2(0.531, 0.962)
+
+[node name="CraneTelegram" parent="HiddenObjects" instance=ExtResource("5_object")]
+position = Vector2(78, 445)
+data = ExtResource("30_crane_telegram")
+texture_scale = Vector2(0.1136, 0.1136)
+
+[node name="RoomForeground" type="Node2D" parent="."]
+visible = false
+script = ExtResource("4_art")
+layer = 1
+
+[node name="LookAlikes" type="Node2D" parent="."]
+script = ExtResource("40_effect")
+decoy_of = Array[NodePath]([NodePath("../HiddenObjects/BlueBottle"), NodePath("../HiddenObjects/BlueBottle"), NodePath("../HiddenObjects/BrassWeight"), NodePath("../HiddenObjects/BrassWeight"), NodePath("../HiddenObjects/PillBox"), NodePath("../HiddenObjects/PillBox"), NodePath("../HiddenObjects/MeasuringGlass"), NodePath("../HiddenObjects/MeasuringGlass"), NodePath("../HiddenObjects/OintmentJar"), NodePath("../HiddenObjects/OintmentJar"), NodePath("../HiddenObjects/MedicineSpoon"), NodePath("../HiddenObjects/MedicineSpoon")])
+decoy_positions = PackedVector2Array(622, 237, 702, 237, 338, 380, 366, 380, 742, 381, 806, 381, 345, 196, 405, 196, 835, 318, 895, 318, 479, 361, 523, 361)
+decoy_hues = PackedFloat32Array(0.33, 0.6, 0.0, 0.0, 0.33, 0.64, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0)
+decoy_saturations = PackedFloat32Array(1.0, 0.9, 0.0, 0.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 0.2, 0.2)
+decoy_tints = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 1, 0.78, 0.78, 0.82, 1, 0.5, 0.5, 0.55, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0.5, 1.0, 0.58, 1, 1.0, 0.7, 0.28, 1, 0.58, 0.76, 1.0, 1, 0.96, 0.68, 0.48, 1, 0.3, 0.3, 0.34, 1, 0.46, 0.38, 0.28, 1)
+
+[node name="HintHighlight" type="Node2D" parent="."]
+unique_name_in_owner = true
+visible = false
+script = ExtResource("41_hint")
+
+[node name="HUD" parent="." instance=ExtResource("42_hud")]
+unique_name_in_owner = true
+
+[node name="Notification" parent="." instance=ExtResource("43_note")]
+unique_name_in_owner = true
+
+[node name="VictoryScreen" parent="." instance=ExtResource("44_victory")]
+unique_name_in_owner = true
+
+[node name="PauseMenu" parent="." instance=ExtResource("45_pause")]
+unique_name_in_owner = true
+
+[node name="LetterPopup" parent="." instance=ExtResource("46_letter")]
+unique_name_in_owner = true
+
+[node name="KeypadLock" parent="." instance=ExtResource("47_keypad")]

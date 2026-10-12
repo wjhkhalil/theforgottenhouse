@@ -1,0 +1,20 @@
+[gd_resource type="Resource" script_class="HiddenObjectData" format=3]
+
+[ext_resource type="Script" path="res://scripts/hidden_object_data.gd" id="1_data"]
+
+[ext_resource type="Texture2D" path="res://assets/objects/harmonica_v1.png" id="2_texture"]
+
+[resource]
+script = ExtResource("1_data")
+object_id = &"harmonica"
+display_name = "Harmonica"
+description = "A small dented mouth organ."
+collection_message = "You found the harmonica!"
+clue_text = "Taken away 'for the noise'. Take it back to Sam."
+hint_text = "It is in the nurses' locker. You need Ivy's locker token."
+riddle_text = ""
+placeholder_style = 321
+texture = ExtResource("2_texture")
+icon_texture = ExtResource("2_texture")
+is_required = true
+starts_visible = false

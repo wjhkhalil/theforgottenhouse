@@ -1,0 +1,20 @@
+[gd_resource type="Resource" script_class="HiddenObjectData" format=3]
+
+[ext_resource type="Script" path="res://scripts/hidden_object_data.gd" id="1_data"]
+
+[ext_resource type="Texture2D" path="res://assets/objects/pestle_v1.png" id="2_texture"]
+
+[resource]
+script = ExtResource("1_data")
+object_id = &"pestle"
+display_name = "Pestle"
+description = "A heavy white stone pestle."
+collection_message = "You found the pestle!"
+clue_text = "White powder is ground into the grain of it. Tablets were crushed to hide them in food."
+hint_text = "It lies on the counter, beside the mortar."
+riddle_text = ""
+placeholder_style = 276
+texture = ExtResource("2_texture")
+icon_texture = ExtResource("2_texture")
+is_required = true
+starts_visible = true

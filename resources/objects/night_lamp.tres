@@ -1,0 +1,20 @@
+[gd_resource type="Resource" script_class="HiddenObjectData" format=3]
+
+[ext_resource type="Script" path="res://scripts/hidden_object_data.gd" id="1_data"]
+
+[ext_resource type="Texture2D" path="res://assets/objects/night_lamp_v1.png" id="2_texture"]
+
+[resource]
+script = ExtResource("1_data")
+object_id = &"night_lamp"
+display_name = "Night Lamp"
+description = "A shaded oil lamp, turned very low."
+collection_message = "You found the night lamp!"
+clue_text = "The only light on Ward 7 at night. The matron left it burning when she ran."
+hint_text = "It stands on the nurses' desk."
+riddle_text = ""
+placeholder_style = 324
+texture = ExtResource("2_texture")
+icon_texture = ExtResource("2_texture")
+is_required = true
+starts_visible = true

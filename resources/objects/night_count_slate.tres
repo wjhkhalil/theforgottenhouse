@@ -1,0 +1,20 @@
+[gd_resource type="Resource" script_class="HiddenObjectData" format=3]
+
+[ext_resource type="Script" path="res://scripts/hidden_object_data.gd" id="1_data"]
+
+[ext_resource type="Texture2D" path="res://assets/objects/night_count_slate_v1.png" id="2_texture"]
+
+[resource]
+script = ExtResource("1_data")
+object_id = &"night_count_slate"
+display_name = "Night Count Slate"
+description = "A school slate with chalked tallies."
+collection_message = "You found the night count slate!"
+clue_text = "'Midnight: 7. All present. Wake at 1. Leave by the fire stair.' The chalk is still wet."
+hint_text = "It hangs just behind the ward stair door. You need the master key."
+riddle_text = ""
+placeholder_style = 309
+texture = ExtResource("2_texture")
+icon_texture = ExtResource("2_texture")
+is_required = true
+starts_visible = false

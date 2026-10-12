@@ -1,0 +1,20 @@
+[gd_resource type="Resource" script_class="HiddenObjectData" format=3]
+
+[ext_resource type="Script" path="res://scripts/hidden_object_data.gd" id="1_data"]
+
+[ext_resource type="Texture2D" path="res://assets/objects/boiler_room_key_v1.png" id="2_texture"]
+
+[resource]
+script = ExtResource("1_data")
+object_id = &"boiler_room_key"
+display_name = "Boiler Room Key"
+description = "A warm iron key on a wire hook."
+collection_message = "You found the boiler room key!"
+clue_text = "Left where the warm air dries it, just as Nell wrote. It opens the door to the boiler room."
+hint_text = "It hangs inside the drying cabinet. The cabinet has a four-number lock."
+riddle_text = ""
+placeholder_style = 245
+texture = ExtResource("2_texture")
+icon_texture = ExtResource("2_texture")
+is_required = true
+starts_visible = false

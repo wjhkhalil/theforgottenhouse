@@ -1,0 +1,20 @@
+[gd_resource type="Resource" script_class="HiddenObjectData" format=3]
+
+[ext_resource type="Script" path="res://scripts/hidden_object_data.gd" id="1_data"]
+
+[ext_resource type="Texture2D" path="res://assets/objects/wooden_yoyo_v1.png" id="2_texture"]
+
+[resource]
+script = ExtResource("1_data")
+object_id = &"wooden_yoyo"
+display_name = "Wooden Yo-yo"
+description = "A red wooden yo-yo with a knotted string."
+collection_message = "You found the wooden yo-yo!"
+clue_text = "'T.H.' is scratched on it. Take it back to Toby, in the first bed."
+hint_text = "It is in the bedside locker by Ruth's bed: their things were shut in the wrong lockers."
+riddle_text = ""
+placeholder_style = 317
+texture = ExtResource("2_texture")
+icon_texture = ExtResource("2_texture")
+is_required = true
+starts_visible = false

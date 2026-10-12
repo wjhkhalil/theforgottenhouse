@@ -29,6 +29,7 @@
 [ext_resource type="PackedScene" path="res://scenes/ui/pause_menu.tscn" id="27_pause"]
 [ext_resource type="PackedScene" path="res://scenes/ui/letter_popup.tscn" id="28_letter"]
 [ext_resource type="PackedScene" path="res://scenes/ui/keypad_lock.tscn" id="29_keypad"]
+[ext_resource type="Texture2D" path="res://assets/backgrounds/lighthouse_steps_background_v1.png" id="bg_lighthouse_steps"]
 
 [node name="LighthouseSteps" type="Node2D" node_paths=PackedStringArray("keypad_lock", "room_camera")]
 script = ExtResource("1_room")
@@ -42,6 +43,7 @@ script = ExtResource("3_manager")
 
 [node name="RoomBackground" type="Node2D" parent="."]
 script = ExtResource("4_art")
+replacement_texture = ExtResource("bg_lighthouse_steps")
 room_size = Vector2(1280, 1440)
 
 [node name="HiddenObjects" type="Node2D" parent="."]
@@ -200,6 +202,7 @@ scale = Vector2(0.6, 0.6)
 data = ExtResource("13_bandage_roll")
 
 [node name="RoomForeground" type="Node2D" parent="."]
+visible = false
 script = ExtResource("4_art")
 layer = 1
 room_size = Vector2(1280, 1440)

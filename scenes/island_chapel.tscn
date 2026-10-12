@@ -29,6 +29,7 @@
 [ext_resource type="PackedScene" path="res://scenes/ui/pause_menu.tscn" id="27_r"]
 [ext_resource type="PackedScene" path="res://scenes/ui/letter_popup.tscn" id="28_r"]
 [ext_resource type="PackedScene" path="res://scenes/ui/keypad_lock.tscn" id="29_r"]
+[ext_resource type="Texture2D" path="res://assets/backgrounds/island_chapel_background_v1.png" id="bg_island_chapel"]
 
 [node name="IslandChapel" type="Node2D" node_paths=PackedStringArray("keypad_lock")]
 script = ExtResource("1_r")
@@ -41,6 +42,7 @@ script = ExtResource("3_r")
 
 [node name="RoomBackground" type="Node2D" parent="."]
 script = ExtResource("4_r")
+replacement_texture = ExtResource("bg_island_chapel")
 
 [node name="HiddenObjects" type="Node2D" parent="."]
 unique_name_in_owner = true
@@ -230,6 +232,7 @@ scale = Vector2(0.5, 0.5)
 data = ExtResource("16_r")
 
 [node name="RoomForeground" type="Node2D" parent="."]
+visible = false
 script = ExtResource("4_r")
 layer = 1
 

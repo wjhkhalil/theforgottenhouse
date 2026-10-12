@@ -1,6 +1,7 @@
 [gd_resource type="Resource" script_class="HiddenObjectData" format=3]
 
 [ext_resource type="Script" path="res://scripts/hidden_object_data.gd" id="1_data"]
+[ext_resource type="Texture2D" path="res://assets/objects/newspaper_clipping_v1.png" id="2_texture"]
 
 [resource]
 script = ExtResource("1_data")
@@ -11,5 +12,7 @@ collection_message = "You found a newspaper clipping."
 clue_text = "'TWIN GIRL LOST AT BLACKWATER LAKE - search called off.' It is dated 18 April 1987."
 hint_text = "Some secrets are locked away. The old trunk on the floor has not been opened in years."
 placeholder_style = 11
+texture = ExtResource("2_texture")
+icon_texture = ExtResource("2_texture")
 is_required = true
 starts_visible = false

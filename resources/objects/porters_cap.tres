@@ -1,0 +1,20 @@
+[gd_resource type="Resource" script_class="HiddenObjectData" format=3]
+
+[ext_resource type="Script" path="res://scripts/hidden_object_data.gd" id="1_data"]
+
+[ext_resource type="Texture2D" path="res://assets/objects/porters_cap_v1.png" id="2_texture"]
+
+[resource]
+script = ExtResource("1_data")
+object_id = &"porters_cap"
+display_name = "Porter's Cap"
+description = "A peaked cap with a brass badge: 'HOLLOWMERE'."
+collection_message = "You found the porter's cap!"
+clue_text = "Stitched inside the band: 'A. PIKE'. It is still warm. The night porter left the lodge only minutes ago."
+hint_text = "It hangs on a hook beside the tall coat locker, on the left."
+riddle_text = ""
+placeholder_style = 193
+texture = ExtResource("2_texture")
+icon_texture = ExtResource("2_texture")
+is_required = true
+starts_visible = true

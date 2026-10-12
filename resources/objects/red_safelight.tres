@@ -1,0 +1,20 @@
+[gd_resource type="Resource" script_class="HiddenObjectData" format=3]
+
+[ext_resource type="Script" path="res://scripts/hidden_object_data.gd" id="1_data"]
+
+[ext_resource type="Texture2D" path="res://assets/objects/red_safelight_v1.png" id="2_texture"]
+
+[resource]
+script = ExtResource("1_data")
+object_id = &"red_safelight"
+display_name = "Red Safelight"
+description = "A darkroom lamp with a ruby glass."
+collection_message = "You found the red safelight!"
+clue_text = "The bulb is hot. Whoever was working in here left by the steel door, and locked it behind them."
+hint_text = "It stands on the iron wall bracket, to the left of the exposure chart."
+riddle_text = ""
+placeholder_style = 226
+texture = ExtResource("2_texture")
+icon_texture = ExtResource("2_texture")
+is_required = true
+starts_visible = true

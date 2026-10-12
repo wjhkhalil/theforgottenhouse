@@ -1,0 +1,20 @@
+[gd_resource type="Resource" script_class="HiddenObjectData" format=3]
+
+[ext_resource type="Script" path="res://scripts/hidden_object_data.gd" id="1_data"]
+
+[ext_resource type="Texture2D" path="res://assets/objects/rolled_note_v1.png" id="2_texture"]
+
+[resource]
+script = ExtResource("1_data")
+object_id = &"rolled_note"
+display_name = "Rolled Note"
+description = "A slip of paper rolled tight inside a hollow crutch."
+collection_message = "You found a note rolled up in the crutch!"
+clue_text = "'If you can read this you have found the screen. Matron keeps our real names in the drug safe. Toby.'"
+hint_text = "It is rolled up inside the crutch leaning against the wall. Move the X-ray screen over the crutch."
+riddle_text = ""
+placeholder_style = 213
+texture = ExtResource("2_texture")
+icon_texture = ExtResource("2_texture")
+is_required = true
+starts_visible = true

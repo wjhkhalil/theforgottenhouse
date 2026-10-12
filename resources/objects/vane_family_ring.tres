@@ -1,0 +1,20 @@
+[gd_resource type="Resource" script_class="HiddenObjectData" format=3]
+
+[ext_resource type="Script" path="res://scripts/hidden_object_data.gd" id="1_data"]
+
+[ext_resource type="Texture2D" path="res://assets/objects/vane_family_ring_v1.png" id="2_texture"]
+
+[resource]
+script = ExtResource("1_data")
+object_id = &"vane_family_ring"
+display_name = "Family Ring"
+description = "A gold signet ring with a worn crest."
+collection_message = "You found the family ring!"
+clue_text = "The same crest as on Dr Vane's ring. She has kept it hidden for thirty years."
+hint_text = "It is in the jewel case on the mantelpiece. Work the catch with the hat pin."
+riddle_text = ""
+placeholder_style = 308
+texture = ExtResource("2_texture")
+icon_texture = ExtResource("2_texture")
+is_required = true
+starts_visible = false

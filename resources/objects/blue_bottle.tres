@@ -1,0 +1,20 @@
+[gd_resource type="Resource" script_class="HiddenObjectData" format=3]
+
+[ext_resource type="Script" path="res://scripts/hidden_object_data.gd" id="1_data"]
+
+[ext_resource type="Texture2D" path="res://assets/objects/blue_bottle_v1.png" id="2_texture"]
+
+[resource]
+script = ExtResource("1_data")
+object_id = &"blue_bottle"
+display_name = "Blue Poison Bottle"
+description = "A ribbed cobalt-blue bottle, the kind made for poisons."
+collection_message = "You found the blue poison bottle!"
+clue_text = "The label reads 'CHLORAL - WARD 7 ONLY'. It is nearly empty, and it was full on Monday."
+hint_text = "It is on the bottle shelves on the back wall. Two bottles beside it are the wrong colour: take the BLUE one."
+riddle_text = ""
+placeholder_style = 267
+texture = ExtResource("2_texture")
+icon_texture = ExtResource("2_texture")
+is_required = true
+starts_visible = true

@@ -1,0 +1,20 @@
+[gd_resource type="Resource" script_class="HiddenObjectData" format=3]
+
+[ext_resource type="Script" path="res://scripts/hidden_object_data.gd" id="1_data"]
+
+[ext_resource type="Texture2D" path="res://assets/objects/hidden_file_v1.png" id="2_texture"]
+
+[resource]
+script = ExtResource("1_data")
+object_id = &"hidden_file"
+display_name = "Hidden File"
+description = "A thin steel file, wrapped in rag."
+collection_message = "You found the hidden file!"
+clue_text = "Sam has been at the window bars with it, a stroke a night. One bar is almost through."
+hint_text = "Sam has it. He wants his harmonica back first."
+riddle_text = ""
+placeholder_style = 314
+texture = ExtResource("2_texture")
+icon_texture = ExtResource("2_texture")
+is_required = true
+starts_visible = false

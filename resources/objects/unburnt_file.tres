@@ -1,0 +1,20 @@
+[gd_resource type="Resource" script_class="HiddenObjectData" format=3]
+
+[ext_resource type="Script" path="res://scripts/hidden_object_data.gd" id="1_data"]
+
+[ext_resource type="Texture2D" path="res://assets/objects/unburnt_file_v1.png" id="2_texture"]
+
+[resource]
+script = ExtResource("1_data")
+object_id = &"unburnt_file"
+display_name = "Unburnt File"
+description = "A buff file that fell behind the grate."
+collection_message = "You found the unburnt file!"
+clue_text = "'No. 4 - real name Ivy Pell, of Sheffield. Family told: died of fever.' One of seven. It did not burn."
+hint_text = "It is behind the fire door of the boiler, inside the middle jet. The door is too hot to touch: hook it open with the rake."
+riddle_text = ""
+placeholder_style = 260
+texture = ExtResource("2_texture")
+icon_texture = ExtResource("2_texture")
+is_required = true
+starts_visible = false

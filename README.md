@@ -1,6 +1,6 @@
 # The Forgotten House
 
-A small 2D hidden-object mystery made with **Godot 4.7** and GDScript, told across several houses.
+A small 2D hidden-object mystery made with **Godot 4.7** and GDScript, told across three houses so far.
 Each chapter is a different room with its own twist.
 
 ### House One: Ashworth Manor (complete, 8 chapters)
@@ -36,6 +36,23 @@ on Blackwater Lake, to the sunken boat *Lady Margaret*, and to "R.V.": Dr Robert
 | 9 | The Island Chapel | **dark**, candlelight only | draughts **blow candles out**; click a candle to relight it. Only things in candlelight can be picked up (15 objects) |
 | 10 | Dr Vane's Cottage | firelight (the finale) | Vane **patrols the garden**: when his lantern looks in, keep still, or you must hide for a few seconds. Two code locks and the cellar door (16 objects) |
 
+### House Three: Hollowmere Sanatorium (complete, 7 chapters)
+
+Mara is home, but Vane's medical file lists seven more patients he signed off as dead, all sent to
+Hollowmere Sanatorium on the moor. Someone on the closed Ward 7 is still ringing the bell.
+
+| # | Room | Lighting | What makes it different |
+|---|---|---|---|
+| 1 | The Gate Lodge | a desk lamp and the stove | a **bell board** hangs behind the porter's desk: when a bell rings, its numbered shutter springs up for a few seconds, and what lies in that pigeonhole can only be taken while it is up. Two code locks and the inner door (17 objects) |
+| 2 | The X-Ray Room | cold tiles, the lamp switched off | an **X-ray screen** on a wheeled stand rolls slowly after your pointer and shows what is sealed inside things; six objects can only be seen and taken through it, and one of them is the key to a locked case. Two code locks and the steel door of Ward 7 (18 objects) |
+| 3 | The Laundry | steamy lamplight | wet **sheets travel along a drying rail**; whatever hangs behind a sheet can't be reached until it has slid past. Things below the hems can always be taken (19 objects) |
+| 4 | The Boiler Room | firelight | **three jets of steam** fill three parts of the room, and nothing inside a jet can be touched. Each has a red valve wheel, but the boiler only stands two shut at once: shut a third and the first blows open (20 objects) |
+| 5 | The Dispensary | green-shaded lamps | **look-alikes**: six objects have two wrong-coloured copies beside them. Only the one that matches the picture in the list is right; a wrong pick makes your hand shake for 4 seconds (21 objects) |
+| 6 | The Matron's Office | a desk lamp and the fire | a **swing mirror** shows the room behind you. Tilt it up, level or down with the arrows; six objects exist only in the reflection, two of them keys (22 objects) |
+| 7 | Ward Seven (the finale) | moonlight and one night lamp | **wider than the screen** (2024 px, about a screen and a half): look left and right. Each of the seven patients is missing one belonging: find it and they hand over something they have kept hidden, usually a key (23 objects) |
+
+A house whose story is not finished yet can be marked `"finished": false` in `SaveManager.HOUSES`: its last chapter then says "more chapters coming soon" instead of THE END.
+
 Difficulty keeps rising from House One: the test checks every chapter against the one before it (the jetty against the study, and so on).
 The flooding water is `scripts/tide_water.gd` (`TideWater`): set the slip area, the low-water level and how
 long each part of the cycle lasts in the Inspector.
@@ -45,13 +62,23 @@ Chapters Four to Ten each have their own effect script with Inspector settings: 
 `frost_cover.gd`, `sweeping_beam.gd`, `wind_gusts.gd`, `candle_lights.gd` and `patrol_lantern.gd`. A container can
 need several clicks to open (`hits_to_open`, used by the blocks of ice). Any room effect can show a message by
 emitting a `notice(title, message, wrong_sound)` signal, without changing `room_level.gd`.
+House Three's effects work the same way: `bell_board.gd` (`BellBoard`: which objects lie in the pigeonholes, the
+ward numbers, how long a shutter stays up and how often a bell rings) and `xray_screen.gd` (`XRayScreen`: which
+objects are sealed inside things, the size of the glass and how fast the stand rolls), `drying_rail.gd`
+(`DryingRail`: how many sheets, how wide, how fast), `steam_valves.gd` (`SteamValves`: the three jet rectangles, the
+valve positions and how many may be shut at once), `look_alikes.gd` (`LookAlikes`: which object each look-alike copies,
+where it stands and how it is recoloured), `wall_mirror.gd` (`WallMirror`: the glass rectangle, the objects in the
+reflection and which tilt shows each) and `keepsakes.gd` (`Keepsakes`: where each patient is, what they want back and
+what they hand over).
+**Keep everything the player must click left of x = 990**: the objective list covers the right edge of the screen.
 
 Progress is **saved automatically**: finished chapters, objects found so far, opened containers,
 the solved door code and the sound setting.
 
-All artwork is currently **drawn with code** as placeholder art, so the game is fully playable
-with no image or sound files. Everything is designed so real art can be swapped in later
-**without changing any code**.
+Every room now has a **painted background**. The objects and containers of House Three, the
+Bedroom and the Basement are painted too; the rest of House One and all of House Two still show
+their objects and containers **drawn with code** as placeholder art, so the game stays fully
+playable while art is missing. Real art is swapped in **without changing any code**.
 
 ---
 
@@ -89,6 +116,13 @@ always works, keypads always give the answer in the end, and every locked box te
 | House Two, 8 | 15 | 10 | 85 s | 280 / 155 | 8 and 11 |
 | House Two, 9 | 15 | 11 | 90 s | 290 / 160 | 9 and 12 |
 | House Two, 10 | 16 | 12 | 95 s | 300 / 165 | 9 and 12 (two locks) |
+| House Three, 1 | 17 | 13 | 100 s | 310 / 170 | 10 and 13 (two locks) |
+| House Three, 2 | 18 | 14 | 105 s | 320 / 175 | 10 and 13 (two locks) |
+| House Three, 3 | 19 | 15 | 110 s | 330 / 180 | 11 and 14 (two locks) |
+| House Three, 4 | 20 | 16 | 115 s | 340 / 185 | 11 and 14 (two locks) |
+| House Three, 5 | 21 | 17 | 120 s | 350 / 190 | 12 and 15 (two locks) |
+| House Three, 6 | 22 | 18 | 125 s | 360 / 195 | 12 and 15 (two locks) |
+| House Three, 7 | 23 | 19 (room twice as wide) | 130 s | 370 / 200 | 12 and 15 (two locks) |
 
 \* Every container counts as one layer; a container that also needs a key or a code counts as two.
 Objects also get smaller and better hidden as the chapters go on.
@@ -318,6 +352,22 @@ You can also scale or rotate the whole object node.
   (for example `(60, 30)` for a key) so empty pixels can't be clicked.
 * Turn on **Debug › Visible Collision Shapes** in the editor menu and run the game
   to see the click areas.
+
+### Cutting sprites from a sprite sheet (how House Three was done)
+
+House Three's objects and containers were painted on grey sprite sheets
+(`assets/objects/<room>_*_sheet_*.png`) and put into the rooms with three tools:
+
+1. `python3 tools/cut_sprites.py tools/sprite_cuts/<room>.json --preview <folder>` cuts every
+   sprite out of its sheet, removes the grey background and keeps the soft shadow. The JSON file
+   says which picture on which sheet is which object or container state.
+2. `python3 tools/place_sprites.py <room> < layout.txt` assigns the sprites (object `.tres`
+   files, container **Closed Texture / Open Texture**) and sets each one's position and size.
+3. `godot --path . --resolution 1280x720 -s tools/room_shots.gd -- --out=<folder> --rooms=<room>`
+   saves screenshots of the room, closed and with every container open, to check the result.
+
+Open the editor once (or run `godot --path . --headless --import`) after adding PNGs. A few
+sprites need one more step after cutting: see `tools/sprite_fixes/README.md`.
 
 ### Background images
 

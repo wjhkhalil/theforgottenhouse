@@ -1,0 +1,25 @@
+[gd_resource type="Resource" script_class="LevelData" format=3]
+
+[ext_resource type="Script" path="res://scripts/level_data.gd" id="1_level"]
+
+[resource]
+script = ExtResource("1_level")
+chapter_id = &"laundry"
+room_name = "The Laundry"
+intro_message = "The laundry chute drops you into the wash-house under the wards. Wet sheets travel slowly along the drying rail, and whatever hangs behind a sheet can't be reached until it has slid past. Find the 19 hidden objects."
+hint_cooldown_seconds = 110.0
+hint_area_radius = 330.0
+hint_area_offset = 180.0
+chapter_title = "House Three - Chapter Three Complete"
+chapter_hook = "Beyond the door the furnace roars. Someone down there is burning paper tonight, a great deal of it, and in a hurry."
+final_letter_title = "Tucked in a Pocket Diary"
+final_letter_text = "To whoever comes down that chute after me,
+
+I have washed seven grey smocks every week for six years and never once seen who wears them. They come down at night with a chit and go up at night.
+
+Last winter a note came through the mangle, pressed flat between two sheets. A child's writing. I sent one back. That is all I have dared to do.
+
+Matron says Ward 7 is empty. I know the weight of a full basket.
+
+I am not brave. But I have left the door key where the warm air dries it."
+final_letter_signature = "- Nell Fry, laundress"

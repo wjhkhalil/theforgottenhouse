@@ -1,0 +1,20 @@
+[gd_resource type="Resource" script_class="HiddenObjectData" format=3]
+
+[ext_resource type="Script" path="res://scripts/hidden_object_data.gd" id="1_data"]
+
+[ext_resource type="Texture2D" path="res://assets/objects/unposted_letters_v1.png" id="2_texture"]
+
+[resource]
+script = ExtResource("1_data")
+object_id = &"unposted_letters"
+display_name = "Unposted Letters"
+description = "A bundle of patients' letters tied with string, never sent."
+collection_message = "You found a bundle of unposted letters!"
+clue_text = "Dozens of them, stamped and addressed, going back years. No letter ever left Hollowmere. The families were told there was no one to write."
+hint_text = "It lies behind the first shutter of the bell board. Wait for that bell to ring, then take it while the shutter is up."
+riddle_text = ""
+placeholder_style = 196
+texture = ExtResource("2_texture")
+icon_texture = ExtResource("2_texture")
+is_required = true
+starts_visible = true

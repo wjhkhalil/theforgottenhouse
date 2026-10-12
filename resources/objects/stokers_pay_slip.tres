@@ -1,0 +1,20 @@
+[gd_resource type="Resource" script_class="HiddenObjectData" format=3]
+
+[ext_resource type="Script" path="res://scripts/hidden_object_data.gd" id="1_data"]
+
+[ext_resource type="Texture2D" path="res://assets/objects/stokers_pay_slip_v1.png" id="2_texture"]
+
+[resource]
+script = ExtResource("1_data")
+object_id = &"stokers_pay_slip"
+display_name = "Pay Slip"
+description = "A pay slip with a second sum written under the first."
+collection_message = "You found the pay slip!"
+clue_text = "'J. Hobbs. Wages, and for extra firing at night: Ward 7.' The same words as the porter's."
+hint_text = "It is in the drawer of the workbench, inside the third jet."
+riddle_text = ""
+placeholder_style = 261
+texture = ExtResource("2_texture")
+icon_texture = ExtResource("2_texture")
+is_required = true
+starts_visible = false

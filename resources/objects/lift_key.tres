@@ -1,0 +1,20 @@
+[gd_resource type="Resource" script_class="HiddenObjectData" format=3]
+
+[ext_resource type="Script" path="res://scripts/hidden_object_data.gd" id="1_data"]
+
+[ext_resource type="Texture2D" path="res://assets/objects/lift_key_v1.png" id="2_texture"]
+
+[resource]
+script = ExtResource("1_data")
+object_id = &"lift_key"
+display_name = "Lift Key"
+description = "A flat key stamped 'SERVICE LIFT'."
+collection_message = "You found the lift key!"
+clue_text = "This unlocks the gate of the service lift. It goes up to the dispensary."
+hint_text = "It is in the meter box on the wall, inside the third jet. The box has a four-number lock."
+riddle_text = ""
+placeholder_style = 265
+texture = ExtResource("2_texture")
+icon_texture = ExtResource("2_texture")
+is_required = true
+starts_visible = false

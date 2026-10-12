@@ -28,6 +28,7 @@
 [ext_resource type="PackedScene" path="res://scenes/ui/pause_menu.tscn" id="26_pause"]
 [ext_resource type="PackedScene" path="res://scenes/ui/letter_popup.tscn" id="27_letter"]
 [ext_resource type="PackedScene" path="res://scenes/ui/keypad_lock.tscn" id="28_keypad"]
+[ext_resource type="Texture2D" path="res://assets/backgrounds/ice_house_background_v2.png" id="bg_ice_house"]
 
 [node name="IceHouse" type="Node2D" node_paths=PackedStringArray("keypad_lock")]
 script = ExtResource("1_room")
@@ -40,6 +41,7 @@ script = ExtResource("3_manager")
 
 [node name="RoomBackground" type="Node2D" parent="."]
 script = ExtResource("4_art")
+replacement_texture = ExtResource("bg_ice_house")
 
 [node name="HiddenObjects" type="Node2D" parent="."]
 unique_name_in_owner = true
@@ -205,6 +207,7 @@ data = ExtResource("19_lighthouse_key")
 script = ExtResource("21_frost")
 
 [node name="RoomForeground" type="Node2D" parent="."]
+visible = false
 script = ExtResource("4_art")
 layer = 1
 

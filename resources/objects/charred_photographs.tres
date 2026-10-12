@@ -1,0 +1,20 @@
+[gd_resource type="Resource" script_class="HiddenObjectData" format=3]
+
+[ext_resource type="Script" path="res://scripts/hidden_object_data.gd" id="1_data"]
+
+[ext_resource type="Texture2D" path="res://assets/objects/charred_photographs_v1.png" id="2_texture"]
+
+[resource]
+script = ExtResource("1_data")
+object_id = &"charred_photographs"
+display_name = "Charred Photographs"
+description = "A handful of small photographs, burnt at the edges."
+collection_message = "You found the charred photographs!"
+clue_text = "Seven faces for seven passports that were never made. She burnt them an hour ago."
+hint_text = "They are in the grate of the fireplace."
+riddle_text = ""
+placeholder_style = 307
+texture = ExtResource("2_texture")
+icon_texture = ExtResource("2_texture")
+is_required = true
+starts_visible = false

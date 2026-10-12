@@ -27,6 +27,7 @@
 [ext_resource type="PackedScene" path="res://scenes/ui/pause_menu.tscn" id="25_pause"]
 [ext_resource type="PackedScene" path="res://scenes/ui/letter_popup.tscn" id="26_letter"]
 [ext_resource type="PackedScene" path="res://scenes/ui/keypad_lock.tscn" id="27_keypad"]
+[ext_resource type="Texture2D" path="res://assets/backgrounds/workshop_background_v1.png" id="bg_workshop"]
 
 [node name="Workshop" type="Node2D" node_paths=PackedStringArray("keypad_lock")]
 script = ExtResource("1_room")
@@ -39,6 +40,7 @@ script = ExtResource("3_manager")
 
 [node name="RoomBackground" type="Node2D" parent="."]
 script = ExtResource("4_art")
+replacement_texture = ExtResource("bg_workshop")
 
 [node name="HiddenObjects" type="Node2D" parent="."]
 unique_name_in_owner = true
@@ -188,6 +190,7 @@ script = ExtResource("20_pieces")
 hull_plan = NodePath("../HiddenObjects/HullPlan")
 
 [node name="RoomForeground" type="Node2D" parent="."]
+visible = false
 script = ExtResource("4_art")
 layer = 1
 

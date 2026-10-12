@@ -1,0 +1,20 @@
+[gd_resource type="Resource" script_class="HiddenObjectData" format=3]
+
+[ext_resource type="Script" path="res://scripts/hidden_object_data.gd" id="1_data"]
+
+[ext_resource type="Texture2D" path="res://assets/objects/clinker_rake_v1.png" id="2_texture"]
+
+[resource]
+script = ExtResource("1_data")
+object_id = &"clinker_rake"
+display_name = "Clinker Rake"
+description = "A long iron rake for dragging ash out of the fire."
+collection_message = "You found the clinker rake!"
+clue_text = "With this you could hook the fire door open without burning your hands."
+hint_text = "It leans against the coal bunker on the left, inside the first jet of steam."
+riddle_text = ""
+placeholder_style = 253
+texture = ExtResource("2_texture")
+icon_texture = ExtResource("2_texture")
+is_required = true
+starts_visible = true

@@ -1,0 +1,20 @@
+[gd_resource type="Resource" script_class="HiddenObjectData" format=3]
+
+[ext_resource type="Script" path="res://scripts/hidden_object_data.gd" id="1_data"]
+
+[ext_resource type="Texture2D" path="res://assets/objects/matrons_office_key_v1.png" id="2_texture"]
+
+[resource]
+script = ExtResource("1_data")
+object_id = &"matrons_office_key"
+display_name = "Matron's Office Key"
+description = "A long key on a black ribbon."
+collection_message = "You found the matron's office key!"
+clue_text = "The ribbon is sewn with a small white 'E.C.'. This opens the door at the top of the stairs."
+hint_text = "It is in the controlled drugs safe under the counter. The safe has a four-number lock."
+riddle_text = ""
+placeholder_style = 286
+texture = ExtResource("2_texture")
+icon_texture = ExtResource("2_texture")
+is_required = true
+starts_visible = false

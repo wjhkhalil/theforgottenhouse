@@ -1,0 +1,20 @@
+[gd_resource type="Resource" script_class="HiddenObjectData" format=3]
+
+[ext_resource type="Script" path="res://scripts/hidden_object_data.gd" id="1_data"]
+
+[ext_resource type="Texture2D" path="res://assets/objects/payment_ledger_v1.png" id="2_texture"]
+
+[resource]
+script = ExtResource("1_data")
+object_id = &"payment_ledger"
+display_name = "Payment Ledger"
+description = "A slim private ledger bound in green."
+collection_message = "You found the payment ledger!"
+clue_text = "Six years of payments from 'R.V.', so much a head, seven heads. The last entry is dated the week of his arrest."
+hint_text = "It is in the left-hand drawer of the desk."
+riddle_text = ""
+placeholder_style = 298
+texture = ExtResource("2_texture")
+icon_texture = ExtResource("2_texture")
+is_required = true
+starts_visible = false

@@ -1,0 +1,20 @@
+[gd_resource type="Resource" script_class="HiddenObjectData" format=3]
+
+[ext_resource type="Script" path="res://scripts/hidden_object_data.gd" id="1_data"]
+
+[ext_resource type="Texture2D" path="res://assets/objects/medicine_spoon_v1.png" id="2_texture"]
+
+[resource]
+script = ExtResource("1_data")
+object_id = &"medicine_spoon"
+display_name = "Medicine Spoon"
+description = "A silver spoon with a deep covered bowl, for dosing the unwilling."
+collection_message = "You found the medicine spoon!"
+clue_text = "Tooth marks in the silver. Someone small bit down hard, more than once."
+hint_text = "It is in the rack on the counter. Take the SILVER one, not the black ones."
+riddle_text = ""
+placeholder_style = 272
+texture = ExtResource("2_texture")
+icon_texture = ExtResource("2_texture")
+is_required = true
+starts_visible = true

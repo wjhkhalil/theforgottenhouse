@@ -1,0 +1,641 @@
+{
+ "attic_objects_1": {
+  "type": "objects",
+  "cols": 4,
+  "rows": 2,
+  "names": [
+   "account_ledger",
+   "brass_key",
+   "childs_drawing",
+   "cracked_spectacles",
+   "last_will",
+   "silver_locket",
+   "telegram"
+  ]
+ },
+ "attic_containers_1": {
+  "type": "containers",
+  "cols": 2,
+  "rows": 2,
+  "names": [
+   "attic_jewellery_box",
+   "attic_hat_box"
+  ]
+ },
+ "staircase_objects_1": {
+  "type": "objects",
+  "cols": 4,
+  "rows": 2,
+  "names": [
+   "boathouse_map",
+   "empty_key_ring",
+   "hair_ribbon",
+   "iron_key",
+   "leather_glove",
+   "portrait_nameplate",
+   "telephone_cord"
+  ]
+ },
+ "staircase_containers_1": {
+  "type": "containers",
+  "cols": 2,
+  "rows": 2,
+  "names": [
+   "staircase_grandfather_clock",
+   "staircase_hall_table_drawer"
+  ]
+ },
+ "washroom_objects_1": {
+  "type": "objects",
+  "cols": 4,
+  "rows": 2,
+  "names": [
+   "hairbrush",
+   "perfume_bottle",
+   "rubber_duck",
+   "sleeping_pills",
+   "soap_imprint",
+   "straight_razor",
+   "tiny_cabinet_key",
+   "wet_photograph"
+  ]
+ },
+ "washroom_containers_1": {
+  "type": "containers",
+  "cols": 2,
+  "rows": 2,
+  "names": [
+   "washroom_medicine_cabinet",
+   "washroom_laundry_basket"
+  ]
+ },
+ "living_room_objects_1": {
+  "type": "objects",
+  "cols": 4,
+  "rows": 2,
+  "names": [
+   "crossword",
+   "desk_key",
+   "gramophone_record",
+   "insurance_policy",
+   "knitted_scarf",
+   "matchbox",
+   "spare_keys",
+   "tobacco_pipe"
+  ]
+ },
+ "living_room_containers_1": {
+  "type": "containers",
+  "cols": 3,
+  "rows": 2,
+  "names": [
+   "living_room_piano_bench",
+   "living_room_cigar_box",
+   "living_room_desk_drawer"
+  ]
+ },
+ "kitchen_objects_1": {
+  "type": "objects",
+  "cols": 3,
+  "rows": 2,
+  "names": [
+   "burnt_letter",
+   "egg_timer",
+   "lake_pebble",
+   "rat_poison_tin",
+   "recipe_card"
+  ]
+ },
+ "kitchen_objects_2": {
+  "type": "objects",
+  "cols": 2,
+  "rows": 2,
+  "names": [
+   "servants_key",
+   "sugar_mouse",
+   "tin_opener",
+   "wooden_spoon"
+  ]
+ },
+ "kitchen_containers_1": {
+  "type": "containers",
+  "cols": 3,
+  "rows": 2,
+  "names": [
+   "kitchen_bread_bin",
+   "kitchen_oven",
+   "kitchen_biscuit_tin"
+  ]
+ },
+ "study_objects_1": {
+  "type": "objects",
+  "cols": 3,
+  "rows": 2,
+  "names": [
+   "boathouse_key",
+   "calendar_page",
+   "forged_signatures",
+   "fountain_pen",
+   "letter_opener"
+  ]
+ },
+ "study_objects_2": {
+  "type": "objects",
+  "cols": 2,
+  "rows": 2,
+  "names": [
+   "magnifying_glass",
+   "mara_portrait",
+   "real_will",
+   "signet_ring"
+  ]
+ },
+ "study_containers_1": {
+  "type": "containers",
+  "cols": 4,
+  "rows": 2,
+  "names": [
+   "study_humidor",
+   "study_desk_drawer",
+   "study_wall_safe",
+   "study_bookcase_compartment"
+  ]
+ },
+ "jetty_objects_1": {
+  "type": "objects",
+  "cols": 3,
+  "rows": 2,
+  "names": [
+   "brass_compass",
+   "cigarette_case",
+   "fishing_float",
+   "log_page",
+   "message_bottle"
+  ]
+ },
+ "jetty_objects_2": {
+  "type": "objects",
+  "cols": 3,
+  "rows": 2,
+  "names": [
+   "name_board",
+   "police_seal",
+   "prescription",
+   "registration",
+   "tackle_key"
+  ]
+ },
+ "jetty_containers_1": {
+  "type": "containers",
+  "cols": 4,
+  "rows": 2,
+  "names": [
+   "jetty_bait_bucket",
+   "jetty_tackle_box",
+   "jetty_fish_crate",
+   "jetty_dock_locker"
+  ]
+ },
+ "boat_shed_objects_1": {
+  "type": "objects",
+  "cols": 3,
+  "rows": 2,
+  "names": [
+   "bank_receipt",
+   "bench_key",
+   "coat_button",
+   "diving_goggles",
+   "dropped_torch",
+   "ether_bottle"
+  ]
+ },
+ "boat_shed_objects_2": {
+  "type": "objects",
+  "cols": 3,
+  "rows": 2,
+  "names": [
+   "handkerchief",
+   "loft_key",
+   "maras_purse",
+   "ship_bell",
+   "train_ticket"
+  ]
+ },
+ "boat_shed_containers_1": {
+  "type": "containers",
+  "cols": 3,
+  "rows": 2,
+  "names": [
+   "boat_shed_first_aid_box",
+   "boat_shed_strongbox",
+   "boat_shed_workbench_drawer"
+  ]
+ },
+ "boat_shed_containers_2": {
+  "type": "containers",
+  "cols": 2,
+  "rows": 2,
+  "names": [
+   "boat_shed_net_basket",
+   "boat_shed_tool_chest"
+  ]
+ },
+ "loft_objects_1": {
+  "type": "objects",
+  "cols": 3,
+  "rows": 2,
+  "names": [
+   "bedsheet_rope",
+   "candle_stub",
+   "hairpin",
+   "padlock_key",
+   "pocket_mirror",
+   "pressed_violet"
+  ]
+ },
+ "loft_objects_2": {
+  "type": "objects",
+  "cols": 3,
+  "rows": 2,
+  "names": [
+   "rag_doll",
+   "sedative_vial",
+   "tin_cup",
+   "unsent_letter",
+   "visiting_card",
+   "workshop_key"
+  ]
+ },
+ "loft_containers_1": {
+  "type": "containers",
+  "cols": 3,
+  "rows": 2,
+  "names": [
+   "loft_sewing_basket",
+   "loft_hatbox",
+   "loft_biscuit_tin"
+  ]
+ },
+ "loft_containers_2": {
+  "type": "containers",
+  "cols": 3,
+  "rows": 2,
+  "names": [
+   "loft_loose_floorboard",
+   "loft_doctors_case",
+   "loft_sea_chest"
+  ]
+ },
+ "workshop_objects_1": {
+  "type": "objects",
+  "cols": 4,
+  "rows": 2,
+  "names": [
+   "boat_model",
+   "cupboard_key",
+   "diving_lamp",
+   "hand_drill",
+   "hull_plan",
+   "job_book",
+   "letter_stencil"
+  ]
+ },
+ "workshop_objects_2": {
+  "type": "objects",
+  "cols": 3,
+  "rows": 2,
+  "names": [
+   "mallet",
+   "oil_can",
+   "paint_tin",
+   "wood_plane",
+   "wooden_bung",
+   "work_glove"
+  ]
+ },
+ "workshop_containers_1": {
+  "type": "containers",
+  "cols": 3,
+  "rows": 2,
+  "names": [
+   "workshop_bench_drawer",
+   "workshop_bung_crate",
+   "workshop_log_basket"
+  ]
+ },
+ "workshop_containers_2": {
+  "type": "containers",
+  "cols": 3,
+  "rows": 2,
+  "names": [
+   "workshop_stencil_box",
+   "workshop_cash_box",
+   "workshop_tool_cupboard"
+  ]
+ },
+ "sunken_boat_objects_1": {
+  "type": "objects",
+  "cols": 4,
+  "rows": 2,
+  "names": [
+   "cabin_key",
+   "drill_bit",
+   "hair_comb",
+   "ice_house_key",
+   "iron_shackle",
+   "pearl_earring",
+   "sextant"
+  ]
+ },
+ "sunken_boat_objects_2": {
+  "type": "objects",
+  "cols": 3,
+  "rows": 2,
+  "names": [
+   "ship_lantern",
+   "ship_log",
+   "silver_frame",
+   "steel_file",
+   "teacup",
+   "wine_bottle"
+  ]
+ },
+ "sunken_boat_containers_1": {
+  "type": "containers",
+  "cols": 4,
+  "rows": 2,
+  "names": [
+   "sunken_boat_chart_drawer",
+   "sunken_boat_cabin_door",
+   "sunken_boat_key_box",
+   "sunken_boat_skipper_locker"
+  ]
+ },
+ "sunken_boat_containers_2": {
+  "type": "containers",
+  "cols": 3,
+  "rows": 2,
+  "names": [
+   "sunken_boat_galley_cupboard",
+   "sunken_boat_toolbox",
+   "sunken_boat_ditty_box"
+  ]
+ },
+ "ice_house_objects_1": {
+  "type": "objects",
+  "cols": 4,
+  "rows": 2,
+  "names": [
+   "frozen_brooch",
+   "frozen_pike",
+   "horse_blanket",
+   "ice_pick",
+   "ice_saw",
+   "ice_tongs",
+   "keepers_note"
+  ]
+ },
+ "ice_house_objects_2": {
+  "type": "objects",
+  "cols": 4,
+  "rows": 2,
+  "names": [
+   "lighthouse_key",
+   "lost_mitten",
+   "scratched_slate",
+   "signal_whistle",
+   "snowshoe",
+   "soup_tin",
+   "torn_sleeve"
+  ]
+ },
+ "ice_house_containers_1": {
+  "type": "containers",
+  "cols": 3,
+  "rows": 2,
+  "names": [
+   "ice_house_agnes_basket",
+   "ice_house_sawdust_bin",
+   "ice_house_tool_locker"
+  ]
+ },
+ "ice_house_containers_2": {
+  "type": "containers",
+  "cols": 3,
+  "rows": 2,
+  "names": [
+   "ice_house_pike_ice",
+   "ice_house_brooch_ice",
+   "ice_house_drain_ice"
+  ]
+ },
+ "lighthouse_steps_objects_1": {
+  "type": "objects",
+  "cols": 4,
+  "rows": 2,
+  "names": [
+   "bandage_roll",
+   "barometer",
+   "gull_feather",
+   "keeper_logbook",
+   "keepers_photo",
+   "knitting_needles",
+   "lamp_room_key"
+  ]
+ },
+ "lighthouse_steps_objects_2": {
+  "type": "objects",
+  "cols": 4,
+  "rows": 2,
+  "names": [
+   "lifesaving_medal",
+   "oilskin_hat",
+   "paraffin_can",
+   "ship_in_bottle",
+   "telescope",
+   "tide_table",
+   "wick_trimmer"
+  ]
+ },
+ "lighthouse_steps_containers_1": {
+  "type": "containers",
+  "cols": 3,
+  "rows": 2,
+  "names": [
+   "lighthouse_steps_oil_store",
+   "lighthouse_steps_knitting_basket",
+   "lighthouse_steps_twine_parcel"
+  ]
+ },
+ "lighthouse_steps_containers_2": {
+  "type": "containers",
+  "cols": 3,
+  "rows": 2,
+  "names": [
+   "lighthouse_steps_medal_box",
+   "lighthouse_steps_key_box",
+   "lighthouse_steps_first_aid_tin"
+  ]
+ },
+ "lamp_room_objects_1": {
+  "type": "objects",
+  "cols": 4,
+  "rows": 2,
+  "names": [
+   "bell_hammer",
+   "binoculars",
+   "chapel_key",
+   "ferry_ticket",
+   "lamp_mantle",
+   "lens_cloth",
+   "newspaper_page",
+   "oil_funnel"
+  ]
+ },
+ "lamp_room_objects_2": {
+  "type": "objects",
+  "cols": 4,
+  "rows": 2,
+  "names": [
+   "pencil_sketch",
+   "postcard",
+   "radio_valve",
+   "rosary",
+   "telegram_form",
+   "tobacco_tin",
+   "wind_gauge"
+  ]
+ },
+ "lamp_room_containers_1": {
+  "type": "containers",
+  "cols": 4,
+  "rows": 2,
+  "names": [
+   "lamp_room_lens_cupboard",
+   "lamp_room_desk_drawer",
+   "lamp_room_radio_cabinet",
+   "lamp_room_rope_basket"
+  ]
+ },
+ "lamp_room_containers_2": {
+  "type": "containers",
+  "cols": 3,
+  "rows": 2,
+  "names": [
+   "lamp_room_oil_locker",
+   "lamp_room_writing_box",
+   "lamp_room_sea_chest"
+  ]
+ },
+ "island_chapel_objects_1": {
+  "type": "objects",
+  "cols": 4,
+  "rows": 2,
+  "names": [
+   "candle_snuffer",
+   "collection_plate",
+   "cottage_map",
+   "doctors_letter",
+   "embroidery_hoop",
+   "grey_veil",
+   "hand_bell",
+   "hymn_book"
+  ]
+ },
+ "island_chapel_objects_2": {
+  "type": "objects",
+  "cols": 4,
+  "rows": 2,
+  "names": [
+   "oarlock",
+   "parish_register",
+   "pewter_cup",
+   "prayer_card",
+   "trowel",
+   "vestry_key",
+   "wooden_cross"
+  ]
+ },
+ "island_chapel_containers_1": {
+  "type": "containers",
+  "cols": 3,
+  "rows": 2,
+  "names": [
+   "island_chapel_alms_box",
+   "island_chapel_vestry_door",
+   "island_chapel_sewing_basket"
+  ]
+ },
+ "island_chapel_containers_2": {
+  "type": "containers",
+  "cols": 3,
+  "rows": 2,
+  "names": [
+   "island_chapel_pulpit_drawer",
+   "island_chapel_parish_chest",
+   "island_chapel_font_cover"
+  ]
+ },
+ "island_chapel_containers_3": {
+  "type": "containers",
+  "cols": 3,
+  "rows": 2,
+  "names": [
+   "island_chapel_pew_box",
+   "island_chapel_aumbry",
+   "island_chapel_candle_box"
+  ]
+ },
+ "vane_cottage_objects_1": {
+  "type": "objects",
+  "cols": 4,
+  "rows": 2,
+  "names": [
+   "carriage_clock",
+   "cellar_key",
+   "cheque_book",
+   "confession",
+   "death_certificate",
+   "decanter",
+   "glass_syringe",
+   "grey_shawl"
+  ]
+ },
+ "vane_cottage_objects_2": {
+  "type": "objects",
+  "cols": 4,
+  "rows": 2,
+  "names": [
+   "medical_file",
+   "name_bracelet",
+   "passport",
+   "pen_knife",
+   "police_whistle",
+   "specimen_jar",
+   "stethoscope",
+   "timetable"
+  ]
+ },
+ "vane_cottage_containers_1": {
+  "type": "containers",
+  "cols": 4,
+  "rows": 2,
+  "names": [
+   "vane_cottage_desk_drawer",
+   "vane_cottage_medicine_cupboard",
+   "vane_cottage_fake_spines",
+   "vane_cottage_log_basket"
+  ]
+ },
+ "vane_cottage_containers_2": {
+  "type": "containers",
+  "cols": 4,
+  "rows": 2,
+  "names": [
+   "vane_cottage_parcel",
+   "vane_cottage_desk_safe",
+   "vane_cottage_doctors_bag",
+   "vane_cottage_cellar_door"
+  ]
+ }
+}

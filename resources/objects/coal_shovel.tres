@@ -1,0 +1,20 @@
+[gd_resource type="Resource" script_class="HiddenObjectData" format=3]
+
+[ext_resource type="Script" path="res://scripts/hidden_object_data.gd" id="1_data"]
+
+[ext_resource type="Texture2D" path="res://assets/objects/coal_shovel_v1.png" id="2_texture"]
+
+[resource]
+script = ExtResource("1_data")
+object_id = &"coal_shovel"
+display_name = "Coal Shovel"
+description = "A stoker's shovel, the blade worn bright."
+collection_message = "You found the coal shovel!"
+clue_text = "Flakes of burnt paper are stuck to the blade. It has been feeding the furnace more than coal."
+hint_text = "It lies on the floor in front of the boiler."
+riddle_text = ""
+placeholder_style = 247
+texture = ExtResource("2_texture")
+icon_texture = ExtResource("2_texture")
+is_required = true
+starts_visible = true

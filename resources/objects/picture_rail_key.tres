@@ -1,0 +1,20 @@
+[gd_resource type="Resource" script_class="HiddenObjectData" format=3]
+
+[ext_resource type="Script" path="res://scripts/hidden_object_data.gd" id="1_data"]
+
+[ext_resource type="Texture2D" path="res://assets/objects/picture_rail_key_v1.png" id="2_texture"]
+
+[resource]
+script = ExtResource("1_data")
+object_id = &"picture_rail_key"
+display_name = "Key on the Picture Rail"
+description = "A small key lying along the top of the picture rail."
+collection_message = "You found the key on the picture rail!"
+clue_text = "Hidden above eye level, where only a mirror tilted up would show it. It fits a desk drawer."
+hint_text = "It is behind you, up on the picture rail. Tilt the mirror UP and take it from the reflection."
+riddle_text = ""
+placeholder_style = 288
+texture = ExtResource("2_texture")
+icon_texture = ExtResource("2_texture")
+is_required = true
+starts_visible = true

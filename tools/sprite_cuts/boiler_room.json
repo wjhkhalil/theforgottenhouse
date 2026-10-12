@@ -1,0 +1,520 @@
+{
+ "_note": "After cutting clinker_rake or boiler_room_service_lift, run tools/sprite_fixes/boiler_room_finish.py once (see tools/sprite_fixes/README.md).",
+ "objects": [
+  {
+   "id": "coal_shovel",
+   "sheet": "boiler_room_objects_a_sheet_v1.png",
+   "grid": [
+    5,
+    2
+   ],
+   "cell": [
+    0,
+    0
+   ]
+  },
+  {
+   "id": "stokers_cap",
+   "sheet": "boiler_room_objects_a_sheet_v1.png",
+   "grid": [
+    5,
+    2
+   ],
+   "cell": [
+    1,
+    0
+   ]
+  },
+  {
+   "id": "cracked_gauge",
+   "sheet": "boiler_room_objects_a_sheet_v1.png",
+   "grid": [
+    5,
+    2
+   ],
+   "cell": [
+    2,
+    0
+   ]
+  },
+  {
+   "id": "oil_rag",
+   "sheet": "boiler_room_objects_a_sheet_v1.png",
+   "grid": [
+    5,
+    2
+   ],
+   "cell": [
+    3,
+    0
+   ]
+  },
+  {
+   "id": "billy_can",
+   "sheet": "boiler_room_objects_a_sheet_v1.png",
+   "grid": [
+    5,
+    2
+   ],
+   "cell": [
+    4,
+    0
+   ]
+  },
+  {
+   "id": "spanner",
+   "sheet": "boiler_room_objects_a_sheet_v1.png",
+   "grid": [
+    5,
+    2
+   ],
+   "cell": [
+    0,
+    1
+   ]
+  },
+  {
+   "id": "clinker_rake",
+   "sheet": "boiler_room_objects_a_sheet_v1.png",
+   "grid": [
+    5,
+    2
+   ],
+   "cell": [
+    1,
+    1
+   ]
+  },
+  {
+   "id": "half_burnt_ledger",
+   "sheet": "boiler_room_objects_a_sheet_v1.png",
+   "grid": [
+    5,
+    2
+   ],
+   "cell": [
+    2,
+    1
+   ]
+  },
+  {
+   "id": "makers_plate",
+   "sheet": "boiler_room_objects_a_sheet_v1.png",
+   "grid": [
+    5,
+    2
+   ],
+   "cell": [
+    3,
+    1
+   ]
+  },
+  {
+   "id": "buried_satchel",
+   "sheet": "boiler_room_objects_a_sheet_v1.png",
+   "grid": [
+    5,
+    2
+   ],
+   "cell": [
+    4,
+    1
+   ]
+  },
+  {
+   "id": "scorched_buckle",
+   "sheet": "boiler_room_objects_b_sheet_v1.png",
+   "grid": [
+    5,
+    2
+   ],
+   "cell": [
+    0,
+    0
+   ]
+  },
+  {
+   "id": "burn_order",
+   "sheet": "boiler_room_objects_b_sheet_v1.png",
+   "grid": [
+    5,
+    2
+   ],
+   "cell": [
+    1,
+    0
+   ]
+  },
+  {
+   "id": "lift_crank",
+   "sheet": "boiler_room_objects_b_sheet_v1.png",
+   "grid": [
+    5,
+    2
+   ],
+   "cell": [
+    2,
+    0
+   ]
+  },
+  {
+   "id": "unburnt_file",
+   "sheet": "boiler_room_objects_b_sheet_v1.png",
+   "grid": [
+    5,
+    2
+   ],
+   "cell": [
+    3,
+    0
+   ]
+  },
+  {
+   "id": "stokers_pay_slip",
+   "sheet": "boiler_room_objects_b_sheet_v1.png",
+   "grid": [
+    5,
+    2
+   ],
+   "cell": [
+    4,
+    0
+   ]
+  },
+  {
+   "id": "night_log",
+   "sheet": "boiler_room_objects_b_sheet_v1.png",
+   "grid": [
+    5,
+    2
+   ],
+   "cell": [
+    0,
+    1
+   ]
+  },
+  {
+   "id": "pencilled_plan",
+   "sheet": "boiler_room_objects_b_sheet_v1.png",
+   "grid": [
+    5,
+    2
+   ],
+   "cell": [
+    1,
+    1
+   ]
+  },
+  {
+   "id": "tin_whistle",
+   "sheet": "boiler_room_objects_b_sheet_v1.png",
+   "grid": [
+    5,
+    2
+   ],
+   "cell": [
+    2,
+    1
+   ]
+  },
+  {
+   "id": "lift_key",
+   "sheet": "boiler_room_objects_b_sheet_v1.png",
+   "grid": [
+    5,
+    2
+   ],
+   "cell": [
+    3,
+    1
+   ]
+  },
+  {
+   "id": "dose_cup",
+   "sheet": "boiler_room_objects_b_sheet_v1.png",
+   "grid": [
+    5,
+    2
+   ],
+   "cell": [
+    4,
+    1
+   ]
+  }
+ ],
+ "containers": [
+  {
+   "id": "boiler_room_coal_bunker",
+   "closed": {
+    "sheet": "boiler_room_containers_closed_sheet_v1.png",
+    "box": [
+     0,
+     0,
+     412,
+     350
+    ]
+   },
+   "open": {
+    "sheet": "boiler_room_containers_open_sheet_v1.png",
+    "box": [
+     0,
+     0,
+     378,
+     345
+    ]
+   },
+   "match": "width"
+  },
+  {
+   "id": "boiler_room_ash_pan",
+   "closed": {
+    "sheet": "boiler_room_containers_closed_sheet_v1.png",
+    "box": [
+     404,
+     150,
+     838,
+     380
+    ]
+   },
+   "open": {
+    "sheet": "boiler_room_containers_open_sheet_v1.png",
+    "box": [
+     380,
+     130,
+     795,
+     380
+    ]
+   },
+   "match": "width"
+  },
+  {
+   "id": "boiler_room_stokers_locker",
+   "closed": {
+    "sheet": "boiler_room_containers_closed_sheet_v1.png",
+    "box": [
+     845,
+     0,
+     1100,
+     350
+    ]
+   },
+   "open": {
+    "sheet": "boiler_room_containers_open_sheet_v1.png",
+    "box": [
+     795,
+     0,
+     1060,
+     365
+    ]
+   },
+   "match": "height",
+   "open_scale": 1.0,
+   "align": "bottom",
+   "open_offset": [
+    5,
+    0
+   ]
+  },
+  {
+   "id": "boiler_room_tool_box",
+   "closed": {
+    "sheet": "boiler_room_containers_closed_sheet_v1.png",
+    "box": [
+     1120,
+     100,
+     1536,
+     380
+    ]
+   },
+   "open": {
+    "sheet": "boiler_room_containers_open_sheet_v1.png",
+    "box": [
+     1065,
+     2,
+     1448,
+     352
+    ]
+   },
+   "match": "width"
+  },
+  {
+   "id": "boiler_room_fire_door",
+   "closed": {
+    "sheet": "boiler_room_containers_closed_sheet_v1.png",
+    "box": [
+     0,
+     345,
+     375,
+     647
+    ]
+   },
+   "open": {
+    "sheet": "boiler_room_containers_open_sheet_v1.png",
+    "box": [
+     0,
+     348,
+     398,
+     690
+    ]
+   },
+   "match": "height",
+   "open_scale": 1.1,
+   "align": "top",
+   "open_offset": [
+    35,
+    0
+   ]
+  },
+  {
+   "id": "boiler_room_bench_drawer",
+   "closed": {
+    "sheet": "boiler_room_containers_closed_sheet_v1.png",
+    "box": [
+     380,
+     395,
+     790,
+     622
+    ]
+   },
+   "open": {
+    "sheet": "boiler_room_containers_open_sheet_v1.png",
+    "box": [
+     382,
+     390,
+     760,
+     668
+    ]
+   },
+   "match": "width",
+   "align": "top"
+  },
+  {
+   "id": "boiler_room_gauge_case",
+   "closed": {
+    "sheet": "boiler_room_containers_closed_sheet_v1.png",
+    "box": [
+     790,
+     345,
+     1125,
+     640
+    ]
+   },
+   "open": {
+    "sheet": "boiler_room_containers_open_sheet_v1.png",
+    "box": [
+     755,
+     372,
+     1112,
+     650
+    ]
+   },
+   "match": "height",
+   "open_scale": 1.04,
+   "align": "top",
+   "open_offset": [
+    41,
+    0
+   ]
+  },
+  {
+   "id": "boiler_room_lunch_tin",
+   "closed": {
+    "sheet": "boiler_room_containers_closed_sheet_v1.png",
+    "box": [
+     1130,
+     390,
+     1536,
+     700
+    ]
+   },
+   "open": {
+    "sheet": "boiler_room_containers_open_sheet_v1.png",
+    "box": [
+     1108,
+     334,
+     1448,
+     700
+    ]
+   },
+   "match": "width"
+  },
+  {
+   "id": "boiler_room_pipe_hatch",
+   "closed": {
+    "sheet": "boiler_room_containers_closed_sheet_v1.png",
+    "box": [
+     0,
+     648,
+     390,
+     1024
+    ]
+   },
+   "open": {
+    "sheet": "boiler_room_containers_open_sheet_v1.png",
+    "box": [
+     0,
+     672,
+     398,
+     1086
+    ]
+   },
+   "match": "height",
+   "open_scale": 1.1,
+   "align": "top",
+   "open_offset": [
+    -20,
+    0
+   ]
+  },
+  {
+   "id": "boiler_room_meter_box",
+   "closed": {
+    "sheet": "boiler_room_containers_closed_sheet_v1.png",
+    "box": [
+     395,
+     612,
+     728,
+     1000
+    ]
+   },
+   "open": {
+    "sheet": "boiler_room_containers_open_sheet_v1.png",
+    "box": [
+     400,
+     660,
+     755,
+     1086
+    ]
+   },
+   "match": "height",
+   "open_scale": 1.0,
+   "align": "bottom",
+   "open_offset": [
+    21,
+    0
+   ]
+  },
+  {
+   "id": "boiler_room_service_lift",
+   "closed": {
+    "sheet": "boiler_room_containers_closed_sheet_v1.png",
+    "box": [
+     790,
+     622,
+     1128,
+     1010
+    ]
+   },
+   "open": {
+    "sheet": "boiler_room_containers_open_sheet_v1.png",
+    "box": [
+     752,
+     646,
+     1100,
+     1086
+    ]
+   },
+   "match": "height"
+  }
+ ]
+}

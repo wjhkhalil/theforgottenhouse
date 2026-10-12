@@ -1,0 +1,20 @@
+[gd_resource type="Resource" script_class="HiddenObjectData" format=3]
+
+[ext_resource type="Script" path="res://scripts/hidden_object_data.gd" id="1_data"]
+
+[ext_resource type="Texture2D" path="res://assets/objects/night_log_v1.png" id="2_texture"]
+
+[resource]
+script = ExtResource("1_data")
+object_id = &"night_log"
+display_name = "Boiler Log"
+description = "The boiler's night log, a page to a night."
+collection_message = "You found the boiler log!"
+clue_text = "'Extra heat to the top pipe, Ward 7, every night.' You do not heat an empty ward."
+hint_text = "It is in the gauge case on the wall. The case has a four-number lock."
+riddle_text = ""
+placeholder_style = 262
+texture = ExtResource("2_texture")
+icon_texture = ExtResource("2_texture")
+is_required = true
+starts_visible = false

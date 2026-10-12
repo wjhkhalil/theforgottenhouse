@@ -1,0 +1,379 @@
+[gd_scene format=3]
+
+[ext_resource type="Script" path="res://scripts/room_level.gd" id="1_room"]
+[ext_resource type="Resource" path="res://resources/levels/boiler_room_level.tres" id="2_level"]
+[ext_resource type="Script" path="res://scripts/game_manager.gd" id="3_manager"]
+[ext_resource type="Script" path="res://scripts/boiler_room_art.gd" id="4_art"]
+[ext_resource type="PackedScene" path="res://scenes/objects/hidden_object.tscn" id="5_object"]
+[ext_resource type="PackedScene" path="res://scenes/objects/openable_container.tscn" id="6_container"]
+[ext_resource type="Resource" path="res://resources/objects/coal_shovel.tres" id="10_coal_shovel"]
+[ext_resource type="Resource" path="res://resources/objects/stokers_cap.tres" id="11_stokers_cap"]
+[ext_resource type="Resource" path="res://resources/objects/cracked_gauge.tres" id="12_cracked_gauge"]
+[ext_resource type="Resource" path="res://resources/objects/oil_rag.tres" id="13_oil_rag"]
+[ext_resource type="Resource" path="res://resources/objects/billy_can.tres" id="14_billy_can"]
+[ext_resource type="Resource" path="res://resources/objects/spanner.tres" id="15_spanner"]
+[ext_resource type="Resource" path="res://resources/objects/clinker_rake.tres" id="16_clinker_rake"]
+[ext_resource type="Resource" path="res://resources/objects/half_burnt_ledger.tres" id="17_half_burnt_ledger"]
+[ext_resource type="Resource" path="res://resources/objects/makers_plate.tres" id="18_makers_plate"]
+[ext_resource type="Resource" path="res://resources/objects/buried_satchel.tres" id="19_buried_satchel"]
+[ext_resource type="Resource" path="res://resources/objects/scorched_buckle.tres" id="20_scorched_buckle"]
+[ext_resource type="Resource" path="res://resources/objects/burn_order.tres" id="21_burn_order"]
+[ext_resource type="Resource" path="res://resources/objects/lift_crank.tres" id="22_lift_crank"]
+[ext_resource type="Resource" path="res://resources/objects/unburnt_file.tres" id="23_unburnt_file"]
+[ext_resource type="Resource" path="res://resources/objects/stokers_pay_slip.tres" id="24_stokers_pay_slip"]
+[ext_resource type="Resource" path="res://resources/objects/night_log.tres" id="25_night_log"]
+[ext_resource type="Resource" path="res://resources/objects/pencilled_plan.tres" id="26_pencilled_plan"]
+[ext_resource type="Resource" path="res://resources/objects/tin_whistle.tres" id="27_tin_whistle"]
+[ext_resource type="Resource" path="res://resources/objects/lift_key.tres" id="28_lift_key"]
+[ext_resource type="Resource" path="res://resources/objects/dose_cup.tres" id="29_dose_cup"]
+[ext_resource type="Script" path="res://scripts/steam_valves.gd" id="40_effect"]
+[ext_resource type="Script" path="res://scripts/hint_highlight.gd" id="41_hint"]
+[ext_resource type="PackedScene" path="res://scenes/ui/hud.tscn" id="42_hud"]
+[ext_resource type="PackedScene" path="res://scenes/ui/notification.tscn" id="43_note"]
+[ext_resource type="PackedScene" path="res://scenes/victory_screen.tscn" id="44_victory"]
+[ext_resource type="PackedScene" path="res://scenes/ui/pause_menu.tscn" id="45_pause"]
+[ext_resource type="PackedScene" path="res://scenes/ui/letter_popup.tscn" id="46_letter"]
+[ext_resource type="PackedScene" path="res://scenes/ui/keypad_lock.tscn" id="47_keypad"]
+[ext_resource type="Texture2D" path="res://assets/backgrounds/boiler_room_background_v1.png" id="bg_boiler_room"]
+[ext_resource type="Texture2D" path="res://assets/objects/boiler_room_coal_bunker_closed_v1.png" id="tex_boiler_room_coal_bunker_closed_v1"]
+[ext_resource type="Texture2D" path="res://assets/objects/boiler_room_coal_bunker_open_v1.png" id="tex_boiler_room_coal_bunker_open_v1"]
+[ext_resource type="Texture2D" path="res://assets/objects/boiler_room_ash_pan_closed_v1.png" id="tex_boiler_room_ash_pan_closed_v1"]
+[ext_resource type="Texture2D" path="res://assets/objects/boiler_room_ash_pan_open_v1.png" id="tex_boiler_room_ash_pan_open_v1"]
+[ext_resource type="Texture2D" path="res://assets/objects/boiler_room_stokers_locker_closed_v1.png" id="tex_boiler_room_stokers_locker_closed_v1"]
+[ext_resource type="Texture2D" path="res://assets/objects/boiler_room_stokers_locker_open_v1.png" id="tex_boiler_room_stokers_locker_open_v1"]
+[ext_resource type="Texture2D" path="res://assets/objects/boiler_room_tool_box_closed_v1.png" id="tex_boiler_room_tool_box_closed_v1"]
+[ext_resource type="Texture2D" path="res://assets/objects/boiler_room_tool_box_open_v1.png" id="tex_boiler_room_tool_box_open_v1"]
+[ext_resource type="Texture2D" path="res://assets/objects/boiler_room_fire_door_closed_v1.png" id="tex_boiler_room_fire_door_closed_v1"]
+[ext_resource type="Texture2D" path="res://assets/objects/boiler_room_fire_door_open_v1.png" id="tex_boiler_room_fire_door_open_v1"]
+[ext_resource type="Texture2D" path="res://assets/objects/boiler_room_bench_drawer_closed_v1.png" id="tex_boiler_room_bench_drawer_closed_v1"]
+[ext_resource type="Texture2D" path="res://assets/objects/boiler_room_bench_drawer_open_v1.png" id="tex_boiler_room_bench_drawer_open_v1"]
+[ext_resource type="Texture2D" path="res://assets/objects/boiler_room_gauge_case_closed_v1.png" id="tex_boiler_room_gauge_case_closed_v1"]
+[ext_resource type="Texture2D" path="res://assets/objects/boiler_room_gauge_case_open_v1.png" id="tex_boiler_room_gauge_case_open_v1"]
+[ext_resource type="Texture2D" path="res://assets/objects/boiler_room_lunch_tin_closed_v1.png" id="tex_boiler_room_lunch_tin_closed_v1"]
+[ext_resource type="Texture2D" path="res://assets/objects/boiler_room_lunch_tin_open_v1.png" id="tex_boiler_room_lunch_tin_open_v1"]
+[ext_resource type="Texture2D" path="res://assets/objects/boiler_room_pipe_hatch_closed_v1.png" id="tex_boiler_room_pipe_hatch_closed_v1"]
+[ext_resource type="Texture2D" path="res://assets/objects/boiler_room_pipe_hatch_open_v1.png" id="tex_boiler_room_pipe_hatch_open_v1"]
+[ext_resource type="Texture2D" path="res://assets/objects/boiler_room_meter_box_closed_v1.png" id="tex_boiler_room_meter_box_closed_v1"]
+[ext_resource type="Texture2D" path="res://assets/objects/boiler_room_meter_box_open_v1.png" id="tex_boiler_room_meter_box_open_v1"]
+[ext_resource type="Texture2D" path="res://assets/objects/boiler_room_service_lift_closed_v1.png" id="tex_boiler_room_service_lift_closed_v1"]
+[ext_resource type="Texture2D" path="res://assets/objects/boiler_room_service_lift_open_v1.png" id="tex_boiler_room_service_lift_open_v1"]
+
+[node name="BoilerRoom" type="Node2D" node_paths=PackedStringArray("keypad_lock")]
+script = ExtResource("1_room")
+level_data = ExtResource("2_level")
+keypad_lock = NodePath("KeypadLock")
+
+[node name="GameManager" type="Node" parent="."]
+unique_name_in_owner = true
+script = ExtResource("3_manager")
+
+[node name="RoomBackground" type="Node2D" parent="."]
+script = ExtResource("4_art")
+replacement_texture = ExtResource("bg_boiler_room")
+
+[node name="HiddenObjects" type="Node2D" parent="."]
+unique_name_in_owner = true
+
+[node name="CoalShovel" parent="HiddenObjects" instance=ExtResource("5_object")]
+position = Vector2(410, 640)
+rotation = 0.5
+data = ExtResource("10_coal_shovel")
+texture_scale = Vector2(0.3788, 0.3788)
+
+[node name="StokersCap" parent="HiddenObjects" instance=ExtResource("5_object")]
+position = Vector2(124, 163)
+data = ExtResource("11_stokers_cap")
+rotation = 0
+texture_scale = Vector2(0.1818, 0.1818)
+
+[node name="CrackedGauge" parent="HiddenObjects" instance=ExtResource("5_object")]
+position = Vector2(498, 238)
+data = ExtResource("12_cracked_gauge")
+texture_scale = Vector2(0.2348, 0.2348)
+
+[node name="OilRag" parent="HiddenObjects" instance=ExtResource("5_object")]
+position = Vector2(592, 585)
+rotation = 0
+data = ExtResource("13_oil_rag")
+texture_scale = Vector2(0.1742, 0.1742)
+
+[node name="BillyCan" parent="HiddenObjects" instance=ExtResource("5_object")]
+position = Vector2(668, 352)
+data = ExtResource("14_billy_can")
+texture_scale = Vector2(0.1818, 0.1818)
+
+[node name="Spanner" parent="HiddenObjects" instance=ExtResource("5_object")]
+position = Vector2(175, 612)
+rotation = 0.3
+data = ExtResource("15_spanner")
+texture_scale = Vector2(0.2652, 0.2652)
+
+[node name="ClinkerRake" parent="HiddenObjects" instance=ExtResource("5_object")]
+position = Vector2(200, 446)
+rotation = 0
+data = ExtResource("16_clinker_rake")
+texture_scale = Vector2(0.5421, 0.5421)
+
+[node name="HalfBurntLedger" parent="HiddenObjects" instance=ExtResource("5_object")]
+position = Vector2(715, 625)
+rotation = -0.15
+data = ExtResource("17_half_burnt_ledger")
+texture_scale = Vector2(0.2348, 0.2348)
+
+[node name="MakersPlate" parent="HiddenObjects" instance=ExtResource("5_object")]
+position = Vector2(500, 305)
+data = ExtResource("18_makers_plate")
+texture_scale = Vector2(0.25, 0.25)
+
+[node name="CoalBunker" parent="HiddenObjects" node_paths=PackedStringArray("contents") instance=ExtResource("6_container")]
+position = Vector2(80.4, 463.6)
+container_id = &"coal_bunker"
+contents = NodePath("../BuriedSatchel")
+open_title = "You dig into the coal bunker..."
+open_message = "Under the top layer, where the shovel never reached, is something made of leather."
+style = 7
+tint = Color(0.2, 0.2, 0.22, 1)
+size = Vector2(373.404, 313.999)
+closed_texture = ExtResource("tex_boiler_room_coal_bunker_closed_v1")
+open_texture = ExtResource("tex_boiler_room_coal_bunker_open_v1")
+scale = Vector2(0.3535, 0.3535)
+
+[node name="BuriedSatchel" parent="HiddenObjects" instance=ExtResource("5_object")]
+position = Vector2(80, 455)
+data = ExtResource("19_buried_satchel")
+texture_scale = Vector2(0.2273, 0.2273)
+
+[node name="AshPan" parent="HiddenObjects" node_paths=PackedStringArray("contents") instance=ExtResource("6_container")]
+position = Vector2(491.1, 495.1)
+container_id = &"ash_pan"
+contents = NodePath("../ScorchedBuckle")
+open_title = "You drag out the ash pan..."
+open_message = "Grey ash, clinker, and one small thing that did not burn."
+style = 4
+tint = Color(0.2, 0.2, 0.22, 1)
+size = Vector2(375.272, 171.01)
+closed_texture = ExtResource("tex_boiler_room_ash_pan_closed_v1")
+open_texture = ExtResource("tex_boiler_room_ash_pan_open_v1")
+scale = Vector2(0.2105, 0.2105)
+
+[node name="ScorchedBuckle" parent="HiddenObjects" instance=ExtResource("5_object")]
+position = Vector2(491, 496)
+data = ExtResource("20_scorched_buckle")
+texture_scale = Vector2(0.1136, 0.1136)
+
+[node name="StokersLocker" parent="HiddenObjects" node_paths=PackedStringArray("contents", "required_object") instance=ExtResource("6_container")]
+position = Vector2(338.3, 414.2)
+container_id = &"stokers_locker"
+contents = NodePath("../BurnOrder")
+open_title = "The bolts give way..."
+open_message = "An overcoat, a bottle, and a sheet of the sanatorium's headed paper."
+required_object = NodePath("../Spanner")
+locked_title = "The locker is bolted shut."
+locked_message = "Two rusty bolts hold the stoker's locker shut. You need something to turn them."
+style = 3
+tint = Color(0.25, 0.3, 0.28, 1)
+size = Vector2(219.485, 372.17)
+closed_texture = ExtResource("tex_boiler_room_stokers_locker_closed_v1")
+open_texture = ExtResource("tex_boiler_room_stokers_locker_open_v1")
+scale = Vector2(0.4192, 0.4192)
+
+[node name="BurnOrder" parent="HiddenObjects" instance=ExtResource("5_object")]
+position = Vector2(330, 430)
+data = ExtResource("21_burn_order")
+texture_scale = Vector2(0.1515, 0.1515)
+
+[node name="ToolBox" parent="HiddenObjects" node_paths=PackedStringArray("contents") instance=ExtResource("6_container")]
+position = Vector2(850.2, 601.2)
+container_id = &"tool_box"
+contents = NodePath("../LiftCrank")
+open_title = "You open the tool box..."
+open_message = "Files, a hammer, and a cranked handle that belongs to some other machine."
+style = 7
+tint = Color(0.3, 0.14, 0.12, 1)
+size = Vector2(370.302, 331.549)
+closed_texture = ExtResource("tex_boiler_room_tool_box_closed_v1")
+open_texture = ExtResource("tex_boiler_room_tool_box_open_v1")
+scale = Vector2(0.2322, 0.2322)
+
+[node name="LiftCrank" parent="HiddenObjects" instance=ExtResource("5_object")]
+position = Vector2(850, 613)
+data = ExtResource("22_lift_crank")
+texture_scale = Vector2(0.1742, 0.1742)
+
+[node name="FireDoor" parent="HiddenObjects" node_paths=PackedStringArray("contents", "required_object") instance=ExtResource("6_container")]
+position = Vector2(497.3, 416.4)
+container_id = &"fire_door"
+contents = NodePath("../UnburntFile")
+open_title = "You hook the fire door open with the rake..."
+open_message = "A wall of heat. Wedged behind the grate, out of the flames, is a buff file."
+required_object = NodePath("../ClinkerRake")
+locked_title = "The fire door is too hot to touch."
+locked_message = "The iron door of the furnace glows dull red round the edges. You need something long to hook it open."
+style = 3
+tint = Color(0.2, 0.2, 0.22, 1)
+size = Vector2(371.087, 367.449)
+closed_texture = ExtResource("tex_boiler_room_fire_door_closed_v1")
+open_texture = ExtResource("tex_boiler_room_fire_door_open_v1")
+scale = Vector2(0.2749, 0.2749)
+
+[node name="UnburntFile" parent="HiddenObjects" instance=ExtResource("5_object")]
+position = Vector2(490, 412)
+data = ExtResource("23_unburnt_file")
+texture_scale = Vector2(0.1894, 0.1894)
+
+[node name="BenchDrawer" parent="HiddenObjects" node_paths=PackedStringArray("contents") instance=ExtResource("6_container")]
+position = Vector2(750.3, 403.9)
+container_id = &"bench_drawer"
+contents = NodePath("../StokersPaySlip")
+open_title = "You pull open the bench drawer..."
+open_message = "Washers, string, and a pay slip folded small."
+style = 4
+tint = Color(0.36, 0.23, 0.14, 1)
+size = Vector2(371.133, 251.413)
+closed_texture = ExtResource("tex_boiler_room_bench_drawer_closed_v1")
+open_texture = ExtResource("tex_boiler_room_bench_drawer_open_v1")
+scale = Vector2(0.1671, 0.1671)
+
+[node name="StokersPaySlip" parent="HiddenObjects" instance=ExtResource("5_object")]
+position = Vector2(750, 400)
+data = ExtResource("24_stokers_pay_slip")
+texture_scale = Vector2(0.1288, 0.1288)
+
+[node name="GaugeCase" parent="HiddenObjects" node_paths=PackedStringArray("contents") instance=ExtResource("6_container")]
+position = Vector2(334.3, 191.3)
+container_id = &"gauge_case"
+contents = NodePath("../NightLog")
+open_title = "The lock clicks round to 1911..."
+open_message = "Spare gauge glasses in cotton wool, and the boiler's night log."
+required_code = "1911"
+code_title = "The Gauge Case"
+code_prompt = "A wooden case with a four-number lock. Hobbs sets it to the one number in this room he sees every day."
+code_hint_first = "Wrong. Look at the boiler itself. There is a brass plate riveted to it."
+code_hint_second = "The maker's plate says 'Boiler No. 1911'. The code is 1911."
+code_hint_first_after = 11
+code_hint_second_after = 14
+style = 7
+tint = Color(0.42, 0.3, 0.16, 1)
+size = Vector2(365.894, 334.351)
+closed_texture = ExtResource("tex_boiler_room_gauge_case_closed_v1")
+open_texture = ExtResource("tex_boiler_room_gauge_case_open_v1")
+scale = Vector2(0.1585, 0.1585)
+
+[node name="NightLog" parent="HiddenObjects" instance=ExtResource("5_object")]
+position = Vector2(330, 190)
+data = ExtResource("25_night_log")
+texture_scale = Vector2(0.1364, 0.1364)
+
+[node name="LunchTin" parent="HiddenObjects" node_paths=PackedStringArray("contents") instance=ExtResource("6_container")]
+position = Vector2(812.4, 342)
+container_id = &"lunch_tin"
+contents = NodePath("../PencilledPlan")
+open_title = "You open the lunch tin..."
+open_message = "A crust, an apple core, and a greasy folded drawing."
+style = 7
+tint = Color(0.2, 0.3, 0.42, 1)
+size = Vector2(374.104, 393.126)
+closed_texture = ExtResource("tex_boiler_room_lunch_tin_closed_v1")
+open_texture = ExtResource("tex_boiler_room_lunch_tin_open_v1")
+scale = Vector2(0.1577, 0.1577)
+
+[node name="PencilledPlan" parent="HiddenObjects" instance=ExtResource("5_object")]
+position = Vector2(812, 356)
+data = ExtResource("26_pencilled_plan")
+texture_scale = Vector2(0.1136, 0.1136)
+
+[node name="PipeHatch" parent="HiddenObjects" node_paths=PackedStringArray("contents") instance=ExtResource("6_container")]
+position = Vector2(260.9, 340.3)
+container_id = &"pipe_hatch"
+contents = NodePath("../TinWhistle")
+open_title = "You unscrew the pipe hatch..."
+open_message = "A dark duct full of warm air. Something bright is lodged just inside."
+style = 3
+tint = Color(0.3, 0.33, 0.36, 1)
+size = Vector2(366.889, 404.519)
+closed_texture = ExtResource("tex_boiler_room_pipe_hatch_closed_v1")
+open_texture = ExtResource("tex_boiler_room_pipe_hatch_open_v1")
+scale = Vector2(0.1063, 0.1063)
+
+[node name="TinWhistle" parent="HiddenObjects" instance=ExtResource("5_object")]
+position = Vector2(263, 338)
+data = ExtResource("27_tin_whistle")
+texture_scale = Vector2(0.0985, 0.0985)
+
+[node name="MeterBox" parent="HiddenObjects" node_paths=PackedStringArray("contents") instance=ExtResource("6_container")]
+position = Vector2(871.3, 282.1)
+container_id = &"meter_box"
+contents = NodePath("../LiftKey")
+open_title = "The dial clicks round to 2311..."
+open_message = "Behind the meters hangs a single flat key."
+required_code = "2311"
+code_title = "The Meter Box"
+code_prompt = "An iron meter box with a four-number dial. Hobbs chalks up what he must not forget, and he never forgets the coal."
+code_hint_first = "Wrong. Look for chalk on the coal bunker: a delivery date."
+code_hint_second = "The bunker is chalked 'NEXT COAL 23-11'. Day 23, month 11: the code is 2311."
+code_hint_first_after = 11
+code_hint_second_after = 14
+style = 5
+tint = Color(0.22, 0.24, 0.3, 1)
+size = Vector2(305.529, 368.941)
+closed_texture = ExtResource("tex_boiler_room_meter_box_closed_v1")
+open_texture = ExtResource("tex_boiler_room_meter_box_open_v1")
+scale = Vector2(0.1735, 0.1735)
+
+[node name="LiftKey" parent="HiddenObjects" instance=ExtResource("5_object")]
+position = Vector2(868, 282)
+data = ExtResource("28_lift_key")
+texture_scale = Vector2(0.1288, 0.1288)
+
+[node name="ServiceLift" parent="HiddenObjects" node_paths=PackedStringArray("contents", "required_object") instance=ExtResource("6_container")]
+position = Vector2(986, 354.3)
+container_id = &"service_lift"
+contents = NodePath("../DoseCup")
+open_title = "The flat key turns and the gate slides back..."
+open_message = "A little lift, just big enough for a tray. Something from upstairs was left on its floor."
+required_object = NodePath("../LiftKey")
+locked_title = "The service lift is locked."
+locked_message = "A lattice gate with a brass lock, and a card: 'DISPENSARY - WARDS'. You need the lift key."
+style = 3
+tint = Color(0.34, 0.3, 0.24, 1)
+size = Vector2(309.429, 527.391)
+closed_texture = ExtResource("tex_boiler_room_service_lift_closed_v1")
+open_texture = ExtResource("tex_boiler_room_service_lift_open_v1")
+scale = Vector2(0.5139, 0.5139)
+
+[node name="DoseCup" parent="HiddenObjects" instance=ExtResource("5_object")]
+position = Vector2(965, 472)
+data = ExtResource("29_dose_cup")
+texture_scale = Vector2(0.0909, 0.0909)
+
+[node name="RoomForeground" type="Node2D" parent="."]
+visible = false
+script = ExtResource("4_art")
+layer = 1
+
+[node name="SteamValves" type="Node2D" parent="."]
+script = ExtResource("40_effect")
+jet_zones = Array[Rect2]([Rect2(0, 100, 285, 460), Rect2(390, 100, 220, 460), Rect2(640, 100, 262, 460)])
+valve_positions = PackedVector2Array(272, 254, 627, 254, 873, 165)
+
+[node name="HintHighlight" type="Node2D" parent="."]
+unique_name_in_owner = true
+visible = false
+script = ExtResource("41_hint")
+
+[node name="HUD" parent="." instance=ExtResource("42_hud")]
+unique_name_in_owner = true
+
+[node name="Notification" parent="." instance=ExtResource("43_note")]
+unique_name_in_owner = true
+
+[node name="VictoryScreen" parent="." instance=ExtResource("44_victory")]
+unique_name_in_owner = true
+
+[node name="PauseMenu" parent="." instance=ExtResource("45_pause")]
+unique_name_in_owner = true
+
+[node name="LetterPopup" parent="." instance=ExtResource("46_letter")]
+unique_name_in_owner = true
+
+[node name="KeypadLock" parent="." instance=ExtResource("47_keypad")]

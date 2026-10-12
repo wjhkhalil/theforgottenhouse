@@ -1,0 +1,20 @@
+[gd_resource type="Resource" script_class="HiddenObjectData" format=3]
+
+[ext_resource type="Script" path="res://scripts/hidden_object_data.gd" id="1_data"]
+
+[ext_resource type="Texture2D" path="res://assets/objects/ward_chart_v1.png" id="2_texture"]
+
+[resource]
+script = ExtResource("1_data")
+object_id = &"ward_chart"
+display_name = "Ward Chart"
+description = "A folded chart of seven beds."
+collection_message = "You found the ward chart!"
+clue_text = "Seven beds in a row, each with a number, a dose, and in pencil, very small, a name."
+hint_text = "It is in the scales case on the counter. The case only opens with the right weight on its catch: find the brass weight."
+riddle_text = ""
+placeholder_style = 285
+texture = ExtResource("2_texture")
+icon_texture = ExtResource("2_texture")
+is_required = true
+starts_visible = false

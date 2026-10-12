@@ -1,0 +1,20 @@
+[gd_resource type="Resource" script_class="HiddenObjectData" format=3]
+
+[ext_resource type="Script" path="res://scripts/hidden_object_data.gd" id="1_data"]
+
+[ext_resource type="Texture2D" path="res://assets/objects/strongbox_key_v1.png" id="2_texture"]
+
+[resource]
+script = ExtResource("1_data")
+object_id = &"strongbox_key"
+display_name = "Palmed Key"
+description = "A flat steel key, warm from being held."
+collection_message = "You found the palmed key!"
+clue_text = "Albert took it from the matron's belt three years ago and has kept it in his fist ever since. It opens the ward strongbox."
+hint_text = "Albert has it. He wants his reading glasses back first."
+riddle_text = ""
+placeholder_style = 312
+texture = ExtResource("2_texture")
+icon_texture = ExtResource("2_texture")
+is_required = true
+starts_visible = false

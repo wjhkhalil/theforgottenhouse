@@ -1,0 +1,20 @@
+[gd_resource type="Resource" script_class="HiddenObjectData" format=3]
+
+[ext_resource type="Script" path="res://scripts/hidden_object_data.gd" id="1_data"]
+
+[ext_resource type="Texture2D" path="res://assets/objects/chloral_bottle_v1.png" id="2_texture"]
+
+[resource]
+script = ExtResource("1_data")
+object_id = &"chloral_bottle"
+display_name = "Chloral Bottle"
+description = "A brown stoppered bottle marked with a skull."
+collection_message = "You found the chloral bottle!"
+clue_text = "The poison register says a pint of this goes to Ward 7 every week. Enough to keep seven people asleep for years."
+hint_text = "It is in the poison cupboard on the wall. The cupboard has a four-number lock."
+riddle_text = ""
+placeholder_style = 277
+texture = ExtResource("2_texture")
+icon_texture = ExtResource("2_texture")
+is_required = true
+starts_visible = false

@@ -1,0 +1,20 @@
+[gd_resource type="Resource" script_class="HiddenObjectData" format=3]
+
+[ext_resource type="Script" path="res://scripts/hidden_object_data.gd" id="1_data"]
+
+[ext_resource type="Texture2D" path="res://assets/objects/linen_tally_v1.png" id="2_texture"]
+
+[resource]
+script = ExtResource("1_data")
+object_id = &"linen_tally"
+display_name = "Linen Tally"
+description = "A tally book of sheets, ward by ward."
+collection_message = "You found the linen tally!"
+clue_text = "Every ward is listed but one. Against Ward 7, in different ink: 'seven sets, own basket, night only.'"
+hint_text = "It is in the linen press on the back wall. The press is tied shut with tape."
+riddle_text = ""
+placeholder_style = 237
+texture = ExtResource("2_texture")
+icon_texture = ExtResource("2_texture")
+is_required = true
+starts_visible = false

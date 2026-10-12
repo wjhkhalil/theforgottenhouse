@@ -1,0 +1,20 @@
+[gd_resource type="Resource" script_class="HiddenObjectData" format=3]
+
+[ext_resource type="Script" path="res://scripts/hidden_object_data.gd" id="1_data"]
+
+[ext_resource type="Texture2D" path="res://assets/objects/visitors_pass_v1.png" id="2_texture"]
+
+[resource]
+script = ExtResource("1_data")
+object_id = &"visitors_pass"
+display_name = "Visitor's Pass"
+description = "A pink card pass: 'ADMIT ONE - R. VANE - ALL WARDS'."
+collection_message = "You found a visitor's pass!"
+clue_text = "'Dr R. Vane, all wards, all hours.' Signed by the matron, E. Crane. Vane did not only send patients here. He came and went as he pleased."
+hint_text = "It is behind the second shutter of the bell board. It only opens when its bell rings."
+riddle_text = ""
+placeholder_style = 197
+texture = ExtResource("2_texture")
+icon_texture = ExtResource("2_texture")
+is_required = true
+starts_visible = true

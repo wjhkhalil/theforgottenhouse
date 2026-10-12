@@ -1,0 +1,27 @@
+[gd_resource type="Resource" script_class="LevelData" format=3]
+
+[ext_resource type="Script" path="res://scripts/level_data.gd" id="1_level"]
+
+[resource]
+script = ExtResource("1_level")
+chapter_id = &"ward_seven"
+room_name = "Ward Seven"
+intro_message = "Seven beds, seven people the world thinks are dead. The matron has run for the fire stair. The ward is two screens long: look left and right. Each patient is missing one belonging: find it, and they will trust you with something of their own. Find the 23 hidden objects."
+hint_cooldown_seconds = 130.0
+hint_area_radius = 370.0
+hint_area_offset = 200.0
+chapter_title = "Hollowmere Sanatorium - House Three Complete"
+chapter_hook = "The fire bell is still ringing when the first lanterns come up the moor road. Edith Vane is stopped at the gate with eight torn tickets in her pocket. Seven people walk out of Hollowmere under their own names."
+final_letter_title = "Seven Names"
+final_letter_text = "Ellie,
+
+You asked me to write it down so that it is never lost again.
+
+Tobias Hale. Ruth Marsh. Albert Finch. Ivy Pell. Samuel Trevor. Dora Quill. Winifred Dace.
+
+Toby's mother came on the first train. She had all forty-one of his letters in her bag: the police found them in the lodge. She read them on the platform with him standing beside her.
+
+You found me. Then you went back for seven strangers because I heard them through a wall.
+
+There is a light on in every room at Ashworth tonight."
+final_letter_signature = "- Mara"

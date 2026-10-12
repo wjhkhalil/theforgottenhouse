@@ -1,0 +1,20 @@
+[gd_resource type="Resource" script_class="HiddenObjectData" format=3]
+
+[ext_resource type="Script" path="res://scripts/hidden_object_data.gd" id="1_data"]
+
+[ext_resource type="Texture2D" path="res://assets/objects/stokers_cap_v1.png" id="2_texture"]
+
+[resource]
+script = ExtResource("1_data")
+object_id = &"stokers_cap"
+display_name = "Stoker's Cap"
+description = "A greasy flat cap, black with coal dust."
+collection_message = "You found the stoker's cap!"
+clue_text = "Inked inside: 'J. HOBBS'. He left in a hurry and left the fire door open."
+hint_text = "It hangs on a pipe on the left, inside the first jet of steam. Shut that jet first."
+riddle_text = ""
+placeholder_style = 248
+texture = ExtResource("2_texture")
+icon_texture = ExtResource("2_texture")
+is_required = true
+starts_visible = true

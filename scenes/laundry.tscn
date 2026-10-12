@@ -1,0 +1,356 @@
+[gd_scene format=3]
+
+[ext_resource type="Script" path="res://scripts/room_level.gd" id="1_room"]
+[ext_resource type="Resource" path="res://resources/levels/laundry_level.tres" id="2_level"]
+[ext_resource type="Script" path="res://scripts/game_manager.gd" id="3_manager"]
+[ext_resource type="Script" path="res://scripts/laundry_art.gd" id="4_art"]
+[ext_resource type="PackedScene" path="res://scenes/objects/hidden_object.tscn" id="5_object"]
+[ext_resource type="PackedScene" path="res://scenes/objects/openable_container.tscn" id="6_container"]
+[ext_resource type="Resource" path="res://resources/objects/flat_iron.tres" id="10_flat_iron"]
+[ext_resource type="Resource" path="res://resources/objects/dolly_peg.tres" id="11_dolly_peg"]
+[ext_resource type="Resource" path="res://resources/objects/carbolic_soap.tres" id="12_carbolic_soap"]
+[ext_resource type="Resource" path="res://resources/objects/washboard.tres" id="13_washboard"]
+[ext_resource type="Resource" path="res://resources/objects/smock_seven.tres" id="14_smock_seven"]
+[ext_resource type="Resource" path="res://resources/objects/laundry_ticket.tres" id="15_laundry_ticket"]
+[ext_resource type="Resource" path="res://resources/objects/darning_egg.tres" id="16_darning_egg"]
+[ext_resource type="Resource" path="res://resources/objects/blue_bag.tres" id="17_blue_bag"]
+[ext_resource type="Resource" path="res://resources/objects/laundry_scissors.tres" id="18_laundry_scissors"]
+[ext_resource type="Resource" path="res://resources/objects/linen_tally.tres" id="19_linen_tally"]
+[ext_resource type="Resource" path="res://resources/objects/locker_key.tres" id="20_locker_key"]
+[ext_resource type="Resource" path="res://resources/objects/initialled_pillowcase.tres" id="21_initialled_pillowcase"]
+[ext_resource type="Resource" path="res://resources/objects/mangle_note.tres" id="22_mangle_note"]
+[ext_resource type="Resource" path="res://resources/objects/pressed_letter.tres" id="23_pressed_letter"]
+[ext_resource type="Resource" path="res://resources/objects/childs_spectacles.tres" id="24_childs_spectacles"]
+[ext_resource type="Resource" path="res://resources/objects/nells_diary.tres" id="25_nells_diary"]
+[ext_resource type="Resource" path="res://resources/objects/ward_seven_chit.tres" id="26_ward_seven_chit"]
+[ext_resource type="Resource" path="res://resources/objects/boiler_room_key.tres" id="27_boiler_room_key"]
+[ext_resource type="Resource" path="res://resources/objects/scorched_page.tres" id="28_scorched_page"]
+[ext_resource type="Script" path="res://scripts/drying_rail.gd" id="40_effect"]
+[ext_resource type="Script" path="res://scripts/hint_highlight.gd" id="41_hint"]
+[ext_resource type="PackedScene" path="res://scenes/ui/hud.tscn" id="42_hud"]
+[ext_resource type="PackedScene" path="res://scenes/ui/notification.tscn" id="43_note"]
+[ext_resource type="PackedScene" path="res://scenes/victory_screen.tscn" id="44_victory"]
+[ext_resource type="PackedScene" path="res://scenes/ui/pause_menu.tscn" id="45_pause"]
+[ext_resource type="PackedScene" path="res://scenes/ui/letter_popup.tscn" id="46_letter"]
+[ext_resource type="PackedScene" path="res://scenes/ui/keypad_lock.tscn" id="47_keypad"]
+[ext_resource type="Texture2D" path="res://assets/backgrounds/laundry_background_v1.png" id="bg_laundry"]
+[ext_resource type="Texture2D" path="res://assets/objects/laundry_linen_press_closed_v1.png" id="tex_laundry_linen_press_closed_v1"]
+[ext_resource type="Texture2D" path="res://assets/objects/laundry_linen_press_open_v1.png" id="tex_laundry_linen_press_open_v1"]
+[ext_resource type="Texture2D" path="res://assets/objects/laundry_wash_copper_closed_v1.png" id="tex_laundry_wash_copper_closed_v1"]
+[ext_resource type="Texture2D" path="res://assets/objects/laundry_wash_copper_open_v1.png" id="tex_laundry_wash_copper_open_v1"]
+[ext_resource type="Texture2D" path="res://assets/objects/laundry_sorting_basket_closed_v1.png" id="tex_laundry_sorting_basket_closed_v1"]
+[ext_resource type="Texture2D" path="res://assets/objects/laundry_sorting_basket_open_v1.png" id="tex_laundry_sorting_basket_open_v1"]
+[ext_resource type="Texture2D" path="res://assets/objects/laundry_mangle_drawer_closed_v1.png" id="tex_laundry_mangle_drawer_closed_v1"]
+[ext_resource type="Texture2D" path="res://assets/objects/laundry_mangle_drawer_open_v1.png" id="tex_laundry_mangle_drawer_open_v1"]
+[ext_resource type="Texture2D" path="res://assets/objects/laundry_ironing_drawer_closed_v1.png" id="tex_laundry_ironing_drawer_closed_v1"]
+[ext_resource type="Texture2D" path="res://assets/objects/laundry_ironing_drawer_open_v1.png" id="tex_laundry_ironing_drawer_open_v1"]
+[ext_resource type="Texture2D" path="res://assets/objects/laundry_soap_crate_closed_v1.png" id="tex_laundry_soap_crate_closed_v1"]
+[ext_resource type="Texture2D" path="res://assets/objects/laundry_soap_crate_open_v1.png" id="tex_laundry_soap_crate_open_v1"]
+[ext_resource type="Texture2D" path="res://assets/objects/laundry_nells_locker_closed_v1.png" id="tex_laundry_nells_locker_closed_v1"]
+[ext_resource type="Texture2D" path="res://assets/objects/laundry_nells_locker_open_v1.png" id="tex_laundry_nells_locker_open_v1"]
+[ext_resource type="Texture2D" path="res://assets/objects/laundry_cash_tin_closed_v1.png" id="tex_laundry_cash_tin_closed_v1"]
+[ext_resource type="Texture2D" path="res://assets/objects/laundry_cash_tin_open_v1.png" id="tex_laundry_cash_tin_open_v1"]
+[ext_resource type="Texture2D" path="res://assets/objects/laundry_drying_cabinet_closed_v1.png" id="tex_laundry_drying_cabinet_closed_v1"]
+[ext_resource type="Texture2D" path="res://assets/objects/laundry_drying_cabinet_open_v1.png" id="tex_laundry_drying_cabinet_open_v1"]
+[ext_resource type="Texture2D" path="res://assets/objects/laundry_boiler_room_door_closed_v1.png" id="tex_laundry_boiler_room_door_closed_v1"]
+[ext_resource type="Texture2D" path="res://assets/objects/laundry_boiler_room_door_open_v1.png" id="tex_laundry_boiler_room_door_open_v1"]
+
+[node name="Laundry" type="Node2D" node_paths=PackedStringArray("keypad_lock")]
+script = ExtResource("1_room")
+level_data = ExtResource("2_level")
+keypad_lock = NodePath("KeypadLock")
+
+[node name="GameManager" type="Node" parent="."]
+unique_name_in_owner = true
+script = ExtResource("3_manager")
+
+[node name="RoomBackground" type="Node2D" parent="."]
+script = ExtResource("4_art")
+replacement_texture = ExtResource("bg_laundry")
+
+[node name="HiddenObjects" type="Node2D" parent="."]
+unique_name_in_owner = true
+
+[node name="FlatIron" parent="HiddenObjects" instance=ExtResource("5_object")]
+position = Vector2(800, 468)
+data = ExtResource("10_flat_iron")
+texture_scale = Vector2(0.1742, 0.1742)
+
+[node name="DollyPeg" parent="HiddenObjects" instance=ExtResource("5_object")]
+position = Vector2(290, 186)
+data = ExtResource("11_dolly_peg")
+rotation = 0.25
+texture_scale = Vector2(0.1515, 0.1515)
+
+[node name="CarbolicSoap" parent="HiddenObjects" instance=ExtResource("5_object")]
+position = Vector2(300, 326)
+rotation = 0.1
+data = ExtResource("12_carbolic_soap")
+texture_scale = Vector2(0.0985, 0.0985)
+
+[node name="Washboard" parent="HiddenObjects" instance=ExtResource("5_object")]
+position = Vector2(222, 452)
+rotation = 0.1
+data = ExtResource("13_washboard")
+texture_scale = Vector2(0.2803, 0.2803)
+
+[node name="SmockSeven" parent="HiddenObjects" instance=ExtResource("5_object")]
+position = Vector2(494, 238)
+data = ExtResource("14_smock_seven")
+texture_scale = Vector2(0.2273, 0.2273)
+
+[node name="LaundryTicket" parent="HiddenObjects" instance=ExtResource("5_object")]
+position = Vector2(751, 208)
+rotation = -0.05
+data = ExtResource("15_laundry_ticket")
+texture_scale = Vector2(0.1742, 0.1742)
+
+[node name="DarningEgg" parent="HiddenObjects" instance=ExtResource("5_object")]
+position = Vector2(862, 474)
+data = ExtResource("16_darning_egg")
+rotation = 1.35
+texture_scale = Vector2(0.1136, 0.1136)
+
+[node name="BlueBag" parent="HiddenObjects" instance=ExtResource("5_object")]
+position = Vector2(335, 190)
+data = ExtResource("17_blue_bag")
+texture_scale = Vector2(0.1136, 0.1136)
+
+[node name="LaundryScissors" parent="HiddenObjects" instance=ExtResource("5_object")]
+position = Vector2(712, 600)
+rotation = 1.2
+data = ExtResource("18_laundry_scissors")
+texture_scale = Vector2(0.197, 0.197)
+
+[node name="LinenPress" parent="HiddenObjects" node_paths=PackedStringArray("contents", "required_object") instance=ExtResource("6_container")]
+position = Vector2(607, 357)
+container_id = &"linen_press"
+contents = NodePath("../LinenTally")
+open_title = "You cut the tape and open the linen press..."
+open_message = "Stacks of folded sheets, and wedged down the side a narrow tally book."
+required_object = NodePath("../LaundryScissors")
+locked_title = "The linen press is tied shut."
+locked_message = "Its doors are bound together with knotted linen tape, pulled tight. You need something to cut it."
+style = 3
+tint = Color(0.7, 0.68, 0.6, 1)
+size = Vector2(274.862, 294.495)
+closed_texture = ExtResource("tex_laundry_linen_press_closed_v1")
+open_texture = ExtResource("tex_laundry_linen_press_open_v1")
+scale = Vector2(0.5093, 0.5093)
+
+[node name="LinenTally" parent="HiddenObjects" instance=ExtResource("5_object")]
+position = Vector2(573, 295)
+data = ExtResource("19_linen_tally")
+texture_scale = Vector2(0.0985, 0.0985)
+
+[node name="WashCopper" parent="HiddenObjects" node_paths=PackedStringArray("contents") instance=ExtResource("6_container")]
+position = Vector2(149, 296)
+container_id = &"wash_copper"
+contents = NodePath("../LockerKey")
+open_title = "You lift the wooden lid of the copper..."
+open_message = "The water is cold and grey. Something small glints at the bottom."
+style = 7
+tint = Color(0.5, 0.36, 0.22, 1)
+size = Vector2(364.853, 280.656)
+closed_texture = ExtResource("tex_laundry_wash_copper_closed_v1")
+open_texture = ExtResource("tex_laundry_wash_copper_open_v1")
+scale = Vector2(0.285, 0.285)
+
+[node name="LockerKey" parent="HiddenObjects" instance=ExtResource("5_object")]
+position = Vector2(142, 291)
+data = ExtResource("20_locker_key")
+texture_scale = Vector2(0.1061, 0.1061)
+
+[node name="SortingBasket" parent="HiddenObjects" node_paths=PackedStringArray("contents") instance=ExtResource("6_container")]
+position = Vector2(232, 558)
+container_id = &"sorting_basket"
+contents = NodePath("../InitialledPillowcase")
+open_title = "You turn out the sorting basket..."
+open_message = "Grey smocks, all numbered, and one pillowcase with red stitching."
+style = 6
+tint = Color(0.55, 0.5, 0.4, 1)
+size = Vector2(382.143, 305.714)
+closed_texture = ExtResource("tex_laundry_sorting_basket_closed_v1")
+open_texture = ExtResource("tex_laundry_sorting_basket_open_v1")
+scale = Vector2(0.2617, 0.2617)
+
+[node name="InitialledPillowcase" parent="HiddenObjects" instance=ExtResource("5_object")]
+position = Vector2(232, 545)
+data = ExtResource("21_initialled_pillowcase")
+texture_scale = Vector2(0.1667, 0.1667)
+
+[node name="MangleDrawer" parent="HiddenObjects" node_paths=PackedStringArray("contents") instance=ExtResource("6_container")]
+position = Vector2(528, 562)
+container_id = &"mangle_drawer"
+contents = NodePath("../MangleNote")
+open_title = "You pull out the drawer under the mangle..."
+open_message = "Spare wooden rollers pins, and a slip of paper pressed perfectly flat."
+style = 4
+tint = Color(0.2, 0.2, 0.22, 1)
+size = Vector2(400.087, 260.522)
+closed_texture = ExtResource("tex_laundry_mangle_drawer_closed_v1")
+open_texture = ExtResource("tex_laundry_mangle_drawer_open_v1")
+scale = Vector2(0.215, 0.215)
+
+[node name="MangleNote" parent="HiddenObjects" instance=ExtResource("5_object")]
+position = Vector2(528, 565)
+data = ExtResource("22_mangle_note")
+texture_scale = Vector2(0.1212, 0.1212)
+
+[node name="IroningDrawer" parent="HiddenObjects" node_paths=PackedStringArray("contents") instance=ExtResource("6_container")]
+position = Vector2(890, 522.6)
+container_id = &"ironing_drawer"
+contents = NodePath("../PressedLetter")
+open_title = "You open the drawer of the ironing table..."
+open_message = "Beeswax, a scorched cloth, and a letter that has been ironed."
+style = 4
+tint = Color(0.36, 0.23, 0.14, 1)
+size = Vector2(406.6, 267.5)
+closed_texture = ExtResource("tex_laundry_ironing_drawer_closed_v1")
+open_texture = ExtResource("tex_laundry_ironing_drawer_open_v1")
+scale = Vector2(0.1869, 0.1869)
+
+[node name="PressedLetter" parent="HiddenObjects" instance=ExtResource("5_object")]
+position = Vector2(890, 525)
+data = ExtResource("23_pressed_letter")
+texture_scale = Vector2(0.1061, 0.1061)
+
+[node name="SoapCrate" parent="HiddenObjects" node_paths=PackedStringArray("contents") instance=ExtResource("6_container")]
+position = Vector2(352, 596)
+container_id = &"soap_crate"
+contents = NodePath("../ChildsSpectacles")
+open_title = "You lift the lid of the soap crate..."
+open_message = "Bars of carbolic packed in straw, and something that is not soap."
+style = 7
+tint = Color(0.5, 0.4, 0.26, 1)
+size = Vector2(383.417, 294.25)
+closed_texture = ExtResource("tex_laundry_soap_crate_closed_v1")
+open_texture = ExtResource("tex_laundry_soap_crate_open_v1")
+scale = Vector2(0.2243, 0.2243)
+
+[node name="ChildsSpectacles" parent="HiddenObjects" instance=ExtResource("5_object")]
+position = Vector2(352, 588)
+data = ExtResource("24_childs_spectacles")
+texture_scale = Vector2(0.1742, 0.1742)
+
+[node name="NellsLocker" parent="HiddenObjects" node_paths=PackedStringArray("contents", "required_object") instance=ExtResource("6_container")]
+position = Vector2(814, 357.7)
+container_id = &"nells_locker"
+contents = NodePath("../NellsDiary")
+open_title = "The little key turns..."
+open_message = "A clean apron, a pair of clogs, and a pocket diary on the top shelf."
+required_object = NodePath("../LockerKey")
+locked_title = "The staff locker is locked."
+locked_message = "A narrow green locker with 'N. FRY' on a card. You need its key."
+style = 3
+tint = Color(0.25, 0.3, 0.28, 1)
+size = Vector2(108.877, 300.351)
+closed_texture = ExtResource("tex_laundry_nells_locker_closed_v1")
+open_texture = ExtResource("tex_laundry_nells_locker_open_v1")
+scale = Vector2(0.5327, 0.5327)
+
+[node name="NellsDiary" parent="HiddenObjects" instance=ExtResource("5_object")]
+position = Vector2(812, 424)
+data = ExtResource("25_nells_diary")
+texture_scale = Vector2(0.0985, 0.0985)
+
+[node name="CashTin" parent="HiddenObjects" node_paths=PackedStringArray("contents") instance=ExtResource("6_container")]
+position = Vector2(478, 288)
+container_id = &"cash_tin"
+contents = NodePath("../WardSevenChit")
+open_title = "The lock clicks round to 2616..."
+open_message = "A few coins, a bus timetable, and a chit on stiff blue paper."
+required_code = "2616"
+code_title = "Nell's Cash Tin"
+code_prompt = "A red cash tin with a four-number lock. Nell uses the same number for everything she has to remember."
+code_hint_first = "Wrong. Nell's own number is printed on something pinned to the notice board, behind the sheets."
+code_hint_second = "Her laundry ticket is No. 2616. The code is 2616."
+code_hint_first_after = 11
+code_hint_second_after = 14
+style = 7
+tint = Color(0.5, 0.14, 0.12, 1)
+size = Vector2(393.76, 308.16)
+closed_texture = ExtResource("tex_laundry_cash_tin_closed_v1")
+open_texture = ExtResource("tex_laundry_cash_tin_open_v1")
+scale = Vector2(0.1168, 0.1168)
+
+[node name="WardSevenChit" parent="HiddenObjects" instance=ExtResource("5_object")]
+position = Vector2(478, 292)
+data = ExtResource("26_ward_seven_chit")
+texture_scale = Vector2(0.0909, 0.0909)
+
+[node name="DryingCabinet" parent="HiddenObjects" node_paths=PackedStringArray("contents") instance=ExtResource("6_container")]
+position = Vector2(732, 355)
+container_id = &"drying_cabinet"
+contents = NodePath("../BoilerRoomKey")
+open_title = "The lock clicks round to 0540..."
+open_message = "Warm air rolls out. Among the hanging towels, a key on a wire hook."
+required_code = "0540"
+code_title = "The Drying Cabinet"
+code_prompt = "The drying cabinet has a four-number lock. Chalked beside it: 'Same as lighting-up.'"
+code_hint_first = "Wrong. When is the copper lit? Nell chalked the time on the wall above it."
+code_hint_second = "The wall above the copper says 'COPPER LIT 05.40'. The code is 0540."
+code_hint_first_after = 11
+code_hint_second_after = 14
+style = 3
+tint = Color(0.3, 0.33, 0.36, 1)
+size = Vector2(163.418, 311.273)
+closed_texture = ExtResource("tex_laundry_drying_cabinet_closed_v1")
+open_texture = ExtResource("tex_laundry_drying_cabinet_open_v1")
+scale = Vector2(-0.514, 0.514)
+
+[node name="BoilerRoomKey" parent="HiddenObjects" instance=ExtResource("5_object")]
+position = Vector2(734, 311)
+data = ExtResource("27_boiler_room_key")
+texture_scale = Vector2(0.1364, 0.1364)
+
+[node name="BoilerRoomDoor" parent="HiddenObjects" node_paths=PackedStringArray("contents", "required_object") instance=ExtResource("6_container")]
+position = Vector2(924, 330.4)
+container_id = &"boiler_room_door"
+contents = NodePath("../ScorchedPage")
+open_title = "The warm key turns..."
+open_message = "The door swings open on heat and a red glow. A scorched page skitters across the threshold."
+required_object = NodePath("../BoilerRoomKey")
+locked_title = "The boiler room door is locked."
+locked_message = "An iron door, hot to the touch. Behind it a furnace is roaring. You need the boiler room key."
+style = 3
+tint = Color(0.2, 0.2, 0.22, 1)
+size = Vector2(165.193, 300.351)
+closed_texture = ExtResource("tex_laundry_boiler_room_door_closed_v1")
+open_texture = ExtResource("tex_laundry_boiler_room_door_open_v1")
+scale = Vector2(0.6659, 0.6659)
+
+[node name="ScorchedPage" parent="HiddenObjects" instance=ExtResource("5_object")]
+position = Vector2(915, 430)
+data = ExtResource("28_scorched_page")
+texture_scale = Vector2(0.0985, 0.0985)
+
+[node name="RoomForeground" type="Node2D" parent="."]
+visible = false
+script = ExtResource("4_art")
+layer = 1
+
+[node name="DryingRail" type="Node2D" parent="."]
+script = ExtResource("40_effect")
+
+[node name="HintHighlight" type="Node2D" parent="."]
+unique_name_in_owner = true
+visible = false
+script = ExtResource("41_hint")
+
+[node name="HUD" parent="." instance=ExtResource("42_hud")]
+unique_name_in_owner = true
+
+[node name="Notification" parent="." instance=ExtResource("43_note")]
+unique_name_in_owner = true
+
+[node name="VictoryScreen" parent="." instance=ExtResource("44_victory")]
+unique_name_in_owner = true
+
+[node name="PauseMenu" parent="." instance=ExtResource("45_pause")]
+unique_name_in_owner = true
+
+[node name="LetterPopup" parent="." instance=ExtResource("46_letter")]
+unique_name_in_owner = true
+
+[node name="KeypadLock" parent="." instance=ExtResource("47_keypad")]

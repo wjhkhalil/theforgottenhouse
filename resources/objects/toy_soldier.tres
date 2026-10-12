@@ -1,0 +1,20 @@
+[gd_resource type="Resource" script_class="HiddenObjectData" format=3]
+
+[ext_resource type="Script" path="res://scripts/hidden_object_data.gd" id="1_data"]
+
+[ext_resource type="Texture2D" path="res://assets/objects/toy_soldier_v1.png" id="2_texture"]
+
+[resource]
+script = ExtResource("1_data")
+object_id = &"toy_soldier"
+display_name = "Toy Soldier"
+description = "A painted lead soldier in a parcel that was never delivered."
+collection_message = "You found a toy soldier!"
+clue_text = "The parcel is addressed to 'Toby Hale, Hollowmere' in a mother's careful hand, and postmarked last Christmas. She does not know he is 'dead'."
+hint_text = "It is at the bottom of the mail sack on the floor, in front of the right end of the desk."
+riddle_text = ""
+placeholder_style = 204
+texture = ExtResource("2_texture")
+icon_texture = ExtResource("2_texture")
+is_required = true
+starts_visible = false

@@ -1,0 +1,20 @@
+[gd_resource type="Resource" script_class="HiddenObjectData" format=3]
+
+[ext_resource type="Script" path="res://scripts/hidden_object_data.gd" id="1_data"]
+
+[ext_resource type="Texture2D" path="res://assets/objects/sleeping_draught_v1.png" id="2_texture"]
+
+[resource]
+script = ExtResource("1_data")
+object_id = &"sleeping_draught"
+display_name = "Sleeping Draught"
+description = "A corked medicine bottle, freshly made up."
+collection_message = "You found the sleeping draught!"
+clue_text = "'Double strength. For the journey.' Seven doses, measured ready."
+hint_text = "It is in the tea caddy on the side table. The caddy is locked: its key is on top of the wardrobe, in the mirror."
+riddle_text = ""
+placeholder_style = 303
+texture = ExtResource("2_texture")
+icon_texture = ExtResource("2_texture")
+is_required = true
+starts_visible = false

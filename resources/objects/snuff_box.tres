@@ -1,0 +1,20 @@
+[gd_resource type="Resource" script_class="HiddenObjectData" format=3]
+
+[ext_resource type="Script" path="res://scripts/hidden_object_data.gd" id="1_data"]
+
+[ext_resource type="Texture2D" path="res://assets/objects/snuff_box_v1.png" id="2_texture"]
+
+[resource]
+script = ExtResource("1_data")
+object_id = &"snuff_box"
+display_name = "Snuff Box"
+description = "A dented pewter snuff box with a hinged lid."
+collection_message = "You found a snuff box!"
+clue_text = "Inside the lid someone has scratched a tally: seven strokes, and beside the last one, 'still ringing'."
+hint_text = "It is behind the fourth shutter of the bell board. Be quick when its bell rings."
+riddle_text = ""
+placeholder_style = 199
+texture = ExtResource("2_texture")
+icon_texture = ExtResource("2_texture")
+is_required = true
+starts_visible = true

@@ -1,0 +1,20 @@
+[gd_resource type="Resource" script_class="HiddenObjectData" format=3]
+
+[ext_resource type="Script" path="res://scripts/hidden_object_data.gd" id="1_data"]
+
+[ext_resource type="Texture2D" path="res://assets/objects/duty_roster_v1.png" id="2_texture"]
+
+[resource]
+script = ExtResource("1_data")
+object_id = &"duty_roster"
+display_name = "Duty Roster"
+description = "The lodge roster, a grid of names and nights."
+collection_message = "You found the duty roster!"
+clue_text = "A. Pike has worked every night for six years with no relief. Whoever pays him wants no second pair of eyes at this gate."
+hint_text = "It is in the drawer of the porter's desk. Click the drawer to open it."
+riddle_text = ""
+placeholder_style = 201
+texture = ExtResource("2_texture")
+icon_texture = ExtResource("2_texture")
+is_required = true
+starts_visible = false

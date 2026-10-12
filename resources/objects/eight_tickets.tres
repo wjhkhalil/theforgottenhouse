@@ -1,0 +1,20 @@
+[gd_resource type="Resource" script_class="HiddenObjectData" format=3]
+
+[ext_resource type="Script" path="res://scripts/hidden_object_data.gd" id="1_data"]
+
+[ext_resource type="Texture2D" path="res://assets/objects/eight_tickets_v1.png" id="2_texture"]
+
+[resource]
+script = ExtResource("1_data")
+object_id = &"eight_tickets"
+display_name = "Eight Tickets"
+description = "Eight railway tickets, torn in two and thrown away."
+collection_message = "You found the eight tickets!"
+clue_text = "Eight singles to the coast by the 01.25. She bought them, then tore them up. She means to take them some other way."
+hint_text = "They are in the waste basket beside the desk."
+riddle_text = ""
+placeholder_style = 301
+texture = ExtResource("2_texture")
+icon_texture = ExtResource("2_texture")
+is_required = true
+starts_visible = false

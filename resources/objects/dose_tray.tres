@@ -1,0 +1,20 @@
+[gd_resource type="Resource" script_class="HiddenObjectData" format=3]
+
+[ext_resource type="Script" path="res://scripts/hidden_object_data.gd" id="1_data"]
+
+[ext_resource type="Texture2D" path="res://assets/objects/dose_tray_v1.png" id="2_texture"]
+
+[resource]
+script = ExtResource("1_data")
+object_id = &"dose_tray"
+display_name = "Dose Tray"
+description = "A tin tray of seven small cups, numbered."
+collection_message = "You found the dose tray!"
+clue_text = "Tonight's seven doses, poured and never given. Double strength, for a journey."
+hint_text = "It is in the medicine trolley. You need the spoon key that Toby made."
+riddle_text = ""
+placeholder_style = 329
+texture = ExtResource("2_texture")
+icon_texture = ExtResource("2_texture")
+is_required = true
+starts_visible = false

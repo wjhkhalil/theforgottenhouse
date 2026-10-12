@@ -1,0 +1,20 @@
+[gd_resource type="Resource" script_class="HiddenObjectData" format=3]
+
+[ext_resource type="Script" path="res://scripts/hidden_object_data.gd" id="1_data"]
+
+[ext_resource type="Texture2D" path="res://assets/objects/cracked_gauge_v1.png" id="2_texture"]
+
+[resource]
+script = ExtResource("1_data")
+object_id = &"cracked_gauge"
+display_name = "Cracked Gauge"
+description = "A brass pressure gauge with a cracked glass."
+collection_message = "You found the cracked gauge!"
+clue_text = "The needle is jammed in the red. This boiler has been driven far too hard tonight."
+hint_text = "It is mounted on the boiler front, inside the middle jet. Shut the middle valve."
+riddle_text = ""
+placeholder_style = 249
+texture = ExtResource("2_texture")
+icon_texture = ExtResource("2_texture")
+is_required = true
+starts_visible = true

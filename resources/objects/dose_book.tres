@@ -1,0 +1,20 @@
+[gd_resource type="Resource" script_class="HiddenObjectData" format=3]
+
+[ext_resource type="Script" path="res://scripts/hidden_object_data.gd" id="1_data"]
+
+[ext_resource type="Texture2D" path="res://assets/objects/dose_book_v1.png" id="2_texture"]
+
+[resource]
+script = ExtResource("1_data")
+object_id = &"dose_book"
+display_name = "Dose Book"
+description = "A narrow book ruled in columns."
+collection_message = "You found the dose book!"
+clue_text = "Seven columns, headed 1 to 7, and a tick in each for every night at 21.30. Six years of ticks."
+hint_text = "It is in the powder drawer under the counter."
+riddle_text = ""
+placeholder_style = 278
+texture = ExtResource("2_texture")
+icon_texture = ExtResource("2_texture")
+is_required = true
+starts_visible = false

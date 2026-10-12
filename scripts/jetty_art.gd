@@ -4,7 +4,8 @@ extends RoomArt
 ## Placeholder drawing of House Two, Chapter One: the jetty on Blackwater Lake.
 ## See room_art.gd for how to replace it with a real image.
 ##
-## The room is TWO SCREENS WIDE (2560 x 720) and seen from the side. Left to
+## The placeholder is drawn TWO SCREENS WIDE (2560 x 720), seen from the side.
+## (The painted background in jetty.tscn is narrower: 1920 x 720.) Left to
 ## right along the jetty: reeds and the bait bucket, a lamp post, the rowing
 ## boat tied up below the planks, a mooring post with the tackle box, barrels
 ## and coiled ropes, the padlocked fish crate, a second lamp, and finally the

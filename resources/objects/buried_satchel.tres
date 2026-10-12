@@ -1,0 +1,20 @@
+[gd_resource type="Resource" script_class="HiddenObjectData" format=3]
+
+[ext_resource type="Script" path="res://scripts/hidden_object_data.gd" id="1_data"]
+
+[ext_resource type="Texture2D" path="res://assets/objects/buried_satchel_v1.png" id="2_texture"]
+
+[resource]
+script = ExtResource("1_data")
+object_id = &"buried_satchel"
+display_name = "Buried Satchel"
+description = "A child's school satchel, black with coal."
+collection_message = "You found the buried satchel!"
+clue_text = "Inside the flap, in careful ink: 'Tobias Hale, Class 3'. It was meant to burn, and somebody buried it instead."
+hint_text = "It is buried in the coal bunker on the left, inside the first jet."
+riddle_text = ""
+placeholder_style = 256
+texture = ExtResource("2_texture")
+icon_texture = ExtResource("2_texture")
+is_required = true
+starts_visible = false

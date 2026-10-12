@@ -1,0 +1,20 @@
+[gd_resource type="Resource" script_class="HiddenObjectData" format=3]
+
+[ext_resource type="Script" path="res://scripts/hidden_object_data.gd" id="1_data"]
+
+[ext_resource type="Texture2D" path="res://assets/objects/bent_spoon_v1.png" id="2_texture"]
+
+[resource]
+script = ExtResource("1_data")
+object_id = &"bent_spoon"
+display_name = "Bent Spoon"
+description = "A spoon worn to a point, plastered into the wall."
+collection_message = "You found a bent spoon in the wall!"
+clue_text = "The bowl is worn to a point from scraping mortar. Somebody has been digging from the other side of this wall, and was nearly through."
+hint_text = "It is plastered into the wall at the edge of the bare patch, just right of the exposure chart. Pass the X-ray screen over it."
+riddle_text = ""
+placeholder_style = 215
+texture = ExtResource("2_texture")
+icon_texture = ExtResource("2_texture")
+is_required = true
+starts_visible = true

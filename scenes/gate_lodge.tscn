@@ -1,0 +1,325 @@
+[gd_scene format=3]
+
+[ext_resource type="Script" path="res://scripts/room_level.gd" id="1_room"]
+[ext_resource type="Resource" path="res://resources/levels/gate_lodge_level.tres" id="2_level"]
+[ext_resource type="Script" path="res://scripts/game_manager.gd" id="3_manager"]
+[ext_resource type="Script" path="res://scripts/gate_lodge_art.gd" id="4_art"]
+[ext_resource type="PackedScene" path="res://scenes/objects/hidden_object.tscn" id="5_object"]
+[ext_resource type="PackedScene" path="res://scenes/objects/openable_container.tscn" id="6_container"]
+[ext_resource type="Resource" path="res://resources/objects/porters_cap.tres" id="10_porters_cap"]
+[ext_resource type="Resource" path="res://resources/objects/hurricane_lamp.tres" id="11_hurricane_lamp"]
+[ext_resource type="Resource" path="res://resources/objects/enamel_mug.tres" id="12_enamel_mug"]
+[ext_resource type="Resource" path="res://resources/objects/unposted_letters.tres" id="13_unposted_letters"]
+[ext_resource type="Resource" path="res://resources/objects/visitors_pass.tres" id="14_visitors_pass"]
+[ext_resource type="Resource" path="res://resources/objects/brass_ward_tag.tres" id="15_brass_ward_tag"]
+[ext_resource type="Resource" path="res://resources/objects/snuff_box.tres" id="16_snuff_box"]
+[ext_resource type="Resource" path="res://resources/objects/night_round_card.tres" id="17_night_round_card"]
+[ext_resource type="Resource" path="res://resources/objects/duty_roster.tres" id="18_duty_roster"]
+[ext_resource type="Resource" path="res://resources/objects/admission_card.tres" id="19_admission_card"]
+[ext_resource type="Resource" path="res://resources/objects/wage_packet.tres" id="20_wage_packet"]
+[ext_resource type="Resource" path="res://resources/objects/toy_soldier.tres" id="21_toy_soldier"]
+[ext_resource type="Resource" path="res://resources/objects/trunk_key.tres" id="22_trunk_key"]
+[ext_resource type="Resource" path="res://resources/objects/visitors_book.tres" id="23_visitors_book"]
+[ext_resource type="Resource" path="res://resources/objects/ward_door_key.tres" id="24_ward_door_key"]
+[ext_resource type="Resource" path="res://resources/objects/pushed_note.tres" id="25_pushed_note"]
+[ext_resource type="Resource" path="res://resources/objects/smelling_salts.tres" id="26_smelling_salts"]
+[ext_resource type="Script" path="res://scripts/bell_board.gd" id="40_effect"]
+[ext_resource type="Script" path="res://scripts/hint_highlight.gd" id="41_hint"]
+[ext_resource type="PackedScene" path="res://scenes/ui/hud.tscn" id="42_hud"]
+[ext_resource type="PackedScene" path="res://scenes/ui/notification.tscn" id="43_note"]
+[ext_resource type="PackedScene" path="res://scenes/victory_screen.tscn" id="44_victory"]
+[ext_resource type="PackedScene" path="res://scenes/ui/pause_menu.tscn" id="45_pause"]
+[ext_resource type="PackedScene" path="res://scenes/ui/letter_popup.tscn" id="46_letter"]
+[ext_resource type="PackedScene" path="res://scenes/ui/keypad_lock.tscn" id="47_keypad"]
+[ext_resource type="Texture2D" path="res://assets/backgrounds/gate_lodge_background_v1.png" id="bg_gate_lodge"]
+[ext_resource type="Texture2D" path="res://assets/objects/gate_lodge_inner_door_closed_v1.png" id="tex_gate_lodge_inner_door_closed_v1"]
+[ext_resource type="Texture2D" path="res://assets/objects/gate_lodge_inner_door_open_v1.png" id="tex_gate_lodge_inner_door_open_v1"]
+[ext_resource type="Texture2D" path="res://assets/objects/gate_lodge_coat_locker_closed_v1.png" id="tex_gate_lodge_coat_locker_closed_v1"]
+[ext_resource type="Texture2D" path="res://assets/objects/gate_lodge_coat_locker_open_v1.png" id="tex_gate_lodge_coat_locker_open_v1"]
+[ext_resource type="Texture2D" path="res://assets/objects/gate_lodge_coal_scuttle_closed_v1.png" id="tex_gate_lodge_coal_scuttle_closed_v1"]
+[ext_resource type="Texture2D" path="res://assets/objects/gate_lodge_coal_scuttle_open_v1.png" id="tex_gate_lodge_coal_scuttle_open_v1"]
+[ext_resource type="Texture2D" path="res://assets/objects/gate_lodge_desk_drawer_closed_v1.png" id="tex_gate_lodge_desk_drawer_closed_v1"]
+[ext_resource type="Texture2D" path="res://assets/objects/gate_lodge_desk_drawer_open_v1.png" id="tex_gate_lodge_desk_drawer_open_v1"]
+[ext_resource type="Texture2D" path="res://assets/objects/gate_lodge_strongbox_closed_v1.png" id="tex_gate_lodge_strongbox_closed_v1"]
+[ext_resource type="Texture2D" path="res://assets/objects/gate_lodge_strongbox_open_v1.png" id="tex_gate_lodge_strongbox_open_v1"]
+[ext_resource type="Texture2D" path="res://assets/objects/gate_lodge_key_cabinet_closed_v1.png" id="tex_gate_lodge_key_cabinet_closed_v1"]
+[ext_resource type="Texture2D" path="res://assets/objects/gate_lodge_key_cabinet_open_v1.png" id="tex_gate_lodge_key_cabinet_open_v1"]
+[ext_resource type="Texture2D" path="res://assets/objects/gate_lodge_first_aid_tin_closed_v1.png" id="tex_gate_lodge_first_aid_tin_closed_v1"]
+[ext_resource type="Texture2D" path="res://assets/objects/gate_lodge_first_aid_tin_open_v1.png" id="tex_gate_lodge_first_aid_tin_open_v1"]
+[ext_resource type="Texture2D" path="res://assets/objects/gate_lodge_mail_sack_closed_v1.png" id="tex_gate_lodge_mail_sack_closed_v1"]
+[ext_resource type="Texture2D" path="res://assets/objects/gate_lodge_mail_sack_open_v1.png" id="tex_gate_lodge_mail_sack_open_v1"]
+[ext_resource type="Texture2D" path="res://assets/objects/gate_lodge_lost_property_trunk_closed_v1.png" id="tex_gate_lodge_lost_property_trunk_closed_v1"]
+[ext_resource type="Texture2D" path="res://assets/objects/gate_lodge_lost_property_trunk_open_v1.png" id="tex_gate_lodge_lost_property_trunk_open_v1"]
+
+[node name="GateLodge" type="Node2D" node_paths=PackedStringArray("keypad_lock")]
+script = ExtResource("1_room")
+level_data = ExtResource("2_level")
+keypad_lock = NodePath("KeypadLock")
+
+[node name="GameManager" type="Node" parent="."]
+unique_name_in_owner = true
+script = ExtResource("3_manager")
+
+[node name="RoomBackground" type="Node2D" parent="."]
+script = ExtResource("4_art")
+replacement_texture = ExtResource("bg_gate_lodge")
+
+[node name="HiddenObjects" type="Node2D" parent="."]
+unique_name_in_owner = true
+
+[node name="PortersCap" parent="HiddenObjects" instance=ExtResource("5_object")]
+position = Vector2(372, 286)
+rotation = -0.1
+data = ExtResource("10_porters_cap")
+texture_scale = Vector2(0.1742, 0.1742)
+
+[node name="HurricaneLamp" parent="HiddenObjects" instance=ExtResource("5_object")]
+position = Vector2(575, 322)
+data = ExtResource("11_hurricane_lamp")
+texture_scale = Vector2(0.2197, 0.2197)
+
+[node name="EnamelMug" parent="HiddenObjects" instance=ExtResource("5_object")]
+position = Vector2(488, 336)
+data = ExtResource("12_enamel_mug")
+texture_scale = Vector2(0.1061, 0.1061)
+
+[node name="UnpostedLetters" parent="HiddenObjects" instance=ExtResource("5_object")]
+position = Vector2(608, 157)
+data = ExtResource("13_unposted_letters")
+texture_scale = Vector2(0.1364, 0.1364)
+
+[node name="VisitorsPass" parent="HiddenObjects" instance=ExtResource("5_object")]
+position = Vector2(674, 157)
+data = ExtResource("14_visitors_pass")
+texture_scale = Vector2(0.1364, 0.1364)
+
+[node name="BrassWardTag" parent="HiddenObjects" instance=ExtResource("5_object")]
+position = Vector2(739, 157)
+data = ExtResource("15_brass_ward_tag")
+texture_scale = Vector2(0.1288, 0.1288)
+
+[node name="SnuffBox" parent="HiddenObjects" instance=ExtResource("5_object")]
+position = Vector2(794, 157)
+data = ExtResource("16_snuff_box")
+texture_scale = Vector2(0.1364, 0.1364)
+
+[node name="NightRoundCard" parent="HiddenObjects" instance=ExtResource("5_object")]
+position = Vector2(851, 157)
+data = ExtResource("17_night_round_card")
+texture_scale = Vector2(0.1364, 0.1364)
+
+[node name="DeskDrawer" parent="HiddenObjects" node_paths=PackedStringArray("contents") instance=ExtResource("6_container")]
+position = Vector2(622, 376)
+container_id = &"desk_drawer"
+contents = NodePath("../DutyRoster")
+open_title = "You pull open the desk drawer..."
+open_message = "Pen nibs, a ball of string, and the lodge roster folded in four."
+style = 4
+tint = Color(0.36, 0.23, 0.14, 1)
+size = Vector2(342.4, 242.4)
+closed_texture = ExtResource("tex_gate_lodge_desk_drawer_closed_v1")
+open_texture = ExtResource("tex_gate_lodge_desk_drawer_open_v1")
+scale = Vector2(0.215, 0.215)
+
+[node name="DutyRoster" parent="HiddenObjects" instance=ExtResource("5_object")]
+position = Vector2(622, 370)
+data = ExtResource("18_duty_roster")
+texture_scale = Vector2(0.1667, 0.1667)
+
+[node name="CoalScuttle" parent="HiddenObjects" node_paths=PackedStringArray("contents") instance=ExtResource("6_container")]
+position = Vector2(385, 500)
+container_id = &"coal_scuttle"
+contents = NodePath("../AdmissionCard")
+open_title = "You tip out the coal scuttle..."
+open_message = "Among the coal lies a card, scorched at one corner. It was meant for the stove."
+style = 6
+tint = Color(0.2, 0.2, 0.22, 1)
+size = Vector2(320, 342.4)
+closed_texture = ExtResource("tex_gate_lodge_coal_scuttle_closed_v1")
+open_texture = ExtResource("tex_gate_lodge_coal_scuttle_open_v1")
+scale = Vector2(0.1822, 0.1822)
+
+[node name="AdmissionCard" parent="HiddenObjects" instance=ExtResource("5_object")]
+position = Vector2(400, 514)
+data = ExtResource("19_admission_card")
+texture_scale = Vector2(0.1288, 0.1288)
+
+[node name="CoatLocker" parent="HiddenObjects" node_paths=PackedStringArray("contents") instance=ExtResource("6_container")]
+position = Vector2(286, 352)
+container_id = &"coat_locker"
+contents = NodePath("../WagePacket")
+open_title = "The locker door swings open..."
+open_message = "A wet greatcoat hangs inside. Something thick is pushed deep into its pocket."
+style = 3
+tint = Color(0.25, 0.3, 0.28, 1)
+size = Vector2(296, 369.6)
+closed_texture = ExtResource("tex_gate_lodge_coat_locker_closed_v1")
+open_texture = ExtResource("tex_gate_lodge_coat_locker_open_v1")
+scale = Vector2(0.6169, 0.6169)
+
+[node name="WagePacket" parent="HiddenObjects" instance=ExtResource("5_object")]
+position = Vector2(286, 372)
+data = ExtResource("20_wage_packet")
+texture_scale = Vector2(0.1136, 0.1136)
+
+[node name="MailSack" parent="HiddenObjects" node_paths=PackedStringArray("contents") instance=ExtResource("6_container")]
+position = Vector2(955, 600)
+container_id = &"mail_sack"
+contents = NodePath("../ToySoldier")
+open_title = "You empty out the mail sack..."
+open_message = "Parcels and letters for the patients, some of them years old. None were ever taken up to the wards."
+style = 6
+tint = Color(0.5, 0.44, 0.32, 1)
+size = Vector2(311.2, 342.4)
+closed_texture = ExtResource("tex_gate_lodge_mail_sack_closed_v1")
+open_texture = ExtResource("tex_gate_lodge_mail_sack_open_v1")
+scale = Vector2(0.2336, 0.2336)
+
+[node name="ToySoldier" parent="HiddenObjects" instance=ExtResource("5_object")]
+position = Vector2(955, 588)
+data = ExtResource("21_toy_soldier")
+texture_scale = Vector2(0.1288, 0.1288)
+
+[node name="FirstAidTin" parent="HiddenObjects" node_paths=PackedStringArray("contents") instance=ExtResource("6_container")]
+position = Vector2(946, 218)
+container_id = &"first_aid_tin"
+contents = NodePath("../SmellingSalts")
+open_title = "You lift the lid of the first aid tin..."
+open_message = "Lint, iodine, and a small green bottle with a second label pasted on."
+style = 7
+tint = Color(0.62, 0.6, 0.52, 1)
+size = Vector2(342.4, 321.6)
+closed_texture = ExtResource("tex_gate_lodge_first_aid_tin_closed_v1")
+open_texture = ExtResource("tex_gate_lodge_first_aid_tin_open_v1")
+scale = Vector2(0.1449, 0.1449)
+
+[node name="SmellingSalts" parent="HiddenObjects" instance=ExtResource("5_object")]
+position = Vector2(946, 224)
+data = ExtResource("26_smelling_salts")
+texture_scale = Vector2(0.0833, 0.0833)
+
+[node name="KeyCabinet" parent="HiddenObjects" node_paths=PackedStringArray("contents") instance=ExtResource("6_container")]
+position = Vector2(946, 150)
+container_id = &"key_cabinet"
+contents = NodePath("../TrunkKey")
+open_title = "The lock clicks round to 1403..."
+open_message = "Rows of numbered hooks, nearly all of them empty. One small key hangs on a loop of red tape."
+required_code = "1403"
+code_title = "The Key Cabinet"
+code_prompt = "The key cabinet has a four-number lock. Pike never trusts his memory: he chalks up everything he must not forget."
+code_hint_first = "Wrong. Read the blackboard on the left wall. One line of chalk is a date."
+code_hint_second = "The blackboard says 'WARD 7 CLOSED 14-03'. Day 14, month 03: the code is 1403."
+code_hint_first_after = 10
+code_hint_second_after = 13
+style = 3
+tint = Color(0.3, 0.2, 0.13, 1)
+size = Vector2(390.4, 342.4)
+closed_texture = ExtResource("tex_gate_lodge_key_cabinet_closed_v1")
+open_texture = ExtResource("tex_gate_lodge_key_cabinet_open_v1")
+scale = Vector2(0.285, 0.285)
+
+[node name="TrunkKey" parent="HiddenObjects" instance=ExtResource("5_object")]
+position = Vector2(946, 150)
+data = ExtResource("22_trunk_key")
+texture_scale = Vector2(0.1136, 0.1136)
+
+[node name="LostPropertyTrunk" parent="HiddenObjects" node_paths=PackedStringArray("contents", "required_object") instance=ExtResource("6_container")]
+position = Vector2(790, 624)
+container_id = &"lost_property_trunk"
+contents = NodePath("../VisitorsBook")
+open_title = "The little key turns..."
+open_message = "Umbrellas, a single glove, and at the bottom a heavy bound book that was never lost at all: it was hidden."
+required_object = NodePath("../TrunkKey")
+locked_title = "The trunk is locked."
+locked_message = "A battered trunk stencilled 'LOST PROPERTY'. Its brass lock is small and neat. You need the trunk key."
+style = 0
+tint = Color(0.36, 0.23, 0.14, 1)
+size = Vector2(342.4, 340)
+closed_texture = ExtResource("tex_gate_lodge_lost_property_trunk_closed_v1")
+open_texture = ExtResource("tex_gate_lodge_lost_property_trunk_open_v1")
+scale = Vector2(0.3505, 0.3505)
+
+[node name="VisitorsBook" parent="HiddenObjects" instance=ExtResource("5_object")]
+position = Vector2(790, 632)
+data = ExtResource("23_visitors_book")
+texture_scale = Vector2(0.2197, 0.2197)
+
+[node name="Strongbox" parent="HiddenObjects" node_paths=PackedStringArray("contents") instance=ExtResource("6_container")]
+position = Vector2(925, 478)
+container_id = &"strongbox"
+contents = NodePath("../WardDoorKey")
+open_title = "The dial clicks round to 1985..."
+open_message = "The strongbox opens. Inside, on a bed of old pay slips, lies a long steel key."
+required_code = "1985"
+code_title = "The Porter's Strongbox"
+code_prompt = "An iron strongbox with a four-number dial. Scratched beside it: 'The year the boy came.'"
+code_hint_first = "Wrong. Which boy? Somebody tried to burn his admission card tonight. Look in the coal scuttle."
+code_hint_second = "The admission card says Tobias Hale was admitted in 1985. The code is 1985."
+code_hint_first_after = 10
+code_hint_second_after = 13
+style = 5
+tint = Color(0.2, 0.24, 0.3, 1)
+size = Vector2(352, 342.4)
+closed_texture = ExtResource("tex_gate_lodge_strongbox_closed_v1")
+open_texture = ExtResource("tex_gate_lodge_strongbox_open_v1")
+scale = Vector2(0.1682, 0.1682)
+
+[node name="WardDoorKey" parent="HiddenObjects" instance=ExtResource("5_object")]
+position = Vector2(916, 482)
+data = ExtResource("24_ward_door_key")
+texture_scale = Vector2(0.1212, 0.1212)
+
+[node name="InnerDoor" parent="HiddenObjects" node_paths=PackedStringArray("contents", "required_object") instance=ExtResource("6_container")]
+position = Vector2(113, 300)
+container_id = &"inner_door"
+contents = NodePath("../PushedNote")
+open_title = "The long key turns twice..."
+open_message = "The heavy door swings inward on a dark corridor. A scrap of paper lies on the threshold, and far away a bell is ringing."
+required_object = NodePath("../WardDoorKey")
+locked_title = "The inner door is locked."
+locked_message = "An iron-bound door into the sanatorium, with no handle on this side. From somewhere beyond it comes a faint, steady tapping. You need the ward door key."
+style = 3
+tint = Color(0.24, 0.26, 0.3, 1)
+size = Vector2(242.4, 342.4)
+closed_texture = ExtResource("tex_gate_lodge_inner_door_closed_v1")
+open_texture = ExtResource("tex_gate_lodge_inner_door_open_v1")
+scale = Vector2(0.7897, 0.7897)
+
+[node name="PushedNote" parent="HiddenObjects" instance=ExtResource("5_object")]
+position = Vector2(113, 446)
+data = ExtResource("25_pushed_note")
+rotation = 0.2
+texture_scale = Vector2(0.1364, 0.1364)
+
+[node name="RoomForeground" type="Node2D" parent="."]
+visible = false
+script = ExtResource("4_art")
+layer = 1
+
+[node name="BellBoard" type="Node2D" parent="."]
+script = ExtResource("40_effect")
+bell_objects = Array[NodePath]([NodePath("../HiddenObjects/UnpostedLetters"), NodePath("../HiddenObjects/VisitorsPass"), NodePath("../HiddenObjects/BrassWardTag"), NodePath("../HiddenObjects/SnuffBox"), NodePath("../HiddenObjects/NightRoundCard")])
+shutter_size = Vector2(50, 50)
+bell_height = 76.0
+
+[node name="HintHighlight" type="Node2D" parent="."]
+unique_name_in_owner = true
+visible = false
+script = ExtResource("41_hint")
+
+[node name="HUD" parent="." instance=ExtResource("42_hud")]
+unique_name_in_owner = true
+
+[node name="Notification" parent="." instance=ExtResource("43_note")]
+unique_name_in_owner = true
+
+[node name="VictoryScreen" parent="." instance=ExtResource("44_victory")]
+unique_name_in_owner = true
+
+[node name="PauseMenu" parent="." instance=ExtResource("45_pause")]
+unique_name_in_owner = true
+
+[node name="LetterPopup" parent="." instance=ExtResource("46_letter")]
+unique_name_in_owner = true
+
+[node name="KeypadLock" parent="." instance=ExtResource("47_keypad")]

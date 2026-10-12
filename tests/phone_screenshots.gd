@@ -31,7 +31,7 @@ func _run() -> void:
 		change_scene_to_file(chapter["scene"])
 		await _shot(chapter["id"])
 		if chapter["id"] == "jetty":
-			for x in [1280.0, 2560.0]:
+			for x in [960.0, 1920.0]:
 				current_scene.room_camera.focus_on(Vector2(x, 360), true)
 				await _shot("jetty_%d" % x)
 			current_scene.room_camera.focus_on(Vector2(0, 360), true)

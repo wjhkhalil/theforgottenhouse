@@ -1,0 +1,658 @@
+{
+ "objects": [
+  {
+   "id": "picture_rail_key",
+   "sheet": "matrons_office_objects_a_sheet_v1.png",
+   "grid": [
+    5,
+    2
+   ],
+   "cell": [
+    0,
+    0
+   ]
+  },
+  {
+   "id": "caddy_key",
+   "sheet": "matrons_office_objects_a_sheet_v1.png",
+   "grid": [
+    5,
+    2
+   ],
+   "cell": [
+    1,
+    0
+   ]
+  },
+  {
+   "id": "travelling_cloak",
+   "sheet": "matrons_office_objects_a_sheet_v1.png",
+   "grid": [
+    5,
+    2
+   ],
+   "cell": [
+    2,
+    0
+   ]
+  },
+  {
+   "id": "ringed_calendar",
+   "sheet": "matrons_office_objects_a_sheet_v1.png",
+   "grid": [
+    5,
+    2
+   ],
+   "cell": [
+    3,
+    0
+   ]
+  },
+  {
+   "id": "packed_valise",
+   "sheet": "matrons_office_objects_a_sheet_v1.png",
+   "grid": [
+    5,
+    2
+   ],
+   "cell": [
+    4,
+    0
+   ]
+  },
+  {
+   "id": "muddy_galoshes",
+   "sheet": "matrons_office_objects_a_sheet_v1.png",
+   "grid": [
+    5,
+    2
+   ],
+   "cell": [
+    0,
+    1
+   ]
+  },
+  {
+   "id": "telephone_receiver",
+   "sheet": "matrons_office_objects_a_sheet_v1.png",
+   "grid": [
+    5,
+    2
+   ],
+   "cell": [
+    1,
+    1
+   ]
+  },
+  {
+   "id": "silver_inkstand",
+   "sheet": "matrons_office_objects_a_sheet_v1.png",
+   "grid": [
+    5,
+    2
+   ],
+   "cell": [
+    2,
+    1
+   ]
+  },
+  {
+   "id": "hat_pin",
+   "sheet": "matrons_office_objects_a_sheet_v1.png",
+   "grid": [
+    5,
+    2
+   ],
+   "cell": [
+    3,
+    1
+   ]
+  },
+  {
+   "id": "brass_desk_bell",
+   "sheet": "matrons_office_objects_a_sheet_v1.png",
+   "grid": [
+    5,
+    2
+   ],
+   "cell": [
+    4,
+    1
+   ]
+  },
+  {
+   "id": "payment_ledger",
+   "sheet": "matrons_office_objects_fix_sheet_v1.png",
+   "grid": [
+    4,
+    3
+   ],
+   "cell": [
+    0,
+    0
+   ],
+   "grow": 0
+  },
+  {
+   "id": "seven_death_certs",
+   "sheet": "matrons_office_objects_fix_sheet_v1.png",
+   "grid": [
+    4,
+    3
+   ],
+   "cell": [
+    1,
+    0
+   ],
+   "grow": 0
+  },
+  {
+   "id": "true_register",
+   "sheet": "matrons_office_objects_fix_sheet_v1.png",
+   "grid": [
+    4,
+    3
+   ],
+   "cell": [
+    2,
+    0
+   ],
+   "grow": 0
+  },
+  {
+   "id": "eight_tickets",
+   "sheet": "matrons_office_objects_fix_sheet_v1.png",
+   "grid": [
+    4,
+    3
+   ],
+   "cell": [
+    3,
+    0
+   ],
+   "grow": 0
+  },
+  {
+   "id": "bank_book",
+   "sheet": "matrons_office_objects_fix_sheet_v1.png",
+   "grid": [
+    4,
+    3
+   ],
+   "cell": [
+    0,
+    1
+   ],
+   "grow": 0
+  },
+  {
+   "id": "sleeping_draught",
+   "sheet": "matrons_office_objects_fix_sheet_v1.png",
+   "grid": [
+    4,
+    3
+   ],
+   "cell": [
+    1,
+    1
+   ],
+   "grow": 0
+  },
+  {
+   "id": "master_key",
+   "sheet": "matrons_office_objects_fix_sheet_v1.png",
+   "grid": [
+    4,
+    3
+   ],
+   "cell": [
+    2,
+    1
+   ],
+   "grow": 0
+  },
+  {
+   "id": "crane_photograph",
+   "sheet": "matrons_office_objects_fix_sheet_v1.png",
+   "grid": [
+    4,
+    3
+   ],
+   "cell": [
+    3,
+    1
+   ],
+   "grow": 0
+  },
+  {
+   "id": "name_tape_reel",
+   "sheet": "matrons_office_objects_fix_sheet_v1.png",
+   "grid": [
+    4,
+    3
+   ],
+   "cell": [
+    0,
+    2
+   ],
+   "grow": 0
+  },
+  {
+   "id": "charred_photographs",
+   "sheet": "matrons_office_objects_fix_sheet_v1.png",
+   "grid": [
+    4,
+    3
+   ],
+   "cell": [
+    1,
+    2
+   ],
+   "grow": 0
+  },
+  {
+   "id": "vane_family_ring",
+   "sheet": "matrons_office_objects_fix_sheet_v1.png",
+   "grid": [
+    4,
+    3
+   ],
+   "cell": [
+    2,
+    2
+   ],
+   "grow": 0
+  },
+  {
+   "id": "night_count_slate",
+   "sheet": "matrons_office_objects_fix_sheet_v1.png",
+   "grid": [
+    4,
+    3
+   ],
+   "cell": [
+    3,
+    2
+   ],
+   "grow": 0
+  }
+ ],
+ "containers": [
+  {
+   "id": "matrons_office_desk_drawer_left",
+   "closed": {
+    "sheet": "matrons_office_containers_closed_sheet_v1.png",
+    "grid": [
+     4,
+     3
+    ],
+    "cell": [
+     0,
+     0
+    ]
+   },
+   "open": {
+    "sheet": "matrons_office_containers_open_sheet_v1.png",
+    "grid": [
+     4,
+     3
+    ],
+    "cell": [
+     0,
+     0
+    ]
+   },
+   "match": "width",
+   "align": "center",
+   "open_offset": [
+    0,
+    -47
+   ]
+  },
+  {
+   "id": "matrons_office_desk_drawer_right",
+   "closed": {
+    "sheet": "matrons_office_containers_closed_sheet_v1.png",
+    "grid": [
+     4,
+     3
+    ],
+    "cell": [
+     1,
+     0
+    ]
+   },
+   "open": {
+    "sheet": "matrons_office_containers_open_sheet_v1.png",
+    "grid": [
+     4,
+     3
+    ],
+    "cell": [
+     1,
+     0
+    ]
+   },
+   "match": "width",
+   "align": "center",
+   "open_offset": [
+    0,
+    -48
+   ]
+  },
+  {
+   "id": "matrons_office_filing_cabinet",
+   "closed": {
+    "sheet": "matrons_office_containers_closed_sheet_v1.png",
+    "grid": [
+     4,
+     3
+    ],
+    "cell": [
+     2,
+     0
+    ]
+   },
+   "open": {
+    "sheet": "matrons_office_containers_open_sheet_v1.png",
+    "grid": [
+     4,
+     3
+    ],
+    "cell": [
+     2,
+     0
+    ]
+   },
+   "match": "width",
+   "align": "center",
+   "open_offset": [
+    0,
+    -6
+   ]
+  },
+  {
+   "id": "matrons_office_waste_basket",
+   "closed": {
+    "sheet": "matrons_office_containers_closed_sheet_v1.png",
+    "grid": [
+     4,
+     3
+    ],
+    "cell": [
+     3,
+     0
+    ]
+   },
+   "open": {
+    "sheet": "matrons_office_containers_open_sheet_v1.png",
+    "grid": [
+     4,
+     3
+    ],
+    "cell": [
+     3,
+     0
+    ]
+   },
+   "match": "height",
+   "align": "center",
+   "open_offset": [
+    0,
+    0
+   ]
+  },
+  {
+   "id": "matrons_office_carpet_bag",
+   "closed": {
+    "sheet": "matrons_office_containers_closed_sheet_v1.png",
+    "grid": [
+     4,
+     3
+    ],
+    "cell": [
+     0,
+     1
+    ]
+   },
+   "open": {
+    "sheet": "matrons_office_containers_open_sheet_v1.png",
+    "grid": [
+     4,
+     3
+    ],
+    "cell": [
+     0,
+     1
+    ]
+   },
+   "match": "width",
+   "align": "center",
+   "open_offset": [
+    0,
+    -12
+   ]
+  },
+  {
+   "id": "matrons_office_tea_caddy",
+   "closed": {
+    "sheet": "matrons_office_containers_closed_sheet_v1.png",
+    "grid": [
+     4,
+     3
+    ],
+    "cell": [
+     1,
+     1
+    ]
+   },
+   "open": {
+    "sheet": "matrons_office_containers_open_sheet_v1.png",
+    "grid": [
+     4,
+     3
+    ],
+    "cell": [
+     1,
+     1
+    ]
+   },
+   "match": "width",
+   "align": "center",
+   "open_offset": [
+    0,
+    -61
+   ]
+  },
+  {
+   "id": "matrons_office_wall_safe",
+   "closed": {
+    "sheet": "matrons_office_containers_closed_sheet_v1.png",
+    "grid": [
+     4,
+     3
+    ],
+    "cell": [
+     2,
+     1
+    ]
+   },
+   "open": {
+    "sheet": "matrons_office_containers_open_sheet_v1.png",
+    "grid": [
+     4,
+     3
+    ],
+    "cell": [
+     2,
+     1
+    ]
+   },
+   "match": "height",
+   "align": "center",
+   "open_offset": [
+    25,
+    -1
+   ]
+  },
+  {
+   "id": "matrons_office_bible_box",
+   "closed": {
+    "sheet": "matrons_office_containers_fix_sheet_v1.png",
+    "grid": [
+     4,
+     1
+    ],
+    "cell": [
+     2,
+     0
+    ],
+    "grow": 0
+   },
+   "open": {
+    "sheet": "matrons_office_containers_fix_sheet_v1.png",
+    "grid": [
+     4,
+     1
+    ],
+    "cell": [
+     0,
+     0
+    ],
+    "grow": 0
+   },
+   "match": "width",
+   "align": "center",
+   "open_offset": [
+    0,
+    -52
+   ]
+  },
+  {
+   "id": "matrons_office_sewing_drawer",
+   "closed": {
+    "sheet": "matrons_office_containers_closed_sheet_v1.png",
+    "grid": [
+     4,
+     3
+    ],
+    "cell": [
+     0,
+     2
+    ]
+   },
+   "open": {
+    "sheet": "matrons_office_containers_open_sheet_v1.png",
+    "grid": [
+     4,
+     3
+    ],
+    "cell": [
+     0,
+     2
+    ]
+   },
+   "match": "width",
+   "align": "center",
+   "open_offset": [
+    0,
+    -53
+   ]
+  },
+  {
+   "id": "matrons_office_fire_grate",
+   "closed": {
+    "sheet": "matrons_office_containers_closed_sheet_v1.png",
+    "grid": [
+     4,
+     3
+    ],
+    "cell": [
+     1,
+     2
+    ]
+   },
+   "open": {
+    "sheet": "matrons_office_containers_open_sheet_v1.png",
+    "grid": [
+     4,
+     3
+    ],
+    "cell": [
+     1,
+     2
+    ]
+   },
+   "match": "width",
+   "align": "center",
+   "open_offset": [
+    0,
+    -36
+   ]
+  },
+  {
+   "id": "matrons_office_jewel_case",
+   "closed": {
+    "sheet": "matrons_office_containers_closed_sheet_v1.png",
+    "grid": [
+     4,
+     3
+    ],
+    "cell": [
+     2,
+     2
+    ]
+   },
+   "open": {
+    "sheet": "matrons_office_containers_open_sheet_v1.png",
+    "grid": [
+     4,
+     3
+    ],
+    "cell": [
+     2,
+     2
+    ]
+   },
+   "match": "width",
+   "align": "center",
+   "open_offset": [
+    0,
+    -68
+   ]
+  },
+  {
+   "id": "matrons_office_ward_stair_door",
+   "closed": {
+    "sheet": "matrons_office_containers_fix_sheet_v1.png",
+    "grid": [
+     4,
+     1
+    ],
+    "cell": [
+     3,
+     0
+    ],
+    "grow": 0
+   },
+   "open": {
+    "sheet": "matrons_office_containers_fix_sheet_v1.png",
+    "grid": [
+     4,
+     1
+    ],
+    "cell": [
+     1,
+     0
+    ],
+    "grow": 0
+   },
+   "match": "height",
+   "align": "center",
+   "open_offset": [
+    24,
+    -1
+   ]
+  }
+ ]
+}

@@ -1,0 +1,20 @@
+[gd_resource type="Resource" script_class="HiddenObjectData" format=3]
+
+[ext_resource type="Script" path="res://scripts/hidden_object_data.gd" id="1_data"]
+
+[ext_resource type="Texture2D" path="res://assets/objects/crane_telegram_v1.png" id="2_texture"]
+
+[resource]
+script = ExtResource("1_data")
+object_id = &"crane_telegram"
+display_name = "Telegram"
+description = "A telegram form, opened and read."
+collection_message = "You found the telegram!"
+clue_text = "'POLICE HAVE VANE STOP MOVE THE SEVEN TONIGHT STOP LEAVE NOTHING STOP'. It was delivered this afternoon."
+hint_text = "It lies on the stairs behind the office door. You need the matron's office key."
+riddle_text = ""
+placeholder_style = 287
+texture = ExtResource("2_texture")
+icon_texture = ExtResource("2_texture")
+is_required = true
+starts_visible = false

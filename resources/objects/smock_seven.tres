@@ -1,0 +1,20 @@
+[gd_resource type="Resource" script_class="HiddenObjectData" format=3]
+
+[ext_resource type="Script" path="res://scripts/hidden_object_data.gd" id="1_data"]
+
+[ext_resource type="Texture2D" path="res://assets/objects/smock_seven_v1.png" id="2_texture"]
+
+[resource]
+script = ExtResource("1_data")
+object_id = &"smock_seven"
+display_name = "Numbered Smock"
+description = "A small grey smock with a 7 stitched on the collar."
+collection_message = "You found the numbered smock!"
+clue_text = "It would fit a child of nine. The hem has been let down four times."
+hint_text = "It hangs on a hook on the back wall, behind the travelling sheets. Take it when a gap passes."
+riddle_text = ""
+placeholder_style = 232
+texture = ExtResource("2_texture")
+icon_texture = ExtResource("2_texture")
+is_required = true
+starts_visible = true

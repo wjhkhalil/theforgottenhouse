@@ -1,0 +1,20 @@
+[gd_resource type="Resource" script_class="HiddenObjectData" format=3]
+
+[ext_resource type="Script" path="res://scripts/hidden_object_data.gd" id="1_data"]
+
+[ext_resource type="Texture2D" path="res://assets/objects/darkroom_tongs_v1.png" id="2_texture"]
+
+[resource]
+script = ExtResource("1_data")
+object_id = &"darkroom_tongs"
+display_name = "Darkroom Tongs"
+description = "Stained wooden tongs for lifting plates out of the bath."
+collection_message = "You found the darkroom tongs!"
+clue_text = "The developer is still wet on them. Someone developed a plate in here tonight, and took it away."
+hint_text = "They are in the developer tank on the floor, in the middle of the room."
+riddle_text = ""
+placeholder_style = 217
+texture = ExtResource("2_texture")
+icon_texture = ExtResource("2_texture")
+is_required = true
+starts_visible = false

@@ -1,0 +1,20 @@
+[gd_resource type="Resource" script_class="HiddenObjectData" format=3]
+
+[ext_resource type="Script" path="res://scripts/hidden_object_data.gd" id="1_data"]
+
+[ext_resource type="Texture2D" path="res://assets/objects/initialled_pillowcase_v1.png" id="2_texture"]
+
+[resource]
+script = ExtResource("1_data")
+object_id = &"initialled_pillowcase"
+display_name = "Marked Pillowcase"
+description = "A pillowcase with initials picked out in red thread."
+collection_message = "You found the marked pillowcase!"
+clue_text = "'R.M.' The laundry marks say 'No. 2'. Someone unpicked the number and sewed her own initials back."
+hint_text = "It is in the sorting basket on the floor."
+riddle_text = ""
+placeholder_style = 239
+texture = ExtResource("2_texture")
+icon_texture = ExtResource("2_texture")
+is_required = true
+starts_visible = false
