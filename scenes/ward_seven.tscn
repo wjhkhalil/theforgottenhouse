@@ -351,7 +351,7 @@ data = ExtResource("28_restraint_strap")
 texture_scale = Vector2(0.1288, 0.1288)
 
 [node name="WardStrongbox" parent="HiddenObjects" node_paths=PackedStringArray("contents", "required_object") instance=ExtResource("6_container")]
-position = Vector2(1189.6, 558.7)
+position = Vector2(1188.6, 564.8)
 container_id = &"ward_strongbox"
 contents = NodePath("../SevenEnvelopes")
 open_title = "Albert's key turns..."
@@ -361,10 +361,10 @@ locked_title = "The ward strongbox is locked."
 locked_message = "An iron strongbox bolted to the floor. The old man in the third bed has one fist shut tight. He wants his reading glasses."
 style = 5
 tint = Color(0.2, 0.24, 0.3, 1)
-size = Vector2(393.362, 359.452)
+size = Vector2(395, 378)
 closed_texture = ExtResource("tex_ward_seven_ward_strongbox_closed_v1")
 open_texture = ExtResource("tex_ward_seven_ward_strongbox_open_v1")
-scale = Vector2(0.1474, 0.1474)
+scale = Vector2(0.1288, 0.1288)
 
 [node name="SevenEnvelopes" parent="HiddenObjects" instance=ExtResource("5_object")]
 position = Vector2(1190, 553)

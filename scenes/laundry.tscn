@@ -162,17 +162,17 @@ data = ExtResource("20_locker_key")
 texture_scale = Vector2(0.1061, 0.1061)
 
 [node name="SortingBasket" parent="HiddenObjects" node_paths=PackedStringArray("contents") instance=ExtResource("6_container")]
-position = Vector2(232, 558)
+position = Vector2(231.9, 565.7)
 container_id = &"sorting_basket"
 contents = NodePath("../InitialledPillowcase")
 open_title = "You turn out the sorting basket..."
 open_message = "Grey smocks, all numbered, and one pillowcase with red stitching."
 style = 6
 tint = Color(0.55, 0.5, 0.4, 1)
-size = Vector2(382.143, 305.714)
+size = Vector2(395, 258)
 closed_texture = ExtResource("tex_laundry_sorting_basket_closed_v1")
 open_texture = ExtResource("tex_laundry_sorting_basket_open_v1")
-scale = Vector2(0.2617, 0.2617)
+scale = Vector2(0.2474, 0.2474)
 
 [node name="InitialledPillowcase" parent="HiddenObjects" instance=ExtResource("5_object")]
 position = Vector2(232, 545)

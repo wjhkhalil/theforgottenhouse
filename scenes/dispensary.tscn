@@ -266,20 +266,20 @@ data = ExtResource("26_sugar_pills")
 texture_scale = Vector2(0.0985, 0.0985)
 
 [node name="WhiteCoat" parent="HiddenObjects" node_paths=PackedStringArray("contents") instance=ExtResource("6_container")]
-position = Vector2(207, 264)
+position = Vector2(206.8, 263.3)
 container_id = &"white_coat"
 contents = NodePath("../ResignationDraft")
 open_title = "You go through the pockets of the white coat..."
 open_message = "A pencil, a peppermint, and a much-folded sheet of paper."
 style = 3
 tint = Color(0.82, 0.82, 0.78, 1)
-size = Vector2(183.007, 389.628)
+size = Vector2(162, 395)
 closed_texture = ExtResource("tex_dispensary_white_coat_closed_v1")
 open_texture = ExtResource("tex_dispensary_white_coat_open_v1")
-scale = Vector2(0.3388, 0.3388)
+scale = Vector2(0.3211, 0.3211)
 
 [node name="ResignationDraft" parent="HiddenObjects" instance=ExtResource("5_object")]
-position = Vector2(220, 258)
+position = Vector2(221, 289)
 data = ExtResource("27_resignation_draft")
 texture_scale = Vector2(0.0758, 0.0758)
 

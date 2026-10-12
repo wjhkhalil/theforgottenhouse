@@ -118,17 +118,17 @@ data = ExtResource("15_bent_spoon")
 texture_scale = Vector2(0.1515, 0.1515)
 
 [node name="FilmCabinet" parent="HiddenObjects" node_paths=PackedStringArray("contents") instance=ExtResource("6_container")]
-position = Vector2(420.2, 447.9)
+position = Vector2(420.0, 449.8)
 container_id = &"film_cabinet"
 contents = NodePath("../ChestXray")
 open_title = "The film cabinet under the table rolls open..."
 open_message = "Hundreds of plates in paper sleeves, filed by name. One sleeve has no name at all, only a number."
 style = 3
 tint = Color(0.3, 0.34, 0.33, 1)
-size = Vector2(367.166, 279.366)
+size = Vector2(395, 280)
 closed_texture = ExtResource("tex_xray_room_film_cabinet_closed_v1")
 open_texture = ExtResource("tex_xray_room_film_cabinet_open_v1")
-scale = Vector2(0.3759, 0.3759)
+scale = Vector2(0.3571, 0.3571)
 
 [node name="ChestXray" parent="HiddenObjects" instance=ExtResource("5_object")]
 position = Vector2(420, 455)
@@ -226,7 +226,7 @@ data = ExtResource("21_name_tags")
 texture_scale = Vector2(0.303, 0.303)
 
 [node name="InstrumentCase" parent="HiddenObjects" node_paths=PackedStringArray("contents", "required_object") instance=ExtResource("6_container")]
-position = Vector2(740, 556.9)
+position = Vector2(740.0, 582.9)
 container_id = &"instrument_case"
 contents = NodePath("../MatronsMemo")
 open_title = "The tiny key fits..."
@@ -236,10 +236,10 @@ locked_title = "The instrument case is locked."
 locked_message = "A flat black case with a lock no bigger than a fingernail. No key in this room is small enough, unless someone has hidden one where only an X-ray would find it."
 style = 7
 tint = Color(0.16, 0.15, 0.16, 1)
-size = Vector2(365.356, 365.356)
+size = Vector2(396, 195)
 closed_texture = ExtResource("tex_xray_room_instrument_case_closed_v1")
 open_texture = ExtResource("tex_xray_room_instrument_case_open_v1")
-scale = Vector2(0.2764, 0.2764)
+scale = Vector2(0.2613, 0.2613)
 
 [node name="MatronsMemo" parent="HiddenObjects" instance=ExtResource("5_object")]
 position = Vector2(740, 574)
@@ -272,7 +272,7 @@ data = ExtResource("23_xray_tube")
 texture_scale = Vector2(0.2197, 0.2197)
 
 [node name="DrugSafe" parent="HiddenObjects" node_paths=PackedStringArray("contents") instance=ExtResource("6_container")]
-position = Vector2(590.1, 469.1)
+position = Vector2(590.0, 466.2)
 container_id = &"drug_safe"
 contents = NodePath("../WardSevenKey")
 open_title = "The dial clicks round to 1285..."
@@ -286,10 +286,10 @@ code_hint_first_after = 10
 code_hint_second_after = 13
 style = 5
 tint = Color(0.2, 0.28, 0.24, 1)
-size = Vector2(349.388, 376.684)
+size = Vector2(353, 395)
 closed_texture = ExtResource("tex_xray_room_drug_safe_closed_v1")
 open_texture = ExtResource("tex_xray_room_drug_safe_open_v1")
-scale = Vector2(0.1832, 0.1832)
+scale = Vector2(0.1847, 0.1847)
 
 [node name="WardSevenKey" parent="HiddenObjects" instance=ExtResource("5_object")]
 position = Vector2(582, 472)
