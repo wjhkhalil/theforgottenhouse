@@ -59,7 +59,7 @@ func _ready() -> void:
 
 	var objects := _find_hidden_objects()
 	_containers = _find_containers()
-	hud.setup(level_data.room_name, objects, level_data.objective_riddles)
+	hud.setup(_chapter_name(), objects, level_data.objective_riddles)
 
 	game_manager.object_collected.connect(_on_object_collected)
 	game_manager.progress_changed.connect(hud.update_progress)
@@ -179,6 +179,14 @@ func _setup_camera() -> void:
 		# Effects that follow the finger (a light, a cloth...) say so with needs_pointer().
 		elif effect.has_method("needs_pointer") and effect.call("needs_pointer"):
 			room_camera.one_finger_pan = false
+
+
+## The room's name with its chapter number, like "Chapter One: The Old Bedroom".
+func _chapter_name() -> String:
+	var index := SaveManager.get_chapter_index(String(level_data.chapter_id))
+	if index < 0:
+		return level_data.room_name
+	return SaveManager.CHAPTERS[index]["title"]
 
 
 ## A short reminder of the touch controls, added to the intro on phones.
