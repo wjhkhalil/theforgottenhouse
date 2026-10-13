@@ -6,7 +6,7 @@
 script = ExtResource("1_level")
 chapter_id = &"washroom"
 room_name = "The Washroom"
-intro_message = "The hot tap is running and thick steam fills the room. Move the mouse to wipe the steam away - it drifts back after a few seconds. Find the 8 hidden objects."
+intro_message = "The hot tap is running and thick steam fills the room. Move the mouse to wipe the steam away - it slowly drifts back. Find the 8 hidden objects."
 hint_cooldown_seconds = 30.0
 hint_area_radius = 170.0
 hint_area_offset = 85.0

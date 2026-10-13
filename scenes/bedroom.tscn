@@ -38,9 +38,10 @@ replacement_texture = ExtResource("17_bedroom_bg")
 unique_name_in_owner = true
 
 [node name="RustyKey" parent="HiddenObjects" instance=ExtResource("5_object")]
-position = Vector2(523, 339)
-rotation = 0.12
-scale = Vector2(0.85, 0.85)
+modulate = Color(0.78, 0.82, 0.95, 1)
+position = Vector2(790, 364)
+rotation = 0.06
+scale = Vector2(0.85, 0.6)
 texture_scale = Vector2(0.032, 0.032)
 data = ExtResource("6_key")
 
@@ -52,9 +53,11 @@ texture_scale = Vector2(0.04, 0.04)
 data = ExtResource("7_photo")
 
 [node name="MissingLetter" parent="HiddenObjects" instance=ExtResource("5_object")]
-position = Vector2(792, 353)
-rotation = 0.05
-scale = Vector2(0.85, 0.6)
+modulate = Color(0.92, 0.84, 0.74, 1)
+position = Vector2(516, 346)
+rotation = -0.25
+scale = Vector2(0.72, 0.38)
+click_size = Vector2(66, 70)
 texture_scale = Vector2(0.04, 0.04)
 data = ExtResource("8_letter")
 

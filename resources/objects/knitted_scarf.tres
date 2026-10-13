@@ -3,6 +3,7 @@
 [ext_resource type="Script" path="res://scripts/hidden_object_data.gd" id="1_data"]
 
 [ext_resource type="Texture2D" path="res://assets/objects/knitted_scarf_v1.png" id="2_texture"]
+[ext_resource type="Texture2D" path="res://assets/objects/knitted_scarf_room_v1.png" id="3_room_texture"]
 
 [resource]
 script = ExtResource("1_data")
@@ -11,10 +12,10 @@ display_name = "Knitted Scarf"
 description = "A half-finished scarf."
 collection_message = "You found a knitted scarf."
 clue_text = "Half finished, with an 'E' stitched in one corner. Eleanor was knitting it for her sister."
-hint_text = "Something soft and unfinished is draped over a chair."
+hint_text = "Something soft and unfinished was left on the seat of the armchair."
 riddle_text = ""
 placeholder_style = 37
-texture = ExtResource("2_texture")
+texture = ExtResource("3_room_texture")
 icon_texture = ExtResource("2_texture")
 is_required = true
 starts_visible = true

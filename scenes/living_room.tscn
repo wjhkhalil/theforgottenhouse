@@ -27,8 +27,8 @@
 [ext_resource type="Texture2D" path="res://assets/objects/living_room_piano_bench_open_v1.png" id="tex_living_room_piano_bench_open_v1"]
 [ext_resource type="Texture2D" path="res://assets/objects/living_room_cigar_box_closed_v1.png" id="tex_living_room_cigar_box_closed_v1"]
 [ext_resource type="Texture2D" path="res://assets/objects/living_room_cigar_box_open_v1.png" id="tex_living_room_cigar_box_open_v1"]
-[ext_resource type="Texture2D" path="res://assets/objects/living_room_desk_drawer_closed_v1.png" id="tex_living_room_desk_drawer_closed_v1"]
-[ext_resource type="Texture2D" path="res://assets/objects/living_room_desk_drawer_open_v1.png" id="tex_living_room_desk_drawer_open_v1"]
+[ext_resource type="Texture2D" path="res://assets/objects/living_room_desk_drawer_closed_v2.png" id="tex_living_room_desk_drawer_closed_v1"]
+[ext_resource type="Texture2D" path="res://assets/objects/living_room_desk_drawer_open_v2.png" id="tex_living_room_desk_drawer_open_v1"]
 
 [sub_resource type="Gradient" id="Gradient_dust"]
 offsets = PackedFloat32Array(0, 0.2, 0.8, 1)
@@ -68,10 +68,12 @@ data = ExtResource("8_matchbox")
 texture_scale = Vector2(0.1136, 0.1136)
 
 [node name="KnittedScarf" parent="HiddenObjects" instance=ExtResource("5_object")]
-position = Vector2(522, 384)
+modulate = Color(0.86, 0.74, 0.68, 1)
+position = Vector2(535, 370)
 rotation = 0
 data = ExtResource("9_scarf")
-texture_scale = Vector2(0.2652, 0.2652)
+texture_scale = Vector2(0.25, 0.2)
+click_size = Vector2(56, 34)
 
 [node name="Crossword" parent="HiddenObjects" instance=ExtResource("5_object")]
 position = Vector2(458, 466)
@@ -118,7 +120,8 @@ data = ExtResource("12_desk_key")
 texture_scale = Vector2(0.1061, 0.1061)
 
 [node name="DeskDrawer" parent="HiddenObjects" node_paths=PackedStringArray("contents", "required_object") instance=ExtResource("14_container")]
-position = Vector2(733.5, 337)
+modulate = Color(0.78, 0.72, 0.6, 1)
+position = Vector2(733.75, 336.4)
 container_id = &"desk_drawer"
 contents = NodePath("../SpareKeys")
 open_title = "The little key turns..."
@@ -128,15 +131,17 @@ locked_title = "The drawer is locked."
 locked_message = "It needs a small brass key."
 style = 4
 tint = Color(0.3, 0.17, 0.11, 1)
-size = Vector2(398.1, 172.4)
+size = Vector2(428, 300)
 closed_texture = ExtResource("tex_living_room_desk_drawer_closed_v1")
 open_texture = ExtResource("tex_living_room_desk_drawer_open_v1")
-scale = Vector2(0.1808, 0.1392)
+scale = Vector2(0.164, 0.1)
 
 [node name="SpareKeys" parent="HiddenObjects" instance=ExtResource("5_object")]
-position = Vector2(733, 336)
+modulate = Color(0.85, 0.8, 0.7, 1)
+position = Vector2(733.5, 331.5)
 data = ExtResource("13_spare_keys")
-texture_scale = Vector2(0.0985, 0.0985)
+texture_scale = Vector2(0.07, 0.04)
+click_size = Vector2(44, 26)
 
 [node name="RoomForeground" type="Node2D" parent="."]
 visible = false

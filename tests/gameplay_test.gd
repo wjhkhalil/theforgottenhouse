@@ -581,7 +581,7 @@ func _play_chapters_four_to_eight(victory: VictoryScreen) -> VictoryScreen:
 	await _move_mouse_across(duck.global_position)
 	_check(steam.get_fog_at(duck.global_position) < 0.2, "Moving the mouse wipes the steam away")
 	await _move_mouse_to(Vector2(80, 680))
-	await _wait_seconds(7.0)
+	await _wait_seconds(steam.return_seconds + 1.0)
 	_check(steam.get_fog_at(duck.global_position) > 0.8, "The steam drifts back after a few seconds")
 	await _screenshot("25_washroom_steam")
 	await _check_locked_containers(room)
