@@ -1,7 +1,14 @@
 [gd_scene format=3 uid="uid://cgjcjjki3h5l"]
 
 [ext_resource type="Script" uid="uid://b3ql0s3a40xbv" path="res://scripts/main_menu.gd" id="1_menu"]
-[ext_resource type="Script" uid="uid://ck6rdytjxga4k" path="res://scripts/bedroom_art.gd" id="2_art"]
+[ext_resource type="Texture2D" path="res://assets/backgrounds/main_menu_background_v1.png" id="2_background"]
+
+[sub_resource type="Gradient" id="Gradient_shade"]
+offsets = PackedFloat32Array(0, 0.36, 0.55, 0.76, 1)
+colors = PackedColorArray(0.02, 0.025, 0.055, 0.82, 0.02, 0.025, 0.055, 0.2, 0.02, 0.025, 0.055, 0.05, 0.02, 0.025, 0.055, 0.25, 0.02, 0.025, 0.055, 0.78)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture_shade"]
+gradient = SubResource("Gradient_shade")
 
 [node name="MainMenu" type="Control" unique_id=2087287914]
 layout_mode = 3
@@ -12,10 +19,7 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_menu")
 
-[node name="RoomArt" type="Node2D" parent="." unique_id=1000320080]
-script = ExtResource("2_art")
-
-[node name="Overlay" type="ColorRect" parent="." unique_id=1958214162]
+[node name="Background" type="TextureRect" parent="."]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -23,9 +27,11 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
-color = Color(0.02, 0.025, 0.055, 0.8)
+texture = ExtResource("2_background")
+expand_mode = 1
+stretch_mode = 6
 
-[node name="Center" type="CenterContainer" parent="." unique_id=473791264]
+[node name="Overlay" type="TextureRect" parent="." unique_id=1958214162]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -33,73 +39,104 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
+texture = SubResource("GradientTexture_shade")
+expand_mode = 1
 
-[node name="MenuBox" type="VBoxContainer" parent="Center" unique_id=1857365734]
+[node name="Center" type="MarginContainer" parent="." unique_id=473791264]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+theme_override_constants/margin_left = 44
+theme_override_constants/margin_top = 16
+theme_override_constants/margin_right = 44
+theme_override_constants/margin_bottom = 16
+
+[node name="MenuRow" type="HBoxContainer" parent="Center"]
+unique_name_in_owner = true
 layout_mode = 2
-theme_override_constants/separation = 12
+theme_override_constants/separation = 24
 
-[node name="Title" type="Label" parent="Center/MenuBox" unique_id=2006060729]
+[node name="TextBox" type="VBoxContainer" parent="Center/MenuRow"]
+layout_mode = 2
+size_flags_vertical = 4
+theme_override_constants/separation = 10
+
+[node name="Title" type="Label" parent="Center/MenuRow/TextBox" unique_id=2006060729]
 layout_mode = 2
 theme_override_colors/font_color = Color(0.95, 0.76, 0.48, 1)
 theme_override_colors/font_shadow_color = Color(0, 0, 0, 0.8)
 theme_override_constants/shadow_offset_x = 0
 theme_override_constants/shadow_offset_y = 4
-theme_override_font_sizes/font_size = 64
-text = "THE FORGOTTEN HOUSE"
-horizontal_alignment = 1
+theme_override_constants/line_spacing = -8
+theme_override_font_sizes/font_size = 48
+text = "THE FORGOTTEN
+HOUSE"
 
-[node name="Subtitle" type="Label" parent="Center/MenuBox" unique_id=1548362882]
+[node name="Subtitle" type="Label" parent="Center/MenuRow/TextBox" unique_id=1548362882]
 layout_mode = 2
 theme_override_colors/font_color = Color(0.82, 0.86, 0.94, 1)
 theme_override_font_sizes/font_size = 22
 text = "A Hidden-Object Mystery"
-horizontal_alignment = 1
 
-[node name="Description" type="Label" parent="Center/MenuBox" unique_id=1318714951]
-custom_minimum_size = Vector2(640, 0)
-layout_mode = 2
-theme_override_colors/font_color = Color(0.85, 0.8, 0.7, 1)
-text = "Years ago, the owner of this house disappeared without a trace. Tonight you step inside their old bedroom. Search carefully: they left five things behind, and together they tell a story no one was meant to read."
-horizontal_alignment = 1
-autowrap_mode = 3
-
-[node name="Space" type="Control" parent="Center/MenuBox" unique_id=1903195055]
-custom_minimum_size = Vector2(0, 16)
+[node name="Space" type="Control" parent="Center/MenuRow/TextBox" unique_id=1903195055]
+custom_minimum_size = Vector2(0, 8)
 layout_mode = 2
 mouse_filter = 2
 
-[node name="ContinueButton" type="Button" parent="Center/MenuBox" unique_id=2023010116]
+[node name="Description" type="Label" parent="Center/MenuRow/TextBox" unique_id=1318714951]
+custom_minimum_size = Vector2(370, 0)
+layout_mode = 2
+theme_override_colors/font_color = Color(0.85, 0.8, 0.7, 1)
+text = "Three houses, each abandoned and each hiding a secret. Search every room for what was left behind, and piece together the stories no one was meant to read."
+autowrap_mode = 3
+
+[node name="HouseGap" type="Control" parent="Center/MenuRow"]
+layout_mode = 2
+size_flags_horizontal = 3
+mouse_filter = 2
+
+[node name="ButtonBox" type="VBoxContainer" parent="Center/MenuRow"]
+layout_mode = 2
+size_flags_vertical = 4
+theme_override_constants/separation = 12
+
+[node name="ContinueButton" type="Button" parent="Center/MenuRow/ButtonBox" unique_id=2023010116]
 unique_name_in_owner = true
-custom_minimum_size = Vector2(280, 52)
+custom_minimum_size = Vector2(236, 52)
 layout_mode = 2
 size_flags_horizontal = 4
 theme_override_font_sizes/font_size = 22
 text = "Continue"
 
-[node name="PlayButton" type="Button" parent="Center/MenuBox" unique_id=1748478219]
+[node name="PlayButton" type="Button" parent="Center/MenuRow/ButtonBox" unique_id=1748478219]
 unique_name_in_owner = true
-custom_minimum_size = Vector2(280, 48)
+custom_minimum_size = Vector2(236, 48)
 layout_mode = 2
 size_flags_horizontal = 4
 text = "New Game"
 
-[node name="ChaptersButton" type="Button" parent="Center/MenuBox" unique_id=221293399]
+[node name="ChaptersButton" type="Button" parent="Center/MenuRow/ButtonBox" unique_id=221293399]
 unique_name_in_owner = true
-custom_minimum_size = Vector2(280, 48)
+custom_minimum_size = Vector2(236, 48)
 layout_mode = 2
 size_flags_horizontal = 4
 text = "Chapters"
 
-[node name="AboutButton" type="Button" parent="Center/MenuBox" unique_id=2142345599]
+[node name="AboutButton" type="Button" parent="Center/MenuRow/ButtonBox" unique_id=2142345599]
 unique_name_in_owner = true
-custom_minimum_size = Vector2(280, 48)
+custom_minimum_size = Vector2(236, 48)
 layout_mode = 2
 size_flags_horizontal = 4
 text = "About"
 
-[node name="QuitButton" type="Button" parent="Center/MenuBox" unique_id=1587540370]
+[node name="QuitButton" type="Button" parent="Center/MenuRow/ButtonBox" unique_id=1587540370]
 unique_name_in_owner = true
-custom_minimum_size = Vector2(280, 48)
+custom_minimum_size = Vector2(236, 48)
 layout_mode = 2
 size_flags_horizontal = 4
 text = "Quit"
@@ -119,7 +156,7 @@ grow_horizontal = 0
 grow_vertical = 0
 theme_override_colors/font_color = Color(0.6, 0.57, 0.52, 1)
 theme_override_font_sizes/font_size = 14
-text = "v0.9 - placeholder art edition"
+text = "v0.9"
 horizontal_alignment = 2
 
 [node name="AboutLayer" type="Control" parent="." unique_id=157547575]
@@ -167,16 +204,15 @@ horizontal_alignment = 1
 [node name="Text" type="Label" parent="AboutLayer/Center/Panel/VBox" unique_id=1511778696]
 custom_minimum_size = Vector2(560, 0)
 layout_mode = 2
-text = "The Forgotten House is a small hidden-object mystery made with Godot 4.
+text = "The Forgotten House is a hidden-object mystery set in three abandoned houses: Ashworth Manor, the Blackwater Boathouse and Hollowmere Sanatorium.
 
 HOW TO PLAY
-- Look around the bedroom and click the hidden objects.
-- The list on the right shows what you still need to find.
-- Stuck? Press Hint (or H) to see roughly where to look.
-- Press Pause (Esc or P) to pause, restart or leave.
-- Your progress is saved automatically. Use Continue to carry on.
-
-All artwork in this version is drawn with code as a placeholder."
+- Search each room and tap or click the hidden objects.
+- The Objects to Find list shows what is still missing.
+- Open drawers, boxes and cupboards. Some need a code.
+- Drag to look around the room, and zoom in for a closer look.
+- Stuck? Press Hint to see roughly where to look.
+- Your progress is saved automatically."
 autowrap_mode = 3
 
 [node name="AboutBackButton" type="Button" parent="AboutLayer/Center/Panel/VBox" unique_id=828718863]

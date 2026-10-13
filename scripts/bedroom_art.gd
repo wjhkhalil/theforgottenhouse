@@ -1,7 +1,7 @@
 @tool
 class_name BedroomArt
 extends RoomArt
-## Placeholder drawing of the Chapter One bedroom (also used behind the main menu).
+## Placeholder drawing of the Chapter One bedroom.
 ## See room_art.gd for how to replace it with a real image.
 
 const FLOOR_Y := 500.0

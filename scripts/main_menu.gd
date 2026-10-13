@@ -7,6 +7,8 @@ extends Control
 @onready var _chapters_button: Button = %ChaptersButton
 @onready var _about_button: Button = %AboutButton
 @onready var _quit_button: Button = %QuitButton
+@onready var _center: Control = %Center
+@onready var _menu_row: Control = %MenuRow
 @onready var _about_layer: Control = %AboutLayer
 @onready var _about_back_button: Button = %AboutBackButton
 @onready var _chapters_layer: Control = %ChaptersLayer
@@ -38,6 +40,8 @@ func _ready() -> void:
 	_chapters_back_button.pressed.connect(_on_chapters_back_pressed)
 
 	_refresh_continue_button()
+	resized.connect(_fit_menu)
+	_fit_menu.call_deferred()
 	AudioManager.play_music()
 
 
@@ -50,6 +54,14 @@ func _unhandled_input(event: InputEvent) -> void:
 	elif _chapters_layer.visible:
 		get_viewport().set_input_as_handled()
 		_on_chapters_back_pressed()
+
+
+## The menu is drawn smaller when the screen is too small to show all of it.
+func _fit_menu() -> void:
+	var needed := _center.get_combined_minimum_size()
+	var fit := minf(1.0, minf(size.x / needed.x, size.y / needed.y))
+	_center.pivot_offset = size / 2.0
+	_center.scale = Vector2(fit, fit)
 
 
 func _refresh_continue_button() -> void:
