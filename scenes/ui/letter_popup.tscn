@@ -53,6 +53,7 @@ grow_vertical = 2
 mouse_filter = 2
 
 [node name="Paper" type="PanelContainer" parent="Root/Center"]
+unique_name_in_owner = true
 custom_minimum_size = Vector2(620, 0)
 layout_mode = 2
 theme_override_styles/panel = SubResource("StyleBox_paper")
@@ -76,7 +77,18 @@ layout_mode = 2
 mouse_filter = 2
 color = Color(0.6, 0.48, 0.33, 0.6)
 
-[node name="LetterBody" type="Label" parent="Root/Center/Paper/VBox"]
+[node name="LetterScroll" type="ScrollContainer" parent="Root/Center/Paper/VBox"]
+unique_name_in_owner = true
+layout_mode = 2
+horizontal_scroll_mode = 0
+
+[node name="LetterPage" type="VBoxContainer" parent="Root/Center/Paper/VBox/LetterScroll"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/separation = 16
+
+[node name="LetterBody" type="Label" parent="Root/Center/Paper/VBox/LetterScroll/LetterPage"]
 unique_name_in_owner = true
 custom_minimum_size = Vector2(530, 0)
 layout_mode = 2
@@ -87,7 +99,7 @@ theme_override_font_sizes/font_size = 22
 text = "Letter text"
 autowrap_mode = 3
 
-[node name="Signature" type="Label" parent="Root/Center/Paper/VBox"]
+[node name="Signature" type="Label" parent="Root/Center/Paper/VBox/LetterScroll/LetterPage"]
 unique_name_in_owner = true
 layout_mode = 2
 theme_override_colors/font_color = Color(0.4, 0.2, 0.15, 1)
