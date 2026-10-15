@@ -1,9 +1,9 @@
-[gd_scene format=3]
+[gd_scene format=3 uid="uid://h6cqq76iv0ah"]
 
-[ext_resource type="Script" path="res://scripts/room_level.gd" id="1_room"]
+[ext_resource type="Script" uid="uid://b2pu1pbhd6ndx" path="res://scripts/room_level.gd" id="1_room"]
 [ext_resource type="Resource" path="res://resources/levels/living_room_level.tres" id="2_level"]
-[ext_resource type="Script" path="res://scripts/game_manager.gd" id="3_manager"]
-[ext_resource type="Script" path="res://scripts/living_room_art.gd" id="4_art"]
+[ext_resource type="Script" uid="uid://cb22fjf6wxh6a" path="res://scripts/game_manager.gd" id="3_manager"]
+[ext_resource type="Script" uid="uid://cunfskvg5yst4" path="res://scripts/living_room_art.gd" id="4_art"]
 [ext_resource type="PackedScene" path="res://scenes/objects/hidden_object.tscn" id="5_object"]
 [ext_resource type="Resource" path="res://resources/objects/gramophone_record.tres" id="6_record"]
 [ext_resource type="Resource" path="res://resources/objects/tobacco_pipe.tres" id="7_pipe"]
@@ -14,75 +14,71 @@
 [ext_resource type="Resource" path="res://resources/objects/desk_key.tres" id="12_desk_key"]
 [ext_resource type="Resource" path="res://resources/objects/spare_keys.tres" id="13_spare_keys"]
 [ext_resource type="PackedScene" path="res://scenes/objects/openable_container.tscn" id="14_container"]
-[ext_resource type="Script" path="res://scripts/lantern_darkness.gd" id="15_lantern"]
-[ext_resource type="Script" path="res://scripts/power_cuts.gd" id="16_power"]
-[ext_resource type="Script" path="res://scripts/hint_highlight.gd" id="17_hint"]
+[ext_resource type="Script" uid="uid://deb5fyro720v0" path="res://scripts/lantern_darkness.gd" id="15_lantern"]
+[ext_resource type="Script" uid="uid://db1f442j532rg" path="res://scripts/power_cuts.gd" id="16_power"]
+[ext_resource type="Script" uid="uid://258v0ma1f4hl" path="res://scripts/hint_highlight.gd" id="17_hint"]
 [ext_resource type="PackedScene" path="res://scenes/ui/hud.tscn" id="18_hud"]
 [ext_resource type="PackedScene" path="res://scenes/ui/notification.tscn" id="19_note"]
 [ext_resource type="PackedScene" path="res://scenes/victory_screen.tscn" id="20_victory"]
 [ext_resource type="PackedScene" path="res://scenes/ui/pause_menu.tscn" id="21_pause"]
 [ext_resource type="PackedScene" path="res://scenes/ui/letter_popup.tscn" id="22_letter"]
-[ext_resource type="Texture2D" path="res://assets/backgrounds/living_room_background_v1.png" id="bg_living_room"]
-[ext_resource type="Texture2D" path="res://assets/objects/living_room_piano_bench_closed_v1.png" id="tex_living_room_piano_bench_closed_v1"]
-[ext_resource type="Texture2D" path="res://assets/objects/living_room_piano_bench_open_v1.png" id="tex_living_room_piano_bench_open_v1"]
-[ext_resource type="Texture2D" path="res://assets/objects/living_room_cigar_box_closed_v1.png" id="tex_living_room_cigar_box_closed_v1"]
-[ext_resource type="Texture2D" path="res://assets/objects/living_room_cigar_box_open_v1.png" id="tex_living_room_cigar_box_open_v1"]
-[ext_resource type="Texture2D" path="res://assets/objects/living_room_desk_drawer_closed_v2.png" id="tex_living_room_desk_drawer_closed_v1"]
-[ext_resource type="Texture2D" path="res://assets/objects/living_room_desk_drawer_open_v2.png" id="tex_living_room_desk_drawer_open_v1"]
+[ext_resource type="Texture2D" uid="uid://bfm3n1mdjixv0" path="res://assets/backgrounds/living_room_background_v1.png" id="bg_living_room"]
+[ext_resource type="Texture2D" uid="uid://cvpdrr4frxxbe" path="res://assets/objects/living_room_cigar_box_closed_v1.png" id="tex_living_room_cigar_box_closed_v1"]
+[ext_resource type="Texture2D" uid="uid://b2m6xfutu7ytg" path="res://assets/objects/living_room_cigar_box_open_v1.png" id="tex_living_room_cigar_box_open_v1"]
+[ext_resource type="Texture2D" uid="uid://dm5sq22mop3a4" path="res://assets/objects/living_room_desk_drawer_closed_v2.png" id="tex_living_room_desk_drawer_closed_v1"]
+[ext_resource type="Texture2D" uid="uid://ifnfcqp4ko1h" path="res://assets/objects/living_room_desk_drawer_open_v2.png" id="tex_living_room_desk_drawer_open_v1"]
+[ext_resource type="Texture2D" uid="uid://8qjl0bmy8wgc" path="res://assets/objects/living_room_piano_bench_closed_v1.png" id="tex_living_room_piano_bench_closed_v1"]
+[ext_resource type="Texture2D" uid="uid://ct2piwj1wh66l" path="res://assets/objects/living_room_piano_bench_open_v1.png" id="tex_living_room_piano_bench_open_v1"]
 
 [sub_resource type="Gradient" id="Gradient_dust"]
 offsets = PackedFloat32Array(0, 0.2, 0.8, 1)
 colors = PackedColorArray(1, 1, 1, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0)
 
-[node name="LivingRoom" type="Node2D"]
+[node name="LivingRoom" type="Node2D" unique_id=1766952135]
 script = ExtResource("1_room")
 level_data = ExtResource("2_level")
 
-[node name="GameManager" type="Node" parent="."]
+[node name="GameManager" type="Node" parent="." unique_id=74984424]
 unique_name_in_owner = true
 script = ExtResource("3_manager")
 
-[node name="RoomBackground" type="Node2D" parent="."]
+[node name="RoomBackground" type="Node2D" parent="." unique_id=1287079242]
 script = ExtResource("4_art")
 replacement_texture = ExtResource("bg_living_room")
 
-[node name="HiddenObjects" type="Node2D" parent="."]
+[node name="HiddenObjects" type="Node2D" parent="." unique_id=1835462166]
 unique_name_in_owner = true
 
-[node name="GramophoneRecord" parent="HiddenObjects" instance=ExtResource("5_object")]
+[node name="GramophoneRecord" parent="HiddenObjects" unique_id=744337385 instance=ExtResource("5_object")]
 position = Vector2(716, 387)
 data = ExtResource("6_record")
-rotation = 0
 texture_scale = Vector2(0.1667, 0.1667)
 
-[node name="TobaccoPipe" parent="HiddenObjects" instance=ExtResource("5_object")]
+[node name="TobaccoPipe" parent="HiddenObjects" unique_id=1283446558 instance=ExtResource("5_object")]
 position = Vector2(328, 223.5)
-rotation = 0
 data = ExtResource("7_pipe")
 texture_scale = Vector2(0.1515, 0.1515)
 
-[node name="Matchbox" parent="HiddenObjects" instance=ExtResource("5_object")]
+[node name="Matchbox" parent="HiddenObjects" unique_id=377188325 instance=ExtResource("5_object")]
 position = Vector2(695, 497)
-rotation = 0
 data = ExtResource("8_matchbox")
 texture_scale = Vector2(0.1136, 0.1136)
 
-[node name="KnittedScarf" parent="HiddenObjects" instance=ExtResource("5_object")]
+[node name="KnittedScarf" parent="HiddenObjects" unique_id=492860538 instance=ExtResource("5_object")]
 modulate = Color(0.86, 0.74, 0.68, 1)
 position = Vector2(535, 370)
-rotation = 0
 data = ExtResource("9_scarf")
 texture_scale = Vector2(0.25, 0.2)
 click_size = Vector2(56, 34)
 
-[node name="Crossword" parent="HiddenObjects" instance=ExtResource("5_object")]
+[node name="Crossword" parent="HiddenObjects" unique_id=1376055314 instance=ExtResource("5_object")]
 position = Vector2(458, 466)
-rotation = 0
 data = ExtResource("10_crossword")
 texture_scale = Vector2(0.1894, 0.1042)
 
-[node name="PianoBench" parent="HiddenObjects" node_paths=PackedStringArray("contents") instance=ExtResource("14_container")]
+[node name="PianoBench" parent="HiddenObjects" unique_id=1233856372 node_paths=PackedStringArray("contents") instance=ExtResource("14_container")]
 position = Vector2(915, 415)
+scale = Vector2(0.3201, 0.3201)
 container_id = &"piano_bench"
 contents = NodePath("../InsurancePolicy")
 open_title = "You lift the piano bench seat..."
@@ -92,16 +88,15 @@ tint = Color(0.2, 0.11, 0.07, 1)
 size = Vector2(324.905, 299.912)
 closed_texture = ExtResource("tex_living_room_piano_bench_closed_v1")
 open_texture = ExtResource("tex_living_room_piano_bench_open_v1")
-scale = Vector2(0.3201, 0.3201)
 
-[node name="InsurancePolicy" parent="HiddenObjects" instance=ExtResource("5_object")]
+[node name="InsurancePolicy" parent="HiddenObjects" unique_id=356314813 instance=ExtResource("5_object")]
 position = Vector2(915, 398)
-rotation = 0
 data = ExtResource("11_policy")
 texture_scale = Vector2(0.1515, 0.1515)
 
-[node name="CigarBox" parent="HiddenObjects" node_paths=PackedStringArray("contents") instance=ExtResource("14_container")]
+[node name="CigarBox" parent="HiddenObjects" unique_id=928284752 node_paths=PackedStringArray("contents") instance=ExtResource("14_container")]
 position = Vector2(612, 477.5)
+scale = Vector2(0.1449, 0.1449)
 container_id = &"cigar_box"
 contents = NodePath("../DeskKey")
 open_title = "The cigar box creaks open..."
@@ -111,17 +106,17 @@ tint = Color(0.55, 0.26, 0.16, 1)
 size = Vector2(358.968, 276.129)
 closed_texture = ExtResource("tex_living_room_cigar_box_closed_v1")
 open_texture = ExtResource("tex_living_room_cigar_box_open_v1")
-scale = Vector2(0.1449, 0.1449)
 
-[node name="DeskKey" parent="HiddenObjects" instance=ExtResource("5_object")]
+[node name="DeskKey" parent="HiddenObjects" unique_id=1542626367 instance=ExtResource("5_object")]
 position = Vector2(612, 480)
 rotation = 0.25
 data = ExtResource("12_desk_key")
 texture_scale = Vector2(0.1061, 0.1061)
 
-[node name="DeskDrawer" parent="HiddenObjects" node_paths=PackedStringArray("contents", "required_object") instance=ExtResource("14_container")]
+[node name="DeskDrawer" parent="HiddenObjects" unique_id=86966667 node_paths=PackedStringArray("contents", "required_object") instance=ExtResource("14_container")]
 modulate = Color(0.78, 0.72, 0.6, 1)
 position = Vector2(733.75, 336.4)
+scale = Vector2(0.164, 0.1)
 container_id = &"desk_drawer"
 contents = NodePath("../SpareKeys")
 open_title = "The little key turns..."
@@ -134,21 +129,20 @@ tint = Color(0.3, 0.17, 0.11, 1)
 size = Vector2(428, 300)
 closed_texture = ExtResource("tex_living_room_desk_drawer_closed_v1")
 open_texture = ExtResource("tex_living_room_desk_drawer_open_v1")
-scale = Vector2(0.164, 0.1)
 
-[node name="SpareKeys" parent="HiddenObjects" instance=ExtResource("5_object")]
+[node name="SpareKeys" parent="HiddenObjects" unique_id=1740528959 instance=ExtResource("5_object")]
 modulate = Color(0.85, 0.8, 0.7, 1)
 position = Vector2(733.5, 331.5)
 data = ExtResource("13_spare_keys")
 texture_scale = Vector2(0.07, 0.04)
 click_size = Vector2(44, 26)
 
-[node name="RoomForeground" type="Node2D" parent="."]
+[node name="RoomForeground" type="Node2D" parent="." unique_id=65414467]
 visible = false
 script = ExtResource("4_art")
 layer = 1
 
-[node name="DustMotes" type="CPUParticles2D" parent="."]
+[node name="DustMotes" type="CPUParticles2D" parent="." unique_id=1488118998]
 position = Vector2(640, 380)
 amount = 24
 lifetime = 10.0
@@ -165,33 +159,33 @@ scale_amount_max = 2.5
 color = Color(1, 0.88, 0.7, 0.35)
 color_ramp = SubResource("Gradient_dust")
 
-[node name="PowerCuts" type="Node" parent="." node_paths=PackedStringArray("darkness_layer")]
+[node name="PowerCuts" type="Node" parent="." unique_id=422014446 node_paths=PackedStringArray("darkness_layer")]
 script = ExtResource("16_power")
 darkness_layer = NodePath("../MatchLight")
 
-[node name="MatchLight" type="Node2D" parent="."]
+[node name="MatchLight" type="Node2D" parent="." unique_id=1855614867]
 script = ExtResource("15_lantern")
 darkness = 0.95
 light_radius = 55.0
 soft_edge = 50.0
 flicker_strength = 4.0
 
-[node name="HintHighlight" type="Node2D" parent="."]
+[node name="HintHighlight" type="Node2D" parent="." unique_id=1602375980]
 unique_name_in_owner = true
 visible = false
 script = ExtResource("17_hint")
 
-[node name="HUD" parent="." instance=ExtResource("18_hud")]
+[node name="HUD" parent="." unique_id=600530164 instance=ExtResource("18_hud")]
 unique_name_in_owner = true
 
-[node name="Notification" parent="." instance=ExtResource("19_note")]
+[node name="Notification" parent="." unique_id=415551671 instance=ExtResource("19_note")]
 unique_name_in_owner = true
 
-[node name="VictoryScreen" parent="." instance=ExtResource("20_victory")]
+[node name="VictoryScreen" parent="." unique_id=1202255442 instance=ExtResource("20_victory")]
 unique_name_in_owner = true
 
-[node name="PauseMenu" parent="." instance=ExtResource("21_pause")]
+[node name="PauseMenu" parent="." unique_id=1144973110 instance=ExtResource("21_pause")]
 unique_name_in_owner = true
 
-[node name="LetterPopup" parent="." instance=ExtResource("22_letter")]
+[node name="LetterPopup" parent="." unique_id=1003227978 instance=ExtResource("22_letter")]
 unique_name_in_owner = true

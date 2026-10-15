@@ -30,8 +30,8 @@
 [ext_resource type="Texture2D" path="res://assets/objects/boat_shed_first_aid_box_open_v1.png" id="tex_boat_shed_first_aid_box_open_v1"]
 [ext_resource type="Texture2D" path="res://assets/objects/boat_shed_strongbox_closed_v1.png" id="tex_boat_shed_strongbox_closed_v1"]
 [ext_resource type="Texture2D" path="res://assets/objects/boat_shed_strongbox_open_v1.png" id="tex_boat_shed_strongbox_open_v1"]
-[ext_resource type="Texture2D" path="res://assets/objects/boat_shed_workbench_drawer_closed_v1.png" id="tex_boat_shed_workbench_drawer_closed_v1"]
-[ext_resource type="Texture2D" path="res://assets/objects/boat_shed_workbench_drawer_open_v1.png" id="tex_boat_shed_workbench_drawer_open_v1"]
+[ext_resource type="Texture2D" path="res://assets/objects/boat_shed_workbench_drawer_closed_v2.png" id="tex_boat_shed_workbench_drawer_closed_v1"]
+[ext_resource type="Texture2D" path="res://assets/objects/boat_shed_workbench_drawer_open_v2.png" id="tex_boat_shed_workbench_drawer_open_v1"]
 [ext_resource type="Texture2D" path="res://assets/objects/boat_shed_net_basket_closed_v1.png" id="tex_boat_shed_net_basket_closed_v1"]
 [ext_resource type="Texture2D" path="res://assets/objects/boat_shed_net_basket_open_v1.png" id="tex_boat_shed_net_basket_open_v1"]
 [ext_resource type="Texture2D" path="res://assets/objects/boat_shed_tool_chest_closed_v1.png" id="tex_boat_shed_tool_chest_closed_v1"]
@@ -68,10 +68,10 @@ texture_scale = Vector2(0.1288, 0.1288)
 modulate = Color(0.86, 0.72, 0.56, 1)
 
 [node name="CoatButton" parent="HiddenObjects" instance=ExtResource("5_object")]
-position = Vector2(312, 200)
+position = Vector2(306, 309)
 data = ExtResource("8_button")
 rotation = 0
-texture_scale = Vector2(0.0682, 0.0682)
+texture_scale = Vector2(0.0682, 0.05)
 modulate = Color(0.9, 0.8, 0.65, 1)
 
 [node name="ShipBell" parent="HiddenObjects" instance=ExtResource("5_object")]
@@ -137,7 +137,7 @@ texture_scale = Vector2(0.1061, 0.1061)
 modulate = Color(0.9, 0.78, 0.64, 1)
 
 [node name="WorkbenchDrawer" parent="HiddenObjects" node_paths=PackedStringArray("contents", "required_object") instance=ExtResource("17_container")]
-position = Vector2(240, 325)
+position = Vector2(240, 328)
 container_id = &"workbench_drawer"
 contents = NodePath("../BankReceipt")
 open_title = "The little key turns..."
@@ -151,13 +151,12 @@ size = Vector2(344.368, 137.747)
 closed_texture = ExtResource("tex_boat_shed_workbench_drawer_closed_v1")
 open_texture = ExtResource("tex_boat_shed_workbench_drawer_open_v1")
 scale = Vector2(0.2033, 0.2033)
-self_modulate = Color(0.78, 0.66, 0.54, 1)
 
 [node name="BankReceipt" parent="HiddenObjects" instance=ExtResource("5_object")]
-position = Vector2(240, 338)
-rotation = 0.1
+position = Vector2(242, 320)
+rotation = 0.03
 data = ExtResource("15_receipt")
-texture_scale = Vector2(0.1364, 0.1364)
+texture_scale = Vector2(0.11, 0.05)
 modulate = Color(0.86, 0.72, 0.56, 1)
 
 [node name="NetBasket" parent="HiddenObjects" node_paths=PackedStringArray("contents") instance=ExtResource("17_container")]

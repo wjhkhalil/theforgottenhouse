@@ -31,6 +31,7 @@ room's scripts in the order listed, around `cut_sprites.py tools/sprite_cuts/<ro
 | `boat_shed_clean_net.py` | after cutting | Takes the pink fringe out of the open net basket. |
 | `workshop_cut_touching.py` | after cutting | Cuts the boat model, hull plan, job book, bung, log basket and cash box (not in the cut list). |
 | `workshop_crate_slats.py` | after the script above | Darkens the gaps between the bung crate's slats. |
+| `house_two_refit_drawers.py` | after cutting the Boat Shed or Workshop drawers | Writes the `_v2` workbench and bench drawer sprites: recoloured to the table wood, set into the table, and opening without the sides showing above the table top. |
 | `sunken_boat_finish.py` | after cutting | Cuts the skipper locker, galley cupboard and ditty box; builds the cabin door. |
 | `ice_house_cut_touching.py` | after cutting | Cuts the horse blanket and the snowshoe (not in the cut list). |
 | `ice_house_clean_ice.py` | after cutting | Takes lavender specks out of the ice. |

@@ -28,8 +28,8 @@
 [ext_resource type="PackedScene" path="res://scenes/ui/letter_popup.tscn" id="26_letter"]
 [ext_resource type="PackedScene" path="res://scenes/ui/keypad_lock.tscn" id="27_keypad"]
 [ext_resource type="Texture2D" path="res://assets/backgrounds/workshop_background_v1.png" id="bg_workshop"]
-[ext_resource type="Texture2D" path="res://assets/objects/workshop_bench_drawer_closed_v1.png" id="tex_workshop_bench_drawer_closed_v1"]
-[ext_resource type="Texture2D" path="res://assets/objects/workshop_bench_drawer_open_v1.png" id="tex_workshop_bench_drawer_open_v1"]
+[ext_resource type="Texture2D" path="res://assets/objects/workshop_bench_drawer_closed_v2.png" id="tex_workshop_bench_drawer_closed_v1"]
+[ext_resource type="Texture2D" path="res://assets/objects/workshop_bench_drawer_open_v2.png" id="tex_workshop_bench_drawer_open_v1"]
 [ext_resource type="Texture2D" path="res://assets/objects/workshop_bung_crate_closed_v1.png" id="tex_workshop_bung_crate_closed_v1"]
 [ext_resource type="Texture2D" path="res://assets/objects/workshop_bung_crate_open_v1.png" id="tex_workshop_bung_crate_open_v1"]
 [ext_resource type="Texture2D" path="res://assets/objects/workshop_log_basket_closed_v1.png" id="tex_workshop_log_basket_closed_v1"]
@@ -124,12 +124,11 @@ size = Vector2(389.091, 103.758)
 closed_texture = ExtResource("tex_workshop_bench_drawer_closed_v1")
 open_texture = ExtResource("tex_workshop_bench_drawer_open_v1")
 scale = Vector2(0.2313, 0.2313)
-self_modulate = Color(1, 0.88, 0.74, 1)
 
 [node name="JobBook" parent="HiddenObjects" instance=ExtResource("5_object")]
-position = Vector2(388, 386)
+position = Vector2(392, 403)
 data = ExtResource("13_job_book")
-texture_scale = Vector2(0.1515, 0.1515)
+texture_scale = Vector2(0.12, 0.07)
 
 [node name="BungCrate" parent="HiddenObjects" node_paths=PackedStringArray("contents") instance=ExtResource("19_container")]
 position = Vector2(736, 509.5)

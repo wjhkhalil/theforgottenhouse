@@ -55,11 +55,12 @@ script = ExtResource("4_art")
 replacement_texture = ExtResource("bg_loft")
 
 [node name="CarvedDate" type="Node2D" parent="."]
-position = Vector2(388, 148)
+position = Vector2(396, 152)
+rotation = -0.05
 script = ExtResource("clue_mark")
-lines = PackedStringArray("14.5.87")
-sizes = PackedInt32Array(12)
-ink = Color(0.86, 0.72, 0.5, 0.9)
+lines = PackedStringArray("14.05")
+sizes = PackedInt32Array(11)
+ink = Color(0.55, 0.43, 0.3, 0.75)
 carved = true
 
 [node name="HiddenObjects" type="Node2D" parent="."]
@@ -220,7 +221,7 @@ required_code = "1405"
 code_title = "The Sea Chest"
 code_prompt = "An old sea chest with a four-number lock. Painted on the lid, in Vane's neat hand: 'The day she came to us.'"
 code_hint_first = "Wrong. Mara counted every day she was kept up here. Look where she kept count."
-code_hint_second = "The post in the middle has '14.5.87' carved at the top: the 14th of May. The code is 1405."
+code_hint_second = "The post in the middle has '14.05' carved at the top: the 14th of May. The code is 1405."
 code_hint_first_after = 6
 code_hint_second_after = 9
 style = 0

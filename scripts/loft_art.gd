@@ -185,8 +185,8 @@ func _draw_post() -> void:
 	draw_rect(Rect2(POST_RECT.position, Vector2(6, POST_RECT.size.y)), WOOD_LIGHT)
 	draw_rect(Rect2(POST_RECT.end.x - 6, POST_RECT.position.y, 6, POST_RECT.size.y), WOOD_DARK)
 	var scratch := Color(0.72, 0.62, 0.48)
-	# The date she came, carved at the top: 14.5.87
-	_draw_carved_text(Vector2(POST_RECT.position.x + 2, 234), "14.5.87", scratch, 1.3)
+	# The date she came, carved at the top: 14.05
+	_draw_carved_text(Vector2(POST_RECT.position.x + 2, 234), "14.05", scratch, 1.3)
 	# Rows of tally marks, five to a group
 	for row in range(14):
 		var y := 262.0 + row * 12.0

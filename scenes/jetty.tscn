@@ -171,7 +171,7 @@ data = ExtResource("14_registration")
 texture_scale = Vector2(0.1212, 0.1212)
 
 [node name="DockLocker" parent="HiddenObjects" node_paths=PackedStringArray("contents") instance=ExtResource("16_container")]
-position = Vector2(1618, 341)
+position = Vector2(1480, 342)
 container_id = &"dock_locker"
 contents = NodePath("../Prescription")
 open_title = "The locker door clanks open..."
@@ -188,12 +188,13 @@ tint = Color(0.24, 0.3, 0.28, 1)
 size = Vector2(185.254, 428)
 closed_texture = ExtResource("tex_jetty_dock_locker_closed_v1")
 open_texture = ExtResource("tex_jetty_dock_locker_open_v1")
-scale = Vector2(0.3131, 0.3131)
+scale = Vector2(0.25, 0.25)
+self_modulate = Color(0.8, 0.74, 0.66, 1)
 
 [node name="Prescription" parent="HiddenObjects" instance=ExtResource("5_object")]
-position = Vector2(1620, 390)
+position = Vector2(1481, 381)
 data = ExtResource("15_prescription")
-texture_scale = Vector2(0.0833, 0.0833)
+texture_scale = Vector2(0.0665, 0.0665)
 
 [node name="RoomForeground" type="Node2D" parent="."]
 visible = false
