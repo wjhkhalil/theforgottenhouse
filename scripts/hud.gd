@@ -132,6 +132,8 @@ func _add_entry(object_data: HiddenObjectData) -> void:
 	icon.custom_minimum_size = Vector2(30, 30) if _compact else Vector2(44, 44)
 	icon.object_data = object_data
 	icon.hide_picture = _riddles
+	# Let touches through, so a finger dragged on the picture scrolls the list.
+	icon.mouse_filter = Control.MOUSE_FILTER_IGNORE
 	row.add_child(icon)
 
 	var text_column := VBoxContainer.new()
