@@ -80,6 +80,13 @@ enum ContainerStyle { TRUNK, JEWELLERY_BOX, HAT_BOX, CABINET, DRAWER, SAFE, BASK
 		open_texture = value
 		queue_redraw()
 
+## Darkness of a soft shadow on the floor under the picture (0 = none). Use it
+## for furniture standing on the floor, so it looks grounded instead of pasted on.
+@export_range(0.0, 1.0) var floor_shadow: float = 0.0:
+	set(value):
+		floor_shadow = value
+		queue_redraw()
+
 var is_open: bool = false
 ## Clicks so far on a container that needs several (hits_to_open).
 var hits_taken: int = 0
@@ -205,6 +212,8 @@ func _refresh() -> void:
 func _draw() -> void:
 	var texture := open_texture if is_open else closed_texture
 	if texture != null:
+		if floor_shadow > 0.0:
+			_draw_floor_shadow(texture.get_size())
 		draw_texture(texture, -texture.get_size() / 2.0)
 		if not is_open and hits_taken > 0:
 			_draw_cracks()
@@ -230,6 +239,16 @@ func _draw() -> void:
 			_draw_placeholder_ice_block()
 		_:
 			_draw_placeholder_trunk()
+
+
+## A flat oval of shade along the bottom edge, darkest in the middle.
+func _draw_floor_shadow(picture: Vector2) -> void:
+	var foot := Vector2(0, picture.y / 2.0 - picture.y * 0.02)
+	for ring in range(4):
+		var spread := 1.0 - ring * 0.12
+		draw_set_transform(foot, 0.0, Vector2(picture.x * 0.62 * spread, picture.y * 0.07 * spread))
+		draw_circle(Vector2.ZERO, 1.0, Color(0, 0, 0, floor_shadow * 0.3))
+	draw_set_transform(Vector2.ZERO)
 
 
 ## Old wooden trunk with metal bands, drawn to fit `size`.

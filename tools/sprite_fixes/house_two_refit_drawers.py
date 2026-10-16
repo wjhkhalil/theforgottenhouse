@@ -1,4 +1,4 @@
-"""Refit the Boat Shed workbench drawer and the Workshop bench drawer to their tables.
+"""Refit the Boat Shed workbench drawer, the Workshop bench drawer and the Lamp Room desk drawer to their tables.
 
 Run from the project folder:  python3 tools/sprite_fixes/house_two_refit_drawers.py
 
@@ -39,6 +39,15 @@ DRAWERS = [
         "drawer_rgb": (92.3, 50.6, 21.6),
         "old_modulate": (1.0, 0.88, 0.74),
         "table_rgb": (104.0, 48.0, 16.0),
+    },
+    {
+        "name": "lamp_room_desk_drawer",
+        "front": (16, 78, 413, 178),
+        "inside": (30, 40, 398, 98),
+        "pull": 0.45,
+        "drawer_rgb": (132.0, 62.0, 21.5),
+        "old_modulate": (1.0, 1.0, 1.0),
+        "table_rgb": (71.0, 31.5, 6.0),
     },
 ]
 

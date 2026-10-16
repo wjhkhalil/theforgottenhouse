@@ -33,8 +33,8 @@
 [ext_resource type="Texture2D" path="res://assets/backgrounds/lamp_room_window_mask_v1.png" id="mask_lamp_room"]
 [ext_resource type="Texture2D" path="res://assets/objects/lamp_room_lens_cupboard_closed_v1.png" id="tex_lamp_room_lens_cupboard_closed_v1"]
 [ext_resource type="Texture2D" path="res://assets/objects/lamp_room_lens_cupboard_open_v1.png" id="tex_lamp_room_lens_cupboard_open_v1"]
-[ext_resource type="Texture2D" path="res://assets/objects/lamp_room_desk_drawer_closed_v1.png" id="tex_lamp_room_desk_drawer_closed_v1"]
-[ext_resource type="Texture2D" path="res://assets/objects/lamp_room_desk_drawer_open_v1.png" id="tex_lamp_room_desk_drawer_open_v1"]
+[ext_resource type="Texture2D" path="res://assets/objects/lamp_room_desk_drawer_closed_v2.png" id="tex_lamp_room_desk_drawer_closed_v1"]
+[ext_resource type="Texture2D" path="res://assets/objects/lamp_room_desk_drawer_open_v2.png" id="tex_lamp_room_desk_drawer_open_v1"]
 [ext_resource type="Texture2D" path="res://assets/objects/lamp_room_radio_cabinet_closed_v1.png" id="tex_lamp_room_radio_cabinet_closed_v1"]
 [ext_resource type="Texture2D" path="res://assets/objects/lamp_room_radio_cabinet_open_v1.png" id="tex_lamp_room_radio_cabinet_open_v1"]
 [ext_resource type="Texture2D" path="res://assets/objects/lamp_room_rope_basket_closed_v1.png" id="tex_lamp_room_rope_basket_closed_v1"]
@@ -146,7 +146,9 @@ rotation = 0
 texture_scale = Vector2(0.0985, 0.0985)
 
 [node name="DeskDrawer" parent="HiddenObjects" node_paths=PackedStringArray("contents") instance=ExtResource("21_container")]
+self_modulate = Color(1, 1, 1, 1)
 position = Vector2(305.2, 444.7)
+rotation = -0.06
 container_id = &"desk_drawer"
 contents = NodePath("../TobaccoTin")
 open_title = "The desk drawer sticks, then slides out..."
@@ -159,13 +161,16 @@ open_texture = ExtResource("tex_lamp_room_desk_drawer_open_v1")
 scale = Vector2(0.3325, 0.3325)
 
 [node name="TobaccoTin" parent="HiddenObjects" instance=ExtResource("5_object")]
-position = Vector2(334, 430)
+position = Vector2(334, 445)
 data = ExtResource("16_tobacco_tin")
 rotation = 0.1
 texture_scale = Vector2(0.1136, 0.1136)
 
 [node name="RadioCabinet" parent="HiddenObjects" node_paths=PackedStringArray("contents") instance=ExtResource("21_container")]
-position = Vector2(300, 507.9)
+self_modulate = Color(0.5, 0.47, 0.48, 1)
+position = Vector2(116.5, 561)
+rotation = -0.19
+skew = 0.19
 container_id = &"radio_cabinet"
 contents = NodePath("../RadioValve")
 open_title = "You open the cabinet under the radio..."
@@ -175,13 +180,15 @@ tint = Color(0.34, 0.21, 0.12, 1)
 size = Vector2(314.232, 230.702)
 closed_texture = ExtResource("tex_lamp_room_radio_cabinet_closed_v1")
 open_texture = ExtResource("tex_lamp_room_radio_cabinet_open_v1")
-scale = Vector2(0.2514, 0.2514)
+scale = Vector2(0.18, 0.18)
+floor_shadow = 0.7
 
 [node name="RadioValve" parent="HiddenObjects" instance=ExtResource("5_object")]
-position = Vector2(300, 518)
+position = Vector2(116.5, 565)
 data = ExtResource("14_radio_valve")
-rotation = 0
-texture_scale = Vector2(0.1136, 0.1136)
+rotation = -0.19
+skew = 0.19
+texture_scale = Vector2(0.082, 0.082)
 
 [node name="RopeBasket" parent="HiddenObjects" node_paths=PackedStringArray("contents") instance=ExtResource("21_container")]
 position = Vector2(925.1, 560.5)
