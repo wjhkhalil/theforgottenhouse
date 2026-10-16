@@ -114,6 +114,8 @@ func _build_chapter_list() -> void:
 		button.custom_minimum_size = Vector2(0, 40)
 		button.alignment = HORIZONTAL_ALIGNMENT_LEFT
 		button.size_flags_horizontal = Control.SIZE_EXPAND_FILL
+		# Pass touches on to the list too, so a finger dragged on a button scrolls it.
+		button.mouse_filter = Control.MOUSE_FILTER_PASS
 		var chapter_id: String = chapter["id"]
 		if SaveManager.is_chapter_completed(chapter_id):
 			button.text = "%s   (Completed)" % chapter["title"]
