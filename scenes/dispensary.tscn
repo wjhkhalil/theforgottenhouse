@@ -39,9 +39,9 @@
 [ext_resource type="Texture2D" path="res://assets/objects/dispensary_poison_cupboard_closed_v1.png" id="tex_dispensary_poison_cupboard_closed_v1"]
 [ext_resource type="Texture2D" path="res://assets/objects/dispensary_poison_cupboard_open_v1.png" id="tex_dispensary_poison_cupboard_open_v1"]
 [ext_resource type="Texture2D" path="res://assets/objects/dispensary_powder_drawer_closed_v1.png" id="tex_dispensary_powder_drawer_closed_v1"]
-[ext_resource type="Texture2D" path="res://assets/objects/dispensary_powder_drawer_open_v1.png" id="tex_dispensary_powder_drawer_open_v1"]
+[ext_resource type="Texture2D" path="res://assets/objects/dispensary_powder_drawer_open_v2_fit.png" id="tex_dispensary_powder_drawer_open_v1"]
 [ext_resource type="Texture2D" path="res://assets/objects/dispensary_label_drawer_closed_v1.png" id="tex_dispensary_label_drawer_closed_v1"]
-[ext_resource type="Texture2D" path="res://assets/objects/dispensary_label_drawer_open_v1.png" id="tex_dispensary_label_drawer_open_v1"]
+[ext_resource type="Texture2D" path="res://assets/objects/dispensary_label_drawer_open_v2_fit.png" id="tex_dispensary_label_drawer_open_v1"]
 [ext_resource type="Texture2D" path="res://assets/objects/dispensary_ice_chest_closed_v1.png" id="tex_dispensary_ice_chest_closed_v1"]
 [ext_resource type="Texture2D" path="res://assets/objects/dispensary_ice_chest_open_v1.png" id="tex_dispensary_ice_chest_open_v1"]
 [ext_resource type="Texture2D" path="res://assets/objects/dispensary_bureau_closed_v1.png" id="tex_dispensary_bureau_closed_v1"]
@@ -165,9 +165,9 @@ open_texture = ExtResource("tex_dispensary_powder_drawer_open_v1")
 scale = Vector2(0.2009, 0.2009)
 
 [node name="DoseBook" parent="HiddenObjects" instance=ExtResource("5_object")]
-position = Vector2(387, 452)
+position = Vector2(387.0, 424.8)
 data = ExtResource("21_dose_book")
-texture_scale = Vector2(0.1136, 0.1136)
+texture_scale = Vector2(0.0811, 0.0811)
 
 [node name="LabelDrawer" parent="HiddenObjects" node_paths=PackedStringArray("contents") instance=ExtResource("6_container")]
 position = Vector2(498, 446)
@@ -183,9 +183,9 @@ open_texture = ExtResource("tex_dispensary_label_drawer_open_v1")
 scale = Vector2(0.2009, 0.2009)
 
 [node name="BlankDeathForms" parent="HiddenObjects" instance=ExtResource("5_object")]
-position = Vector2(498, 452)
+position = Vector2(498.0, 424.7)
 data = ExtResource("22_blank_death_forms")
-texture_scale = Vector2(0.1136, 0.1136)
+texture_scale = Vector2(0.0821, 0.0821)
 
 [node name="IceChest" parent="HiddenObjects" node_paths=PackedStringArray("contents") instance=ExtResource("6_container")]
 position = Vector2(905, 590)

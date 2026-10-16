@@ -39,7 +39,7 @@
 [ext_resource type="Texture2D" path="res://assets/objects/gate_lodge_coal_scuttle_closed_v1.png" id="tex_gate_lodge_coal_scuttle_closed_v1"]
 [ext_resource type="Texture2D" path="res://assets/objects/gate_lodge_coal_scuttle_open_v1.png" id="tex_gate_lodge_coal_scuttle_open_v1"]
 [ext_resource type="Texture2D" path="res://assets/objects/gate_lodge_desk_drawer_closed_v1.png" id="tex_gate_lodge_desk_drawer_closed_v1"]
-[ext_resource type="Texture2D" path="res://assets/objects/gate_lodge_desk_drawer_open_v1.png" id="tex_gate_lodge_desk_drawer_open_v1"]
+[ext_resource type="Texture2D" path="res://assets/objects/gate_lodge_desk_drawer_open_v2_fit.png" id="tex_gate_lodge_desk_drawer_open_v1"]
 [ext_resource type="Texture2D" path="res://assets/objects/gate_lodge_strongbox_closed_v1.png" id="tex_gate_lodge_strongbox_closed_v1"]
 [ext_resource type="Texture2D" path="res://assets/objects/gate_lodge_strongbox_open_v1.png" id="tex_gate_lodge_strongbox_open_v1"]
 [ext_resource type="Texture2D" path="res://assets/objects/gate_lodge_key_cabinet_closed_v1.png" id="tex_gate_lodge_key_cabinet_closed_v1"]
@@ -122,9 +122,9 @@ open_texture = ExtResource("tex_gate_lodge_desk_drawer_open_v1")
 scale = Vector2(0.215, 0.215)
 
 [node name="DutyRoster" parent="HiddenObjects" instance=ExtResource("5_object")]
-position = Vector2(622, 370)
+position = Vector2(622.0, 376.6)
 data = ExtResource("18_duty_roster")
-texture_scale = Vector2(0.1667, 0.1667)
+texture_scale = Vector2(0.1167, 0.1167)
 
 [node name="CoalScuttle" parent="HiddenObjects" node_paths=PackedStringArray("contents") instance=ExtResource("6_container")]
 position = Vector2(385, 500)

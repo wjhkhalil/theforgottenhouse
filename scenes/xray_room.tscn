@@ -40,7 +40,7 @@
 [ext_resource type="Texture2D" path="res://assets/objects/xray_room_laundry_hamper_closed_v1.png" id="tex_xray_room_laundry_hamper_closed_v1"]
 [ext_resource type="Texture2D" path="res://assets/objects/xray_room_laundry_hamper_open_v1.png" id="tex_xray_room_laundry_hamper_open_v1"]
 [ext_resource type="Texture2D" path="res://assets/objects/xray_room_desk_drawer_closed_v1.png" id="tex_xray_room_desk_drawer_closed_v1"]
-[ext_resource type="Texture2D" path="res://assets/objects/xray_room_desk_drawer_open_v1.png" id="tex_xray_room_desk_drawer_open_v1"]
+[ext_resource type="Texture2D" path="res://assets/objects/xray_room_desk_drawer_open_v2_fit.png" id="tex_xray_room_desk_drawer_open_v1"]
 [ext_resource type="Texture2D" path="res://assets/objects/xray_room_waste_bin_closed_v1.png" id="tex_xray_room_waste_bin_closed_v1"]
 [ext_resource type="Texture2D" path="res://assets/objects/xray_room_waste_bin_open_v1.png" id="tex_xray_room_waste_bin_open_v1"]
 [ext_resource type="Texture2D" path="res://assets/objects/xray_room_light_box_closed_v1.png" id="tex_xray_room_light_box_closed_v1"]
@@ -185,9 +185,9 @@ open_texture = ExtResource("tex_xray_room_desk_drawer_open_v1")
 scale = Vector2(0.2742, 0.2742)
 
 [node name="AppointmentBook" parent="HiddenObjects" instance=ExtResource("5_object")]
-position = Vector2(875, 474)
+position = Vector2(875.0, 482.6)
 data = ExtResource("19_appointment_book")
-texture_scale = Vector2(0.1439, 0.1439)
+texture_scale = Vector2(0.1007, 0.1007)
 
 [node name="WasteBin" parent="HiddenObjects" node_paths=PackedStringArray("contents") instance=ExtResource("6_container")]
 position = Vector2(955.1, 521.1)

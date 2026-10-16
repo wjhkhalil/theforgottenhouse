@@ -46,7 +46,7 @@
 [ext_resource type="Texture2D" path="res://assets/objects/boiler_room_fire_door_closed_v1.png" id="tex_boiler_room_fire_door_closed_v1"]
 [ext_resource type="Texture2D" path="res://assets/objects/boiler_room_fire_door_open_v1.png" id="tex_boiler_room_fire_door_open_v1"]
 [ext_resource type="Texture2D" path="res://assets/objects/boiler_room_bench_drawer_closed_v1.png" id="tex_boiler_room_bench_drawer_closed_v1"]
-[ext_resource type="Texture2D" path="res://assets/objects/boiler_room_bench_drawer_open_v1.png" id="tex_boiler_room_bench_drawer_open_v1"]
+[ext_resource type="Texture2D" path="res://assets/objects/boiler_room_bench_drawer_open_v2_fit.png" id="tex_boiler_room_bench_drawer_open_v1"]
 [ext_resource type="Texture2D" path="res://assets/objects/boiler_room_gauge_case_closed_v1.png" id="tex_boiler_room_gauge_case_closed_v1"]
 [ext_resource type="Texture2D" path="res://assets/objects/boiler_room_gauge_case_open_v1.png" id="tex_boiler_room_gauge_case_open_v1"]
 [ext_resource type="Texture2D" path="res://assets/objects/boiler_room_lunch_tin_closed_v1.png" id="tex_boiler_room_lunch_tin_closed_v1"]
@@ -235,9 +235,9 @@ open_texture = ExtResource("tex_boiler_room_bench_drawer_open_v1")
 scale = Vector2(0.1671, 0.1671)
 
 [node name="StokersPaySlip" parent="HiddenObjects" instance=ExtResource("5_object")]
-position = Vector2(750, 400)
+position = Vector2(750.0, 389.7)
 data = ExtResource("24_stokers_pay_slip")
-texture_scale = Vector2(0.1288, 0.1288)
+texture_scale = Vector2(0.1076, 0.1076)
 
 [node name="GaugeCase" parent="HiddenObjects" node_paths=PackedStringArray("contents") instance=ExtResource("6_container")]
 position = Vector2(334.3, 191.3)

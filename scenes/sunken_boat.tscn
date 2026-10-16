@@ -30,7 +30,7 @@
 [ext_resource type="PackedScene" path="res://scenes/ui/keypad_lock.tscn" id="28_keypad"]
 [ext_resource type="Texture2D" path="res://assets/backgrounds/sunken_boat_background_v2.png" id="bg_sunken_boat"]
 [ext_resource type="Texture2D" path="res://assets/objects/sunken_boat_chart_drawer_closed_v1.png" id="tex_sunken_boat_chart_drawer_closed_v1"]
-[ext_resource type="Texture2D" path="res://assets/objects/sunken_boat_chart_drawer_open_v1.png" id="tex_sunken_boat_chart_drawer_open_v1"]
+[ext_resource type="Texture2D" path="res://assets/objects/sunken_boat_chart_drawer_open_v2_fit.png" id="tex_sunken_boat_chart_drawer_open_v1"]
 [ext_resource type="Texture2D" path="res://assets/objects/sunken_boat_cabin_door_closed_v1.png" id="tex_sunken_boat_cabin_door_closed_v1"]
 [ext_resource type="Texture2D" path="res://assets/objects/sunken_boat_cabin_door_open_v1.png" id="tex_sunken_boat_cabin_door_open_v1"]
 [ext_resource type="Texture2D" path="res://assets/objects/sunken_boat_key_box_closed_v1.png" id="tex_sunken_boat_key_box_closed_v1"]
@@ -128,10 +128,10 @@ scale = Vector2(0.1495, 0.1495)
 self_modulate = Color(0.5, 0.5, 0.4, 1)
 
 [node name="CabinKey" parent="HiddenObjects" instance=ExtResource("5_object")]
-position = Vector2(878, 262)
+position = Vector2(876.9, 273.1)
 rotation = 0.1
 data = ExtResource("14_cabin_key")
-texture_scale = Vector2(0.0909, 0.0909)
+texture_scale = Vector2(0.0636, 0.0636)
 modulate = Color(0.7, 0.72, 0.6, 1)
 
 [node name="CabinDoor" parent="HiddenObjects" node_paths=PackedStringArray("contents", "required_object") instance=ExtResource("19_container")]

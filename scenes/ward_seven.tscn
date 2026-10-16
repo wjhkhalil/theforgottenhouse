@@ -48,7 +48,7 @@
 [ext_resource type="Texture2D" path="res://assets/objects/ward_seven_linen_chest_closed_v1.png" id="tex_ward_seven_linen_chest_closed_v1"]
 [ext_resource type="Texture2D" path="res://assets/objects/ward_seven_linen_chest_open_v1.png" id="tex_ward_seven_linen_chest_open_v1"]
 [ext_resource type="Texture2D" path="res://assets/objects/ward_seven_nurses_desk_drawer_closed_v1.png" id="tex_ward_seven_nurses_desk_drawer_closed_v1"]
-[ext_resource type="Texture2D" path="res://assets/objects/ward_seven_nurses_desk_drawer_open_v1.png" id="tex_ward_seven_nurses_desk_drawer_open_v1"]
+[ext_resource type="Texture2D" path="res://assets/objects/ward_seven_nurses_desk_drawer_open_v2_fit.png" id="tex_ward_seven_nurses_desk_drawer_open_v1"]
 [ext_resource type="Texture2D" path="res://assets/objects/ward_seven_medicine_trolley_closed_v1.png" id="tex_ward_seven_medicine_trolley_closed_v1"]
 [ext_resource type="Texture2D" path="res://assets/objects/ward_seven_medicine_trolley_open_v1.png" id="tex_ward_seven_medicine_trolley_open_v1"]
 [ext_resource type="Texture2D" path="res://assets/objects/ward_seven_nurses_locker_closed_v1.png" id="tex_ward_seven_nurses_locker_closed_v1"]
@@ -230,10 +230,10 @@ open_texture = ExtResource("tex_ward_seven_nurses_desk_drawer_open_v1")
 scale = Vector2(0.1478, 0.1478)
 
 [node name="PrayerBook" parent="HiddenObjects" instance=ExtResource("5_object")]
-position = Vector2(1095, 490)
+position = Vector2(1095.0, 477.9)
 data = ExtResource("22_prayer_book")
 rotation = 1.2
-texture_scale = Vector2(0.1061, 0.1061)
+texture_scale = Vector2(0.0743, 0.0743)
 
 [node name="MedicineTrolley" parent="HiddenObjects" node_paths=PackedStringArray("contents", "required_object") instance=ExtResource("6_container")]
 self_modulate = Color(0.7, 0.73, 0.82, 1)

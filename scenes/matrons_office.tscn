@@ -38,9 +38,9 @@
 [ext_resource type="PackedScene" path="res://scenes/ui/keypad_lock.tscn" id="47_keypad"]
 [ext_resource type="Texture2D" path="res://assets/backgrounds/matrons_office_background_v1.png" id="bg_matrons_office"]
 [ext_resource type="Texture2D" path="res://assets/objects/matrons_office_desk_drawer_left_closed_v1.png" id="tex_matrons_office_desk_drawer_left_closed_v1"]
-[ext_resource type="Texture2D" path="res://assets/objects/matrons_office_desk_drawer_left_open_v1.png" id="tex_matrons_office_desk_drawer_left_open_v1"]
+[ext_resource type="Texture2D" path="res://assets/objects/matrons_office_desk_drawer_left_open_v2_fit.png" id="tex_matrons_office_desk_drawer_left_open_v1"]
 [ext_resource type="Texture2D" path="res://assets/objects/matrons_office_desk_drawer_right_closed_v1.png" id="tex_matrons_office_desk_drawer_right_closed_v1"]
-[ext_resource type="Texture2D" path="res://assets/objects/matrons_office_desk_drawer_right_open_v1.png" id="tex_matrons_office_desk_drawer_right_open_v1"]
+[ext_resource type="Texture2D" path="res://assets/objects/matrons_office_desk_drawer_right_open_v2_fit.png" id="tex_matrons_office_desk_drawer_right_open_v1"]
 [ext_resource type="Texture2D" path="res://assets/objects/matrons_office_filing_cabinet_closed_v1.png" id="tex_matrons_office_filing_cabinet_closed_v1"]
 [ext_resource type="Texture2D" path="res://assets/objects/matrons_office_filing_cabinet_open_v1.png" id="tex_matrons_office_filing_cabinet_open_v1"]
 [ext_resource type="Texture2D" path="res://assets/objects/matrons_office_waste_basket_closed_v1.png" id="tex_matrons_office_waste_basket_closed_v1"]
@@ -54,7 +54,7 @@
 [ext_resource type="Texture2D" path="res://assets/objects/matrons_office_bible_box_closed_v1.png" id="tex_matrons_office_bible_box_closed_v1"]
 [ext_resource type="Texture2D" path="res://assets/objects/matrons_office_bible_box_open_v1.png" id="tex_matrons_office_bible_box_open_v1"]
 [ext_resource type="Texture2D" path="res://assets/objects/matrons_office_sewing_drawer_closed_v1.png" id="tex_matrons_office_sewing_drawer_closed_v1"]
-[ext_resource type="Texture2D" path="res://assets/objects/matrons_office_sewing_drawer_open_v1.png" id="tex_matrons_office_sewing_drawer_open_v1"]
+[ext_resource type="Texture2D" path="res://assets/objects/matrons_office_sewing_drawer_open_v2_fit.png" id="tex_matrons_office_sewing_drawer_open_v1"]
 [ext_resource type="Texture2D" path="res://assets/objects/matrons_office_fire_grate_closed_v1.png" id="tex_matrons_office_fire_grate_closed_v1"]
 [ext_resource type="Texture2D" path="res://assets/objects/matrons_office_fire_grate_open_v1.png" id="tex_matrons_office_fire_grate_open_v1"]
 [ext_resource type="Texture2D" path="res://assets/objects/matrons_office_jewel_case_closed_v1.png" id="tex_matrons_office_jewel_case_closed_v1"]
@@ -152,9 +152,9 @@ open_texture = ExtResource("tex_matrons_office_desk_drawer_left_open_v1")
 scale = Vector2(0.2678, 0.2678)
 
 [node name="PaymentLedger" parent="HiddenObjects" instance=ExtResource("5_object")]
-position = Vector2(710, 448)
+position = Vector2(710.0, 468.7)
 data = ExtResource("20_payment_ledger")
-texture_scale = Vector2(0.1288, 0.1288)
+texture_scale = Vector2(0.1162, 0.1162)
 
 [node name="DeskDrawerRight" parent="HiddenObjects" node_paths=PackedStringArray("contents", "required_object") instance=ExtResource("6_container")]
 position = Vector2(862.1, 481.3)
@@ -173,7 +173,7 @@ open_texture = ExtResource("tex_matrons_office_desk_drawer_right_open_v1")
 scale = Vector2(0.2619, 0.2619)
 
 [node name="SevenDeathCerts" parent="HiddenObjects" instance=ExtResource("5_object")]
-position = Vector2(862, 450)
+position = Vector2(862.0, 470.8)
 data = ExtResource("21_seven_death_certs")
 texture_scale = Vector2(0.1136, 0.1136)
 
@@ -316,9 +316,9 @@ open_texture = ExtResource("tex_matrons_office_sewing_drawer_open_v1")
 scale = Vector2(0.2131, 0.2131)
 
 [node name="NameTapeReel" parent="HiddenObjects" instance=ExtResource("5_object")]
-position = Vector2(419, 455)
+position = Vector2(419.0, 459.6)
 data = ExtResource("28_name_tape_reel")
-texture_scale = Vector2(0.1136, 0.1136)
+texture_scale = Vector2(0.0983, 0.0983)
 
 [node name="FireGrate" parent="HiddenObjects" node_paths=PackedStringArray("contents") instance=ExtResource("6_container")]
 position = Vector2(531.9, 430.9)

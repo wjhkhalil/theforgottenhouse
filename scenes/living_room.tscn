@@ -26,7 +26,7 @@
 [ext_resource type="Texture2D" uid="uid://cvpdrr4frxxbe" path="res://assets/objects/living_room_cigar_box_closed_v1.png" id="tex_living_room_cigar_box_closed_v1"]
 [ext_resource type="Texture2D" uid="uid://b2m6xfutu7ytg" path="res://assets/objects/living_room_cigar_box_open_v1.png" id="tex_living_room_cigar_box_open_v1"]
 [ext_resource type="Texture2D" uid="uid://dm5sq22mop3a4" path="res://assets/objects/living_room_desk_drawer_closed_v2.png" id="tex_living_room_desk_drawer_closed_v1"]
-[ext_resource type="Texture2D" uid="uid://ifnfcqp4ko1h" path="res://assets/objects/living_room_desk_drawer_open_v2.png" id="tex_living_room_desk_drawer_open_v1"]
+[ext_resource type="Texture2D" path="res://assets/objects/living_room_desk_drawer_open_v3_fit.png" id="tex_living_room_desk_drawer_open_v1"]
 [ext_resource type="Texture2D" uid="uid://8qjl0bmy8wgc" path="res://assets/objects/living_room_piano_bench_closed_v1.png" id="tex_living_room_piano_bench_closed_v1"]
 [ext_resource type="Texture2D" uid="uid://ct2piwj1wh66l" path="res://assets/objects/living_room_piano_bench_open_v1.png" id="tex_living_room_piano_bench_open_v1"]
 
@@ -132,7 +132,7 @@ open_texture = ExtResource("tex_living_room_desk_drawer_open_v1")
 
 [node name="SpareKeys" parent="HiddenObjects" unique_id=1740528959 instance=ExtResource("5_object")]
 modulate = Color(0.85, 0.8, 0.7, 1)
-position = Vector2(733.5, 331.5)
+position = Vector2(733.5, 326.7)
 data = ExtResource("13_spare_keys")
 texture_scale = Vector2(0.07, 0.04)
 click_size = Vector2(44, 26)

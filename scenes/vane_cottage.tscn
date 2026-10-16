@@ -32,7 +32,7 @@
 [ext_resource type="PackedScene" path="res://scenes/ui/keypad_lock.tscn" id="47_keypad"]
 [ext_resource type="Texture2D" path="res://assets/backgrounds/vane_cottage_background_v1.png" id="bg_vane_cottage"]
 [ext_resource type="Texture2D" path="res://assets/objects/vane_cottage_desk_drawer_closed_v1.png" id="tex_vane_cottage_desk_drawer_closed_v1"]
-[ext_resource type="Texture2D" path="res://assets/objects/vane_cottage_desk_drawer_open_v1.png" id="tex_vane_cottage_desk_drawer_open_v1"]
+[ext_resource type="Texture2D" path="res://assets/objects/vane_cottage_desk_drawer_open_v2_fit.png" id="tex_vane_cottage_desk_drawer_open_v1"]
 [ext_resource type="Texture2D" path="res://assets/objects/vane_cottage_medicine_cupboard_closed_v1.png" id="tex_vane_cottage_medicine_cupboard_closed_v1"]
 [ext_resource type="Texture2D" path="res://assets/objects/vane_cottage_medicine_cupboard_open_v1.png" id="tex_vane_cottage_medicine_cupboard_open_v1"]
 [ext_resource type="Texture2D" path="res://assets/objects/vane_cottage_fake_spines_closed_v1.png" id="tex_vane_cottage_fake_spines_closed_v1"]
@@ -137,7 +137,7 @@ scale = Vector2(0.2009, 0.2009)
 self_modulate = Color(0.78, 0.68, 0.6, 1)
 
 [node name="DeathCertificate" parent="HiddenObjects" instance=ExtResource("5_object")]
-position = Vector2(520, 455)
+position = Vector2(520.0, 452.8)
 rotation = 0
 data = ExtResource("12_death_certificate")
 texture_scale = Vector2(0.1702, 0.1702)

@@ -41,9 +41,9 @@
 [ext_resource type="Texture2D" path="res://assets/objects/laundry_sorting_basket_closed_v1.png" id="tex_laundry_sorting_basket_closed_v1"]
 [ext_resource type="Texture2D" path="res://assets/objects/laundry_sorting_basket_open_v1.png" id="tex_laundry_sorting_basket_open_v1"]
 [ext_resource type="Texture2D" path="res://assets/objects/laundry_mangle_drawer_closed_v1.png" id="tex_laundry_mangle_drawer_closed_v1"]
-[ext_resource type="Texture2D" path="res://assets/objects/laundry_mangle_drawer_open_v1.png" id="tex_laundry_mangle_drawer_open_v1"]
+[ext_resource type="Texture2D" path="res://assets/objects/laundry_mangle_drawer_open_v2_fit.png" id="tex_laundry_mangle_drawer_open_v1"]
 [ext_resource type="Texture2D" path="res://assets/objects/laundry_ironing_drawer_closed_v1.png" id="tex_laundry_ironing_drawer_closed_v1"]
-[ext_resource type="Texture2D" path="res://assets/objects/laundry_ironing_drawer_open_v1.png" id="tex_laundry_ironing_drawer_open_v1"]
+[ext_resource type="Texture2D" path="res://assets/objects/laundry_ironing_drawer_open_v2_fit.png" id="tex_laundry_ironing_drawer_open_v1"]
 [ext_resource type="Texture2D" path="res://assets/objects/laundry_soap_crate_closed_v1.png" id="tex_laundry_soap_crate_closed_v1"]
 [ext_resource type="Texture2D" path="res://assets/objects/laundry_soap_crate_open_v1.png" id="tex_laundry_soap_crate_open_v1"]
 [ext_resource type="Texture2D" path="res://assets/objects/laundry_nells_locker_closed_v1.png" id="tex_laundry_nells_locker_closed_v1"]
@@ -193,9 +193,9 @@ open_texture = ExtResource("tex_laundry_mangle_drawer_open_v1")
 scale = Vector2(0.215, 0.215)
 
 [node name="MangleNote" parent="HiddenObjects" instance=ExtResource("5_object")]
-position = Vector2(528, 565)
+position = Vector2(528.0, 540.2)
 data = ExtResource("22_mangle_note")
-texture_scale = Vector2(0.1212, 0.1212)
+texture_scale = Vector2(0.1183, 0.1183)
 
 [node name="IroningDrawer" parent="HiddenObjects" node_paths=PackedStringArray("contents") instance=ExtResource("6_container")]
 position = Vector2(890, 522.6)
@@ -211,9 +211,9 @@ open_texture = ExtResource("tex_laundry_ironing_drawer_open_v1")
 scale = Vector2(0.1869, 0.1869)
 
 [node name="PressedLetter" parent="HiddenObjects" instance=ExtResource("5_object")]
-position = Vector2(890, 525)
+position = Vector2(890.0, 503.1)
 data = ExtResource("23_pressed_letter")
-texture_scale = Vector2(0.1061, 0.1061)
+texture_scale = Vector2(0.0743, 0.0743)
 
 [node name="SoapCrate" parent="HiddenObjects" node_paths=PackedStringArray("contents") instance=ExtResource("6_container")]
 position = Vector2(352, 596)

@@ -26,7 +26,7 @@
 [ext_resource type="Texture2D" path="res://assets/objects/study_humidor_closed_v1.png" id="tex_study_humidor_closed_v1"]
 [ext_resource type="Texture2D" path="res://assets/objects/study_humidor_open_v1.png" id="tex_study_humidor_open_v1"]
 [ext_resource type="Texture2D" path="res://assets/objects/study_desk_drawer_closed_v1.png" id="tex_study_desk_drawer_closed_v1"]
-[ext_resource type="Texture2D" path="res://assets/objects/study_desk_drawer_open_v1.png" id="tex_study_desk_drawer_open_v1"]
+[ext_resource type="Texture2D" path="res://assets/objects/study_desk_drawer_open_v2_fit.png" id="tex_study_desk_drawer_open_v1"]
 [ext_resource type="Texture2D" path="res://assets/objects/study_wall_safe_closed_v1.png" id="tex_study_wall_safe_closed_v1"]
 [ext_resource type="Texture2D" path="res://assets/objects/study_wall_safe_open_v1.png" id="tex_study_wall_safe_open_v1"]
 [ext_resource type="Texture2D" path="res://assets/objects/study_bookcase_compartment_closed_v1.png" id="tex_study_bookcase_compartment_closed_v1"]
@@ -119,7 +119,7 @@ open_texture = ExtResource("tex_study_desk_drawer_open_v1")
 scale = Vector2(0.3388, 0.3388)
 
 [node name="BoathouseKey" parent="HiddenObjects" instance=ExtResource("5_object")]
-position = Vector2(450, 478)
+position = Vector2(450.0, 467.8)
 data = ExtResource("12_key")
 texture_scale = Vector2(0.1288, 0.1288)
 
