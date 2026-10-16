@@ -36,12 +36,12 @@
 [ext_resource type="Texture2D" path="res://assets/objects/island_chapel_vestry_door_open_v1.png" id="tex_island_chapel_vestry_door_open_v1"]
 [ext_resource type="Texture2D" path="res://assets/objects/island_chapel_sewing_basket_closed_v1.png" id="tex_island_chapel_sewing_basket_closed_v1"]
 [ext_resource type="Texture2D" path="res://assets/objects/island_chapel_sewing_basket_open_v1.png" id="tex_island_chapel_sewing_basket_open_v1"]
-[ext_resource type="Texture2D" path="res://assets/objects/island_chapel_pulpit_drawer_closed_v1.png" id="tex_island_chapel_pulpit_drawer_closed_v1"]
-[ext_resource type="Texture2D" path="res://assets/objects/island_chapel_pulpit_drawer_open_v1.png" id="tex_island_chapel_pulpit_drawer_open_v1"]
+[ext_resource type="Texture2D" path="res://assets/objects/island_chapel_pulpit_drawer_closed_v2.png" id="tex_island_chapel_pulpit_drawer_closed_v1"]
+[ext_resource type="Texture2D" path="res://assets/objects/island_chapel_pulpit_drawer_open_v3.png" id="tex_island_chapel_pulpit_drawer_open_v1"]
 [ext_resource type="Texture2D" path="res://assets/objects/island_chapel_parish_chest_closed_v1.png" id="tex_island_chapel_parish_chest_closed_v1"]
 [ext_resource type="Texture2D" path="res://assets/objects/island_chapel_parish_chest_open_v1.png" id="tex_island_chapel_parish_chest_open_v1"]
-[ext_resource type="Texture2D" path="res://assets/objects/island_chapel_font_cover_closed_v1.png" id="tex_island_chapel_font_cover_closed_v1"]
-[ext_resource type="Texture2D" path="res://assets/objects/island_chapel_font_cover_open_v1.png" id="tex_island_chapel_font_cover_open_v1"]
+[ext_resource type="Texture2D" path="res://assets/objects/island_chapel_font_cover_closed_v2.png" id="tex_island_chapel_font_cover_closed_v1"]
+[ext_resource type="Texture2D" path="res://assets/objects/island_chapel_font_cover_open_v2.png" id="tex_island_chapel_font_cover_open_v1"]
 [ext_resource type="Texture2D" path="res://assets/objects/island_chapel_pew_box_closed_v1.png" id="tex_island_chapel_pew_box_closed_v1"]
 [ext_resource type="Texture2D" path="res://assets/objects/island_chapel_pew_box_open_v1.png" id="tex_island_chapel_pew_box_open_v1"]
 [ext_resource type="Texture2D" path="res://assets/objects/island_chapel_aumbry_closed_v1.png" id="tex_island_chapel_aumbry_closed_v1"]
@@ -66,16 +66,16 @@ replacement_texture = ExtResource("bg_island_chapel")
 unique_name_in_owner = true
 
 [node name="HymnBook" parent="HiddenObjects" instance=ExtResource("5_r")]
-position = Vector2(278, 219)
-rotation = 0
+position = Vector2(292, 224)
+rotation = 0.13
 data = ExtResource("6_r")
 texture_scale = Vector2(0.1742, 0.1742)
 
 [node name="CollectionPlate" parent="HiddenObjects" instance=ExtResource("5_r")]
-position = Vector2(393, 487)
-rotation = 0
+position = Vector2(393, 489)
+rotation = 0.03
 data = ExtResource("7_r")
-texture_scale = Vector2(0.1515, 0.1515)
+texture_scale = Vector2(0.1515, 0.09)
 
 [node name="GreyVeil" parent="HiddenObjects" instance=ExtResource("5_r")]
 position = Vector2(864, 338)
@@ -169,7 +169,7 @@ data = ExtResource("13_r")
 texture_scale = Vector2(0.0985, 0.0985)
 
 [node name="PulpitDrawer" parent="HiddenObjects" node_paths=PackedStringArray("contents") instance=ExtResource("21_r")]
-position = Vector2(232, 372)
+position = Vector2(211, 364)
 container_id = &"pulpit_drawer"
 contents = NodePath("../DoctorsLetter")
 open_title = "The little drawer slides out..."
@@ -182,10 +182,10 @@ open_texture = ExtResource("tex_island_chapel_pulpit_drawer_open_v1")
 scale = Vector2(0.1869, 0.1869)
 
 [node name="DoctorsLetter" parent="HiddenObjects" instance=ExtResource("5_r")]
-position = Vector2(232, 372)
+position = Vector2(211, 352)
 rotation = 0
 data = ExtResource("15_r")
-texture_scale = Vector2(0.0909, 0.0909)
+texture_scale = Vector2(0.0636, 0.0636)
 
 [node name="ParishChest" parent="HiddenObjects" node_paths=PackedStringArray("contents") instance=ExtResource("21_r")]
 self_modulate = Color(0.85, 0.85, 0.88, 1)
@@ -221,7 +221,7 @@ open_texture = ExtResource("tex_island_chapel_font_cover_open_v1")
 scale = Vector2(0.2243, 0.2243)
 
 [node name="WoodenCross" parent="HiddenObjects" instance=ExtResource("5_r")]
-position = Vector2(448, 393)
+position = Vector2(448, 381)
 data = ExtResource("17_r")
 texture_scale = Vector2(0.1136, 0.1136)
 

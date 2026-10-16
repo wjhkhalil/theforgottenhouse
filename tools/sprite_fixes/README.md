@@ -38,6 +38,7 @@ room's scripts in the order listed, around `cut_sprites.py tools/sprite_cuts/<ro
 | `ice_house_stand_pick.py` | after cutting | Turns the ice pick upright. |
 | `lighthouse_steps_cut_touching.py` | after cutting | Cuts four objects and five containers (not in the cut list); cleans the bandage roll. |
 | `lighthouse_steps_medal_box_front.py` | after the script above | Writes the `_v2` medal box sprites, turned to face the player instead of seen from above. |
+| `island_chapel_finish.py` | after cutting the Island Chapel | Writes the pulpit drawer (`_closed_v2`, `_open_v3`) recoloured to the pulpit wood, and the font lid (`_v2`) flattened to the eye-level font, opening as a lid only. |
 | `lamp_room_make_fix_sheets.py` | before cutting, if a sheet changes | Rebuilds the two `lamp_room_*_fix_sheet_v1.png` sheets (pictures moved apart, pink removed). |
 | `lamp_room_window_mask.py` | if the Lamp Room BACKGROUND changes | Rebuilds `assets/backgrounds/lamp_room_window_mask_v1.png`: where the painting is sky and sea, so the lightning only shows through the glass. |
 | `vane_cottage_finish.py` | instead of cutting by hand | Runs the cutter and `vane_cottage_cut_touching.py`, then finishes the sprites (pink, flat-lying objects, cupboard, fake spines, cellar door). |
