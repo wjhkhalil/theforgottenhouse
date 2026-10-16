@@ -36,8 +36,8 @@
 [ext_resource type="Texture2D" path="res://assets/objects/lighthouse_steps_knitting_basket_open_v1.png" id="tex_lighthouse_steps_knitting_basket_open_v1"]
 [ext_resource type="Texture2D" path="res://assets/objects/lighthouse_steps_twine_parcel_closed_v1.png" id="tex_lighthouse_steps_twine_parcel_closed_v1"]
 [ext_resource type="Texture2D" path="res://assets/objects/lighthouse_steps_twine_parcel_open_v1.png" id="tex_lighthouse_steps_twine_parcel_open_v1"]
-[ext_resource type="Texture2D" path="res://assets/objects/lighthouse_steps_medal_box_closed_v1.png" id="tex_lighthouse_steps_medal_box_closed_v1"]
-[ext_resource type="Texture2D" path="res://assets/objects/lighthouse_steps_medal_box_open_v1.png" id="tex_lighthouse_steps_medal_box_open_v1"]
+[ext_resource type="Texture2D" path="res://assets/objects/lighthouse_steps_medal_box_closed_v2.png" id="tex_lighthouse_steps_medal_box_closed_v1"]
+[ext_resource type="Texture2D" path="res://assets/objects/lighthouse_steps_medal_box_open_v2.png" id="tex_lighthouse_steps_medal_box_open_v1"]
 [ext_resource type="Texture2D" path="res://assets/objects/lighthouse_steps_key_box_closed_v1.png" id="tex_lighthouse_steps_key_box_closed_v1"]
 [ext_resource type="Texture2D" path="res://assets/objects/lighthouse_steps_key_box_open_v1.png" id="tex_lighthouse_steps_key_box_open_v1"]
 [ext_resource type="Texture2D" path="res://assets/objects/lighthouse_steps_first_aid_tin_closed_v1.png" id="tex_lighthouse_steps_first_aid_tin_closed_v1"]
@@ -59,13 +59,13 @@ script = ExtResource("4_art")
 replacement_texture = ExtResource("bg_lighthouse_steps")
 room_size = Vector2(1280, 1440)
 
-[node name="ChalkDate" type="Node2D" parent="."]
-position = Vector2(338, 452)
-rotation = -0.04
+[node name="CarvedDate" type="Node2D" parent="."]
+position = Vector2(506, 483)
 script = ExtResource("clue_mark")
-lines = PackedStringArray("3.10.88")
-sizes = PackedInt32Array(19)
-ink = Color(0.93, 0.92, 0.86, 0.8)
+lines = PackedStringArray("0310")
+sizes = PackedInt32Array(16)
+ink = Color(0.17, 0.13, 0.1, 0.95)
+engraved = true
 
 [node name="HiddenObjects" type="Node2D" parent="."]
 unique_name_in_owner = true
@@ -98,8 +98,8 @@ open_message = "The iron locker swings open. Wicks, mantles, a funnel, and one s
 required_code = "0310"
 code_title = "The Oil Locker"
 code_prompt = "An iron locker for the lamp oil, with a four-number lock. A brass plate on the door: Code is the night I will never forget. - A.H."
-code_hint_first = "Wrong. Agnes chalked that night on the wall of the keeper's landing, by the window."
-code_hint_second = "The chalk by the keeper's landing window says 3.10.88: the 3rd of October. The code is 0310."
+code_hint_first = "Wrong. Agnes cut that night into the stone of the keeper's landing, under the window."
+code_hint_second = "The numbers cut into the sill of the keeper's landing window say 0310: the 3rd of October. The code is 0310."
 code_hint_first_after = 8
 code_hint_second_after = 11
 style = 3
@@ -115,10 +115,10 @@ data = ExtResource("10_paraffin_can")
 texture_scale = Vector2(0.1894, 0.1894)
 
 [node name="KeeperLogbook" parent="HiddenObjects" instance=ExtResource("5_object")]
-position = Vector2(258, 556)
-rotation = 0
+position = Vector2(268, 566)
+rotation = 0.04
 data = ExtResource("8_keeper_logbook")
-texture_scale = Vector2(0.197, 0.197)
+texture_scale = Vector2(0.2, 0.095)
 
 [node name="KnittingBasket" parent="HiddenObjects" node_paths=PackedStringArray("contents") instance=ExtResource("20_container")]
 position = Vector2(412, 650)
@@ -160,7 +160,9 @@ data = ExtResource("18_keepers_photo")
 texture_scale = Vector2(0.1136, 0.1136)
 
 [node name="MedalBox" parent="HiddenObjects" node_paths=PackedStringArray("contents", "required_object") instance=ExtResource("20_container")]
-position = Vector2(300, 400)
+self_modulate = Color(1, 0.74, 0.5, 1)
+position = Vector2(300, 409)
+rotation = 0.09
 container_id = &"medal_box"
 contents = NodePath("../LifesavingMedal")
 open_title = "Click! The catch springs back..."
@@ -177,6 +179,7 @@ scale = Vector2(0.1682, 0.1682)
 
 [node name="LifesavingMedal" parent="HiddenObjects" instance=ExtResource("5_object")]
 position = Vector2(300, 404)
+rotation = 0.09
 data = ExtResource("17_lifesaving_medal")
 texture_scale = Vector2(0.0909, 0.0909)
 

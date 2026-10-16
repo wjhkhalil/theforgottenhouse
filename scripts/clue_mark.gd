@@ -28,6 +28,12 @@ extends Node2D
 	set(value):
 		carved = value
 		queue_redraw()
+## Draws the writing as letters cut into stone: a dark groove with a pale lip
+## along its lower edge, where the light catches the cut.
+@export var engraved: bool = false:
+	set(value):
+		engraved = value
+		queue_redraw()
 ## Space between lines, as a share of the line's size.
 @export var line_spacing: float = 1.15:
 	set(value):
@@ -86,9 +92,22 @@ func _draw() -> void:
 
 
 func _write(font: Font, at: Vector2, text: String, size: int) -> void:
+	if engraved:
+		_write_engraved(font, at, text, size)
+		return
 	if carved:
 		draw_string(font, at + Vector2(1, 1), text, HORIZONTAL_ALIGNMENT_LEFT, -1, size, Color(0, 0, 0, 0.55))
 	draw_string(font, at, text, HORIZONTAL_ALIGNMENT_LEFT, -1, size, ink)
+
+
+## The pale lip first, a little below, then the dark groove over it, then a
+## softer shadow just inside the groove's top edge.
+func _write_engraved(font: Font, at: Vector2, text: String, size: int) -> void:
+	var depth := size / 14.0
+	var lip := Color(1.0, 0.96, 0.88, ink.a * 0.45)
+	draw_string(font, at + Vector2(0.3, 1.0) * depth, text, HORIZONTAL_ALIGNMENT_LEFT, -1, size, lip)
+	draw_string(font, at, text, HORIZONTAL_ALIGNMENT_LEFT, -1, size, ink)
+	draw_string(font, at + Vector2(0, -0.4) * depth, text, HORIZONTAL_ALIGNMENT_LEFT, -1, size, Color(0, 0, 0, ink.a * 0.35))
 
 
 ## Draws the month grid below `top` and returns where it ends.
