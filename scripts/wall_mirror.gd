@@ -10,7 +10,7 @@ extends Node2D
 ## only be seen and clicked while the mirror is tilted that way.
 ##
 ## HOW IT WORKS: the reflection is one tall painting of three panels, each as
-## big as the glass. It hangs inside a clipping shape the size of the glass
+## big as the glass (`reflection_texture`; without one, plain shapes are drawn). It hangs inside a clipping shape the size of the glass
 ## (arched at the top if `arch_height` is set) and
 ## slides up or down when the mirror tilts. The mirror objects stay where they
 ## are in the scene (inside the glass rectangle): they are faded in for their
@@ -19,6 +19,10 @@ extends Node2D
 ## Place this node AFTER HiddenObjects and RoomForeground in the scene. The
 ## room art must leave `glass_rect` plain: the reflection is painted over it.
 
+## The reflection: one tall picture of the three tilts stacked top to bottom (up,
+## level, down), each panel the shape of the glass. Made by
+## tools/sprite_fixes/matrons_office_mirror_reflection.py.
+@export var reflection_texture: Texture2D
 ## The glass of the mirror (room coordinates).
 @export var glass_rect: Rect2 = Rect2(120, 150, 170, 290)
 ## How far the top of the glass arches above its corners (0 = a square top).
@@ -253,9 +257,12 @@ func _draw() -> void:
 func _draw_reflection() -> void:
 	var w := DESIGN_SIZE.x
 	var h := DESIGN_SIZE.y
-	_draw_view_up(Vector2(0, 0), w, h)
-	_draw_view_level(Vector2(0, h), w, h)
-	_draw_view_down(Vector2(0, h * 2.0), w, h)
+	if reflection_texture != null:
+		_strip.draw_texture_rect(reflection_texture, Rect2(0, 0, w, h * VIEW_COUNT), false)
+	else:
+		_draw_view_up(Vector2(0, 0), w, h)
+		_draw_view_level(Vector2(0, h), w, h)
+		_draw_view_down(Vector2(0, h * 2.0), w, h)
 	# A soft diagonal shine across each panel, like old glass.
 	for panel in range(VIEW_COUNT):
 		var top := panel * h

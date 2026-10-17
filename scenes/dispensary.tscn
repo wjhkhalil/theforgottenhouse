@@ -38,26 +38,26 @@
 [ext_resource type="Texture2D" path="res://assets/backgrounds/dispensary_background_v1.png" id="bg_dispensary"]
 [ext_resource type="Texture2D" path="res://assets/objects/dispensary_poison_cupboard_closed_v1.png" id="tex_dispensary_poison_cupboard_closed_v1"]
 [ext_resource type="Texture2D" path="res://assets/objects/dispensary_poison_cupboard_open_v1.png" id="tex_dispensary_poison_cupboard_open_v1"]
-[ext_resource type="Texture2D" path="res://assets/objects/dispensary_powder_drawer_closed_v1.png" id="tex_dispensary_powder_drawer_closed_v1"]
-[ext_resource type="Texture2D" path="res://assets/objects/dispensary_powder_drawer_open_v2_fit.png" id="tex_dispensary_powder_drawer_open_v1"]
-[ext_resource type="Texture2D" path="res://assets/objects/dispensary_label_drawer_closed_v1.png" id="tex_dispensary_label_drawer_closed_v1"]
-[ext_resource type="Texture2D" path="res://assets/objects/dispensary_label_drawer_open_v2_fit.png" id="tex_dispensary_label_drawer_open_v1"]
+[ext_resource type="Texture2D" path="res://assets/objects/dispensary_powder_drawer_closed_v2.png" id="tex_dispensary_powder_drawer_closed_v1"]
+[ext_resource type="Texture2D" path="res://assets/objects/dispensary_powder_drawer_open_v3.png" id="tex_dispensary_powder_drawer_open_v1"]
+[ext_resource type="Texture2D" path="res://assets/objects/dispensary_label_drawer_closed_v2.png" id="tex_dispensary_label_drawer_closed_v1"]
+[ext_resource type="Texture2D" path="res://assets/objects/dispensary_label_drawer_open_v3.png" id="tex_dispensary_label_drawer_open_v1"]
 [ext_resource type="Texture2D" path="res://assets/objects/dispensary_ice_chest_closed_v1.png" id="tex_dispensary_ice_chest_closed_v1"]
 [ext_resource type="Texture2D" path="res://assets/objects/dispensary_ice_chest_open_v1.png" id="tex_dispensary_ice_chest_open_v1"]
-[ext_resource type="Texture2D" path="res://assets/objects/dispensary_bureau_closed_v1.png" id="tex_dispensary_bureau_closed_v1"]
-[ext_resource type="Texture2D" path="res://assets/objects/dispensary_bureau_open_v1.png" id="tex_dispensary_bureau_open_v1"]
+[ext_resource type="Texture2D" path="res://assets/objects/dispensary_bureau_closed_v2.png" id="tex_dispensary_bureau_closed_v1"]
+[ext_resource type="Texture2D" path="res://assets/objects/dispensary_bureau_open_v2.png" id="tex_dispensary_bureau_open_v1"]
 [ext_resource type="Texture2D" path="res://assets/objects/dispensary_leech_jar_closed_v1.png" id="tex_dispensary_leech_jar_closed_v1"]
 [ext_resource type="Texture2D" path="res://assets/objects/dispensary_leech_jar_open_v1.png" id="tex_dispensary_leech_jar_open_v1"]
 [ext_resource type="Texture2D" path="res://assets/objects/dispensary_pill_machine_closed_v1.png" id="tex_dispensary_pill_machine_closed_v1"]
 [ext_resource type="Texture2D" path="res://assets/objects/dispensary_pill_machine_open_v1.png" id="tex_dispensary_pill_machine_open_v1"]
-[ext_resource type="Texture2D" path="res://assets/objects/dispensary_white_coat_closed_v1.png" id="tex_dispensary_white_coat_closed_v1"]
-[ext_resource type="Texture2D" path="res://assets/objects/dispensary_white_coat_open_v1.png" id="tex_dispensary_white_coat_open_v1"]
+[ext_resource type="Texture2D" path="res://assets/objects/dispensary_white_coat_closed_v2.png" id="tex_dispensary_white_coat_closed_v1"]
+[ext_resource type="Texture2D" path="res://assets/objects/dispensary_white_coat_open_v2.png" id="tex_dispensary_white_coat_open_v1"]
 [ext_resource type="Texture2D" path="res://assets/objects/dispensary_scales_case_closed_v1.png" id="tex_dispensary_scales_case_closed_v1"]
 [ext_resource type="Texture2D" path="res://assets/objects/dispensary_scales_case_open_v1.png" id="tex_dispensary_scales_case_open_v1"]
 [ext_resource type="Texture2D" path="res://assets/objects/dispensary_controlled_safe_closed_v1.png" id="tex_dispensary_controlled_safe_closed_v1"]
 [ext_resource type="Texture2D" path="res://assets/objects/dispensary_controlled_safe_open_v1.png" id="tex_dispensary_controlled_safe_open_v1"]
-[ext_resource type="Texture2D" path="res://assets/objects/dispensary_office_door_closed_v1.png" id="tex_dispensary_office_door_closed_v1"]
-[ext_resource type="Texture2D" path="res://assets/objects/dispensary_office_door_open_v1.png" id="tex_dispensary_office_door_open_v1"]
+[ext_resource type="Texture2D" path="res://assets/objects/dispensary_office_door_closed_v2.png" id="tex_dispensary_office_door_closed_v1"]
+[ext_resource type="Texture2D" path="res://assets/objects/dispensary_office_door_open_v2.png" id="tex_dispensary_office_door_open_v1"]
 
 [node name="Dispensary" type="Node2D" node_paths=PackedStringArray("keypad_lock")]
 script = ExtResource("1_room")
@@ -152,40 +152,42 @@ data = ExtResource("20_chloral_bottle")
 texture_scale = Vector2(0.0985, 0.0985)
 
 [node name="PowderDrawer" parent="HiddenObjects" node_paths=PackedStringArray("contents") instance=ExtResource("6_container")]
-position = Vector2(387, 446)
+position = Vector2(387.5, 429.5)
 container_id = &"powder_drawer"
 contents = NodePath("../DoseBook")
 open_title = "You pull open the powder drawer..."
 open_message = "Folded papers of powder, and a narrow ruled book."
 style = 4
 tint = Color(0.36, 0.23, 0.14, 1)
-size = Vector2(408.093, 298.605)
+size = Vector2(340, 120)
 closed_texture = ExtResource("tex_dispensary_powder_drawer_closed_v1")
 open_texture = ExtResource("tex_dispensary_powder_drawer_open_v1")
-scale = Vector2(0.2009, 0.2009)
+scale = Vector2(0.25, 0.25)
+self_modulate = Color(0.939, 1.000, 1.071, 1)
 
 [node name="DoseBook" parent="HiddenObjects" instance=ExtResource("5_object")]
-position = Vector2(387.0, 424.8)
+position = Vector2(387.5, 425.5)
 data = ExtResource("21_dose_book")
-texture_scale = Vector2(0.0811, 0.0811)
+texture_scale = Vector2(0.0487, 0.0487)
 
 [node name="LabelDrawer" parent="HiddenObjects" node_paths=PackedStringArray("contents") instance=ExtResource("6_container")]
-position = Vector2(498, 446)
+position = Vector2(496.5, 429.5)
 container_id = &"label_drawer"
 contents = NodePath("../BlankDeathForms")
 open_title = "You pull open the label drawer..."
 open_message = "Gum, a rubber stamp, and a pad of printed forms."
 style = 4
 tint = Color(0.36, 0.23, 0.14, 1)
-size = Vector2(408.093, 298.605)
+size = Vector2(332, 120)
 closed_texture = ExtResource("tex_dispensary_label_drawer_closed_v1")
 open_texture = ExtResource("tex_dispensary_label_drawer_open_v1")
-scale = Vector2(0.2009, 0.2009)
+scale = Vector2(0.25, 0.25)
+self_modulate = Color(1.085, 1.182, 1.308, 1)
 
 [node name="BlankDeathForms" parent="HiddenObjects" instance=ExtResource("5_object")]
-position = Vector2(498.0, 424.7)
+position = Vector2(496.5, 425.5)
 data = ExtResource("22_blank_death_forms")
-texture_scale = Vector2(0.0821, 0.0821)
+texture_scale = Vector2(0.0493, 0.0493)
 
 [node name="IceChest" parent="HiddenObjects" node_paths=PackedStringArray("contents") instance=ExtResource("6_container")]
 position = Vector2(905, 590)
@@ -206,7 +208,7 @@ data = ExtResource("23_sealed_ampoules")
 texture_scale = Vector2(0.1667, 0.1667)
 
 [node name="Bureau" parent="HiddenObjects" node_paths=PackedStringArray("contents", "required_object") instance=ExtResource("6_container")]
-position = Vector2(612, 475)
+position = Vector2(613, 474)
 container_id = &"bureau"
 contents = NodePath("../StandingOrders")
 open_title = "The slimy little key turns..."
@@ -216,10 +218,10 @@ locked_title = "The bureau is locked."
 locked_message = "The dispenser's writing bureau, with a small brass lock. You need its key."
 style = 4
 tint = Color(0.3, 0.18, 0.1, 1)
-size = Vector2(399.467, 370.933)
+size = Vector2(296, 176)
 closed_texture = ExtResource("tex_dispensary_bureau_closed_v1")
 open_texture = ExtResource("tex_dispensary_bureau_open_v1")
-scale = Vector2(0.2103, 0.2103)
+scale = Vector2(0.25, 0.25)
 
 [node name="StandingOrders" parent="HiddenObjects" instance=ExtResource("5_object")]
 position = Vector2(612, 496)
@@ -266,7 +268,7 @@ data = ExtResource("26_sugar_pills")
 texture_scale = Vector2(0.0985, 0.0985)
 
 [node name="WhiteCoat" parent="HiddenObjects" node_paths=PackedStringArray("contents") instance=ExtResource("6_container")]
-position = Vector2(206.8, 263.3)
+position = Vector2(241.5, 284.8)
 container_id = &"white_coat"
 contents = NodePath("../ResignationDraft")
 open_title = "You go through the pockets of the white coat..."
@@ -276,10 +278,11 @@ tint = Color(0.82, 0.82, 0.78, 1)
 size = Vector2(162, 395)
 closed_texture = ExtResource("tex_dispensary_white_coat_closed_v1")
 open_texture = ExtResource("tex_dispensary_white_coat_open_v1")
-scale = Vector2(0.3211, 0.3211)
+scale = Vector2(0.46, 0.46)
+self_modulate = Color(0.72, 0.7, 0.62, 1)
 
 [node name="ResignationDraft" parent="HiddenObjects" instance=ExtResource("5_object")]
-position = Vector2(221, 289)
+position = Vector2(261.9, 321.6)
 data = ExtResource("27_resignation_draft")
 texture_scale = Vector2(0.0758, 0.0758)
 
@@ -330,7 +333,7 @@ data = ExtResource("29_matrons_office_key")
 texture_scale = Vector2(0.0909, 0.0909)
 
 [node name="OfficeDoor" parent="HiddenObjects" node_paths=PackedStringArray("contents", "required_object") instance=ExtResource("6_container")]
-position = Vector2(90, 315.3)
+position = Vector2(85, 320)
 container_id = &"office_door"
 contents = NodePath("../CraneTelegram")
 open_title = "The long key turns..."
@@ -340,10 +343,10 @@ locked_title = "The door to the stairs is locked."
 locked_message = "A panelled door with a brass plate: 'MATRON - PRIVATE'. Somewhere above, a telephone is ringing. You need the matron's office key."
 style = 3
 tint = Color(0.26, 0.16, 0.1, 1)
-size = Vector2(205, 392)
+size = Vector2(392, 1532)
 closed_texture = ExtResource("tex_dispensary_office_door_closed_v1")
 open_texture = ExtResource("tex_dispensary_office_door_open_v1")
-scale = Vector2(0.531, 0.962)
+scale = Vector2(0.25, 0.25)
 
 [node name="CraneTelegram" parent="HiddenObjects" instance=ExtResource("5_object")]
 position = Vector2(78, 445)

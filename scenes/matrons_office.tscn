@@ -37,12 +37,13 @@
 [ext_resource type="PackedScene" path="res://scenes/ui/letter_popup.tscn" id="46_letter"]
 [ext_resource type="PackedScene" path="res://scenes/ui/keypad_lock.tscn" id="47_keypad"]
 [ext_resource type="Texture2D" path="res://assets/backgrounds/matrons_office_background_v1.png" id="bg_matrons_office"]
-[ext_resource type="Texture2D" path="res://assets/objects/matrons_office_desk_drawer_left_closed_v1.png" id="tex_matrons_office_desk_drawer_left_closed_v1"]
-[ext_resource type="Texture2D" path="res://assets/objects/matrons_office_desk_drawer_left_open_v2_fit.png" id="tex_matrons_office_desk_drawer_left_open_v1"]
-[ext_resource type="Texture2D" path="res://assets/objects/matrons_office_desk_drawer_right_closed_v1.png" id="tex_matrons_office_desk_drawer_right_closed_v1"]
-[ext_resource type="Texture2D" path="res://assets/objects/matrons_office_desk_drawer_right_open_v2_fit.png" id="tex_matrons_office_desk_drawer_right_open_v1"]
-[ext_resource type="Texture2D" path="res://assets/objects/matrons_office_filing_cabinet_closed_v1.png" id="tex_matrons_office_filing_cabinet_closed_v1"]
-[ext_resource type="Texture2D" path="res://assets/objects/matrons_office_filing_cabinet_open_v1.png" id="tex_matrons_office_filing_cabinet_open_v1"]
+[ext_resource type="Texture2D" path="res://assets/backgrounds/matrons_office_mirror_reflection_v1.png" id="tex_mirror_reflection"]
+[ext_resource type="Texture2D" path="res://assets/objects/matrons_office_desk_drawer_left_closed_v2.png" id="tex_matrons_office_desk_drawer_left_closed_v1"]
+[ext_resource type="Texture2D" path="res://assets/objects/matrons_office_desk_drawer_left_open_v3.png" id="tex_matrons_office_desk_drawer_left_open_v1"]
+[ext_resource type="Texture2D" path="res://assets/objects/matrons_office_desk_drawer_right_closed_v2.png" id="tex_matrons_office_desk_drawer_right_closed_v1"]
+[ext_resource type="Texture2D" path="res://assets/objects/matrons_office_desk_drawer_right_open_v3.png" id="tex_matrons_office_desk_drawer_right_open_v1"]
+[ext_resource type="Texture2D" path="res://assets/objects/matrons_office_filing_cabinet_closed_v2.png" id="tex_matrons_office_filing_cabinet_closed_v1"]
+[ext_resource type="Texture2D" path="res://assets/objects/matrons_office_filing_cabinet_open_v2.png" id="tex_matrons_office_filing_cabinet_open_v1"]
 [ext_resource type="Texture2D" path="res://assets/objects/matrons_office_waste_basket_closed_v1.png" id="tex_matrons_office_waste_basket_closed_v1"]
 [ext_resource type="Texture2D" path="res://assets/objects/matrons_office_waste_basket_open_v1.png" id="tex_matrons_office_waste_basket_open_v1"]
 [ext_resource type="Texture2D" path="res://assets/objects/matrons_office_carpet_bag_closed_v1.png" id="tex_matrons_office_carpet_bag_closed_v1"]
@@ -53,8 +54,8 @@
 [ext_resource type="Texture2D" path="res://assets/objects/matrons_office_wall_safe_open_v1.png" id="tex_matrons_office_wall_safe_open_v1"]
 [ext_resource type="Texture2D" path="res://assets/objects/matrons_office_bible_box_closed_v1.png" id="tex_matrons_office_bible_box_closed_v1"]
 [ext_resource type="Texture2D" path="res://assets/objects/matrons_office_bible_box_open_v1.png" id="tex_matrons_office_bible_box_open_v1"]
-[ext_resource type="Texture2D" path="res://assets/objects/matrons_office_sewing_drawer_closed_v1.png" id="tex_matrons_office_sewing_drawer_closed_v1"]
-[ext_resource type="Texture2D" path="res://assets/objects/matrons_office_sewing_drawer_open_v2_fit.png" id="tex_matrons_office_sewing_drawer_open_v1"]
+[ext_resource type="Texture2D" path="res://assets/objects/matrons_office_sewing_drawer_closed_v2.png" id="tex_matrons_office_sewing_drawer_closed_v1"]
+[ext_resource type="Texture2D" path="res://assets/objects/matrons_office_sewing_drawer_open_v3.png" id="tex_matrons_office_sewing_drawer_open_v1"]
 [ext_resource type="Texture2D" path="res://assets/objects/matrons_office_fire_grate_closed_v1.png" id="tex_matrons_office_fire_grate_closed_v1"]
 [ext_resource type="Texture2D" path="res://assets/objects/matrons_office_fire_grate_open_v1.png" id="tex_matrons_office_fire_grate_open_v1"]
 [ext_resource type="Texture2D" path="res://assets/objects/matrons_office_jewel_case_closed_v1.png" id="tex_matrons_office_jewel_case_closed_v1"]
@@ -139,25 +140,26 @@ rotation = 0
 texture_scale = Vector2(0.1212, 0.1212)
 
 [node name="DeskDrawerLeft" parent="HiddenObjects" node_paths=PackedStringArray("contents") instance=ExtResource("6_container")]
-position = Vector2(712, 479.8)
+position = Vector2(712.25, 479)
 container_id = &"desk_drawer_left"
 contents = NodePath("../PaymentLedger")
 open_title = "You pull open the left-hand drawer..."
 open_message = "Writing paper, sealing wax, and a slim green ledger."
 style = 4
 tint = Color(0.36, 0.23, 0.14, 1)
-size = Vector2(366.003, 153.124)
+size = Vector2(422, 112)
 closed_texture = ExtResource("tex_matrons_office_desk_drawer_left_closed_v1")
 open_texture = ExtResource("tex_matrons_office_desk_drawer_left_open_v1")
-scale = Vector2(0.2678, 0.2678)
+scale = Vector2(0.25, 0.25)
+self_modulate = Color(0.951, 1.000, 1.000, 1)
 
 [node name="PaymentLedger" parent="HiddenObjects" instance=ExtResource("5_object")]
-position = Vector2(710.0, 468.7)
+position = Vector2(712.25, 470.5)
 data = ExtResource("20_payment_ledger")
-texture_scale = Vector2(0.1162, 0.1162)
+texture_scale = Vector2(0.0697, 0.0697)
 
 [node name="DeskDrawerRight" parent="HiddenObjects" node_paths=PackedStringArray("contents", "required_object") instance=ExtResource("6_container")]
-position = Vector2(862.1, 481.3)
+position = Vector2(892.25, 470.5)
 container_id = &"desk_drawer_right"
 contents = NodePath("../SevenDeathCerts")
 open_title = "The little key from the picture rail turns..."
@@ -167,18 +169,19 @@ locked_title = "The drawer is locked."
 locked_message = "The right-hand drawer of the desk is locked. There is no key anywhere in front of you. Try the mirror."
 style = 4
 tint = Color(0.36, 0.23, 0.14, 1)
-size = Vector2(366.53, 145.085)
+size = Vector2(422, 84)
 closed_texture = ExtResource("tex_matrons_office_desk_drawer_right_closed_v1")
 open_texture = ExtResource("tex_matrons_office_desk_drawer_right_open_v1")
-scale = Vector2(0.2619, 0.2619)
+scale = Vector2(0.25, 0.25)
+self_modulate = Color(1.056, 1.133, 1.222, 1)
 
 [node name="SevenDeathCerts" parent="HiddenObjects" instance=ExtResource("5_object")]
-position = Vector2(862.0, 470.8)
+position = Vector2(892.25, 464)
 data = ExtResource("21_seven_death_certs")
-texture_scale = Vector2(0.1136, 0.1136)
+texture_scale = Vector2(0.0682, 0.0682)
 
 [node name="FilingCabinet" parent="HiddenObjects" node_paths=PackedStringArray("contents") instance=ExtResource("6_container")]
-position = Vector2(342.3, 396.1)
+position = Vector2(341.09, 388.66)
 container_id = &"filing_cabinet"
 contents = NodePath("../TrueRegister")
 open_title = "The lock clicks round to 1979..."
@@ -192,15 +195,15 @@ code_hint_first_after = 12
 code_hint_second_after = 15
 style = 3
 tint = Color(0.25, 0.3, 0.28, 1)
-size = Vector2(185.384, 359.181)
+size = Vector2(274, 412)
 closed_texture = ExtResource("tex_matrons_office_filing_cabinet_closed_v1")
 open_texture = ExtResource("tex_matrons_office_filing_cabinet_open_v1")
-scale = Vector2(0.3452, 0.3452)
+scale = Vector2(0.25, 0.25)
 
 [node name="TrueRegister" parent="HiddenObjects" instance=ExtResource("5_object")]
-position = Vector2(342, 338)
+position = Vector2(340.87, 345.96)
 data = ExtResource("22_true_register")
-texture_scale = Vector2(0.1364, 0.1364)
+texture_scale = Vector2(0.1002, 0.1002)
 
 [node name="WasteBasket" parent="HiddenObjects" node_paths=PackedStringArray("contents") instance=ExtResource("6_container")]
 position = Vector2(580.1, 587.3)
@@ -303,22 +306,23 @@ data = ExtResource("27_crane_photograph")
 texture_scale = Vector2(0.1136, 0.1136)
 
 [node name="SewingDrawer" parent="HiddenObjects" node_paths=PackedStringArray("contents") instance=ExtResource("6_container")]
-position = Vector2(419, 468.8)
+position = Vector2(408, 469)
 container_id = &"sewing_drawer"
 contents = NodePath("../NameTapeReel")
 open_title = "You open the drawer of the sewing table..."
 open_message = "Needles, darning wool, and a reel of woven tape."
 style = 4
 tint = Color(0.36, 0.23, 0.14, 1)
-size = Vector2(361.36, 159.561)
+size = Vector2(248, 76)
 closed_texture = ExtResource("tex_matrons_office_sewing_drawer_closed_v1")
 open_texture = ExtResource("tex_matrons_office_sewing_drawer_open_v1")
-scale = Vector2(0.2131, 0.2131)
+scale = Vector2(0.25, 0.25)
+self_modulate = Color(1.125, 1.118, 1.125, 1)
 
 [node name="NameTapeReel" parent="HiddenObjects" instance=ExtResource("5_object")]
-position = Vector2(419.0, 459.6)
+position = Vector2(408, 463.5)
 data = ExtResource("28_name_tape_reel")
-texture_scale = Vector2(0.0983, 0.0983)
+texture_scale = Vector2(0.059, 0.059)
 
 [node name="FireGrate" parent="HiddenObjects" node_paths=PackedStringArray("contents") instance=ExtResource("6_container")]
 position = Vector2(531.9, 430.9)
@@ -387,6 +391,7 @@ layer = 1
 
 [node name="WallMirror" type="Node2D" parent="."]
 script = ExtResource("40_effect")
+reflection_texture = ExtResource("tex_mirror_reflection")
 glass_rect = Rect2(48, 112, 104, 333)
 arch_height = 26.0
 mirror_objects = Array[NodePath]([NodePath("../HiddenObjects/PictureRailKey"), NodePath("../HiddenObjects/CaddyKey"), NodePath("../HiddenObjects/TravellingCloak"), NodePath("../HiddenObjects/RingedCalendar"), NodePath("../HiddenObjects/PackedValise"), NodePath("../HiddenObjects/MuddyGaloshes")])

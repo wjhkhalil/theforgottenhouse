@@ -129,6 +129,7 @@ tint = Color(0.3, 0.17, 0.11, 1)
 size = Vector2(428, 300)
 closed_texture = ExtResource("tex_living_room_desk_drawer_closed_v1")
 open_texture = ExtResource("tex_living_room_desk_drawer_open_v1")
+self_modulate = Color(0.835, 0.737, 0.532, 1)
 
 [node name="SpareKeys" parent="HiddenObjects" unique_id=1740528959 instance=ExtResource("5_object")]
 modulate = Color(0.85, 0.8, 0.7, 1)

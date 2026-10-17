@@ -38,6 +38,23 @@ signal notice(title: String, message: String, wrong_sound: bool)
 ## Seconds before the same "shutter is down" message may be shown again.
 @export var notice_cooldown: float = 2.5
 
+@export_group("Painted art")
+## REPLACING THE ART: with these set, the pieces are drawn from pictures instead of shapes.
+## The bell, hung by the middle of its top edge.
+@export var bell_texture: Texture2D
+## Width of the bell in the room (its height follows the picture).
+@export var bell_width: float = 20.0
+## The shutter when fully down; it rolls up from the top, so its bottom stays in view.
+@export var shutter_texture: Texture2D
+## One number plate per bell (same order as `bell_objects`), drawn under its pigeonhole.
+@export var plate_textures: Array[Texture2D] = []
+@export var plate_size: Vector2 = Vector2(24, 12)
+## How far below the middle of its pigeonhole each plate sits.
+@export var plate_offset: float = 34.0
+## The x of each painted bell wire, so every bell hangs on its own wire
+## (empty = straight above its pigeonhole).
+@export var wire_x: PackedFloat32Array = PackedFloat32Array()
+
 const BRASS := Color(0.82, 0.64, 0.3)
 const BRASS_DARK := Color(0.5, 0.36, 0.15)
 const SHUTTER := Color(0.33, 0.24, 0.16)
@@ -223,13 +240,43 @@ func _draw() -> void:
 	for i in range(_objects.size()):
 		var center := to_local((_objects[i] as Node2D).global_position)
 		_draw_shutter(center, _slide[i])
-		_draw_bell(center + Vector2(0, -bell_height), i)
+		var bell_at := center + Vector2(0, -bell_height)
+		if i < wire_x.size():
+			bell_at.x = to_local(Vector2(wire_x[i], 0)).x
+		if bell_texture != null:
+			_draw_painted_bell(bell_at, i)
+		else:
+			_draw_bell(bell_at, i)
+		if i < plate_textures.size() and plate_textures[i] != null:
+			draw_texture_rect(plate_textures[i], Rect2(center + Vector2(0, plate_offset) - plate_size / 2.0, plate_size), false)
+
+
+func _is_ringing(index: int) -> bool:
+	return _open_left[index] > 0.0 and not _faded
+
+
+## The painted bell, swinging from the top of its crown while it rings.
+func _draw_painted_bell(at: Vector2, index: int) -> void:
+	var size := Vector2(bell_width, bell_width * bell_texture.get_height() / bell_texture.get_width())
+	var swing := sin(_time * 34.0) * 0.35 if _is_ringing(index) else 0.0
+	draw_set_transform(at, swing, Vector2.ONE)
+	draw_texture_rect(bell_texture, Rect2(Vector2(-size.x / 2.0, 0), size), false)
+	draw_set_transform(Vector2.ZERO, 0.0, Vector2.ONE)
+	if _is_ringing(index):
+		_draw_sound_marks(at + Vector2(0, size.y * 0.6))
 
 
 ## A slatted wooden shutter that slides up into the top of its pigeonhole.
 func _draw_shutter(center: Vector2, slide: float) -> void:
 	var top_left := center - shutter_size / 2.0
 	var height := shutter_size.y * (1.0 - slide * 0.88)
+	if shutter_texture != null:
+		# Rolled up into the top: only its bottom part shows, pull and all.
+		var texture_size := shutter_texture.get_size()
+		var shown := texture_size.y * height / shutter_size.y
+		draw_texture_rect_region(shutter_texture, Rect2(top_left, Vector2(shutter_size.x, height)),
+			Rect2(0, texture_size.y - shown, texture_size.x, shown))
+		return
 	draw_rect(Rect2(top_left, Vector2(shutter_size.x, height)), SHUTTER)
 	var y := top_left.y + height - 5.0
 	while y > top_left.y:
@@ -242,7 +289,7 @@ func _draw_shutter(center: Vector2, slide: float) -> void:
 
 ## A brass bell on a curled spring, with its ward number on a plate below.
 func _draw_bell(at: Vector2, index: int) -> void:
-	var ringing := _open_left[index] > 0.0 and not _faded
+	var ringing := _is_ringing(index)
 	var swing := sin(_time * 34.0) * 0.4 if ringing else 0.0
 	# The curled spring it hangs from
 	draw_arc(at + Vector2(0, -16), 7.0, PI * 0.5, PI * 2.3, 14, BRASS_DARK, 2.0, true)
@@ -254,10 +301,7 @@ func _draw_bell(at: Vector2, index: int) -> void:
 	draw_line(Vector2(-3, 8), Vector2(-6, 18), Color(1, 1, 1, 0.5), 1.0)
 	draw_set_transform(Vector2.ZERO, 0.0, Vector2.ONE)
 	if ringing:
-		# Little sound marks on both sides
-		for side: float in [-1.0, 1.0]:
-			draw_arc(at + Vector2(side * 4.0, 6), 15.0, -0.5 if side > 0 else PI - 0.5, 0.5 if side > 0 else PI + 0.5, 6,
-				Color(1.0, 0.9, 0.6, 0.6 + 0.4 * sin(_time * 20.0)), 1.5, true)
+		_draw_sound_marks(at + Vector2(0, 6))
 	# Number plate
 	var plate := Rect2(at.x - 13, at.y + 22, 26, 13)
 	draw_rect(plate, Color(0.9, 0.86, 0.74))
@@ -266,3 +310,10 @@ func _draw_bell(at: Vector2, index: int) -> void:
 	var text := _label(index)
 	var width := font.get_string_size(text, HORIZONTAL_ALIGNMENT_LEFT, -1, 10).x
 	draw_string(font, Vector2(at.x - width / 2.0, at.y + 32.5), text, HORIZONTAL_ALIGNMENT_LEFT, -1, 10, Color(0.15, 0.13, 0.18))
+
+
+## Little sound marks on both sides of a ringing bell.
+func _draw_sound_marks(at: Vector2) -> void:
+	for side: float in [-1.0, 1.0]:
+		draw_arc(at + Vector2(side * 4.0, 0), 15.0, -0.5 if side > 0 else PI - 0.5, 0.5 if side > 0 else PI + 0.5, 6,
+			Color(1.0, 0.9, 0.6, 0.6 + 0.4 * sin(_time * 20.0)), 1.5, true)

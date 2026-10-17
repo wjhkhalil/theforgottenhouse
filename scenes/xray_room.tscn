@@ -35,12 +35,12 @@
 [ext_resource type="Texture2D" path="res://assets/backgrounds/xray_room_background_v1.png" id="bg_xray_room"]
 [ext_resource type="Texture2D" path="res://assets/objects/xray_room_film_cabinet_closed_v1.png" id="tex_xray_room_film_cabinet_closed_v1"]
 [ext_resource type="Texture2D" path="res://assets/objects/xray_room_film_cabinet_open_v1.png" id="tex_xray_room_film_cabinet_open_v1"]
-[ext_resource type="Texture2D" path="res://assets/objects/xray_room_developer_tank_closed_v1.png" id="tex_xray_room_developer_tank_closed_v1"]
-[ext_resource type="Texture2D" path="res://assets/objects/xray_room_developer_tank_open_v1.png" id="tex_xray_room_developer_tank_open_v1"]
+[ext_resource type="Texture2D" path="res://assets/objects/xray_room_developer_tank_closed_v2.png" id="tex_xray_room_developer_tank_closed_v1"]
+[ext_resource type="Texture2D" path="res://assets/objects/xray_room_developer_tank_open_v2.png" id="tex_xray_room_developer_tank_open_v1"]
 [ext_resource type="Texture2D" path="res://assets/objects/xray_room_laundry_hamper_closed_v1.png" id="tex_xray_room_laundry_hamper_closed_v1"]
 [ext_resource type="Texture2D" path="res://assets/objects/xray_room_laundry_hamper_open_v1.png" id="tex_xray_room_laundry_hamper_open_v1"]
-[ext_resource type="Texture2D" path="res://assets/objects/xray_room_desk_drawer_closed_v1.png" id="tex_xray_room_desk_drawer_closed_v1"]
-[ext_resource type="Texture2D" path="res://assets/objects/xray_room_desk_drawer_open_v2_fit.png" id="tex_xray_room_desk_drawer_open_v1"]
+[ext_resource type="Texture2D" path="res://assets/objects/xray_room_desk_drawer_closed_v2.png" id="tex_xray_room_desk_drawer_closed_v1"]
+[ext_resource type="Texture2D" path="res://assets/objects/xray_room_desk_drawer_open_v3.png" id="tex_xray_room_desk_drawer_open_v1"]
 [ext_resource type="Texture2D" path="res://assets/objects/xray_room_waste_bin_closed_v1.png" id="tex_xray_room_waste_bin_closed_v1"]
 [ext_resource type="Texture2D" path="res://assets/objects/xray_room_waste_bin_open_v1.png" id="tex_xray_room_waste_bin_open_v1"]
 [ext_resource type="Texture2D" path="res://assets/objects/xray_room_light_box_closed_v1.png" id="tex_xray_room_light_box_closed_v1"]
@@ -149,7 +149,7 @@ open_texture = ExtResource("tex_xray_room_developer_tank_open_v1")
 scale = Vector2(0.2646, 0.2646)
 
 [node name="DarkroomTongs" parent="HiddenObjects" instance=ExtResource("5_object")]
-position = Vector2(560, 592)
+position = Vector2(560, 563)
 data = ExtResource("17_darkroom_tongs")
 texture_scale = Vector2(0.1667, 0.1667)
 
@@ -172,22 +172,23 @@ data = ExtResource("18_lead_gloves")
 texture_scale = Vector2(0.1742, 0.1742)
 
 [node name="DeskDrawer" parent="HiddenObjects" node_paths=PackedStringArray("contents") instance=ExtResource("6_container")]
-position = Vector2(874.9, 473.5)
+position = Vector2(875, 489.5)
 container_id = &"desk_drawer"
 contents = NodePath("../AppointmentBook")
 open_title = "You pull open the desk drawer..."
 open_message = "Blotting paper, a box of pins, and the room's appointment book."
 style = 4
 tint = Color(0.36, 0.23, 0.14, 1)
-size = Vector2(368.323, 244.333)
+size = Vector2(424, 140)
 closed_texture = ExtResource("tex_xray_room_desk_drawer_closed_v1")
 open_texture = ExtResource("tex_xray_room_desk_drawer_open_v1")
-scale = Vector2(0.2742, 0.2742)
+scale = Vector2(0.25, 0.25)
+self_modulate = Color(1.075, 1.047, 1.065, 1)
 
 [node name="AppointmentBook" parent="HiddenObjects" instance=ExtResource("5_object")]
-position = Vector2(875.0, 482.6)
+position = Vector2(862.0, 481.7)
 data = ExtResource("19_appointment_book")
-texture_scale = Vector2(0.1007, 0.1007)
+texture_scale = Vector2(0.0806, 0.0806)
 
 [node name="WasteBin" parent="HiddenObjects" node_paths=PackedStringArray("contents") instance=ExtResource("6_container")]
 position = Vector2(955.1, 521.1)

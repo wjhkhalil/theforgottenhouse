@@ -146,7 +146,7 @@ rotation = 0
 texture_scale = Vector2(0.0985, 0.0985)
 
 [node name="DeskDrawer" parent="HiddenObjects" node_paths=PackedStringArray("contents") instance=ExtResource("21_container")]
-self_modulate = Color(1, 1, 1, 1)
+self_modulate = Color(0.968, 1.000, 1.143, 1)
 position = Vector2(305.2, 444.7)
 rotation = -0.06
 container_id = &"desk_drawer"

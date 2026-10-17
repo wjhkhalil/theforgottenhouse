@@ -33,13 +33,13 @@
 [ext_resource type="PackedScene" path="res://scenes/ui/keypad_lock.tscn" id="47_keypad"]
 [ext_resource type="Texture2D" path="res://assets/backgrounds/gate_lodge_background_v1.png" id="bg_gate_lodge"]
 [ext_resource type="Texture2D" path="res://assets/objects/gate_lodge_inner_door_closed_v1.png" id="tex_gate_lodge_inner_door_closed_v1"]
-[ext_resource type="Texture2D" path="res://assets/objects/gate_lodge_inner_door_open_v1.png" id="tex_gate_lodge_inner_door_open_v1"]
+[ext_resource type="Texture2D" path="res://assets/objects/gate_lodge_inner_door_open_v2.png" id="tex_gate_lodge_inner_door_open_v1"]
 [ext_resource type="Texture2D" path="res://assets/objects/gate_lodge_coat_locker_closed_v1.png" id="tex_gate_lodge_coat_locker_closed_v1"]
 [ext_resource type="Texture2D" path="res://assets/objects/gate_lodge_coat_locker_open_v1.png" id="tex_gate_lodge_coat_locker_open_v1"]
 [ext_resource type="Texture2D" path="res://assets/objects/gate_lodge_coal_scuttle_closed_v1.png" id="tex_gate_lodge_coal_scuttle_closed_v1"]
 [ext_resource type="Texture2D" path="res://assets/objects/gate_lodge_coal_scuttle_open_v1.png" id="tex_gate_lodge_coal_scuttle_open_v1"]
-[ext_resource type="Texture2D" path="res://assets/objects/gate_lodge_desk_drawer_closed_v1.png" id="tex_gate_lodge_desk_drawer_closed_v1"]
-[ext_resource type="Texture2D" path="res://assets/objects/gate_lodge_desk_drawer_open_v2_fit.png" id="tex_gate_lodge_desk_drawer_open_v1"]
+[ext_resource type="Texture2D" path="res://assets/objects/gate_lodge_desk_drawer_closed_v2.png" id="tex_gate_lodge_desk_drawer_closed_v1"]
+[ext_resource type="Texture2D" path="res://assets/objects/gate_lodge_desk_drawer_open_v3.png" id="tex_gate_lodge_desk_drawer_open_v1"]
 [ext_resource type="Texture2D" path="res://assets/objects/gate_lodge_strongbox_closed_v1.png" id="tex_gate_lodge_strongbox_closed_v1"]
 [ext_resource type="Texture2D" path="res://assets/objects/gate_lodge_strongbox_open_v1.png" id="tex_gate_lodge_strongbox_open_v1"]
 [ext_resource type="Texture2D" path="res://assets/objects/gate_lodge_key_cabinet_closed_v1.png" id="tex_gate_lodge_key_cabinet_closed_v1"]
@@ -50,6 +50,13 @@
 [ext_resource type="Texture2D" path="res://assets/objects/gate_lodge_mail_sack_open_v1.png" id="tex_gate_lodge_mail_sack_open_v1"]
 [ext_resource type="Texture2D" path="res://assets/objects/gate_lodge_lost_property_trunk_closed_v1.png" id="tex_gate_lodge_lost_property_trunk_closed_v1"]
 [ext_resource type="Texture2D" path="res://assets/objects/gate_lodge_lost_property_trunk_open_v1.png" id="tex_gate_lodge_lost_property_trunk_open_v1"]
+[ext_resource type="Texture2D" path="res://assets/objects/gate_lodge_bell_v1.png" id="tex_gate_lodge_bell_v1"]
+[ext_resource type="Texture2D" path="res://assets/objects/gate_lodge_bell_shutter_v1.png" id="tex_gate_lodge_bell_shutter_v1"]
+[ext_resource type="Texture2D" path="res://assets/objects/gate_lodge_bell_plate_2_v1.png" id="tex_gate_lodge_bell_plate_2_v1"]
+[ext_resource type="Texture2D" path="res://assets/objects/gate_lodge_bell_plate_4_v1.png" id="tex_gate_lodge_bell_plate_4_v1"]
+[ext_resource type="Texture2D" path="res://assets/objects/gate_lodge_bell_plate_7_v1.png" id="tex_gate_lodge_bell_plate_7_v1"]
+[ext_resource type="Texture2D" path="res://assets/objects/gate_lodge_bell_plate_9_v1.png" id="tex_gate_lodge_bell_plate_9_v1"]
+[ext_resource type="Texture2D" path="res://assets/objects/gate_lodge_bell_plate_11_v1.png" id="tex_gate_lodge_bell_plate_11_v1"]
 
 [node name="GateLodge" type="Node2D" node_paths=PackedStringArray("keypad_lock")]
 script = ExtResource("1_room")
@@ -68,7 +75,7 @@ replacement_texture = ExtResource("bg_gate_lodge")
 unique_name_in_owner = true
 
 [node name="PortersCap" parent="HiddenObjects" instance=ExtResource("5_object")]
-position = Vector2(372, 286)
+position = Vector2(420, 286)
 rotation = -0.1
 data = ExtResource("10_porters_cap")
 texture_scale = Vector2(0.1742, 0.1742)
@@ -84,47 +91,48 @@ data = ExtResource("12_enamel_mug")
 texture_scale = Vector2(0.1061, 0.1061)
 
 [node name="UnpostedLetters" parent="HiddenObjects" instance=ExtResource("5_object")]
-position = Vector2(608, 157)
+position = Vector2(609, 157)
 data = ExtResource("13_unposted_letters")
 texture_scale = Vector2(0.1364, 0.1364)
 
 [node name="VisitorsPass" parent="HiddenObjects" instance=ExtResource("5_object")]
-position = Vector2(674, 157)
+position = Vector2(673.7, 157)
 data = ExtResource("14_visitors_pass")
 texture_scale = Vector2(0.1364, 0.1364)
 
 [node name="BrassWardTag" parent="HiddenObjects" instance=ExtResource("5_object")]
-position = Vector2(739, 157)
+position = Vector2(734.5, 157)
 data = ExtResource("15_brass_ward_tag")
 texture_scale = Vector2(0.1288, 0.1288)
 
 [node name="SnuffBox" parent="HiddenObjects" instance=ExtResource("5_object")]
-position = Vector2(794, 157)
+position = Vector2(792.4, 157)
 data = ExtResource("16_snuff_box")
 texture_scale = Vector2(0.1364, 0.1364)
 
 [node name="NightRoundCard" parent="HiddenObjects" instance=ExtResource("5_object")]
-position = Vector2(851, 157)
+position = Vector2(851.7, 157)
 data = ExtResource("17_night_round_card")
 texture_scale = Vector2(0.1364, 0.1364)
 
 [node name="DeskDrawer" parent="HiddenObjects" node_paths=PackedStringArray("contents") instance=ExtResource("6_container")]
-position = Vector2(622, 376)
+position = Vector2(629, 379)
 container_id = &"desk_drawer"
 contents = NodePath("../DutyRoster")
 open_title = "You pull open the desk drawer..."
 open_message = "Pen nibs, a ball of string, and the lodge roster folded in four."
 style = 4
 tint = Color(0.36, 0.23, 0.14, 1)
-size = Vector2(342.4, 242.4)
+size = Vector2(416, 120)
 closed_texture = ExtResource("tex_gate_lodge_desk_drawer_closed_v1")
 open_texture = ExtResource("tex_gate_lodge_desk_drawer_open_v1")
-scale = Vector2(0.215, 0.215)
+scale = Vector2(0.25, 0.25)
+self_modulate = Color(0.851, 0.980, 1.199, 1)
 
 [node name="DutyRoster" parent="HiddenObjects" instance=ExtResource("5_object")]
-position = Vector2(622.0, 376.6)
+position = Vector2(615.0, 373.5)
 data = ExtResource("18_duty_roster")
-texture_scale = Vector2(0.1167, 0.1167)
+texture_scale = Vector2(0.0875, 0.0875)
 
 [node name="CoalScuttle" parent="HiddenObjects" node_paths=PackedStringArray("contents") instance=ExtResource("6_container")]
 position = Vector2(385, 500)
@@ -270,7 +278,7 @@ data = ExtResource("24_ward_door_key")
 texture_scale = Vector2(0.1212, 0.1212)
 
 [node name="InnerDoor" parent="HiddenObjects" node_paths=PackedStringArray("contents", "required_object") instance=ExtResource("6_container")]
-position = Vector2(113, 300)
+position = Vector2(120, 308)
 container_id = &"inner_door"
 contents = NodePath("../PushedNote")
 open_title = "The long key turns twice..."
@@ -283,7 +291,7 @@ tint = Color(0.24, 0.26, 0.3, 1)
 size = Vector2(242.4, 342.4)
 closed_texture = ExtResource("tex_gate_lodge_inner_door_closed_v1")
 open_texture = ExtResource("tex_gate_lodge_inner_door_open_v1")
-scale = Vector2(0.7897, 0.7897)
+scale = Vector2(0.7897, 0.958)
 
 [node name="PushedNote" parent="HiddenObjects" instance=ExtResource("5_object")]
 position = Vector2(113, 446)
@@ -299,8 +307,12 @@ layer = 1
 [node name="BellBoard" type="Node2D" parent="."]
 script = ExtResource("40_effect")
 bell_objects = Array[NodePath]([NodePath("../HiddenObjects/UnpostedLetters"), NodePath("../HiddenObjects/VisitorsPass"), NodePath("../HiddenObjects/BrassWardTag"), NodePath("../HiddenObjects/SnuffBox"), NodePath("../HiddenObjects/NightRoundCard")])
-shutter_size = Vector2(50, 50)
-bell_height = 76.0
+shutter_size = Vector2(38, 41)
+bell_height = 72.0
+bell_texture = ExtResource("tex_gate_lodge_bell_v1")
+shutter_texture = ExtResource("tex_gate_lodge_bell_shutter_v1")
+plate_textures = Array[Texture2D]([ExtResource("tex_gate_lodge_bell_plate_2_v1"), ExtResource("tex_gate_lodge_bell_plate_4_v1"), ExtResource("tex_gate_lodge_bell_plate_7_v1"), ExtResource("tex_gate_lodge_bell_plate_9_v1"), ExtResource("tex_gate_lodge_bell_plate_11_v1")])
+wire_x = PackedFloat32Array(608.6, 676.0, 734.5, 790.4, 847.9)
 
 [node name="HintHighlight" type="Node2D" parent="."]
 unique_name_in_owner = true

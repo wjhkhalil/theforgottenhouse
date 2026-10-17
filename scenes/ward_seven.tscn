@@ -39,6 +39,7 @@
 [ext_resource type="PackedScene" path="res://scenes/ui/letter_popup.tscn" id="46_letter"]
 [ext_resource type="PackedScene" path="res://scenes/ui/keypad_lock.tscn" id="47_keypad"]
 [ext_resource type="Texture2D" path="res://assets/backgrounds/ward_seven_background_v1.png" id="bg_ward_seven"]
+[ext_resource type="Texture2D" path="res://assets/objects/ward_seven_floor_shadow_v1.png" id="tex_ward_seven_floor_shadow"]
 [ext_resource type="Texture2D" path="res://assets/objects/ward_seven_tobys_locker_closed_v1.png" id="tex_ward_seven_tobys_locker_closed_v1"]
 [ext_resource type="Texture2D" path="res://assets/objects/ward_seven_tobys_locker_open_v1.png" id="tex_ward_seven_tobys_locker_open_v1"]
 [ext_resource type="Texture2D" path="res://assets/objects/ward_seven_ruths_locker_closed_v1.png" id="tex_ward_seven_ruths_locker_closed_v1"]
@@ -51,14 +52,14 @@
 [ext_resource type="Texture2D" path="res://assets/objects/ward_seven_nurses_desk_drawer_open_v2_fit.png" id="tex_ward_seven_nurses_desk_drawer_open_v1"]
 [ext_resource type="Texture2D" path="res://assets/objects/ward_seven_medicine_trolley_closed_v1.png" id="tex_ward_seven_medicine_trolley_closed_v1"]
 [ext_resource type="Texture2D" path="res://assets/objects/ward_seven_medicine_trolley_open_v1.png" id="tex_ward_seven_medicine_trolley_open_v1"]
-[ext_resource type="Texture2D" path="res://assets/objects/ward_seven_nurses_locker_closed_v1.png" id="tex_ward_seven_nurses_locker_closed_v1"]
-[ext_resource type="Texture2D" path="res://assets/objects/ward_seven_nurses_locker_open_v1.png" id="tex_ward_seven_nurses_locker_open_v1"]
+[ext_resource type="Texture2D" path="res://assets/objects/ward_seven_nurses_locker_closed_v2.png" id="tex_ward_seven_nurses_locker_closed_v1"]
+[ext_resource type="Texture2D" path="res://assets/objects/ward_seven_nurses_locker_open_v2.png" id="tex_ward_seven_nurses_locker_open_v1"]
 [ext_resource type="Texture2D" path="res://assets/objects/ward_seven_confiscation_box_closed_v1.png" id="tex_ward_seven_confiscation_box_closed_v1"]
 [ext_resource type="Texture2D" path="res://assets/objects/ward_seven_confiscation_box_open_v1.png" id="tex_ward_seven_confiscation_box_open_v1"]
-[ext_resource type="Texture2D" path="res://assets/objects/ward_seven_barred_shutter_closed_v1.png" id="tex_ward_seven_barred_shutter_closed_v1"]
-[ext_resource type="Texture2D" path="res://assets/objects/ward_seven_barred_shutter_open_v1.png" id="tex_ward_seven_barred_shutter_open_v1"]
-[ext_resource type="Texture2D" path="res://assets/objects/ward_seven_restraint_cupboard_closed_v1.png" id="tex_ward_seven_restraint_cupboard_closed_v1"]
-[ext_resource type="Texture2D" path="res://assets/objects/ward_seven_restraint_cupboard_open_v1.png" id="tex_ward_seven_restraint_cupboard_open_v1"]
+[ext_resource type="Texture2D" path="res://assets/objects/ward_seven_barred_shutter_closed_v2.png" id="tex_ward_seven_barred_shutter_closed_v1"]
+[ext_resource type="Texture2D" path="res://assets/objects/ward_seven_barred_shutter_open_v2.png" id="tex_ward_seven_barred_shutter_open_v1"]
+[ext_resource type="Texture2D" path="res://assets/objects/ward_seven_restraint_cupboard_closed_v2.png" id="tex_ward_seven_restraint_cupboard_closed_v1"]
+[ext_resource type="Texture2D" path="res://assets/objects/ward_seven_restraint_cupboard_open_v2.png" id="tex_ward_seven_restraint_cupboard_open_v1"]
 [ext_resource type="Texture2D" path="res://assets/objects/ward_seven_ward_strongbox_closed_v1.png" id="tex_ward_seven_ward_strongbox_closed_v1"]
 [ext_resource type="Texture2D" path="res://assets/objects/ward_seven_ward_strongbox_open_v1.png" id="tex_ward_seven_ward_strongbox_open_v1"]
 [ext_resource type="Texture2D" path="res://assets/objects/ward_seven_fire_bell_box_closed_v1.png" id="tex_ward_seven_fire_bell_box_closed_v1"]
@@ -137,9 +138,15 @@ data = ExtResource("26_ward_slippers")
 texture_scale = Vector2(0.1212, 0.1212)
 
 [node name="FireBucket" parent="HiddenObjects" instance=ExtResource("5_object")]
-position = Vector2(1638, 254)
+position = Vector2(1556, 553)
 data = ExtResource("27_fire_bucket")
-texture_scale = Vector2(0.1667, 0.1667)
+texture_scale = Vector2(0.18, 0.18)
+
+[node name="FloorShadow" type="Sprite2D" parent="HiddenObjects/FireBucket/VisualRoot"]
+show_behind_parent = true
+position = Vector2(0, 21)
+scale = Vector2(0.27, 0.3)
+texture = ExtResource("tex_ward_seven_floor_shadow")
 
 [node name="TobysLocker" parent="HiddenObjects" node_paths=PackedStringArray("contents") instance=ExtResource("6_container")]
 self_modulate = Color(0.7, 0.73, 0.82, 1)
@@ -228,6 +235,7 @@ size = Vector2(405.839, 257.032)
 closed_texture = ExtResource("tex_ward_seven_nurses_desk_drawer_closed_v1")
 open_texture = ExtResource("tex_ward_seven_nurses_desk_drawer_open_v1")
 scale = Vector2(0.1478, 0.1478)
+self_modulate = Color(0.471, 0.373, 0.350, 1)
 
 [node name="PrayerBook" parent="HiddenObjects" instance=ExtResource("5_object")]
 position = Vector2(1095.0, 477.9)
@@ -258,7 +266,7 @@ data = ExtResource("29_dose_tray")
 texture_scale = Vector2(0.1667, 0.1667)
 
 [node name="NursesLocker" parent="HiddenObjects" node_paths=PackedStringArray("contents", "required_object") instance=ExtResource("6_container")]
-position = Vector2(1333.9, 455.2)
+position = Vector2(1321, 435)
 container_id = &"nurses_locker"
 contents = NodePath("../Harmonica")
 open_title = "Ivy's token fits the slot..."
@@ -268,18 +276,19 @@ locked_title = "The nurses' locker is locked."
 locked_message = "A tall locker with a brass slot instead of a keyhole. It takes a token. One of the patients may have one."
 style = 3
 tint = Color(0.25, 0.3, 0.28, 1)
-size = Vector2(162.841, 407.102)
+size = Vector2(200, 480)
 closed_texture = ExtResource("tex_ward_seven_nurses_locker_closed_v1")
 open_texture = ExtResource("tex_ward_seven_nurses_locker_open_v1")
-scale = Vector2(0.3685, 0.3685)
+scale = Vector2(0.25, 0.25)
 
 [node name="Harmonica" parent="HiddenObjects" instance=ExtResource("5_object")]
-position = Vector2(1332, 455)
+position = Vector2(1312.6, 437)
 data = ExtResource("21_harmonica")
-texture_scale = Vector2(0.1061, 0.1061)
+texture_scale = Vector2(0.0849, 0.0849)
 
 [node name="ConfiscationBox" parent="HiddenObjects" node_paths=PackedStringArray("contents") instance=ExtResource("6_container")]
-position = Vector2(1029.7, 432.1)
+position = Vector2(986, 437.25)
+z_index = 1
 container_id = &"confiscation_box"
 contents = NodePath("../ThimbleCase")
 open_title = "The lock clicks round to 0510..."
@@ -296,15 +305,16 @@ tint = Color(0.3, 0.12, 0.1, 1)
 size = Vector2(408.716, 317.89)
 closed_texture = ExtResource("tex_ward_seven_confiscation_box_closed_v1")
 open_texture = ExtResource("tex_ward_seven_confiscation_box_open_v1")
-scale = Vector2(0.1321, 0.1321)
+scale = Vector2(0.125, 0.125)
 
 [node name="ThimbleCase" parent="HiddenObjects" instance=ExtResource("5_object")]
-position = Vector2(1038, 437)
+position = Vector2(993.9, 441.9)
+z_index = 1
 data = ExtResource("18_thimble_case")
-texture_scale = Vector2(0.0682, 0.0682)
+texture_scale = Vector2(0.0645, 0.0645)
 
 [node name="BarredShutter" parent="HiddenObjects" node_paths=PackedStringArray("contents", "required_object") instance=ExtResource("6_container")]
-position = Vector2(1476.1, 230.7)
+position = Vector2(1487, 234)
 container_id = &"barred_shutter"
 contents = NodePath("../WindowBar")
 open_title = "You work the shutter loose with Sam's file..."
@@ -314,19 +324,19 @@ locked_title = "The shutter is screwed down."
 locked_message = "An iron shutter over the end window, held with four screws. You need a tool, and Sam keeps looking at it."
 style = 3
 tint = Color(0.3, 0.33, 0.36, 1)
-size = Vector2(285.333, 408.185)
+size = Vector2(336, 330)
 closed_texture = ExtResource("tex_ward_seven_barred_shutter_closed_v1")
 open_texture = ExtResource("tex_ward_seven_barred_shutter_open_v1")
-scale = Vector2(0.2523, 0.2523)
+scale = Vector2(0.25, 0.25)
 
 [node name="WindowBar" parent="HiddenObjects" instance=ExtResource("5_object")]
-position = Vector2(1489, 232)
+position = Vector2(1475, 232)
 data = ExtResource("30_window_bar")
 rotation = -0.7
 texture_scale = Vector2(0.197, 0.197)
 
 [node name="RestraintCupboard" parent="HiddenObjects" node_paths=PackedStringArray("contents") instance=ExtResource("6_container")]
-position = Vector2(982.1, 217.5)
+position = Vector2(270, 215)
 container_id = &"restraint_cupboard"
 contents = NodePath("../RestraintStrap")
 open_title = "The lock clicks round to 1923..."
@@ -346,7 +356,7 @@ open_texture = ExtResource("tex_ward_seven_restraint_cupboard_open_v1")
 scale = Vector2(0.2523, 0.2523)
 
 [node name="RestraintStrap" parent="HiddenObjects" instance=ExtResource("5_object")]
-position = Vector2(983, 225)
+position = Vector2(270.9, 222.5)
 data = ExtResource("28_restraint_strap")
 texture_scale = Vector2(0.1288, 0.1288)
 

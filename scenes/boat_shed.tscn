@@ -151,6 +151,7 @@ size = Vector2(344.368, 137.747)
 closed_texture = ExtResource("tex_boat_shed_workbench_drawer_closed_v1")
 open_texture = ExtResource("tex_boat_shed_workbench_drawer_open_v1")
 scale = Vector2(0.2033, 0.2033)
+self_modulate = Color(1.200, 1.244, 1.286, 1)
 
 [node name="BankReceipt" parent="HiddenObjects" instance=ExtResource("5_object")]
 position = Vector2(242, 320)

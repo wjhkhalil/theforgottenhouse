@@ -36,6 +36,20 @@ signal notice(title: String, message: String, wrong_sound: bool)
 ## Seconds before the same "a sheet is in the way" message may be shown again.
 @export var notice_cooldown: float = 2.5
 
+@export_group("Painted art")
+## REPLACING THE ART: with these set, the line is drawn from pictures instead of shapes.
+## One sheet, stretched to `sheet_width` x the drop from the rail to `sheet_bottom`.
+## Every other sheet is drawn mirrored, so they do not all look the same.
+@export var sheet_texture: Texture2D
+## A clothes peg, drawn over the top of each sheet.
+@export var peg_texture: Texture2D
+@export var peg_size: Vector2 = Vector2(6, 17)
+## The rail: a strip that repeats along it. With it set, the chain wheels are not drawn.
+@export var rail_texture: Texture2D
+@export var rail_thickness: float = 6.0
+## The hanger rods from the ceiling: a strip that repeats up each rod.
+@export var hanger_texture: Texture2D
+
 const LINEN := Color(0.86, 0.87, 0.84, 0.97)
 const LINEN_SHADE := Color(0.66, 0.69, 0.7, 0.97)
 const IRON := Color(0.2, 0.2, 0.22)
@@ -58,6 +72,8 @@ var _blockers: Array[Area2D] = []
 
 func _ready() -> void:
 	add_to_group("room_effects")
+	# The rail and rod strips repeat along their length.
+	texture_repeat = CanvasItem.TEXTURE_REPEAT_ENABLED
 	for i in range(sheet_count):
 		var blocker := Area2D.new()
 		blocker.name = "Sheet%d" % i
@@ -154,6 +170,20 @@ func _on_sheet_clicked(_viewport: Node, event: InputEvent, _shape_index: int) ->
 
 func _draw() -> void:
 	# The rail, its hangers from the ceiling and the chain wheel at each end.
+	if rail_texture != null:
+		_draw_painted_rail()
+	else:
+		_draw_rail()
+	if _cleared or _shade <= 0.001:
+		return
+	for i in range(sheet_count):
+		if sheet_texture != null:
+			_draw_painted_sheet(get_sheet_rect(i), i)
+		else:
+			_draw_sheet(get_sheet_rect(i), i)
+
+
+func _draw_rail() -> void:
 	draw_line(Vector2(-20, rail_y), Vector2(room_width + 20, rail_y), IRON, 5.0)
 	draw_line(Vector2(-20, rail_y - 2), Vector2(room_width + 20, rail_y - 2), Color(0.45, 0.45, 0.48), 1.0)
 	var hanger_x := 90.0
@@ -165,10 +195,43 @@ func _draw() -> void:
 		for spoke in range(4):
 			var direction := Vector2.from_angle(_time * 0.6 * (0.0 if _holding else 1.0) + spoke * PI / 2.0)
 			draw_line(Vector2(wheel_x, rail_y), Vector2(wheel_x, rail_y) + direction * 11.0, Color(0.5, 0.5, 0.52), 1.5)
-	if _cleared or _shade <= 0.001:
-		return
-	for i in range(sheet_count):
-		_draw_sheet(get_sheet_rect(i), i)
+
+
+## The painted iron pipe, running wall to wall, hung from the ceiling on rods.
+## draw_texture_rect tiles in texture pixels, so each strip is drawn scaled down to size.
+func _draw_painted_rail() -> void:
+	if hanger_texture != null:
+		var rod_scale := rail_thickness * 0.7 / hanger_texture.get_width()
+		var hanger_x := 90.0
+		while hanger_x < room_width:
+			draw_set_transform(Vector2(hanger_x - rail_thickness * 0.35, rail_y - 70), 0.0, Vector2.ONE * rod_scale)
+			draw_texture_rect(hanger_texture, Rect2(0, 0, hanger_texture.get_width(), 70 / rod_scale), true)
+			hanger_x += 220.0
+	var rail_scale := rail_thickness / rail_texture.get_height()
+	draw_set_transform(Vector2(-20, rail_y - rail_thickness / 2.0), 0.0, Vector2.ONE * rail_scale)
+	draw_texture_rect(rail_texture, Rect2(0, 0, (room_width + 40) / rail_scale, rail_texture.get_height()), true)
+	draw_set_transform(Vector2.ZERO, 0.0, Vector2.ONE)
+
+
+## One painted wet sheet: pegged to the rail, swaying a little at the hem.
+func _draw_painted_sheet(rect: Rect2, index: int) -> void:
+	var sway := sin(_time * 1.3 + index * 1.7) * 4.0
+	var top_left := rect.position
+	var top_right := Vector2(rect.end.x, rect.position.y)
+	var bottom_right := rect.end + Vector2(sway, 0)
+	var bottom_left := Vector2(rect.position.x + sway, rect.end.y)
+	var left_u := 1.0 if index % 2 == 1 else 0.0
+	var tint := Color(1, 1, 1, _shade)
+	draw_polygon(PackedVector2Array([top_left, top_right, bottom_right, bottom_left]),
+		PackedColorArray([tint, tint, tint, tint]),
+		PackedVector2Array([Vector2(left_u, 0), Vector2(1.0 - left_u, 0), Vector2(1.0 - left_u, 1), Vector2(left_u, 1)]),
+		sheet_texture)
+	for peg in range(4):
+		var peg_x := rect.position.x + 12.0 + peg * (rect.size.x - 24.0) / 3.0
+		if peg_texture != null:
+			draw_texture_rect(peg_texture, Rect2(Vector2(peg_x - peg_size.x / 2.0, rail_y - peg_size.y * 0.4), peg_size), false, tint)
+		else:
+			draw_rect(Rect2(peg_x - 2.5, rail_y - 7, 5, 16), Color(0.72, 0.56, 0.36, _shade))
 
 
 ## One wet sheet: pegged to the rail, hanging in soft folds, swaying a little.

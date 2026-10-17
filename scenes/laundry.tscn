@@ -34,10 +34,14 @@
 [ext_resource type="PackedScene" path="res://scenes/ui/letter_popup.tscn" id="46_letter"]
 [ext_resource type="PackedScene" path="res://scenes/ui/keypad_lock.tscn" id="47_keypad"]
 [ext_resource type="Texture2D" path="res://assets/backgrounds/laundry_background_v1.png" id="bg_laundry"]
+[ext_resource type="Texture2D" path="res://assets/objects/laundry_sheet_v1.png" id="tex_laundry_sheet_v1"]
+[ext_resource type="Texture2D" path="res://assets/objects/laundry_peg_v1.png" id="tex_laundry_peg_v1"]
+[ext_resource type="Texture2D" path="res://assets/objects/laundry_rail_v1.png" id="tex_laundry_rail_v1"]
+[ext_resource type="Texture2D" path="res://assets/objects/laundry_rail_hanger_v1.png" id="tex_laundry_rail_hanger_v1"]
 [ext_resource type="Texture2D" path="res://assets/objects/laundry_linen_press_closed_v1.png" id="tex_laundry_linen_press_closed_v1"]
 [ext_resource type="Texture2D" path="res://assets/objects/laundry_linen_press_open_v1.png" id="tex_laundry_linen_press_open_v1"]
 [ext_resource type="Texture2D" path="res://assets/objects/laundry_wash_copper_closed_v1.png" id="tex_laundry_wash_copper_closed_v1"]
-[ext_resource type="Texture2D" path="res://assets/objects/laundry_wash_copper_open_v1.png" id="tex_laundry_wash_copper_open_v1"]
+[ext_resource type="Texture2D" path="res://assets/objects/laundry_wash_copper_open_v2.png" id="tex_laundry_wash_copper_open_v1"]
 [ext_resource type="Texture2D" path="res://assets/objects/laundry_sorting_basket_closed_v1.png" id="tex_laundry_sorting_basket_closed_v1"]
 [ext_resource type="Texture2D" path="res://assets/objects/laundry_sorting_basket_open_v1.png" id="tex_laundry_sorting_basket_open_v1"]
 [ext_resource type="Texture2D" path="res://assets/objects/laundry_mangle_drawer_closed_v1.png" id="tex_laundry_mangle_drawer_closed_v1"]
@@ -157,7 +161,7 @@ open_texture = ExtResource("tex_laundry_wash_copper_open_v1")
 scale = Vector2(0.285, 0.285)
 
 [node name="LockerKey" parent="HiddenObjects" instance=ExtResource("5_object")]
-position = Vector2(142, 291)
+position = Vector2(120, 279)
 data = ExtResource("20_locker_key")
 texture_scale = Vector2(0.1061, 0.1061)
 
@@ -191,6 +195,7 @@ size = Vector2(400.087, 260.522)
 closed_texture = ExtResource("tex_laundry_mangle_drawer_closed_v1")
 open_texture = ExtResource("tex_laundry_mangle_drawer_open_v1")
 scale = Vector2(0.215, 0.215)
+self_modulate = Color(0.350, 0.407, 0.426, 1)
 
 [node name="MangleNote" parent="HiddenObjects" instance=ExtResource("5_object")]
 position = Vector2(528.0, 540.2)
@@ -209,6 +214,7 @@ size = Vector2(406.6, 267.5)
 closed_texture = ExtResource("tex_laundry_ironing_drawer_closed_v1")
 open_texture = ExtResource("tex_laundry_ironing_drawer_open_v1")
 scale = Vector2(0.1869, 0.1869)
+self_modulate = Color(0.477, 0.562, 0.644, 1)
 
 [node name="PressedLetter" parent="HiddenObjects" instance=ExtResource("5_object")]
 position = Vector2(890.0, 503.1)
@@ -332,6 +338,10 @@ layer = 1
 
 [node name="DryingRail" type="Node2D" parent="."]
 script = ExtResource("40_effect")
+sheet_texture = ExtResource("tex_laundry_sheet_v1")
+peg_texture = ExtResource("tex_laundry_peg_v1")
+rail_texture = ExtResource("tex_laundry_rail_v1")
+hanger_texture = ExtResource("tex_laundry_rail_hanger_v1")
 
 [node name="HintHighlight" type="Node2D" parent="."]
 unique_name_in_owner = true

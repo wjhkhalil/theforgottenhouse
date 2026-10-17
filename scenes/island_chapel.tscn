@@ -180,6 +180,7 @@ size = Vector2(374.5, 107)
 closed_texture = ExtResource("tex_island_chapel_pulpit_drawer_closed_v1")
 open_texture = ExtResource("tex_island_chapel_pulpit_drawer_open_v1")
 scale = Vector2(0.1869, 0.1869)
+self_modulate = Color(0.780, 0.885, 0.952, 1)
 
 [node name="DoctorsLetter" parent="HiddenObjects" instance=ExtResource("5_r")]
 position = Vector2(211, 352)

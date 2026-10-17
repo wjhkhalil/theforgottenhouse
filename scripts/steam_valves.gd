@@ -8,7 +8,8 @@ extends Node2D
 ## jets shut at once: shut one more, and the one that has been shut longest
 ## blows open again. The player has to choose which part of the room to clear.
 ##
-## HOW IT WORKS: every jet is a rectangle (`jet_zones`). While a jet is open, an
+## HOW IT WORKS: every jet is a rectangle (`jet_zones`), filled with rolling steam
+## (a Sprite2D per jet, drawn by steam_jet.gdshader). While a jet is open, an
 ## invisible click area the size of its zone catches every click there, so the
 ## objects and containers behind it never get them. This node comes AFTER
 ## HiddenObjects in the scene, so those areas (and the valve wheels) sit on top.
@@ -22,6 +23,9 @@ signal notice(title: String, message: String, wrong_sound: bool)
 @export var jet_zones: Array[Rect2] = [Rect2(60, 100, 240, 460), Rect2(370, 100, 240, 460), Rect2(680, 100, 240, 460)]
 ## Where each jet's valve wheel is (same order as `jet_zones`).
 @export var valve_positions: PackedVector2Array = PackedVector2Array([Vector2(335, 300), Vector2(645, 300), Vector2(955, 300)])
+## Where the steam leaves the overhead pipe (room y). The steam is drawn from here
+## down, so it comes out of the pipe; the click areas still start at the zone's top.
+@export var steam_top: float = 62.0
 ## How many jets may be shut at the same time.
 @export var max_shut: int = 2
 ## Radius of a valve wheel (and of its click area).
@@ -29,9 +33,8 @@ signal notice(title: String, message: String, wrong_sound: bool)
 ## Seconds before the same "scalding steam" message may be shown again.
 @export var notice_cooldown: float = 2.5
 
-const STEAM := Color(0.92, 0.94, 0.96)
 const VALVE_RED := Color(0.72, 0.12, 0.1)
-const PUFFS_PER_JET := 22
+const STEAM_SHADER := preload("res://scripts/steam_jet.gdshader")
 
 var _shut: Array[bool] = []
 ## The jets that are shut, oldest first.
@@ -47,6 +50,8 @@ var _faded: bool = false
 var _time: float = 0.0
 var _last_notice_time: float = -100.0
 var _blockers: Array[Area2D] = []
+## The steam of each jet (see steam_jet.gdshader), same order as `jet_zones`.
+var _clouds: Array[Sprite2D] = []
 
 
 func _ready() -> void:
@@ -66,6 +71,7 @@ func _ready() -> void:
 		blocker.position = jet_zones[i].get_center()
 		blocker.input_event.connect(_on_steam_clicked)
 		_blockers.append(blocker)
+	_build_clouds()
 	# The wheels are added after the jets, so they are on top for clicks.
 	for i in range(mini(valve_positions.size(), jet_zones.size())):
 		var valve := Area2D.new()
@@ -79,6 +85,39 @@ func _ready() -> void:
 		valve.position = valve_positions[i]
 		valve.input_event.connect(_on_valve_clicked.bind(i))
 	_update_jets()
+
+
+## One Sprite2D per jet, covering its zone, drawn with the steam shader on a
+## seamless noise texture. They are drawn behind this node, so the wheels stay on top.
+func _build_clouds() -> void:
+	var noise := FastNoiseLite.new()
+	noise.noise_type = FastNoiseLite.TYPE_SIMPLEX_SMOOTH
+	noise.frequency = 0.012
+	noise.fractal_octaves = 5
+	var texture := NoiseTexture2D.new()
+	texture.width = 256
+	texture.height = 256
+	texture.seamless = true
+	texture.noise = noise
+	for i in range(jet_zones.size()):
+		var cloud := Sprite2D.new()
+		cloud.name = "Steam%d" % i
+		cloud.texture = texture
+		cloud.centered = false
+		var area := jet_zones[i]
+		if steam_top < area.position.y:
+			area = Rect2(area.position.x, steam_top, area.size.x, area.end.y - steam_top)
+		cloud.position = area.position
+		cloud.scale = area.size / Vector2(texture.width, texture.height)
+		cloud.texture_repeat = CanvasItem.TEXTURE_REPEAT_ENABLED
+		cloud.show_behind_parent = true
+		var steam := ShaderMaterial.new()
+		steam.shader = STEAM_SHADER
+		steam.set_shader_parameter("zone_size", area.size)
+		steam.set_shader_parameter("seed", i * 0.37)
+		cloud.material = steam
+		add_child(cloud)
+		_clouds.append(cloud)
 
 
 ## Called when the room is complete: the steam dies away and nothing is blocked.
@@ -144,6 +183,9 @@ func _process(delta: float) -> void:
 	for i in range(_strength.size()):
 		_strength[i] = move_toward(_strength[i], 0.0 if is_shut(i) else 1.0, delta * 2.5)
 		_wheel_turn[i] = move_toward(_wheel_turn[i], 1.0 if (_shut[i] or _all_shut) else 0.0, delta * 3.0)
+		if i < _clouds.size():
+			_clouds[i].visible = _strength[i] > 0.01
+			(_clouds[i].material as ShaderMaterial).set_shader_parameter("strength", _strength[i])
 	queue_redraw()
 
 
@@ -171,31 +213,9 @@ func _on_steam_clicked(_viewport: Node, event: InputEvent, _shape_index: int) ->
 
 
 func _draw() -> void:
-	for i in range(jet_zones.size()):
-		if _strength[i] > 0.01:
-			_draw_jet(jet_zones[i], _strength[i], i)
+	# The steam is drawn by the cloud sprites (see _build_clouds); only the wheels here.
 	for i in range(mini(valve_positions.size(), jet_zones.size())):
 		_draw_valve(valve_positions[i], _wheel_turn[i], is_shut(i))
-
-
-## A jet: a white haze over its whole zone, with puffs rolling down from the nozzle.
-func _draw_jet(zone: Rect2, strength: float, index: int) -> void:
-	draw_rect(zone, Color(STEAM, 0.3 * strength))
-	# A hard white cone straight under the nozzle
-	var nozzle := Vector2(zone.get_center().x, zone.position.y)
-	draw_colored_polygon(PackedVector2Array([nozzle + Vector2(-8, 0), nozzle + Vector2(8, 0),
-		nozzle + Vector2(zone.size.x * 0.42, zone.size.y * 0.55), nozzle + Vector2(-zone.size.x * 0.42, zone.size.y * 0.55)]),
-		Color(STEAM, 0.22 * strength))
-	var rng := RandomNumberGenerator.new()
-	rng.seed = 400 + index
-	for puff in range(PUFFS_PER_JET):
-		var fall := fposmod(rng.randf() + _time * rng.randf_range(0.18, 0.34), 1.0)
-		var spread := lerpf(0.08, 0.5, fall)
-		var x := zone.get_center().x + (rng.randf() * 2.0 - 1.0) * zone.size.x * spread
-		var y := zone.position.y + fall * zone.size.y
-		var radius := lerpf(16.0, 52.0, fall) * rng.randf_range(0.7, 1.2)
-		x = clampf(x, zone.position.x + radius * 0.6, zone.end.x - radius * 0.6)
-		draw_circle(Vector2(x, y), radius, Color(STEAM, 0.16 * strength * (1.0 - fall * 0.5)))
 
 
 ## A red hand wheel on a pipe stub. Shut = turned a quarter round, with a green tag.
