@@ -12,8 +12,10 @@ config_version=5
 
 config/name="The Forgotten House"
 config/description="A small 2D hidden-object mystery across several houses."
-run/main_scene="res://scenes/main_menu.tscn"
+run/main_scene="res://scenes/splash.tscn"
 config/features=PackedStringArray("4.7", "GL Compatibility")
+boot_splash/bg_color=Color(0.051, 0.078, 0.106, 1)
+boot_splash/image="res://assets/ui/boot_splash_v2.png"
 config/icon="res://assets/icons/app_icon.png"
 
 [autoload]
