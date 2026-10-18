@@ -14,7 +14,7 @@ config/name="The Forgotten House"
 config/description="A small 2D hidden-object mystery across several houses."
 run/main_scene="res://scenes/main_menu.tscn"
 config/features=PackedStringArray("4.7", "GL Compatibility")
-config/icon="res://icon.svg"
+config/icon="res://assets/icons/app_icon.png"
 
 [autoload]
 
