@@ -1,0 +1,189 @@
+[gd_scene format=3]
+
+[ext_resource type="Script" path="res://scripts/journal.gd" id="1_journal"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBox_paper"]
+content_margin_left = 30.0
+content_margin_top = 24.0
+content_margin_right = 30.0
+content_margin_bottom = 22.0
+bg_color = Color(0.89, 0.83, 0.69, 1)
+border_width_left = 3
+border_width_top = 3
+border_width_right = 3
+border_width_bottom = 3
+border_color = Color(0.6, 0.48, 0.33, 1)
+corner_radius_top_left = 4
+corner_radius_top_right = 4
+corner_radius_bottom_right = 4
+corner_radius_bottom_left = 4
+shadow_color = Color(0, 0, 0, 0.6)
+shadow_size = 14
+shadow_offset = Vector2(0, 5)
+
+[node name="Journal" type="CanvasLayer"]
+process_mode = 3
+layer = 22
+script = ExtResource("1_journal")
+
+[node name="Root" type="Control" parent="."]
+unique_name_in_owner = true
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Dim" type="ColorRect" parent="Root"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.01, 0.015, 0.03, 0.8)
+
+[node name="Margin" type="MarginContainer" parent="Root"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 36
+theme_override_constants/margin_top = 24
+theme_override_constants/margin_right = 36
+theme_override_constants/margin_bottom = 24
+
+[node name="Panel" type="PanelContainer" parent="Root/Margin"]
+layout_mode = 2
+
+[node name="VBox" type="VBoxContainer" parent="Root/Margin/Panel"]
+layout_mode = 2
+theme_override_constants/separation = 10
+
+[node name="Header" type="HBoxContainer" parent="Root/Margin/Panel/VBox"]
+layout_mode = 2
+theme_override_constants/separation = 12
+
+[node name="Title" type="Label" parent="Root/Margin/Panel/VBox/Header"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.95, 0.76, 0.48, 1)
+theme_override_font_sizes/font_size = 30
+text = "Journal"
+
+[node name="Subtitle" type="Label" parent="Root/Margin/Panel/VBox/Header"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 8
+theme_override_colors/font_color = Color(0.7, 0.66, 0.6, 1)
+theme_override_font_sizes/font_size = 15
+text = "Letters you have found, and the clues of every chapter"
+
+[node name="CloseButton" type="Button" parent="Root/Margin/Panel/VBox/Header"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(120, 42)
+layout_mode = 2
+text = "Close"
+
+[node name="Separator" type="HSeparator" parent="Root/Margin/Panel/VBox"]
+layout_mode = 2
+
+[node name="EmptyLabel" type="Label" parent="Root/Margin/Panel/VBox"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_colors/font_color = Color(0.82, 0.86, 0.94, 1)
+theme_override_font_sizes/font_size = 19
+text = "Nothing is written here yet.
+
+Finish a chapter and the letter it leaves behind is kept here, along with every clue you found on the way."
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 3
+
+[node name="Columns" type="HBoxContainer" parent="Root/Margin/Panel/VBox"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_constants/separation = 18
+
+[node name="ListScroll" type="ScrollContainer" parent="Root/Margin/Panel/VBox/Columns"]
+custom_minimum_size = Vector2(290, 0)
+layout_mode = 2
+horizontal_scroll_mode = 0
+
+[node name="EntryList" type="VBoxContainer" parent="Root/Margin/Panel/VBox/Columns/ListScroll"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/separation = 6
+
+[node name="Paper" type="PanelContainer" parent="Root/Margin/Panel/VBox/Columns"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_styles/panel = SubResource("StyleBox_paper")
+
+[node name="PageScroll" type="ScrollContainer" parent="Root/Margin/Panel/VBox/Columns/Paper"]
+unique_name_in_owner = true
+layout_mode = 2
+horizontal_scroll_mode = 0
+
+[node name="Page" type="VBoxContainer" parent="Root/Margin/Panel/VBox/Columns/Paper/PageScroll"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/separation = 12
+
+[node name="LetterTitle" type="Label" parent="Root/Margin/Panel/VBox/Columns/Paper/PageScroll/Page"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_colors/font_color = Color(0.4, 0.2, 0.15, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 0)
+theme_override_font_sizes/font_size = 24
+text = "A Letter Left Behind"
+horizontal_alignment = 1
+
+[node name="Rule" type="ColorRect" parent="Root/Margin/Panel/VBox/Columns/Paper/PageScroll/Page"]
+custom_minimum_size = Vector2(0, 2)
+layout_mode = 2
+mouse_filter = 2
+color = Color(0.6, 0.48, 0.33, 0.6)
+
+[node name="LetterBody" type="Label" parent="Root/Margin/Panel/VBox/Columns/Paper/PageScroll/Page"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_colors/font_color = Color(0.17, 0.14, 0.2, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 0)
+theme_override_constants/line_spacing = 5
+theme_override_font_sizes/font_size = 19
+text = "Letter text"
+autowrap_mode = 3
+
+[node name="Signature" type="Label" parent="Root/Margin/Panel/VBox/Columns/Paper/PageScroll/Page"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_colors/font_color = Color(0.4, 0.2, 0.15, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 0)
+theme_override_font_sizes/font_size = 19
+text = "- E."
+horizontal_alignment = 2
+
+[node name="Rule2" type="ColorRect" parent="Root/Margin/Panel/VBox/Columns/Paper/PageScroll/Page"]
+custom_minimum_size = Vector2(0, 2)
+layout_mode = 2
+mouse_filter = 2
+color = Color(0.6, 0.48, 0.33, 0.6)
+
+[node name="CluesTitle" type="Label" parent="Root/Margin/Panel/VBox/Columns/Paper/PageScroll/Page"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_colors/font_color = Color(0.4, 0.2, 0.15, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 0)
+theme_override_font_sizes/font_size = 20
+text = "Clues found here"
+
+[node name="CluesList" type="VBoxContainer" parent="Root/Margin/Panel/VBox/Columns/Paper/PageScroll/Page"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_constants/separation = 10

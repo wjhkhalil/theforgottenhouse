@@ -15,6 +15,25 @@
    person who built it (lit, with its effect, all containers open). Then the full test run was
    checked: chapter list, staircase, steam, power cut, riddle list, safe keypad and the ending screen.
 
+## New on 2026-10-18 (stars, Journal, Settings, vibration, tutorial)
+
+| Check | Result |
+|---|---|
+| Full play-through: **1180 / 1180** on the final version (all 25 chapters, one run with screenshots) | ✅ |
+| Tutorial: appears on the first play of the bedroom at step 1, moves on when the first object is found, Skip ends it and sets the flag, not shown again after a restart | ✅ |
+| Wrong taps: two clicks on empty space count 2, a click on the objective panel counts nothing; the room clock runs; hints are counted; Restart resets all three | ✅ |
+| Completion screen: three stars for no hints and no wrong taps, the stats line, the result (stars and best time) and the total are saved | ✅ |
+| Journal: one entry after Chapter One with the Chapter One letter and its five clues; closes | ✅ |
+| Settings: music slider and vibration toggle apply at once, the Music bus follows the slider, values survive a reload of the save file, Back closes | ✅ |
+| Chapters list: every completed chapter shows its stars (25 of 25 at the end) | ✅ |
+| Screenshots (desktop and phone layout, `tests/feature_screenshots.gd`): every tutorial step, pause menu, Settings and Journal from the pause menu, completion screen with stars, Chapters with stars, Journal, empty Journal | ✅ |
+
+**Problems found and fixed while building it:** the completion panel grew taller than a phone screen, so it is
+now scaled down to fit like the main menu; the tutorial's first target could be off-screen on a phone, so the
+camera now scrolls to it; the stars in the Chapters list overlapped the "(Completed)" text, so completed
+buttons reserve room for them; the title cut-out for the splash needed a global colour key because a border
+flood fill cannot reach the holes inside letters.
+
 ## New in v0.8 (House Two, Chapter Three: The Loft)
 
 | Check | Result |

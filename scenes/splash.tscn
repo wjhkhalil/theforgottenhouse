@@ -1,7 +1,8 @@
 [gd_scene format=3]
 
 [ext_resource type="Script" path="res://scripts/splash.gd" id="1_splash"]
-[ext_resource type="Texture2D" path="res://assets/ui/boot_splash_v2.png" id="2_painting"]
+[ext_resource type="Texture2D" path="res://assets/backgrounds/main_menu_background_v1.png" id="2_background"]
+[ext_resource type="Texture2D" path="res://assets/ui/splash_title_v1.png" id="3_title"]
 
 [node name="Splash" type="Control"]
 layout_mode = 3
@@ -12,7 +13,7 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_splash")
 
-[node name="Background" type="ColorRect" parent="."]
+[node name="Backdrop" type="ColorRect" parent="."]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -22,7 +23,7 @@ grow_vertical = 2
 mouse_filter = 2
 color = Color(0.051, 0.078, 0.106, 1)
 
-[node name="Painting" type="TextureRect" parent="."]
+[node name="Background" type="TextureRect" parent="."]
 unique_name_in_owner = true
 layout_mode = 1
 anchors_preset = 15
@@ -31,6 +32,20 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
-texture = ExtResource("2_painting")
+texture = ExtResource("2_background")
+expand_mode = 1
+stretch_mode = 6
+
+[node name="Title" type="TextureRect" parent="."]
+unique_name_in_owner = true
+layout_mode = 1
+anchor_left = 0.14
+anchor_top = 0.1
+anchor_right = 0.86
+anchor_bottom = 0.32
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+texture = ExtResource("3_title")
 expand_mode = 1
 stretch_mode = 5

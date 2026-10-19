@@ -1,0 +1,128 @@
+[gd_scene format=3]
+
+[ext_resource type="Script" path="res://scripts/tutorial.gd" id="1_tutorial"]
+[ext_resource type="Texture2D" path="res://assets/ui/tutorial_hand_v1.png" id="2_hand"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBox_card"]
+content_margin_left = 22.0
+content_margin_top = 14.0
+content_margin_right = 22.0
+content_margin_bottom = 14.0
+bg_color = Color(0.09, 0.075, 0.06, 0.95)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0.95, 0.76, 0.48, 0.9)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+shadow_color = Color(0, 0, 0, 0.5)
+shadow_size = 10
+shadow_offset = Vector2(0, 4)
+
+[node name="Tutorial" type="CanvasLayer"]
+layer = 8
+script = ExtResource("1_tutorial")
+
+[node name="Root" type="Control" parent="."]
+unique_name_in_owner = true
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="Pointer" type="Control" parent="Root"]
+unique_name_in_owner = true
+layout_mode = 1
+mouse_filter = 2
+
+[node name="HandShadow" type="TextureRect" parent="Root/Pointer"]
+unique_name_in_owner = true
+layout_mode = 0
+offset_right = 160.0
+offset_bottom = 160.0
+mouse_filter = 2
+modulate = Color(0, 0, 0, 0.45)
+texture = ExtResource("2_hand")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="Hand" type="TextureRect" parent="Root/Pointer"]
+unique_name_in_owner = true
+layout_mode = 0
+offset_right = 160.0
+offset_bottom = 160.0
+mouse_filter = 2
+texture = ExtResource("2_hand")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="Card" type="PanelContainer" parent="Root"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(560, 0)
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -280.0
+offset_top = -158.0
+offset_right = 280.0
+offset_bottom = -18.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_styles/panel = SubResource("StyleBox_card")
+
+[node name="VBox" type="VBoxContainer" parent="Root/Card"]
+layout_mode = 2
+theme_override_constants/separation = 6
+
+[node name="StepLabel" type="Label" parent="Root/Card/VBox"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_colors/font_color = Color(0.7, 0.66, 0.6, 1)
+theme_override_font_sizes/font_size = 13
+text = "Step 1 of 5"
+
+[node name="TitleLabel" type="Label" parent="Root/Card/VBox"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_colors/font_color = Color(0.95, 0.76, 0.48, 1)
+theme_override_font_sizes/font_size = 22
+text = "Find what was left behind"
+
+[node name="BodyLabel" type="Label" parent="Root/Card/VBox"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(516, 0)
+layout_mode = 2
+theme_override_font_sizes/font_size = 16
+text = "Body"
+autowrap_mode = 3
+
+[node name="Buttons" type="HBoxContainer" parent="Root/Card/VBox"]
+layout_mode = 2
+theme_override_constants/separation = 12
+
+[node name="SkipButton" type="Button" parent="Root/Card/VBox/Buttons"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(0, 36)
+layout_mode = 2
+theme_override_font_sizes/font_size = 14
+text = "Skip tutorial"
+
+[node name="Spacer" type="Control" parent="Root/Card/VBox/Buttons"]
+layout_mode = 2
+size_flags_horizontal = 3
+mouse_filter = 2
+
+[node name="GotItButton" type="Button" parent="Root/Card/VBox/Buttons"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(120, 36)
+layout_mode = 2
+text = "Got it"

@@ -5,6 +5,7 @@
 [resource]
 script = ExtResource("1_level")
 chapter_id = &"bedroom"
+show_tutorial = true
 room_name = "The Old Bedroom"
 intro_message = "The owner vanished years ago, but they left something behind. Find the 5 hidden objects. Click an object to collect it."
 chapter_title = "Chapter One Complete"

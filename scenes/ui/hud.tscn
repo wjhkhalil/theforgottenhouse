@@ -57,6 +57,17 @@ theme_override_font_sizes/font_size = 20
 text = "Objects Found: 0 / 5"
 vertical_alignment = 1
 
+[node name="TimeLabel" type="Label" parent="Root/TopBar/HBox"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(52, 0)
+layout_mode = 2
+tooltip_text = "Time spent in this room"
+theme_override_colors/font_color = Color(0.7, 0.66, 0.6, 1)
+theme_override_font_sizes/font_size = 17
+text = "0:00"
+horizontal_alignment = 1
+vertical_alignment = 1
+
 [node name="Gap" type="Control" parent="Root/TopBar/HBox"]
 custom_minimum_size = Vector2(16, 0)
 layout_mode = 2
@@ -64,7 +75,7 @@ mouse_filter = 2
 
 [node name="HintButton" type="Button" parent="Root/TopBar/HBox"]
 unique_name_in_owner = true
-custom_minimum_size = Vector2(90, 0)
+custom_minimum_size = Vector2(110, 0)
 layout_mode = 2
 tooltip_text = "Get a clue about where an object is hidden (H)"
 text = "Hint"

@@ -1,11 +1,16 @@
 extends Control
-## Main menu: Continue, New Game, Chapters, About and Quit.
+## Main menu: Continue, New Game, Chapters, Journal, Settings, About and Quit.
 ## Which chapters are unlocked comes from the SaveManager autoload.
 
 @onready var _continue_button: Button = %ContinueButton
 @onready var _play_button: Button = %PlayButton
 @onready var _chapters_button: Button = %ChaptersButton
 @onready var _about_button: Button = %AboutButton
+@onready var _journal_button: Button = %JournalButton
+@onready var _settings_button: Button = %SettingsButton
+@onready var _journal: Journal = %Journal
+@onready var _settings: SettingsPanel = %SettingsPanel
+@onready var _stars_label: Label = %StarsLabel
 @onready var _quit_button: Button = %QuitButton
 @onready var _center: Control = %Center
 @onready var _menu_row: Control = %MenuRow
@@ -34,6 +39,10 @@ func _ready() -> void:
 	_play_button.pressed.connect(_on_new_game_pressed)
 	_chapters_button.pressed.connect(_on_chapters_pressed)
 	_about_button.pressed.connect(_on_about_pressed)
+	_journal_button.pressed.connect(_on_journal_pressed)
+	_settings_button.pressed.connect(_on_settings_pressed)
+	_journal.closed.connect(_journal_button.grab_focus)
+	_settings.closed.connect(_settings_button.grab_focus)
 	_quit_button.pressed.connect(_on_quit_pressed)
 	_about_back_button.pressed.connect(_on_about_back_pressed)
 	_reset_button.pressed.connect(_on_reset_pressed)
@@ -48,6 +57,8 @@ func _ready() -> void:
 func _unhandled_input(event: InputEvent) -> void:
 	if not event.is_action_pressed("ui_cancel"):
 		return
+	if _journal.is_open() or _settings.is_open():
+		return  # They close themselves.
 	if _about_layer.visible:
 		get_viewport().set_input_as_handled()
 		_on_about_back_pressed()
@@ -94,6 +105,7 @@ func _on_chapters_pressed() -> void:
 	_build_chapter_list()
 	_reset_armed = false
 	_reset_button.text = "Reset All Progress"
+	_stars_label.text = "Stars collected: %d / %d" % [SaveManager.get_total_stars(), SaveManager.get_max_stars()]
 	_chapters_layer.show()
 	_chapters_back_button.grab_focus()
 
@@ -119,6 +131,7 @@ func _build_chapter_list() -> void:
 		var chapter_id: String = chapter["id"]
 		if SaveManager.is_chapter_completed(chapter_id):
 			button.text = "%s   (Completed)" % chapter["title"]
+			_add_stars(button, SaveManager.get_result(chapter_id))
 		elif SaveManager.is_chapter_unlocked(chapter_id):
 			button.text = "%s   (Unlocked)" % chapter["title"]
 		else:
@@ -128,6 +141,32 @@ func _build_chapter_list() -> void:
 		button.pressed.connect(_start_chapter.bind(chapter))
 		_chapter_list.add_child(button)
 	_fit_chapter_scroll.call_deferred()
+
+
+## Best stars at the right end of a completed chapter's button.
+func _add_stars(button: Button, result: Dictionary) -> void:
+	if result.is_empty():
+		return
+	var stars := StarRating.new()
+	stars.star_size = 16.0
+	stars.spacing = 3.0
+	stars.stars = int(result.get("stars", 0))
+	stars.mouse_filter = Control.MOUSE_FILTER_IGNORE
+	stars.set_anchors_preset(Control.PRESET_CENTER_RIGHT)
+	var width := stars.get_minimum_size().x
+	stars.offset_left = -width - 12.0
+	stars.offset_right = -12.0
+	stars.offset_top = -8.0
+	stars.offset_bottom = 8.0
+	button.add_child(stars)
+	# Keep the label clear of the stars: the button's text stops where they start.
+	var style := button.get_theme_stylebox("normal").duplicate() as StyleBoxFlat
+	if style != null:
+		style.content_margin_right = width + 24.0
+		for state in ["normal", "hover", "pressed", "hover_pressed", "disabled"]:
+			button.add_theme_stylebox_override(state, style)
+	button.tooltip_text = "Best: %d of %d stars, best time %s" % [
+			stars.stars, RoomResult.MAX_STARS, RoomResult.format_time(result.get("best_time", 0.0))]
 
 
 ## The list scrolls when there are more chapters than fit on the screen.
@@ -182,6 +221,16 @@ func _on_chapters_back_pressed() -> void:
 	AudioManager.play_sfx("click")
 	_chapters_layer.hide()
 	_chapters_button.grab_focus()
+
+
+func _on_journal_pressed() -> void:
+	AudioManager.play_sfx("click")
+	_journal.open()
+
+
+func _on_settings_pressed() -> void:
+	AudioManager.play_sfx("click")
+	_settings.open()
 
 
 func _on_about_pressed() -> void:

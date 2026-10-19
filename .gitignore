@@ -2,7 +2,7 @@
 .godot/
 *.tmp
 export_credentials.cfg
-android/
+/android/
 
 # Exported builds (the APK is built from this code; see README)
 build/

@@ -27,6 +27,16 @@ var is_room_complete: bool = false
 ## True after the final letter has been shown.
 var final_letter_revealed: bool = false
 
+## THE ROOM RESULT: these three numbers decide the stars (see RoomResult).
+## Seconds spent searching. Only counts while `clock_running` and the room is
+## not complete; pausing the game stops it because _process stops.
+var elapsed_seconds: float = 0.0
+var hints_used: int = 0
+## Taps that hit nothing (counted by the room's MissCatcher).
+var wrong_taps: int = 0
+## The room turns this on when searching starts and off for keypads and victory.
+var clock_running: bool = false
+
 # Used to rotate through the remaining objects so hints don't repeat.
 var _next_hint_index: int = 0
 
@@ -44,6 +54,38 @@ func register_objects(objects: Array[HiddenObject], saved_ids: Array = []) -> vo
 			hidden_object.restore_collected()
 			collected_ids.append(hidden_object.data.object_id)
 	progress_changed.emit(get_found_count(), get_total_count())
+
+
+func _process(delta: float) -> void:
+	if clock_running and not is_room_complete:
+		elapsed_seconds += delta
+
+
+## Continues the clock and counters saved in an earlier session.
+func restore_stats(stats: Dictionary) -> void:
+	elapsed_seconds = float(stats.get("elapsed", 0.0))
+	hints_used = int(stats.get("hints", 0))
+	wrong_taps = int(stats.get("wrong_taps", 0))
+
+
+## The clock and counters, ready for the save file.
+func get_stats_for_save() -> Dictionary:
+	return {"elapsed": elapsed_seconds, "hints": hints_used, "wrong_taps": wrong_taps}
+
+
+func register_hint() -> void:
+	if not is_room_complete:
+		hints_used += 1
+
+
+func register_wrong_tap() -> void:
+	if not is_room_complete:
+		wrong_taps += 1
+
+
+## Stars this room would earn right now (1 to 3).
+func get_stars() -> int:
+	return RoomResult.stars_for(hints_used, wrong_taps)
 
 
 ## Object ids as plain Strings, ready to be written to the save file.
@@ -104,6 +146,7 @@ func _on_object_collected(hidden_object: HiddenObject) -> void:
 	# sure room_completed can only be emitted once.
 	if not is_room_complete and get_found_count() >= get_total_count():
 		is_room_complete = true
+		clock_running = false
 		room_completed.emit()
 
 

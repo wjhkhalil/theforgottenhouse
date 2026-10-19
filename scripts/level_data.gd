@@ -9,6 +9,9 @@ extends Resource
 @export_multiline var intro_message: String = ""
 
 @export_group("Difficulty")
+## Hints the player gets for free in this room. Every hint after that costs a
+## rewarded ad (see Ads); the count survives leaving and re-entering the room.
+@export var free_hints: int = 1
 ## Seconds the Hint button stays disabled after each use.
 @export var hint_cooldown_seconds: float = 3.0
 ## Size of the circle that marks the hint area (bigger = vaguer).
@@ -18,6 +21,11 @@ extends Resource
 ## If on, the objective list shows each object's riddle instead of its name and
 ## picture, until the object is found.
 @export var objective_riddles: bool = false
+
+@export_group("Tutorial")
+## If on, the first time this room is played a short guided tutorial is shown
+## (meant for the very first chapter only).
+@export var show_tutorial: bool = false
 
 @export_group("Entry Lock")
 ## If not empty, a keypad asks for this code before the room can be searched.

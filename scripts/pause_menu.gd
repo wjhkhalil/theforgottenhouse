@@ -6,9 +6,15 @@ extends CanvasLayer
 
 signal restart_requested
 signal main_menu_requested
+## The Settings screen was closed (the room refreshes its Sound button).
+signal settings_closed
 
 @onready var _root: Control = %Root
 @onready var _resume_button: Button = %ResumeButton
+@onready var _journal_button: Button = %JournalButton
+@onready var _settings_button: Button = %SettingsButton
+@onready var _journal: Journal = %Journal
+@onready var _settings: SettingsPanel = %SettingsPanel
 @onready var _restart_button: Button = %RestartButton
 @onready var _main_menu_button: Button = %MainMenuButton
 
@@ -16,6 +22,10 @@ signal main_menu_requested
 func _ready() -> void:
 	_root.hide()
 	_resume_button.pressed.connect(_on_resume_pressed)
+	_journal_button.pressed.connect(_on_journal_pressed)
+	_settings_button.pressed.connect(_on_settings_pressed)
+	_journal.closed.connect(_journal_button.grab_focus)
+	_settings.closed.connect(_on_settings_closed)
 	_restart_button.pressed.connect(_on_restart_pressed)
 	_main_menu_button.pressed.connect(_on_main_menu_pressed)
 
@@ -40,9 +50,26 @@ func close() -> void:
 
 
 func _unhandled_input(event: InputEvent) -> void:
+	if _journal.is_open() or _settings.is_open():
+		return  # They close themselves with Esc / Back.
 	if is_open() and event.is_action_pressed("ui_cancel"):
 		get_viewport().set_input_as_handled()
 		close()
+
+
+func _on_journal_pressed() -> void:
+	AudioManager.play_sfx("click")
+	_journal.open()
+
+
+func _on_settings_pressed() -> void:
+	AudioManager.play_sfx("click")
+	_settings.open()
+
+
+func _on_settings_closed() -> void:
+	_settings_button.grab_focus()
+	settings_closed.emit()
 
 
 func _on_resume_pressed() -> void:

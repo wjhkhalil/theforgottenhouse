@@ -11,7 +11,6 @@ extends Camera2D
 ##     mouse near the edge of the screen;
 ##   * phone: dragging with one finger. In rooms where the finger moves the
 ##     lantern light or wipes steam, drag with two fingers instead.
-## Arrows on screen show when there is more room above, below, left or right.
 ##
 ## Clicking objects keeps working while zoomed or scrolled: Godot converts
 ## mouse positions through the camera automatically.
@@ -41,10 +40,6 @@ const HUD_BAR_HEIGHT := 56.0
 const ZOOM_BUTTON_SIZE := 64.0
 
 var _focus_tween: Tween
-var _up_arrow: Node2D
-var _down_arrow: Node2D
-var _left_arrow: Node2D
-var _right_arrow: Node2D
 var _zoom_buttons: Control
 var _zoom_in_button: Button
 var _zoom_out_button: Button
@@ -62,7 +57,6 @@ func _ready() -> void:
 	limit_right = int(room_size.x)
 	limit_bottom = int(room_size.y)
 	make_current()
-	_build_arrows()
 	_build_zoom_buttons()
 	# On a touch screen the "mouse" stays where the finger last was, so
 	# edge scrolling would never stop. Phones drag to scroll instead.
@@ -160,7 +154,6 @@ func focus_on(world_position: Vector2, instant: bool = false) -> void:
 
 
 func _process(delta: float) -> void:
-	_update_arrows()
 	_zoom_buttons.visible = scroll_enabled and not get_tree().paused
 	if not scroll_enabled:
 		return
@@ -270,74 +263,6 @@ func _get_pinch_distance() -> float:
 func _get_pinch_center() -> Vector2:
 	var points: Array = _touches.values()
 	return ((points[0] as Vector2) + (points[1] as Vector2)) / 2.0
-
-
-# ---------------------------------------------------------------------------
-# On-screen arrows and zoom buttons (on a screen layer, they don't move with the room)
-# ---------------------------------------------------------------------------
-
-func _build_arrows() -> void:
-	var layer := CanvasLayer.new()
-	layer.layer = 1
-	add_child(layer)
-	var screen := get_viewport_rect().size
-	_up_arrow = _make_arrow(Vector2(screen.x * 0.42, HUD_BAR_HEIGHT + 22), true)
-	_down_arrow = _make_arrow(Vector2(screen.x * 0.42, screen.y - 22), false)
-	layer.add_child(_up_arrow)
-	layer.add_child(_down_arrow)
-	# Sideways arrows sit at the bottom, clear of the zoom buttons and the objective list.
-	_left_arrow = _make_side_arrow(Vector2(130, screen.y - 30), true)
-	_right_arrow = _make_side_arrow(Vector2(screen.x - 40, screen.y - 30), false)
-	layer.add_child(_left_arrow)
-	layer.add_child(_right_arrow)
-
-
-func _make_arrow(at: Vector2, pointing_up: bool) -> Node2D:
-	var arrow := Node2D.new()
-	arrow.position = at
-	var tip := -12.0 if pointing_up else 12.0
-	var shape := Polygon2D.new()
-	shape.polygon = PackedVector2Array([Vector2(-18, -tip * 0.6), Vector2(18, -tip * 0.6), Vector2(0, tip)])
-	shape.color = Color(PlaceholderArt.WARM, 0.75)
-	arrow.add_child(shape)
-	var label := Label.new()
-	label.text = "More above" if pointing_up else "More below"
-	label.position = Vector2(26, -14)
-	label.add_theme_font_size_override("font_size", 16)
-	label.add_theme_color_override("font_color", Color(PlaceholderArt.WARM, 0.85))
-	label.add_theme_constant_override("outline_size", 4)
-	label.add_theme_color_override("font_outline_color", Color(0, 0, 0, 0.8))
-	arrow.add_child(label)
-	return arrow
-
-
-func _make_side_arrow(at: Vector2, pointing_left: bool) -> Node2D:
-	var arrow := Node2D.new()
-	arrow.position = at
-	var tip := -12.0 if pointing_left else 12.0
-	var shape := Polygon2D.new()
-	shape.polygon = PackedVector2Array([Vector2(-tip * 0.6, -18), Vector2(-tip * 0.6, 18), Vector2(tip, 0)])
-	shape.color = Color(PlaceholderArt.WARM, 0.75)
-	arrow.add_child(shape)
-	var label := Label.new()
-	label.text = "More left" if pointing_left else "More right"
-	label.position = Vector2(20, -12) if pointing_left else Vector2(-108, -12)
-	label.add_theme_font_size_override("font_size", 16)
-	label.add_theme_color_override("font_color", Color(PlaceholderArt.WARM, 0.85))
-	label.add_theme_constant_override("outline_size", 4)
-	label.add_theme_color_override("font_outline_color", Color(0, 0, 0, 0.8))
-	arrow.add_child(label)
-	return arrow
-
-
-func _update_arrows() -> void:
-	if _up_arrow == null:
-		return
-	var show_arrows := scroll_enabled and not get_tree().paused
-	_up_arrow.visible = show_arrows and position.y > 4.0
-	_down_arrow.visible = show_arrows and position.y < get_max_scroll() - 4.0
-	_left_arrow.visible = show_arrows and position.x > 4.0
-	_right_arrow.visible = show_arrows and position.x < get_max_scroll_x() - 4.0
 
 
 ## The + and - buttons in the bottom-left corner.

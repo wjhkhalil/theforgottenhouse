@@ -2,6 +2,8 @@
 
 [ext_resource type="Script" uid="uid://b3ql0s3a40xbv" path="res://scripts/main_menu.gd" id="1_menu"]
 [ext_resource type="Texture2D" path="res://assets/backgrounds/main_menu_background_v1.png" id="2_background"]
+[ext_resource type="PackedScene" path="res://scenes/ui/journal.tscn" id="3_journal"]
+[ext_resource type="PackedScene" path="res://scenes/ui/settings_panel.tscn" id="4_settings"]
 
 [sub_resource type="Gradient" id="Gradient_shade"]
 offsets = PackedFloat32Array(0, 0.36, 0.55, 0.76, 1)
@@ -68,7 +70,7 @@ theme_override_constants/separation = 10
 
 [node name="Title" type="Label" parent="Center/MenuRow/TextBox" unique_id=2006060729]
 layout_mode = 2
-theme_override_colors/font_color = Color(0.95, 0.76, 0.48, 1)
+theme_override_colors/font_color = Color(0.9, 0.67, 0.29, 1)
 theme_override_colors/font_shadow_color = Color(0, 0, 0, 0.8)
 theme_override_constants/shadow_offset_x = 0
 theme_override_constants/shadow_offset_y = 4
@@ -126,6 +128,21 @@ custom_minimum_size = Vector2(236, 48)
 layout_mode = 2
 size_flags_horizontal = 4
 text = "Chapters"
+
+[node name="JournalButton" type="Button" parent="Center/MenuRow/ButtonBox"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(236, 48)
+layout_mode = 2
+size_flags_horizontal = 4
+tooltip_text = "Letters found and the clues of every chapter"
+text = "Journal"
+
+[node name="SettingsButton" type="Button" parent="Center/MenuRow/ButtonBox"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(236, 48)
+layout_mode = 2
+size_flags_horizontal = 4
+text = "Settings"
 
 [node name="AboutButton" type="Button" parent="Center/MenuRow/ButtonBox" unique_id=2142345599]
 unique_name_in_owner = true
@@ -196,7 +213,7 @@ theme_override_constants/separation = 14
 
 [node name="Title" type="Label" parent="AboutLayer/Center/Panel/VBox" unique_id=76406647]
 layout_mode = 2
-theme_override_colors/font_color = Color(0.95, 0.76, 0.48, 1)
+theme_override_colors/font_color = Color(0.9, 0.67, 0.29, 1)
 theme_override_font_sizes/font_size = 30
 text = "About"
 horizontal_alignment = 1
@@ -260,9 +277,17 @@ theme_override_constants/separation = 12
 
 [node name="Title" type="Label" parent="ChaptersLayer/Center/Panel/VBox" unique_id=716665967]
 layout_mode = 2
-theme_override_colors/font_color = Color(0.95, 0.76, 0.48, 1)
+theme_override_colors/font_color = Color(0.9, 0.67, 0.29, 1)
 theme_override_font_sizes/font_size = 30
 text = "Chapters"
+horizontal_alignment = 1
+
+[node name="StarsLabel" type="Label" parent="ChaptersLayer/Center/Panel/VBox"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_colors/font_color = Color(0.82, 0.86, 0.94, 1)
+theme_override_font_sizes/font_size = 15
+text = "Stars collected: 0 / 75"
 horizontal_alignment = 1
 
 [node name="ChapterScroll" type="ScrollContainer" parent="ChaptersLayer/Center/Panel/VBox" unique_id=524633605]
@@ -293,3 +318,11 @@ custom_minimum_size = Vector2(200, 46)
 layout_mode = 2
 size_flags_horizontal = 4
 text = "Back"
+
+[node name="SettingsPanel" parent="." instance=ExtResource("4_settings")]
+unique_name_in_owner = true
+visible = false
+layout_mode = 1
+
+[node name="Journal" parent="." instance=ExtResource("3_journal")]
+unique_name_in_owner = true

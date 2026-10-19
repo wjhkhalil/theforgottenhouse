@@ -95,6 +95,28 @@ so real art can be swapped in or out **without changing any code**.
 number keys + **Enter** on the keypad · on the staircase: **mouse wheel**, **arrow keys / W S**,
 or hold the mouse near the top/bottom edge to scroll.
 
+### Stars, the Journal, Settings and the tutorial
+
+* **Stars.** Every finished chapter is scored with up to three stars, shown on the completion
+  screen (they pop in one by one), in the **Chapters** list and as a total. The rules are in
+  `scripts/room_result.gd`: one star for finishing, one for using no hints, one for making at
+  most 3 **wrong taps** (taps or clicks that hit nothing). The time taken is shown in the HUD
+  and on the completion screen, and the best time is remembered, but time never costs a star.
+  Wrong taps are caught by `scripts/miss_catcher.gd`, an invisible area the room puts behind
+  everything else; in the loft the bat colony's own catcher reports them instead.
+* **Journal** (main menu and pause menu): every letter found so far, on paper, and the clues of
+  each chapter. Clues are written to the save file as objects are found, letters come from the
+  chapter's `LevelData` file (`scripts/journal.gd`).
+* **Settings** (main menu and pause menu): music volume, effects volume, all sound on/off and
+  vibration. Music and effects play on two audio buses the `AudioManager` creates at start-up
+  (`scripts/settings_panel.gd`).
+* **Vibration** on phones comes from the `Haptics` autoload (`scripts/haptics.gd`): a short buzz
+  when an object is found, a container opens, a tap misses, a code is wrong or a chapter ends.
+* **Tutorial.** The first time the bedroom is played, a card at the bottom of the screen explains
+  the game in five short steps while a drawn hand points at what to tap (`scripts/tutorial.gd`).
+  It is switched on per chapter with **Show Tutorial** in the chapter's `LevelData`, and shown
+  once per save file (the `tutorial_done` flag). **Skip tutorial** ends it at any time.
+
 ### Chapter difficulty
 
 Each chapter is a clear step harder than the one before it, but never a wall: the Hint button
@@ -160,11 +182,39 @@ A ready-to-install file is at `build/TheForgottenHouse.apk` (a debug build that 
   and pinch with two fingers to zoom. In rooms where your finger moves the lantern light or wipes the steam
   (basement, attic, washroom, living room), look around with TWO fingers instead.
 * **Try the phone layout on a computer:** `godot --path . --resolution 1200x540 -- --phone`.
-  `tests/phone_screenshots.gd` saves a picture of every screen in that layout.
+  `tests/phone_screenshots.gd` saves a picture of every screen in that layout, and
+  `tests/feature_screenshots.gd` walks through the tutorial, the completion screen, the
+  Journal and Settings (add `-- --phone` for the phone layout).
 * **Build it again after changes:** in the editor choose **Project > Export > Android > Export Project**. The preset is
   saved in `export_presets.cfg`. Or run this from the command line:
   `godot --headless --path . --export-debug "Android" build/TheForgottenHouse.apk`.
   The editor needs **Editor Settings > Export > Android > Java SDK Path** set to `/usr/lib/jvm/java-17-openjdk-amd64`.
+  The export uses a **Gradle build** (needed by the ad plugin, see below). The first time on a computer, install the
+  Android build template with **Project > Install Android Build Template**, or add `--install-android-build-template`
+  to the command above. The first Gradle build downloads its tools and takes a few minutes; later builds are quick.
+
+## Hints and ads
+
+The first hint in every room is free. Every hint after that costs a short **rewarded video ad**: the Hint button
+reads "Hint (Ad)", the room pauses while the ad plays, and the hint appears when the ad has been watched to the end.
+Closing the ad early gives nothing. With no internet (no ad can be loaded) the player is told so and gets no hint.
+Restarting a room gives its free hint back; leaving and coming back does not.
+
+When the player presses **Continue** on the victory screen after every third chapter (3, 6, 9...), a full-screen
+**interstitial ad** plays before the next room opens. If no ad is loaded, the next room opens at once.
+
+* **Free hints per room:** `free_hints` in the room's `resources/levels/*.tres` (default 1).
+* **How often the interstitial plays:** `CHAPTERS_PER_INTERSTITIAL` in `scripts/room_level.gd`.
+* **The code:** `scripts/ad_manager.gd` (autoload `Ads`) talks to AdMob; `_on_hint_requested` in
+  `scripts/room_level.gd` decides between a free hint, an ad and "no hint".
+* **AdMob:** the app ID is in `project.godot` under `[admob]`, the ad unit IDs are in `scripts/ad_manager.gd`.
+  `LIVE_INTERSTITIAL_UNIT_ID` is still empty: create an "Interstitial" ad unit in the AdMob console and paste its ID
+  there, otherwise release builds skip the interstitial.
+  Debug builds and the editor use Google's **test ad** (never click live ads in your own app, AdMob bans accounts for
+  that). Release builds (`--export-release`) use the live ad unit. European players see Google's consent form once.
+* **The plugin:** `addons/admob` is the Poing Studios AdMob plugin (v5.1.0) with its Android library for Godot 4.7.2
+  in `addons/admob/android/bin`. In the editor and in the automated test, ads are the plugin's mock ad: a dark screen
+  with a countdown that grants its reward after 8 seconds.
 
 ## Zoom (every chapter)
 
@@ -244,8 +294,9 @@ HUD          --hint_requested / pause_requested--> bedroom.gd
 
 `GameManager` is a normal node inside each room scene, not an autoload. **Restart** and
 **Replay** reload the scene, so every restart begins from a clean state.
-There are two autoloads, because their data must survive scene changes:
-`SaveManager` (progress and the save file) and `AudioManager` (sounds, music, mute).
+There are four autoloads, because their data must survive scene changes:
+`SaveManager` (progress and the save file), `AudioManager` (sounds, music, volume, mute),
+`Haptics` (vibration) and `ScreenSettings` (phone layout).
 
 ### Save system
 
@@ -253,11 +304,15 @@ There are two autoloads, because their data must survive scene changes:
   `~/.local/share/godot/app_userdata/The Forgotten House/`.
   In Godot, use **Project › Open User Data Folder** to find it.
 * It saves automatically when an object is found, a container is opened, the door code is
-  entered, a chapter is finished, or sound is toggled.
+  entered, a wrong tap is made, a chapter is finished, or a setting is changed.
+* Besides progress it keeps each room's clock, hint count and wrong-tap count while the room
+  is unfinished, the best stars and best time of every finished chapter (`results`), the clues
+  found in each chapter for the Journal (`journal_clues`), and the settings (`sound_muted`,
+  `music_volume`, `sfx_volume`, `vibration_enabled`).
 * **Continue** goes to the first unfinished chapter and restores the objects already found there.
 * **Restart Room** forgets that room's progress. **Main Menu** keeps it.
 * **New Game** starts Chapter One from scratch, but unlocked chapters stay unlocked.
-* **Chapters › Reset All Progress** (click twice) erases everything except the sound setting.
+* **Chapters › Reset All Progress** (click twice) erases everything except the settings.
 
 ### Adding a new chapter
 
@@ -393,7 +448,8 @@ The game runs silently without audio files. Built-in generated tones are used as
 * **Sound effects:** put files in `assets/audio/sfx/` with these exact names
   (`.ogg`, `.wav` or `.mp3`):
   `collect`, `hint`, `click`, `pause`, `paper` (letter opens), `complete` (chapter finished),
-  `open` (containers), `unlock`, `wrong`, `keypress` (keypad), `power_down`, `power_up` (Chapter Six).
+  `open` (containers), `unlock`, `wrong`, `keypress` (keypad), `power_down`, `power_up` (Chapter Six),
+  `star` (a star pops in), `miss` (a tap that hit nothing).
   For example `assets/audio/sfx/collect.ogg`. A file replaces its generated tone automatically.
 * **Music:** put `assets/audio/music/ambient.ogg` in place. It starts automatically on the
   menu and in the room. To make it loop, select the file, open the **Import** tab,

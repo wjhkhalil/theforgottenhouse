@@ -1,6 +1,8 @@
 [gd_scene format=3]
 
 [ext_resource type="Script" path="res://scripts/pause_menu.gd" id="1_pause"]
+[ext_resource type="PackedScene" path="res://scenes/ui/journal.tscn" id="2_journal"]
+[ext_resource type="PackedScene" path="res://scenes/ui/settings_panel.tscn" id="3_settings"]
 
 [node name="PauseMenu" type="CanvasLayer"]
 process_mode = 3
@@ -58,6 +60,19 @@ custom_minimum_size = Vector2(0, 48)
 layout_mode = 2
 text = "Resume"
 
+[node name="JournalButton" type="Button" parent="Root/Center/Panel/VBox"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(0, 48)
+layout_mode = 2
+tooltip_text = "Letters found and the clues of every chapter"
+text = "Journal"
+
+[node name="SettingsButton" type="Button" parent="Root/Center/Panel/VBox"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(0, 48)
+layout_mode = 2
+text = "Settings"
+
 [node name="RestartButton" type="Button" parent="Root/Center/Panel/VBox"]
 unique_name_in_owner = true
 custom_minimum_size = Vector2(0, 48)
@@ -70,9 +85,10 @@ custom_minimum_size = Vector2(0, 48)
 layout_mode = 2
 text = "Main Menu"
 
-[node name="Tip" type="Label" parent="Root/Center/Panel/VBox"]
-layout_mode = 2
-theme_override_colors/font_color = Color(0.7, 0.66, 0.6, 1)
-theme_override_font_sizes/font_size = 14
-text = "Press Esc to resume"
-horizontal_alignment = 1
+[node name="SettingsPanel" parent="Root" instance=ExtResource("3_settings")]
+unique_name_in_owner = true
+visible = false
+layout_mode = 1
+
+[node name="Journal" parent="." instance=ExtResource("2_journal")]
+unique_name_in_owner = true

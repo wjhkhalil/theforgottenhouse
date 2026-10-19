@@ -4,6 +4,10 @@ extends Node
 ## Why an autoload? The sound on/off setting and the music must survive scene
 ## changes (menu -> room -> menu), which a normal scene node cannot do.
 ##
+## VOLUME: sounds play on two audio buses made here at start-up, "Music" and
+## "SFX", so the Settings screen can turn each one up or down on its own.
+## "Sound: On/Off" mutes the Master bus (everything).
+##
 ## ADDING REAL SOUNDS LATER
 ##   Put files named after the sound in res://assets/audio/sfx/, for example
 ##   collect.ogg, hint.wav, click.ogg, complete.ogg, paper.ogg, pause.ogg,
@@ -33,7 +37,12 @@ const FALLBACK_SOUNDS := {
 	"keypress": [[1174.7], 0.03, 0.12],
 	"power_down": [[220.0, 146.8, 98.0], 0.12, 0.3],
 	"power_up": [[98.0, 146.8, 220.0], 0.07, 0.22],
+	"star": [[1046.5, 1318.5], 0.09, 0.26],
+	"miss": [[246.9], 0.05, 0.1],
 }
+
+const MUSIC_BUS := "Music"
+const SFX_BUS := "SFX"
 
 var is_muted: bool = false
 
@@ -45,15 +54,21 @@ var _stream_cache: Dictionary = {}
 
 func _ready() -> void:
 	process_mode = Node.PROCESS_MODE_ALWAYS  # Sounds also work in the pause menu.
+	_ensure_bus(MUSIC_BUS)
+	_ensure_bus(SFX_BUS)
 	for i in range(4):
 		var player := AudioStreamPlayer.new()
+		player.bus = SFX_BUS
 		add_child(player)
 		_sfx_players.append(player)
 	_music_player = AudioStreamPlayer.new()
+	_music_player.bus = MUSIC_BUS
 	_music_player.volume_db = -8.0
 	add_child(_music_player)
-	# Use the sound setting from the save file (SaveManager loads before us).
+	# Use the settings from the save file (SaveManager loads before us).
 	set_muted(SaveManager.sound_muted)
+	set_music_volume(SaveManager.music_volume)
+	set_sfx_volume(SaveManager.sfx_volume)
 	# Prepare all sounds now so the first click does not stutter.
 	for sound_name: String in FALLBACK_SOUNDS:
 		_get_sfx_stream(sound_name)
@@ -88,6 +103,36 @@ func set_muted(muted: bool) -> void:
 func toggle_muted() -> void:
 	set_muted(not is_muted)
 	SaveManager.set_sound_muted(is_muted)
+
+
+## Music loudness from 0.0 (silent) to 1.0 (full). Does not save; the Settings screen does.
+func set_music_volume(volume: float) -> void:
+	_set_bus_volume(MUSIC_BUS, volume)
+
+
+## Sound-effect loudness from 0.0 (silent) to 1.0 (full).
+func set_sfx_volume(volume: float) -> void:
+	_set_bus_volume(SFX_BUS, volume)
+
+
+func _set_bus_volume(bus_name: String, volume: float) -> void:
+	var index := AudioServer.get_bus_index(bus_name)
+	if index < 0:
+		return
+	volume = clampf(volume, 0.0, 1.0)
+	# A bus at 0 is muted outright: linear_to_db(0) would be minus infinity.
+	AudioServer.set_bus_mute(index, volume <= 0.0)
+	AudioServer.set_bus_volume_db(index, linear_to_db(maxf(volume, 0.001)))
+
+
+## Makes a bus that sends to Master, unless the project already has one with that name.
+func _ensure_bus(bus_name: String) -> void:
+	if AudioServer.get_bus_index(bus_name) >= 0:
+		return
+	var index := AudioServer.bus_count
+	AudioServer.add_bus(index)
+	AudioServer.set_bus_name(index, bus_name)
+	AudioServer.set_bus_send(index, "Master")
 
 
 func _get_sfx_stream(sound_name: String) -> AudioStream:

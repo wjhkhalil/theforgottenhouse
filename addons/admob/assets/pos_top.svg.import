@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cf4rdoyfufnyh"
-path="res://.godot/imported/boot_splash_v2.png-c7c5ae5aacd0db32ffe7a477a4dc043b.ctex"
+uid="uid://kakk2nrappoc"
+path="res://.godot/imported/pos_top.svg-707be5ec61f39a07f78e9085e2246815.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/ui/boot_splash_v2.png"
-dest_files=["res://.godot/imported/boot_splash_v2.png-c7c5ae5aacd0db32ffe7a477a4dc043b.ctex"]
+source_file="res://addons/admob/assets/pos_top.svg"
+dest_files=["res://.godot/imported/pos_top.svg-707be5ec61f39a07f78e9085e2246815.ctex"]
 
 [params]
 
@@ -38,3 +38,6 @@ process/hdr_as_srgb=false
 process/hdr_clamp_exposure=false
 process/size_limit=0
 detect_3d/compress_to=1
+svg/scale=1.0
+editor/scale_with_editor_scale=false
+editor/convert_colors_with_editor_theme=false

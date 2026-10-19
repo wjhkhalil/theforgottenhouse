@@ -19,6 +19,7 @@ const COMPACT_AFTER := 7
 
 @onready var _room_label: Label = %RoomLabel
 @onready var _progress_label: Label = %ProgressLabel
+@onready var _time_label: Label = %TimeLabel
 @onready var _hint_button: Button = %HintButton
 @onready var _sound_button: Button = %SoundButton
 @onready var _pause_button: Button = %PauseButton
@@ -83,6 +84,23 @@ func _fit_objective_list() -> void:
 	_objective_scroll.custom_minimum_size.y = minf(_objective_list.get_combined_minimum_size().y, maxf(available, 80.0))
 
 
+## The room clock in the top bar, as m:ss.
+func update_time(seconds: float) -> void:
+	var text := RoomResult.format_time(seconds)
+	if _time_label.text != text:
+		_time_label.text = text
+
+
+## Where the Hint button is on the screen (the tutorial points at it).
+func get_hint_button_rect() -> Rect2:
+	return _hint_button.get_global_rect()
+
+
+## Makes the Sound button match the current setting (after the Settings screen).
+func refresh_sound_button() -> void:
+	_update_sound_button()
+
+
 ## Called through the GameManager's progress_changed signal.
 func update_progress(found_count: int, total_count: int) -> void:
 	_progress_label.text = "Objects Found: %d / %d" % [found_count, total_count]
@@ -115,6 +133,13 @@ func get_entry_text(object_id: StringName) -> String:
 	if not _entries.has(object_id):
 		return ""
 	return (_entries[object_id]["name_label"] as Label).text
+
+
+## Shows on the Hint button whether the next hint costs an ad.
+func set_hint_needs_ad(needs_ad: bool) -> void:
+	_hint_button.text = "Hint (Ad)" if needs_ad else "Hint"
+	_hint_button.tooltip_text = ("Watch a short ad for another clue (H)" if needs_ad
+			else "Get a clue about where an object is hidden (H)")
 
 
 ## Turns the Hint and Pause buttons on/off (they are turned off after victory).

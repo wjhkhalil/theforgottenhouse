@@ -83,6 +83,11 @@ func _run() -> void:
 		_check(hidden_object.visible and not hidden_object.is_collected, "%s starts visible and not collected" % hidden_object.data.object_id)
 	_check(_progress_text(room) == "Objects Found: 0 / 5", "Counter starts at 0 / 5 (got '%s')" % _progress_text(room))
 	_check(hud.get_node("%ObjectiveList").get_child_count() == 5, "Objective list has 5 entries")
+
+	# --- Tutorial on the first play -------------------------------------------
+	var tutorial: Tutorial = room.tutorial
+	_check(tutorial != null and tutorial.is_running() and tutorial.get_step() == 0, "Tutorial appears on the first play, at step 1")
+	_check(AudioServer.get_bus_index("Music") >= 0 and AudioServer.get_bus_index("SFX") >= 0, "Music and SFX audio buses exist")
 	var ids: Array[StringName] = []
 	for hidden_object in objects:
 		ids.append(hidden_object.data.object_id)
@@ -92,10 +97,12 @@ func _run() -> void:
 	await _click(Vector2(200, 650))
 	await _click(Vector2(480, 300))
 	_check(manager.get_found_count() == 0, "Clicking empty space collects nothing")
+	_check(manager.wrong_taps == 2, "Clicks on empty space count as wrong taps (counted %d)" % manager.wrong_taps)
 
 	# --- Clicking on UI above the room does nothing to objects --------------
 	await _click(Vector2(1100, 200))  # objective panel
 	_check(manager.get_found_count() == 0, "Clicking the objective panel collects nothing")
+	_check(manager.wrong_taps == 2, "Clicking a panel is not a wrong tap")
 
 	# --- Tapping the list title closes the list, tapping again opens it ------
 	var list_title: Button = hud.get_node("%ObjectiveTitle")
@@ -114,11 +121,53 @@ func _run() -> void:
 
 	# --- Hint ---------------------------------------------------------------
 	var notification_popup: NotificationPopup = room.get_node("%Notification")
-	room.get_node("%HUD").get_node("%HintButton").pressed.emit()
+	var hint_button: Button = hud.get_node("%HintButton")
+	_check(hint_button.text == "Hint", "The first hint of a room is free")
+	hint_button.pressed.emit()
 	await _wait_frames(3)
 	_check(notification_popup.is_showing() and notification_popup.get_title() == "Hint", "Hint button shows a hint notification")
 	_check(room.get_node("%HintHighlight").visible, "Hint highlights an area")
 	_check(manager.get_found_count() == 0, "Hint does not collect anything")
+	_check(manager.hints_used == 1, "Hints are counted")
+	_check(manager.elapsed_seconds > 0.5 and hud.get_node("%TimeLabel").text != "", "Room clock is running")
+
+	# --- Every hint after the free one costs a rewarded ad -------------------
+	_check(hint_button.text == "Hint (Ad)", "After the free hint the button asks for an ad")
+	# Offline: no ad can load, so there is no hint.
+	Ads.simulate_offline = true
+	hint_button.pressed.emit()
+	await _wait_frames(3)
+	_check(notification_popup.get_title() == "No hint available", "Offline: no ad means no hint")
+	_check(manager.hints_used == 1 and not get_tree().paused, "Offline: nothing is counted and the game is not left paused")
+	Ads.simulate_offline = false
+	await _wait_until(func() -> bool: return Ads.is_rewarded_ready(), 5.0)
+	_check(Ads.is_rewarded_ready(), "A rewarded ad loads once the connection is back")
+	# Closing the ad early gives nothing.
+	hint_button.pressed.emit()
+	await _wait_frames(3)
+	_check(get_tree().paused, "The room pauses while the ad plays")
+	var mock_ad := _find_mock_ad("mock_rewarded_ad_plugin.gd")
+	_check(mock_ad != null, "The editor shows the mock rewarded ad")
+	await _screenshot("04b_hint_ad")
+	await get_tree().create_timer(5.5).timeout  # the mock offers its close button after 5 s
+	mock_ad._close_btn_node.pressed.emit()  # "close the video?" popup
+	await _wait_frames(2)
+	mock_ad._on_close_video_confirmed()
+	await _wait_frames(3)
+	_check(not get_tree().paused, "Closing the ad early unpauses the room")
+	_check(manager.hints_used == 1, "Closing the ad early gives no hint")
+	_check(notification_popup.get_title() == "No hint", "The player is told to watch the whole ad")
+	# Watching it to the end gives the hint.
+	await _wait_until(func() -> bool: return Ads.is_rewarded_ready(), 5.0)
+	_check(Ads.is_rewarded_ready(), "The next ad is loaded after the first one closed")
+	hint_button.pressed.emit()
+	await _wait_frames(3)
+	await get_tree().create_timer(8.5).timeout  # the mock grants its reward after 8 s
+	mock_ad._close_btn_node.pressed.emit()
+	await _wait_frames(3)
+	_check(not get_tree().paused, "The room resumes after the ad")
+	_check(manager.hints_used == 2 and notification_popup.get_title() == "Hint", "Watching the whole ad gives the hint")
+	_check(room.get_node("%HintHighlight").visible, "The ad hint highlights an area")
 	await _screenshot("04_hint")
 	var first_hint := manager.get_next_hint_object()
 	var second_hint := manager.get_next_hint_object()
@@ -128,6 +177,11 @@ func _run() -> void:
 	var key := _find(objects, &"rusty_key")
 	await _click(key.global_position)
 	_check(key.is_collected, "Clicking the rusty key collects it")
+	_check(tutorial.get_step() == 1, "Tutorial moves on when the first object is found")
+	_check(SaveManager.get_clues("bedroom").size() == 1, "The clue of a found object is kept for the Journal")
+	tutorial.get_node("%SkipButton").pressed.emit()
+	await _wait_frames(2)
+	_check(not tutorial.is_running() and SaveManager.get_flag(Tutorial.DONE_FLAG), "Skip ends the tutorial and remembers it")
 	_check(manager.get_found_count() == 1, "Progress is 1 after the key")
 	_check(_progress_text(room) == "Objects Found: 1 / 5", "Counter shows 1 / 5")
 	_check(_status_text(hud, 0) == "Found!", "Objective list marks the key as Found!")
@@ -178,6 +232,8 @@ func _run() -> void:
 			all_restored = false
 	_check(all_restored, "Restart restores every object")
 	_check(_status_text(hud, 0) == "Not found yet", "Restart resets the objective list")
+	_check(room.tutorial == null, "Tutorial is not shown again after Skip")
+	_check(manager.wrong_taps == 0 and manager.hints_used == 0 and manager.elapsed_seconds < 1.0, "Restart resets the room score")
 
 	# --- Collect everything ----------------------------------------------------
 	manager.room_completed.connect(func() -> void: _completed_signal_count += 1)
@@ -206,6 +262,13 @@ func _run() -> void:
 	await _wait_frames(2)
 	_check(not letter.is_open() and victory.is_open(), "Closing the letter returns to the completion screen")
 	await _screenshot("08_victory")
+	await _wait_seconds(2.5)  # the stars pop in one by one
+	_check(victory.get_stars() == 3, "Completion screen shows three stars for no hints and no wrong taps (shows %d)" % victory.get_stars())
+	_check(victory.get_stats_text().contains("Hints 0") and victory.get_stats_text().contains("Wrong taps 0"), "Completion screen shows the hint and wrong-tap counts")
+	var bedroom_result := SaveManager.get_result("bedroom")
+	_check(bedroom_result.get("stars", 0) == 3 and bedroom_result.get("best_time", 0.0) > 0.0, "Save file keeps the chapter's stars and best time")
+	_check(SaveManager.get_total_stars() == 3, "Total stars add up")
+	await _screenshot("08b_victory_stars")
 	victory.get_node("%ReadLetterButton").pressed.emit()
 	await _wait_frames(2)
 	_check(letter.is_open(), "Read the Letter button reopens the letter")
@@ -234,6 +297,37 @@ func _run() -> void:
 	_check(menu.scene_file_path == MENU_SCENE, "Pause > Main Menu returns to the menu")
 	_check(not tree.paused, "Main menu is not paused")
 	_check(menu.get_node("%ContinueButton").visible, "Continue button appears once there is progress")
+
+	# --- Journal -------------------------------------------------------------------
+	var journal: Journal = menu.get_node("%Journal")
+	menu.get_node("%JournalButton").pressed.emit()
+	await _wait_frames(2)
+	_check(journal.is_open() and journal.get_entry_count() == 1, "Journal opens with one entry after Chapter One")
+	_check(journal.get_letter_text().contains("never supposed to return"), "Journal shows the Chapter One letter")
+	_check(journal.get_clue_count() == 5, "Journal lists the five clues of Chapter One (lists %d)" % journal.get_clue_count())
+	await _screenshot("09_journal")
+	journal.get_node("%CloseButton").pressed.emit()
+	await _wait_frames(2)
+	_check(not journal.is_open(), "Journal closes")
+
+	# --- Settings -------------------------------------------------------------------
+	var settings: SettingsPanel = menu.get_node("%SettingsPanel")
+	menu.get_node("%SettingsButton").pressed.emit()
+	await _wait_frames(2)
+	_check(settings.is_open(), "Settings opens from the main menu")
+	settings.get_node("%MusicSlider").value = 40.0
+	settings.get_node("%VibrationCheck").button_pressed = false
+	await _wait_frames(2)
+	_check(is_equal_approx(SaveManager.music_volume, 0.4) and not SaveManager.vibration_enabled, "Settings changes are applied at once")
+	_check(is_equal_approx(db_to_linear(AudioServer.get_bus_volume_db(AudioServer.get_bus_index("Music"))), 0.4), "Music bus follows the music slider")
+	SaveManager.load_game()
+	_check(is_equal_approx(SaveManager.music_volume, 0.4) and not SaveManager.vibration_enabled and SaveManager.is_chapter_completed("bedroom"), "Settings survive a reload of the save file")
+	await _screenshot("10_settings")
+	settings.get_node("%MusicSlider").value = 80.0
+	settings.get_node("%VibrationCheck").button_pressed = true
+	settings.get_node("%BackButton").pressed.emit()
+	await _wait_frames(2)
+	_check(not settings.is_open(), "Settings closes with Back")
 
 	# === CHAPTER TWO ==============================================================
 	menu.get_node("%ContinueButton").pressed.emit()
@@ -443,6 +537,13 @@ func _run() -> void:
 	menu.get_node("%ChaptersButton").pressed.emit()
 	await _wait_frames(2)
 	_check(_chapter_button_texts(menu) == _expected_chapter_texts("Completed", "Completed"), "Chapters screen shows all chapters completed")
+	var starred := 0
+	for button in menu.get_node("%ChapterList").get_children():
+		if button is Button and not button.is_queued_for_deletion():
+			for child in button.get_children():
+				if child is StarRating and (child as StarRating).stars >= 1:
+					starred += 1
+	_check(starred == SaveManager.CHAPTERS.size(), "Every completed chapter shows its stars in the list (%d of %d)" % [starred, SaveManager.CHAPTERS.size()])
 	await _screenshot("17_chapters")
 	menu.get_node("%ResetButton").pressed.emit()
 	_check(SaveManager.has_progress(), "Reset needs a second click (nothing erased yet)")
@@ -1520,11 +1621,28 @@ func _play_house_three_part_two(victory: VictoryScreen) -> VictoryScreen:
 
 
 ## Presses Continue on a completion screen and returns the new room.
+## Presses Continue on the victory screen. After every third chapter a
+## full-screen (interstitial) ad must play first; after the others it must not.
 func _continue_to(victory: VictoryScreen, scene_path: String, description: String) -> Node:
+	var from_room := get_tree().current_scene
+	var chapter_number := SaveManager.get_chapter_index(String(from_room.level_data.chapter_id)) + 1
+	var ad_due := chapter_number % 3 == 0
 	victory.get_node("%ContinueButton").pressed.emit()
 	await _wait_frames(10)
+	var ad_screen := _visible_mock_ad_screen(_find_mock_ad("mock_interstitial_ad_plugin.gd"))
+	var ad_showing := ad_screen != null
+	_check(ad_showing == ad_due, "%s interstitial ad when continuing past chapter %d" % ["An" if ad_due else "No", chapter_number])
+	if ad_showing:
+		_check(get_tree().current_scene == from_room and get_tree().paused, "The next chapter waits, paused, until the ad is closed")
+		await _screenshot("ad_interstitial_after_chapter_%d" % chapter_number)
+		var close_button := _find_button(ad_screen)
+		_check(close_button != null, "The interstitial ad has a close button")
+		if close_button != null:
+			close_button.pressed.emit()
+		await _wait_frames(10)
 	var room := get_tree().current_scene
 	_check(room.scene_file_path == scene_path, "Continue opens %s" % description)
+	_check(not get_tree().paused, "The game is not paused after continuing to %s" % description)
 	return room
 
 
@@ -1805,6 +1923,45 @@ func _press_key(keycode: Key) -> void:
 		key.pressed = pressed
 		Input.parse_input_event(key)
 		await _wait_frames(2)
+
+
+## Waits until `condition` returns true, or `timeout` seconds have passed.
+func _wait_until(condition: Callable, timeout: float) -> void:
+	var waited := 0.0
+	while not condition.call() and waited < timeout:
+		await get_tree().process_frame
+		waited += get_process_delta_time()
+
+
+## One of the AdMob plugin's mock ads (nodes it adds under the root in the editor),
+## e.g. "mock_rewarded_ad_plugin.gd" or "mock_interstitial_ad_plugin.gd".
+func _find_mock_ad(script_file: String) -> Node:
+	for child in get_tree().root.get_children():
+		var script: Script = child.get_script()
+		if script != null and script.resource_path.ends_with(script_file):
+			return child
+	return null
+
+
+## The full-screen panel of a mock ad while it is showing, or null.
+func _visible_mock_ad_screen(mock_ad: Node) -> Control:
+	if mock_ad == null:
+		return null
+	for layer in mock_ad.get_children():
+		for screen in layer.get_children():
+			if screen is Control and (screen as Control).visible:
+				return screen
+	return null
+
+
+func _find_button(node: Node) -> Button:
+	if node is Button:
+		return node
+	for child in node.get_children():
+		var found := _find_button(child)
+		if found != null:
+			return found
+	return null
 
 
 func _wait_frames(count: int) -> void:

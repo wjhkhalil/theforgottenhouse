@@ -8,6 +8,10 @@
 
 config_version=5
 
+[admob]
+
+general/android/app_id="ca-app-pub-9402738271959820~2027010416"
+
 [application]
 
 config/name="The Forgotten House"
@@ -15,7 +19,7 @@ config/description="A small 2D hidden-object mystery across several houses."
 run/main_scene="res://scenes/splash.tscn"
 config/features=PackedStringArray("4.7", "GL Compatibility")
 boot_splash/bg_color=Color(0.051, 0.078, 0.106, 1)
-boot_splash/image="res://assets/ui/boot_splash_v2.png"
+boot_splash/image="res://assets/ui/boot_splash_v3.png"
 config/icon="res://assets/icons/app_icon.png"
 
 [autoload]
@@ -23,6 +27,8 @@ config/icon="res://assets/icons/app_icon.png"
 ScreenSettings="*res://scripts/screen_settings.gd"
 SaveManager="*res://scripts/save_manager.gd"
 AudioManager="*res://scripts/audio_manager.gd"
+Haptics="*res://scripts/haptics.gd"
+Ads="*res://scripts/ad_manager.gd"
 
 [display]
 
@@ -30,6 +36,10 @@ window/size/viewport_width=1280
 window/size/viewport_height=720
 window/stretch/mode="canvas_items"
 window/handheld/orientation=4
+
+[editor_plugins]
+
+enabled=PackedStringArray("res://addons/admob/plugin.cfg")
 
 [gui]
 

@@ -102,6 +102,7 @@ func submit() -> void:
 		return
 
 	wrong_attempts += 1
+	Haptics.wrong()
 	AudioManager.play_sfx("wrong")
 	_entered = ""
 	_update_display()

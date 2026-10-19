@@ -8,7 +8,9 @@ extends Node
 ##   - which chapters are completed (this also unlocks the next chapter)
 ##   - objects found in an unfinished room, and containers already opened
 ##   - one-time flags, such as "the basement door code was entered"
-##   - the sound on/off setting
+##   - the best result of every finished chapter (stars, best time)
+##   - the clues found in each chapter, for the Journal
+##   - the settings: sound on/off, music and effects volume, vibration
 ## The game saves automatically after every important change.
 ##
 ## ADDING A NEW CHAPTER: add a line to CHAPTERS below, in play order, and give
@@ -66,10 +68,17 @@ func get_house(chapter_id: String) -> Dictionary:
 ## never touches your real save.)
 var save_path: String = "user://savegame.cfg"
 var sound_muted: bool = false
+## Volumes go from 0.0 (silent) to 1.0 (full).
+var music_volume: float = 0.8
+var sfx_volume: float = 1.0
+## Short vibrations on phones when something is found or a tap misses.
+var vibration_enabled: bool = true
 
 var _completed_chapters: Array = []  # chapter ids, e.g. ["bedroom"]
-var _room_progress: Dictionary = {}  # chapter id -> {"collected": [...], "opened": [...]}
+var _room_progress: Dictionary = {}  # chapter id -> {"collected": [...], "opened": [...], "stats": {...}}
 var _flags: Dictionary = {}          # flag name -> value
+var _results: Dictionary = {}        # chapter id -> {"stars": int, "best_time": float, "hints": int, "wrong_taps": int}
+var _journal_clues: Dictionary = {}  # chapter id -> [[object name, clue text], ...]
 
 
 func _ready() -> void:
@@ -84,14 +93,24 @@ func load_game() -> void:
 	_completed_chapters = []
 	_room_progress = {}
 	_flags = {}
+	_results = {}
+	_journal_clues = {}
 	sound_muted = false
+	music_volume = 0.8
+	sfx_volume = 1.0
+	vibration_enabled = true
 	var config := ConfigFile.new()
 	if config.load(save_path) != OK:
 		return  # No save file yet (first time playing) - start fresh.
 	_completed_chapters = config.get_value("progress", "completed_chapters", [])
 	_room_progress = config.get_value("progress", "room_progress", {})
 	_flags = config.get_value("progress", "flags", {})
+	_results = config.get_value("progress", "results", {})
+	_journal_clues = config.get_value("progress", "journal_clues", {})
 	sound_muted = config.get_value("settings", "sound_muted", false)
+	music_volume = clampf(config.get_value("settings", "music_volume", 0.8), 0.0, 1.0)
+	sfx_volume = clampf(config.get_value("settings", "sfx_volume", 1.0), 0.0, 1.0)
+	vibration_enabled = config.get_value("settings", "vibration_enabled", true)
 
 
 func save_game() -> void:
@@ -99,17 +118,24 @@ func save_game() -> void:
 	config.set_value("progress", "completed_chapters", _completed_chapters)
 	config.set_value("progress", "room_progress", _room_progress)
 	config.set_value("progress", "flags", _flags)
+	config.set_value("progress", "results", _results)
+	config.set_value("progress", "journal_clues", _journal_clues)
 	config.set_value("settings", "sound_muted", sound_muted)
+	config.set_value("settings", "music_volume", music_volume)
+	config.set_value("settings", "sfx_volume", sfx_volume)
+	config.set_value("settings", "vibration_enabled", vibration_enabled)
 	var error := config.save(save_path)
 	if error != OK:
 		push_warning("Could not write the save file (error %d)." % error)
 
 
-## Erases all chapter progress (the sound setting is kept).
+## Erases all chapter progress, results and journal (the settings are kept).
 func reset_progress() -> void:
 	_completed_chapters = []
 	_room_progress = {}
 	_flags = {}
+	_results = {}
+	_journal_clues = {}
 	save_game()
 
 
@@ -170,17 +196,19 @@ func get_continue_chapter() -> Dictionary:
 # Progress inside an unfinished room
 # ---------------------------------------------------------------------------
 
-## Returns {"collected": [object ids], "opened": [container ids]} for a room.
+## Returns {"collected": [object ids], "opened": [container ids], "stats": {...}} for a room.
+## "stats" holds the room clock and counters: {"elapsed": float, "hints": int, "wrong_taps": int}.
 func get_room_progress(chapter_id: String) -> Dictionary:
 	var saved: Dictionary = _room_progress.get(chapter_id, {})
 	return {
 		"collected": saved.get("collected", []),
 		"opened": saved.get("opened", []),
+		"stats": saved.get("stats", {}),
 	}
 
 
-func save_room_progress(chapter_id: String, collected_ids: Array, opened_ids: Array) -> void:
-	_room_progress[chapter_id] = {"collected": collected_ids, "opened": opened_ids}
+func save_room_progress(chapter_id: String, collected_ids: Array, opened_ids: Array, stats: Dictionary = {}) -> void:
+	_room_progress[chapter_id] = {"collected": collected_ids, "opened": opened_ids, "stats": stats}
 	save_game()
 
 
@@ -205,3 +233,114 @@ func set_flag(flag_name: String, value: bool = true) -> void:
 func set_sound_muted(muted: bool) -> void:
 	sound_muted = muted
 	save_game()
+
+
+func set_music_volume(volume: float) -> void:
+	music_volume = clampf(volume, 0.0, 1.0)
+	save_game()
+
+
+func set_sfx_volume(volume: float) -> void:
+	sfx_volume = clampf(volume, 0.0, 1.0)
+	save_game()
+
+
+func set_vibration_enabled(enabled: bool) -> void:
+	vibration_enabled = enabled
+	save_game()
+
+
+# ---------------------------------------------------------------------------
+# Chapter results (stars and best time)
+# ---------------------------------------------------------------------------
+
+## Remembers a finished chapter's result, keeping the best stars and the best
+## time ever achieved. Returns what improved:
+##   {"first": true the first time, "new_best_stars": bool, "new_best_time": bool}
+func record_result(chapter_id: String, stars: int, seconds: float, hints: int, wrong_taps: int) -> Dictionary:
+	var previous: Dictionary = _results.get(chapter_id, {})
+	var first := previous.is_empty()
+	var new_best_stars := first or stars > int(previous.get("stars", 0))
+	var new_best_time := first or seconds < float(previous.get("best_time", INF))
+	_results[chapter_id] = {
+		"stars": maxi(stars, int(previous.get("stars", 0))),
+		"best_time": minf(seconds, float(previous.get("best_time", INF))),
+		"hints": hints,
+		"wrong_taps": wrong_taps,
+	}
+	save_game()
+	return {"first": first, "new_best_stars": new_best_stars, "new_best_time": new_best_time}
+
+
+## The best result of a chapter, or {} if it was never finished.
+func get_result(chapter_id: String) -> Dictionary:
+	return (_results.get(chapter_id, {}) as Dictionary).duplicate()
+
+
+## Best stars of every chapter added up.
+func get_total_stars() -> int:
+	var total := 0
+	for chapter_id in _results:
+		total += int(_results[chapter_id].get("stars", 0))
+	return total
+
+
+## The most stars the game can give (three per chapter).
+func get_max_stars() -> int:
+	return CHAPTERS.size() * 3
+
+
+# ---------------------------------------------------------------------------
+# Journal: clues found and letters read
+# ---------------------------------------------------------------------------
+
+## Keeps a found object's clue for the Journal. The same object is never listed twice.
+func record_clue(chapter_id: String, object_name: String, clue_text: String) -> void:
+	if clue_text.strip_edges() == "":
+		return
+	var clues: Array = _journal_clues.get(chapter_id, [])
+	for clue in clues:
+		if clue[0] == object_name:
+			return
+	clues.append([object_name, clue_text])
+	_journal_clues[chapter_id] = clues
+	save_game()
+
+
+## The clues found in a chapter so far, oldest first: [[object name, clue text], ...].
+func get_clues(chapter_id: String) -> Array:
+	return (_journal_clues.get(chapter_id, []) as Array).duplicate()
+
+
+## The level file of a chapter (res://resources/levels/<id>_level.tres), or null.
+func load_level_data(chapter_id: String) -> LevelData:
+	var path := "res://resources/levels/%s_level.tres" % chapter_id
+	if not ResourceLoader.exists(path):
+		return null
+	return load(path) as LevelData
+
+
+## Everything the Journal shows, in play order: one entry per chapter that is
+## completed or has clues. Each entry is a Dictionary with: "chapter_id",
+## "title", "house_title", "completed", "letter_title", "letter_text",
+## "signature" and "clues".
+func get_journal_entries() -> Array[Dictionary]:
+	var entries: Array[Dictionary] = []
+	for chapter in CHAPTERS:
+		var chapter_id: String = chapter["id"]
+		var completed := is_chapter_completed(chapter_id)
+		var clues := get_clues(chapter_id)
+		if not completed and clues.is_empty():
+			continue
+		var level := load_level_data(chapter_id)
+		entries.append({
+			"chapter_id": chapter_id,
+			"title": chapter["title"],
+			"house_title": get_house(chapter_id).get("title", ""),
+			"completed": completed,
+			"letter_title": level.final_letter_title if level != null else "",
+			"letter_text": level.final_letter_text if level != null else "",
+			"signature": level.final_letter_signature if level != null else "",
+			"clues": clues,
+		})
+	return entries
