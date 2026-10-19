@@ -17,9 +17,8 @@ signal rewarded_ready_changed(is_ready: bool)
 
 const LIVE_REWARDED_UNIT_ID := "ca-app-pub-9402738271959820/8939903125"
 const TEST_REWARDED_UNIT_ID := "ca-app-pub-3940256099942544/5224354917"
-## Paste the "Interstitial" ad unit from the AdMob console here. While it is
-## empty, release builds skip interstitials and go straight to the next chapter.
-const LIVE_INTERSTITIAL_UNIT_ID := ""
+## Live interstitial ad unit from the AdMob console.
+const LIVE_INTERSTITIAL_UNIT_ID := "ca-app-pub-9402738271959820/8751456009"
 const TEST_INTERSTITIAL_UNIT_ID := "ca-app-pub-3940256099942544/1033173712"
 ## Seconds before loading is tried again after a failed load (no internet, no ad to serve).
 const RETRY_SECONDS := 20.0
