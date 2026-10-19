@@ -79,9 +79,23 @@ func setup(room_name: String, objects: Array[HiddenObject], use_riddles: bool = 
 func _fit_objective_list() -> void:
 	if not is_inside_tree():
 		return
-	var title_height := _objective_scroll.position.y + 24.0
-	var available := get_viewport().get_visible_rect().size.y - _objective_panel.position.y - title_height - 12.0
+	# Everything in the panel except the list itself: title, separator, borders.
+	var chrome := _objective_panel.get_combined_minimum_size().y - _objective_scroll.get_combined_minimum_size().y
+	var screen_height := get_viewport().get_visible_rect().size.y
+	var available := screen_height - _objective_panel.position.y - chrome - _bottom_margin(screen_height)
 	_objective_scroll.custom_minimum_size.y = minf(_objective_list.get_combined_minimum_size().y, maxf(available, 80.0))
+	_shrink_objective_panel.call_deferred()
+
+
+## Space kept free under the list. Phones need more: rounded screen corners
+## and the navigation bar (it can come back after an ad) cover the bottom edge.
+func _bottom_margin(screen_height: float) -> float:
+	if not ScreenSettings.is_phone():
+		return 12.0
+	var window_size := DisplayServer.window_get_size()
+	var safe_area := DisplayServer.get_display_safe_area()
+	var hidden_pixels := maxf(window_size.y - safe_area.end.y, 0.0)
+	return 28.0 + hidden_pixels * screen_height / maxf(window_size.y, 1.0)
 
 
 ## The room clock in the top bar, as m:ss.
